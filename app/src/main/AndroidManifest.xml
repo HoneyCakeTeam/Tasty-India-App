@@ -12,7 +12,7 @@
         android:theme="@style/Theme.TastyIndia"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

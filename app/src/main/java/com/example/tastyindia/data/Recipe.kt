@@ -1,4 +1,4 @@
-package com.example.tastyindia
+package com.example.tastyindia.data
 
 data class Recipe(
     val recipeName:String,

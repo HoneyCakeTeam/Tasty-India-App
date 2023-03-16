@@ -1,4 +1,6 @@
-package com.example.tastyindia
+package com.example.tastyindia.data
+
+import com.example.tastyindia.utils.Constants
 
 class CsvParser {
 

@@ -1,4 +1,4 @@
-package com.example.tastyindia
+package com.example.tastyindia.utils
 
 object Constants {
     const val FILE_NAME = "indianFood.csv"

@@ -2,9 +2,9 @@ package com.example.tastyindia.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.tastyindia.data.CsvDataSource
+import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.utils.CsvParser
-import com.example.tastyindia.data.RecipeDataSource
+import com.example.tastyindia.data.source.RecipeDataSource
 import com.example.tastyindia.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {

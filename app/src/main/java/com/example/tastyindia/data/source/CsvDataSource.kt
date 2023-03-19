@@ -1,4 +1,4 @@
-package com.example.tastyindia.data
+package com.example.tastyindia.data.source
 
 import android.content.Context
 import com.example.tastyindia.data.domain.Recipe

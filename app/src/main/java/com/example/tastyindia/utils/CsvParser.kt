@@ -1,5 +1,4 @@
 package com.example.tastyindia.utils
-
 import com.example.tastyindia.data.domain.Recipe
 
 class CsvParser {

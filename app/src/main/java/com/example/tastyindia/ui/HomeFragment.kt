@@ -9,6 +9,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun getViewBinding(): FragmentHomeBinding = FragmentHomeBinding.inflate(layoutInflater)
 
     override fun setUp() {
+
     }
 
     override fun addCallbacks() {

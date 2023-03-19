@@ -1,4 +1,4 @@
-package com.example.tastyindia.data
+package com.example.tastyindia.data.domain
 
 data class Recipe(
     val recipeName:String,

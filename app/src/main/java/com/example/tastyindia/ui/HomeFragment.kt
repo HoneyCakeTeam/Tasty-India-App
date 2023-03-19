@@ -9,11 +9,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun getViewBinding(): FragmentHomeBinding = FragmentHomeBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        TODO("Not yet implemented")
     }
 
     override fun addCallbacks() {
-        TODO("Not yet implemented")
     }
 
 

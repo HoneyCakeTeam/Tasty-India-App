@@ -27,10 +27,12 @@ class HomeActivity : AppCompatActivity() {
         addNavigationListener()
 
     }
+
     private fun setup() {
         parser = CsvParser()
-        datasource = CsvDataSource(this , parser)
+        datasource = CsvDataSource(this, parser)
     }
+
     private fun addNavigationListener() {
         binding.bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {

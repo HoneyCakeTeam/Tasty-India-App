@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_small"
+    android:backgroundTint="@color/white_300"
+    app:cardCornerRadius="@dimen/radius_16"
+    app:strokeWidth="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            android:scaleType="centerCrop"
+            app:shapeAppearance="@style/CategoriesCardImageStyle"
+            app:srcCompat="@drawable/image_category" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin_medium"
+            android:text="@string/masala_karela"
+            android:textColor="@color/black_87"
+            android:textSize="14sp" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -27,4 +27,11 @@
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
     </style>
+    <style name="search_ET" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
+        <item name="android:layout_margin">@dimen/margin_medium</item>
+        <item name="background">@drawable/search_rounded</item>
+        <item name="android:hint">@string/search</item>
+    </style>
 </resources>

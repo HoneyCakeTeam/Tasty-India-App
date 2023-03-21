@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Tasty India</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="categories_tv">Categories</string>
+    <string name="chicken_tv">Chicken</string>
+    <string name="meal_tv">Meal</string>
+    <string name="soups_tv">Soups</string>
+    <string name="sea_food_tv">Sea Food</string>
+    <string name="spicy_tv">Spicy</string>
 </resources>

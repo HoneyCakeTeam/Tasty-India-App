@@ -3,8 +3,207 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_8"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white_100"
     tools:context=".ui.HomeFragment">
 
+    <TextView
+        android:id="@+id/categories_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:textSize="@dimen/text_medium"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textColor="@color/black_87"
+        android:text="@string/categories_tv"
+    />
+    <HorizontalScrollView
+        android:id="@+id/categories_sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categories_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scrollbars="none"
+        >
+        <LinearLayout
+            android:id="@+id/categories_ly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/categories_chicken_cv"
+                android:layout_width="@dimen/category_card_dimens"
+                android:layout_height="@dimen/category_card_dimens"
+                android:backgroundTint="@color/white_300"
+                app:cardCornerRadius="@dimen/radius_category_item"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                >
+                <ImageView
+                    android:layout_width="@dimen/category_icon_dimens"
+                    android:layout_height="@dimen/category_icon_dimens"
+                    android:background="@mipmap/ic_chicken"
+                    android:layout_gravity="center_horizontal"
+                    android:hardwareAccelerated="false"
+                    android:layout_marginTop="@dimen/margin_small"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/black_38"
+                    android:fontFamily="@font/ubuntu_reguler"
+                    android:text="@string/chicken_tv"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:paddingBottom="@dimen/padding_tiny"
+                    />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/categories_Meal_cv"
+                android:layout_width="@dimen/category_card_dimens"
+                android:layout_height="@dimen/category_card_dimens"
+                android:backgroundTint="@color/white_300"
+                app:cardCornerRadius="@dimen/radius_category_item"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+
+                >
+                <ImageView
+                    android:layout_width="@dimen/category_icon_dimens"
+                    android:layout_height="@dimen/category_icon_dimens"
+                    android:background="@mipmap/ic_meal"
+                    android:layout_gravity="center_horizontal"
+                    android:hardwareAccelerated="false"
+                    android:layout_marginTop="@dimen/margin_small"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/black_38"
+                    android:fontFamily="@font/ubuntu_reguler"
+                    android:text="@string/meal_tv"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:paddingBottom="@dimen/padding_tiny"
+                    />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/categories_soups_cv"
+                android:layout_width="@dimen/category_card_dimens"
+                android:layout_height="@dimen/category_card_dimens"
+                android:backgroundTint="@color/white_300"
+                app:cardCornerRadius="@dimen/radius_category_item"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                >
+                <ImageView
+                    android:layout_width="@dimen/category_icon_dimens"
+                    android:layout_height="@dimen/category_icon_dimens"
+                    android:background="@mipmap/ic_soup"
+                    android:layout_gravity="center_horizontal"
+                    android:hardwareAccelerated="false"
+                    android:layout_marginTop="@dimen/margin_small"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/black_38"
+                    android:fontFamily="@font/ubuntu_reguler"
+                    android:text="@string/soups_tv"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:paddingBottom="@dimen/padding_tiny"
+                    />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/categories_sea_food_cv"
+                android:layout_width="@dimen/category_card_dimens"
+                android:layout_height="@dimen/category_card_dimens"
+                android:backgroundTint="@color/white_300"
+                app:cardCornerRadius="@dimen/radius_category_item"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                >
+                <ImageView
+                    android:layout_width="@dimen/category_icon_dimens"
+                    android:layout_height="@dimen/category_icon_dimens"
+                    android:background="@mipmap/ic_sea_food"
+                    android:layout_gravity="center_horizontal"
+                    android:hardwareAccelerated="false"
+                    android:layout_marginTop="@dimen/margin_small"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/black_38"
+                    android:fontFamily="@font/ubuntu_reguler"
+                    android:text="@string/sea_food_tv"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:paddingBottom="@dimen/padding_tiny"
+                    />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/categories_spicy_cv"
+                android:layout_width="@dimen/category_card_dimens"
+                android:layout_height="@dimen/category_card_dimens"
+                android:backgroundTint="@color/white_300"
+                app:cardCornerRadius="@dimen/radius_category_item"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                >
+                <ImageView
+                    android:layout_width="@dimen/category_icon_dimens"
+                    android:layout_height="@dimen/category_icon_dimens"
+                    android:background="@mipmap/ic_spicy"
+                    android:layout_gravity="center_horizontal"
+                    android:hardwareAccelerated="false"
+                    android:layout_marginTop="@dimen/margin_small"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_medium"
+                    android:textColor="@color/black_38"
+                    android:fontFamily="@font/ubuntu_reguler"
+                    android:text="@string/spicy_tv"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:paddingBottom="@dimen/padding_tiny"
+                    />
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

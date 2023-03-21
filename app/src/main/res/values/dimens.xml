@@ -21,4 +21,13 @@
     <dimen name="text_large">18sp</dimen>
     <dimen name="text_giant">20sp</dimen>
 
+    <!--radius dimens-->
+    <dimen name="radius_tiny">4dp</dimen>
+    <dimen name="radius_small">8dp</dimen>
+    <dimen name="radius_semi_medium">12dp</dimen>
+    <dimen name="radius_medium">14dp</dimen>
+    <dimen name="radius_semi_large">16dp</dimen>
+    <dimen name="radius_semi_giant">20dp</dimen>
+    <dimen name="radius_giant">24dp</dimen>
+
 </resources>

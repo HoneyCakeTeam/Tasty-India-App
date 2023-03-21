@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecipeDetails">
+    tools:context=".ui.RecipeDetails">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/recipeImageView"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:contentDescription="@string/recipeimage"
+        android:scaleType="centerCrop"
         android:src="@drawable/crepe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="-48dp"
+        android:background="@drawable/background_constraint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/recipeImageView">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/recipeNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_medium"
@@ -40,8 +46,22 @@
 
 
         <TextView
-            android:layout_width="47dp"
-            android:layout_height="16dp"
+            android:id="@+id/timeToCookRecipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/very_tiny"
+            android:text="@string/time"
+            android:textColor="@color/black_87"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.458" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_giant"
             android:text="@string/min"
             android:textColor="@color/black_87"
@@ -49,6 +69,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toStartOf="@+id/view"
             app:layout_constraintTop_toTopOf="@+id/view" />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,7 +90,7 @@
             android:background="@color/black_60"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/recipeNameTextView" />
 
         <TextView
             android:id="@+id/textView2"
@@ -85,7 +106,7 @@
             app:layout_constraintTop_toBottomOf="@+id/view" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/ingredients_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginStart="@dimen/margin_large"
@@ -108,10 +129,11 @@
             android:textColor="@color/black_87"
             android:textSize="@dimen/text_medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+            app:layout_constraintTop_toBottomOf="@+id/ingredients_recyclerView" />
 
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/prepare_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginStart="@dimen/margin_large"

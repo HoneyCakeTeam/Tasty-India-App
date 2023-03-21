@@ -6,16 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
+import com.example.tastyindia.databinding.FragmentKitchenBinding
 
-class KitchenFragment : Fragment() {
+class KitchenFragment : BaseFragment<FragmentKitchenBinding>(){
+    override val TAG: String = "CuisineFragment"
 
+    override fun getViewBinding(): FragmentKitchenBinding  = FragmentKitchenBinding.inflate(layoutInflater)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_kitchen, container, false)
+    override fun setUp() {
+
     }
+
+    override fun addCallbacks() {
+
+    }
+
 
 }

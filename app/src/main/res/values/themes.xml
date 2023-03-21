@@ -1,4 +1,5 @@
 <resources>
+
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
@@ -27,4 +28,17 @@
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
     </style>
+
+    <style name="recipeTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/black_87</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+    </style>
+
+    <style name="Ingredients" parent="recipeTextView">
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+    </style>
+
+
 </resources>

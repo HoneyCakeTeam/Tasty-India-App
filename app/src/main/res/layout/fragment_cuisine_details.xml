@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/margin_small">
 
-        <ImageView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/ic_back"
@@ -32,7 +32,7 @@
             android:text="@string/indian_cuisnie"
             style="@style/appBarTextStyle"/>
 
-        <ImageView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/margin_small"

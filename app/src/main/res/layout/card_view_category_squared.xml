@@ -14,7 +14,8 @@
         android:scaleType="centerCrop"
         app:shapeAppearance="@style/CategoriesCardImageStyle"
         app:srcCompat="@drawable/image_category" />
-    <View
+
+    <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
         android:layout_height="156dp"
         android:background="@drawable/card_gradiant"/>

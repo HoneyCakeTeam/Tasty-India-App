@@ -31,4 +31,11 @@
         <item name="android:windowSplashScreenAnimationDuration">1000</item>
         <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_splash</item>
     </style>
+
+
+    <style name="homeRecommendationCardImageStyle">
+        <item name="cornerSize" > 24dp </item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
 </resources>

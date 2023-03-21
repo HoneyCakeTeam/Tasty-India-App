@@ -1,10 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black_8"
     tools:context=".ui.HomeFragment">
 
+    <TextView
+        android:id="@+id/goog_morning_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/good_morning"
+        android:fontFamily="@font/ubuntu_reguler"
+        android:textColor="@color/black_60"
+        android:textSize="@dimen/text_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/welcome_header_tv"
+        android:layout_width="195dp"
+        android:layout_height="71dp"
+        android:text="@string/second_header_in_home_tv"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textColor="@color/black_87"
+        android:textSize="@dimen/text_giant"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/goog_morning_tv"
+        app:layout_constraintTop_toBottomOf="@id/goog_morning_tv" />
+
+
+    <TextView
+        android:id="@+id/home_recommendation_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="Recommendations"
+        android:textColor="@color/black_87"
+        android:textSize="@dimen/text_medium"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_header_tv" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu_reguler"
+        android:text="See all"
+        android:textColor="@color/primary_500"
+        android:textSize="@dimen/text_tiny"
+        android:layout_marginEnd="@dimen/margin_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.914"
+        app:layout_constraintStart_toEndOf="@+id/home_recommendation_tv"
+        app:layout_constraintTop_toTopOf="@+id/home_recommendation_tv" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_recommendation_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_small"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_recommendation_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,6 @@
     android:layout_marginVertical="@dimen/margin_small"
     android:elevation="@dimen/elevation_medium"
     >
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,18 +25,27 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/cuisine_background_shape"
+            />
         <TextView
             android:id="@+id/cuisine_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tool:text="Egyptian Cuisine"
-            android:fontFamily="@font/poppins_semi_bold"
+            android:fontFamily="@font/poppins_medium"
             android:textSize="@dimen/text_giant"
             android:textColor="@color/white_100"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_medium"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

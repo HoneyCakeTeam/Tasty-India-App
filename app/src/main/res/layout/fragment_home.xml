@@ -226,7 +226,17 @@
         android:textSize="@dimen/text_tiny"
         android:fontFamily="@font/ubuntu_reguler"
         android:textColor="@color/primary_500"
-        android:text="See all"/>
+        android:text="@string/see_all_tv"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintTop_toBottomOf="@id/recipes_of_week_heading_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

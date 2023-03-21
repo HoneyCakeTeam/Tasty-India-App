@@ -37,4 +37,24 @@
         <item name="cornerSize">16dp</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
+
+    <style name="appBarTextStyle">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:layout_margin">@dimen/margin_small</item>
+        <item name="android:padding">@dimen/padding_tiny</item>
+        <item name="android:textColor">@color/black_87</item>
+
+    </style>
+     <style name="mealsTextStyle">
+
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:padding">@dimen/padding_tiny</item>
+        <item name="android:textColor">@color/black_87</item>
+        <item name="android:layout_margin">@dimen/margin_medium</item>
+
+    </style>
+
+
 </resources>

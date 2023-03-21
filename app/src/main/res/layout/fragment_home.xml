@@ -9,18 +9,48 @@
     tools:context=".ui.HomeFragment">
 
     <TextView
+        android:id="@+id/goog_morning_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/good_morning"
+        android:fontFamily="@font/ubuntu_reguler"
+        android:textColor="@color/black_60"
+        android:textSize="@dimen/text_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/welcome_header_tv"
+        android:layout_width="195dp"
+        android:layout_height="71dp"
+        android:text="@string/second_header_in_home_tv"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textColor="@color/black_87"
+        android:textSize="@dimen/text_giant"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/goog_morning_tv"
+        app:layout_constraintTop_toBottomOf="@id/goog_morning_tv" />
+
+
+    <TextView
         android:id="@+id/categories_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:textSize="@dimen/text_medium"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_semi_bold"
-        android:textColor="@color/black_87"
         android:text="@string/categories_tv"
-    />
+        android:textColor="@color/black_87"
+        android:textSize="@dimen/text_medium"
+        app:layout_constraintStart_toStartOf="@+id/welcome_header_tv"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_header_tv" />
+
+
     <HorizontalScrollView
         android:id="@+id/categories_sv"
         android:layout_width="match_parent"
@@ -203,95 +233,23 @@
 
     </HorizontalScrollView>
 
-    <TextView
-        android:id="@+id/recipes_of_week_heading_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/categories_sv"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:textSize="@dimen/text_medium"
-        android:fontFamily="@font/poppins_semi_bold"
-        android:textColor="@color/black_87"
-        android:text="@string/recipes_of_the_week_tv"/>
-
-    <TextView
-        android:id="@+id/see_all_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/recipes_of_week_heading_tv"
-        app:layout_constraintTop_toTopOf="@id/recipes_of_week_heading_tv"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:textSize="@dimen/text_tiny"
-        android:fontFamily="@font/ubuntu_reguler"
-        android:textColor="@color/primary_500"
-        android:text="@string/see_all_tv"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
-        app:layout_constraintTop_toBottomOf="@id/recipes_of_week_heading_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="horizontal"
-        />
-
-
-        android:id="@+id/goog_morning_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/good_morning"
-        android:fontFamily="@font/ubuntu_reguler"
-        android:textColor="@color/black_60"
-        android:textSize="@dimen/text_medium"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:layout_marginStart="@dimen/margin_medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/welcome_header_tv"
-        android:layout_width="195dp"
-        android:layout_height="71dp"
-        android:text="@string/second_header_in_home_tv"
-        android:fontFamily="@font/poppins_semi_bold"
-        android:textColor="@color/black_87"
-        android:textSize="@dimen/text_giant"
-        android:layout_marginTop="@dimen/margin_small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/goog_morning_tv"
-        app:layout_constraintTop_toBottomOf="@id/goog_morning_tv" />
-
 
     <TextView
         android:id="@+id/home_recommendation_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_semi_bold"
         android:text="Recommendations"
-        android:textColor="@color/black_87"
-        android:textSize="@dimen/text_medium"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_medium"
+        style="@style/home_recycle_header_text_style"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_header_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/categories_sv" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/ubuntu_reguler"
         android:text="See all"
-        android:textColor="@color/primary_500"
-        android:textSize="@dimen/text_tiny"
-        android:layout_marginEnd="@dimen/margin_medium"
+        style="@style/home_see_all_text_style"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.914"
         app:layout_constraintStart_toEndOf="@+id/home_recommendation_tv"
@@ -308,6 +266,40 @@
         app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_recommendation_tv" />
+
+
+    <TextView
+        android:id="@+id/recipes_of_week_heading_tv"
+        style="@style/home_recycle_header_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/recipes_of_the_week_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_recommendation_rv" />
+
+    <TextView
+        android:id="@+id/see_all_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/see_all_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/recipes_of_week_heading_tv"
+        app:layout_constraintTop_toTopOf="@id/recipes_of_week_heading_tv"
+        style="@style/home_see_all_text_style" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recipes_of_week_heading_tv" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

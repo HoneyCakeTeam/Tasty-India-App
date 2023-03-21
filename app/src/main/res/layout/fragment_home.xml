@@ -24,6 +24,7 @@
         android:id="@+id/categories_sv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/categories_tv"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +42,6 @@
                 android:layout_height="@dimen/category_card_dimens"
                 android:backgroundTint="@color/white_300"
                 app:cardCornerRadius="@dimen/radius_category_item"
-                android:layout_marginTop="@dimen/margin_small"
                 android:layout_marginEnd="@dimen/margin_small"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:layout_marginBottom="@dimen/margin_tiny"
@@ -75,7 +75,6 @@
                 android:layout_height="@dimen/category_card_dimens"
                 android:backgroundTint="@color/white_300"
                 app:cardCornerRadius="@dimen/radius_category_item"
-                android:layout_marginTop="@dimen/margin_small"
                 android:layout_marginEnd="@dimen/margin_small"
 
                 >
@@ -108,7 +107,6 @@
                 android:layout_height="@dimen/category_card_dimens"
                 android:backgroundTint="@color/white_300"
                 app:cardCornerRadius="@dimen/radius_category_item"
-                android:layout_marginTop="@dimen/margin_small"
                 android:layout_marginEnd="@dimen/margin_small"
                 android:layout_marginBottom="@dimen/margin_tiny"
                 >
@@ -141,7 +139,6 @@
                 android:layout_height="@dimen/category_card_dimens"
                 android:backgroundTint="@color/white_300"
                 app:cardCornerRadius="@dimen/radius_category_item"
-                android:layout_marginTop="@dimen/margin_small"
                 android:layout_marginEnd="@dimen/margin_small"
                 android:layout_marginBottom="@dimen/margin_tiny"
                 >
@@ -174,7 +171,6 @@
                 android:layout_height="@dimen/category_card_dimens"
                 android:backgroundTint="@color/white_300"
                 app:cardCornerRadius="@dimen/radius_category_item"
-                android:layout_marginTop="@dimen/margin_small"
                 android:layout_marginEnd="@dimen/margin_small"
                 android:layout_marginBottom="@dimen/margin_tiny"
                 >
@@ -205,5 +201,32 @@
         </LinearLayout>
 
     </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/recipes_of_week_heading_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categories_sv"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:textSize="@dimen/text_medium"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textColor="@color/black_87"
+        android:text="@string/recipes_of_the_week_tv"/>
+
+    <TextView
+        android:id="@+id/see_all_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/recipes_of_week_heading_tv"
+        app:layout_constraintTop_toTopOf="@id/recipes_of_week_heading_tv"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:textSize="@dimen/text_tiny"
+        android:fontFamily="@font/ubuntu_reguler"
+        android:textColor="@color/primary_500"
+        android:text="See all"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

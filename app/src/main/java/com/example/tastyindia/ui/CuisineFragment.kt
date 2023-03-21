@@ -9,15 +9,12 @@ class CuisineFragment : BaseFragment<FragmentCuisineBinding>() {
 
     override fun setUp() {
         log(getAllCuisines().size.toString())
-        getAllRecipes()
     }
 
     override fun addCallbacks() {
 
     }
 
-    private fun getAllCuisines(): List<String> {
-        return getAllRecipes().map{ it.cuisine }.distinct()
-    }
+    private fun getAllCuisines() = getAllRecipes().map { it.cuisine }.distinct()
 
 }

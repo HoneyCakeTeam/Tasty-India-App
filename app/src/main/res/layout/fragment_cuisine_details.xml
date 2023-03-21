@@ -23,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/ic_back"
+            android:background="@color/white_100"
             android:layout_marginStart="@dimen/margin_small"
             android:padding="@dimen/padding_medium"/>
 
@@ -39,6 +40,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/margin_small"
             android:padding="@dimen/margin_medium"
+            android:background="@color/white_100"
             android:src="@drawable/ic_info"/>
 
     </LinearLayout>

@@ -7,60 +7,30 @@
     android:background="@color/white_300"
     tools:context=".ui.SearchFragment">
 
-    <com.google.android.material.search.SearchBar
+    <SearchView
         android:id="@+id/searchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
-        android:hint="@string/search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/search_et"
-        style="@style/search_ET"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:iconifiedByDefault="false"
+        android:theme="@style/ThemeOverlay.search"
         android:background="@drawable/search_rounded"
-        android:drawableStart="@drawable/ic_search"
-        android:paddingStart="@dimen/padding_small"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-
-    <com.google.android.material.chip.ChipGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:chipSpacing="@dimen/padding_small"
+        android:layout_margin="@dimen/margin_medium"
+        android:queryHint="@string/search"
+        android:searchIcon="@drawable/ic_search"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchBar"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white_300"
-            android:paddingHorizontal="@dimen/padding_large"
-            android:text="Recipe"
-            app:chipStrokeColor="@color/primary_400"
-            app:chipStrokeWidth="1dp" />
-
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white_300"
-            android:padding="@dimen/padding_small"
-
-            android:text="Cuisine"
-            app:chipStrokeColor="@color/primary_400"
-            app:chipStrokeWidth="1dp" />
-
-    </com.google.android.material.chip.ChipGroup>
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:padding="@dimen/padding_small"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchBar"
+        app:spanCount="2"
+        tools:itemCount="15"
+        tools:listitem="@layout/card_view_search_squared" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

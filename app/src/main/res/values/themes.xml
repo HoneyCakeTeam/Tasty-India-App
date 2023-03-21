@@ -37,11 +37,15 @@
         <item name="cornerSize">16dp</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
-    <style name="search_ET" parent="Widget.AppCompat.EditText">
-        <item name="android:layout_marginStart">@dimen/margin_medium</item>
-        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
-        <item name="android:layout_margin">@dimen/margin_medium</item>
-        <item name="background">@drawable/search_rounded</item>
-        <item name="android:hint">@string/search</item>
+
+    <style name="ThemeOverlay.search" parent="Widget.AppCompat.SearchView">
+        <!-- Text color -->
+        <item name="android:editTextColor">@color/black_60</item>
+        <!-- Hint text color -->
+        <item name="android:textColorHint">@color/white_200</item>
+        <item name="queryBackground">@android:color/transparent</item>
+        <item name="submitBackground">@android:color/transparent</item>
+        <item name="searchHintIcon">@null</item>
+        <item name="searchIcon">@null</item>
     </style>
 </resources>

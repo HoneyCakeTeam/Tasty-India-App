@@ -8,16 +8,17 @@ import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
 import com.example.tastyindia.databinding.FragmentKitchenInfoBinding
 
-class KitchenInfoFragment : Fragment() {
+class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
+    override val TAG: String = "KITCHEN_INFO"
 
-    private lateinit var binding: FragmentKitchenInfoBinding
+    override fun getViewBinding(): FragmentKitchenInfoBinding =
+        FragmentKitchenInfoBinding.inflate(layoutInflater)
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentKitchenInfoBinding.inflate(inflater, container, false)
-        return inflater.inflate(R.layout.fragment_kitchen_info, container, false)
+    override fun setUp() {
+        TODO("Not yet implemented")
+    }
+
+    override fun addCallbacks() {
+        TODO("Not yet implemented")
     }
 }

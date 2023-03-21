@@ -2,36 +2,43 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/margin_small">
+    android:layout_height="124dp"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="@dimen/margin_medium"
+    android:layout_marginVertical="@dimen/margin_small"
+    app:cardCornerRadius="10dp"
+    android:elevation="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="124dp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/advices_card_view_corner">
+        >
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgVeg"
             android:layout_width="124dp"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/margin_tiny"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/vegetables"
-            android:layout_marginHorizontal="@dimen/margin_tiny"/>
+            app:srcCompat="@drawable/vegetables" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Base your meals on higher fibre starchy carbohydrates"
+            tool:text="Base your meals on higher fibre starchy carbohydrates"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imgVeg"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginHorizontal="@dimen/margin_tiny" />
+            android:layout_marginHorizontal="@dimen/margin_tiny"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

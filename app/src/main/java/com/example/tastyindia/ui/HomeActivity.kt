@@ -15,7 +15,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var datasource: RecipeDataSource
     private val fragmentHome = HomeFragment()
     private val fragmentCategory = CategoryFragment()
-    private val fragmentKitchen = KitchenFragment()
+    private val fragmentKitchen = CuisineFragment()
     private val fragmentSearch = SearchFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {

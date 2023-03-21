@@ -10,4 +10,7 @@
     <string name="recipe_of_week_tv">Crispy Chicken</string>
     <string name="recipes_of_the_week_tv">Recipes of the week</string>
     <string name="see_all_tv">See all</string>
+    <string name="good_morning">Good Morning</string>
+    <string name="second_header_in_home_tv">What would you like to cook today?</string>
+
 </resources>

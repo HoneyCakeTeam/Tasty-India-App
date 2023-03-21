@@ -1,5 +1,6 @@
 package com.example.tastyindia.ui
 
+
 import android.util.Log
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
@@ -7,6 +8,7 @@ import com.example.tastyindia.data.source.RecipeDataSource
 import com.example.tastyindia.databinding.FragmentHomeBinding
 import com.example.tastyindia.utils.CsvParser
 import kotlin.random.Random
+
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
@@ -36,5 +38,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
         return listOfRecipeForRecommendations
     }
+
+
 
 }

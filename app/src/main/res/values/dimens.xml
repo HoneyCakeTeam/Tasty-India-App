@@ -21,4 +21,12 @@
     <dimen name="text_large">18sp</dimen>
     <dimen name="text_giant">20sp</dimen>
 
+    <!--home dimens-->
+    <dimen name="radius_category_item">12dp</dimen>
+    <dimen name="radius_recipe_of_week_item">16dp</dimen>
+    <dimen name="category_card_dimens">84dp</dimen>
+    <dimen name="category_icon_dimens">36dp</dimen>
+    <dimen name="recipe_of_week_item_width">258dp</dimen>
+    <dimen name="recipe_of_week_item_height">180dp</dimen>
+
 </resources>

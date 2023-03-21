@@ -19,6 +19,7 @@
         android:layout_marginTop="@dimen/margin_small">
 
         <ImageButton
+            android:id="@+id/back_ib"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/ic_back"
@@ -33,6 +34,7 @@
             style="@style/appBarTextStyle"/>
 
         <ImageButton
+            android:id="@+id/info_ib"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/margin_small"
@@ -65,6 +67,7 @@
         android:text="@string/popular_indian_meals" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cards_recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="@dimen/padding_small"

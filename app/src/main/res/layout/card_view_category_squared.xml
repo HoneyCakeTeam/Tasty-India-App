@@ -9,17 +9,20 @@
     app:strokeWidth="0dp">
 
     <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_recipe_image"
         android:layout_width="match_parent"
         android:layout_height="156dp"
         android:scaleType="centerCrop"
         app:shapeAppearance="@style/CategoriesCardImageStyle"
         app:srcCompat="@drawable/image_category" />
     <View
+        android:id="@+id/view_gradiant"
         android:layout_width="match_parent"
         android:layout_height="156dp"
         android:background="@drawable/card_gradiant"/>
 
     <TextView
+        android:id="@+id/tv_recipe_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/margin_medium"

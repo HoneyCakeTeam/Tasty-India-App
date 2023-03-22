@@ -27,6 +27,11 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
+
+        <!-- Make status bar transparent -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+
         <!-- Splash Screen-->
         <item name="android:windowSplashScreenBackground">@color/primary_400</item>
         <item name="android:windowSplashScreenAnimationDuration">1000</item>

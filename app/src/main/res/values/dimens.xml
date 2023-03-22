@@ -21,6 +21,9 @@
     <dimen name="text_large">18sp</dimen>
     <dimen name="text_giant">20sp</dimen>
 
+    <dimen name="zero_dimens">0dp</dimen>
+    <dimen name="card_image_height">190dp</dimen>
+
     <!--radius dimens-->
     <dimen name="radius_tiny">4dp</dimen>
     <dimen name="radius_small">8dp</dimen>

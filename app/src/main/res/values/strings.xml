@@ -2,6 +2,11 @@
     <string name="app_name">Tasty India</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="discover_indian_cuisine">Discover Indian Cuisine</string>
+    <string name="history_of_indian_cuisine">History of Indian Cuisine</string>
+    <string name="history_description">Thousands year ago, the Himalayan sages conceived the use of spices and herbs as a natural means to balance the metabolism of the body. This knowledge became the main pillar of the Ayurvedic \'Science of life\'. It is the variety and combination of these spices that nourishes both the body and soul - an experience to cherish.</string>
+    <string name="regions">Regions</string>
+    <string name="dishes">Popular Dishes</string>
     <string name="home">Home</string>
     <string name="cuisine">Cuisine</string>
     <string name="category">Category</string>

@@ -16,4 +16,17 @@
     <string name="indian">Indian</string>
     <string name="popular_indian_meals">Popular Indian Meals</string>
     <string name="indian_cuisnie">Indian Cuisine</string>
+    <string name="categories_tv">Categories</string>
+    <string name="chicken_tv">Chicken</string>
+    <string name="meal_tv">Meal</string>
+    <string name="soups_tv">Soups</string>
+    <string name="sea_food_tv">Sea Food</string>
+    <string name="spicy_tv">Spicy</string>
+    <string name="recipe_of_week_tv">Crispy Chicken</string>
+    <string name="recipes_of_the_week_tv">Recipes of the week</string>
+    <string name="see_all_tv">See all</string>
+    <string name="good_morning">Good Morning</string>
+    <string name="second_header_in_home_tv">What would you like to cook today?</string>
+    <string name="recommendations_tv">Recommendations</string>
+
 </resources>

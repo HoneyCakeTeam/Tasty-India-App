@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/item_home_recipes_of_week"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/radius_recipe_of_week_item"
+        app:strokeWidth="0dp"
+        >
+        <ImageView
+            android:id="@+id/recipe_of_week_bg"
+            android:layout_width="@dimen/recipe_of_week_item_width"
+            android:layout_height="@dimen/recipe_of_week_item_height"
+            android:background="@mipmap/recipe_of_week_bg"
+            />
+        <View
+            android:layout_width="@dimen/recipe_of_week_item_width"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/gradiant_bg"
+            />
+        <TextView
+            android:id="@+id/recipe_of_week_item_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_large"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textColor="@color/white_100"
+            android:layout_gravity="center_horizontal|bottom"
+            android:text="@string/recipe_of_week_tv"
+            android:layout_marginBottom="@dimen/margin_small"
+            />
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

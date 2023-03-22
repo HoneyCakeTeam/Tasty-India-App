@@ -1,11 +1,5 @@
 package com.example.tastyindia.ui
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.example.tastyindia.R
 import com.example.tastyindia.databinding.FragmentKitchenInfoBinding
 
 class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {

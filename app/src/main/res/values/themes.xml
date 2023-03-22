@@ -1,4 +1,5 @@
 <resources>
+
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
@@ -31,4 +32,27 @@
         <item name="android:windowSplashScreenAnimationDuration">1000</item>
         <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_splash</item>
     </style>
+
+    <style name="titleTextInKitchenInfoStyle" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/black_87</item>
+        <item name="android:layout_marginBottom">@dimen/margin_small</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="bodyTextInKitchenInfoStyle" parent="titleTextInKitchenInfoStyle">
+        <item name="android:fontFamily">@font/poppins_reguler</item>
+        <item name="android:textColor">@color/black_60</item>
+        <item name="android:layout_marginBottom">@dimen/zero_dimens</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <style name="linearLayoutStyle" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
 </resources>

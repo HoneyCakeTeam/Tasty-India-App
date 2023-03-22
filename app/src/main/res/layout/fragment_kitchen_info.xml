@@ -4,37 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="16dp" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/app_bar_kitchen_info"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero_dimens"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
@@ -46,140 +18,128 @@
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@null"
-            android:src="@drawable/ic_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_app_bar"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
+            android:layout_height="@dimen/zero_dimens"
+            android:layout_marginStart="@dimen/margin_medium"
             android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/discover_indian_cuisine"
             android:textColor="@color/black_87"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_medium"
             app:layout_constraintBottom_toBottomOf="@id/ic_back_kitchen_info"
             app:layout_constraintStart_toEndOf="@id/ic_back_kitchen_info"
             app:layout_constraintTop_toTopOf="@id/ic_back_kitchen_info" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/card_image"
         android:layout_width="wrap_content"
-        android:layout_height="190dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="@dimen/card_image_height"
+        android:layout_marginTop="@dimen/margin_large"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/app_bar_kitchen_info">
+        app:layout_constraintTop_toBottomOf="@id/app_bar_kitchen_info"
+        app:roundPercent="0.1"
+        app:srcCompat="@drawable/card_image" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@null"
-            android:src="@drawable/card_image" />
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="24dp"
+    <ScrollView
+        android:layout_width="@dimen/zero_dimens"
+        android:layout_height="@dimen/zero_dimens"
+        android:layout_marginTop="@dimen/margin_large"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/card_image">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        <LinearLayout style="@style/linearLayoutStyle">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:orientation="vertical">
+                style="@style/linearLayoutStyle"
+                android:layout_marginBottom="@dimen/margin_medium">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="@string/history_of_indian_cuisine"
-                    android:textColor="@color/black_87"
-                    android:textSize="16sp" />
+                    android:id="@+id/tv_history_title"
+                    style="@style/titleTextInKitchenInfoStyle"
+                    android:text="@string/history_of_indian_cuisine" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:fontFamily="@font/poppins_reguler"
-                    android:text="@string/history_description"
-                    android:textColor="@color/black_60"
-                    android:textSize="14sp" />
+                    android:id="@+id/tv_history_body"
+                    style="@style/bodyTextInKitchenInfoStyle"
+                    android:text="@string/history_description" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:orientation="vertical">
+                style="@style/linearLayoutStyle"
+                android:layout_marginBottom="@dimen/margin_medium">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="@string/regions"
-                    android:textColor="@color/black_87"
-                    android:textSize="16sp" />
+                    android:id="@+id/tv_region_title"
+                    style="@style/titleTextInKitchenInfoStyle"
+                    android:text="@string/regions" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:fontFamily="@font/poppins_reguler"
-                    android:text="@string/history_description"
-                    android:textColor="@color/black_60"
-                    android:textSize="14sp" />
+                    android:id="@+id/tv_region_body"
+                    style="@style/bodyTextInKitchenInfoStyle"
+                    android:text="@string/history_description" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:orientation="vertical">
+                style="@style/linearLayoutStyle"
+                android:layout_marginBottom="@dimen/margin_medium">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="@string/why_spicey"
-                    android:textColor="@color/black_87"
-                    android:textSize="16sp" />
+                    android:id="@+id/tv_description_title"
+                    style="@style/titleTextInKitchenInfoStyle"
+                    android:text="@string/why_spicey" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:fontFamily="@font/poppins_reguler"
-                    android:text="@string/history_description"
-                    android:textColor="@color/black_60"
-                    android:textSize="14sp" />
+                    android:id="@+id/tv_description_body"
+                    style="@style/bodyTextInKitchenInfoStyle"
+                    android:text="@string/history_description" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/margin_medium" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/margin_medium" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/margin_medium" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/margin_medium" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

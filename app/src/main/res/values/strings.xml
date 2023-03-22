@@ -36,5 +36,12 @@
     <string name="how_to_prepare">How to prepare</string>
     <string name="min">Min</string>
     <string name="_1_2_cup_all_purpose_flour">½ Cup All Purpose Flour</string>
+    <string name="categories">Categories</string>
+    <string name="healthy">Healthy</string>
+    <string name="fast_food">Fast Food</string>
+    <string name="see_all">See all</string>
+    <string name="food_name">Masala Chichen</string>
+    <string name="food_time">30</string>
+    <string name="food_ingredient_count">5</string>
 
 </resources>

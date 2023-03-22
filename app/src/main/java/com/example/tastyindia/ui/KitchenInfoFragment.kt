@@ -9,10 +9,12 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
         FragmentKitchenInfoBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        TODO("Not yet implemented")
+
     }
 
     override fun addCallbacks() {
-        TODO("Not yet implemented")
+        getViewBinding().icBackKitchenInfo.setOnClickListener {
+
+        }
     }
 }

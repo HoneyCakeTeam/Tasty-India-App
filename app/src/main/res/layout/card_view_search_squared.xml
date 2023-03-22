@@ -9,6 +9,7 @@
     app:strokeWidth="0dp">
 
     <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_recipe_image"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:scaleType="centerCrop"
@@ -16,11 +17,13 @@
         app:srcCompat="@drawable/image_search" />
 
     <View
+        android:id="@+id/view_gradiant"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@drawable/card_gradiant" />
 
     <TextView
+        android:id="@+id/tv_recipe_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
@@ -31,6 +34,7 @@
         android:textSize="@dimen/text_medium" />
 
     <TextView
+        android:id="@+id/tv_recipe_cuisine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"

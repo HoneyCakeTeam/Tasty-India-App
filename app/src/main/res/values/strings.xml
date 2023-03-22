@@ -12,8 +12,8 @@
     <string name="category">Category</string>
     <string name="search">Search</string>
     <string name="masala_karela">Masala karela</string>
-    <string name="search">search</string>
     <string name="recipe">Recipe</string>
-    <string name="cuisine">Cuisine</string>
     <string name="indian">Indian</string>
+    <string name="popular_indian_meals">Popular Indian Meals</string>
+    <string name="indian_cuisnie">Indian Cuisine</string>
 </resources>

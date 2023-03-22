@@ -13,8 +13,8 @@ class RecipeDetails : BaseFragment<FragmentRecipeDetailsBinding>() {
 
     override fun setUp() {
         val recipe = getRecipeDetails(1)
-        recipe.recipeName
-        Log.e("TAG", recipe.recipeName)
+        val recipeName = recipe.recipeName
+        Log.e("TAG", recipeName)
     }
 
     override fun addCallbacks() {

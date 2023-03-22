@@ -36,5 +36,33 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">16dp</item>
     </style>
-
+    <style name="TextStyleCategories" >
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/black_87</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+    <style name="TextStyleSeeAll" >
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:fontFamily">@font/ubuntu_reguler</item>
+        <item name="android:textColor">@color/primary_500</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+    <style name="TextStyleNameCategories" >
+        <item name="android:layout_marginStart">@dimen/margin_tiny</item>
+        <item name="android:layout_marginBottom">@dimen/margin_tiny</item>
+        <item name="android:fontFamily">@font/poppins_reguler</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="TextStyleNumberCategories" >
+        <item name="android:layout_marginEnd">@dimen/margin_tiny</item>
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textSize">@dimen/text_tiny</item>
+    </style>
 </resources>

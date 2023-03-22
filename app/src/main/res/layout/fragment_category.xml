@@ -26,24 +26,16 @@
         android:id="@+id/tv_health"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_small"
-        android:fontFamily="@font/poppins_semi_bold"
         android:text="@string/healthy"
-        android:textColor="@color/black_87"
-        android:textSize="@dimen/text_medium"
+        style="@style/TextStyleCategories"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_image" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:fontFamily="@font/ubuntu_reguler"
+        style="@style/TextStyleSeeAll"
         android:text="@string/see_all"
-        android:textColor="@color/primary_500"
-        android:textSize="@dimen/text_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_image" />
 
@@ -65,24 +57,16 @@
         android:id="@+id/tv_fast_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_small"
-        android:fontFamily="@font/poppins_semi_bold"
+        style="@style/TextStyleCategories"
         android:text="@string/fast_food"
-        android:textColor="@color/black_87"
-        android:textSize="@dimen/text_medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_health_categories" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:fontFamily="@font/ubuntu_reguler"
+        style="@style/TextStyleSeeAll"
         android:text="@string/see_all"
-        android:textColor="@color/primary_500"
-        android:textSize="@dimen/text_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_health_categories" />
 
@@ -104,24 +88,16 @@
         android:id="@+id/tv_easy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_small"
-        android:fontFamily="@font/poppins_semi_bold"
+        style="@style/TextStyleCategories"
         android:text="@string/easy"
-        android:textColor="@color/black_87"
-        android:textSize="@dimen/text_medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_fast_food_categories" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:fontFamily="@font/ubuntu_reguler"
         android:text="@string/see_all"
-        android:textColor="@color/primary_500"
-        android:textSize="@dimen/text_small"
+        style="@style/TextStyleSeeAll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_fast_food_categories" />
 

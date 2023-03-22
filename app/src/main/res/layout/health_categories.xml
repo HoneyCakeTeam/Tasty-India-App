@@ -34,15 +34,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/text_name"
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_tiny"
-            android:layout_marginBottom="@dimen/margin_tiny"
-            android:fontFamily="@font/ubuntu_reguler"
-            android:text="Masala Chichen"
-            android:textColor="@color/white_100"
-            android:textSize="@dimen/text_tiny"
+             style="@style/TextStyleNameCategories"
+            android:text="@string/food_name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

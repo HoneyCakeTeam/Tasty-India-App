@@ -18,11 +18,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
             android:contentDescription="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_back" />
+            app:srcCompat="@drawable/ic_back"
+            android:focusable="true" />
 
         <TextView
             android:id="@+id/tv_app_bar"
@@ -52,8 +54,8 @@
         app:roundPercent="0.1"
         app:srcCompat="@drawable/card_image" />
 
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/body"
         android:layout_width="@dimen/zero_dimens"
         android:layout_height="@dimen/zero_dimens"
         android:layout_marginTop="@dimen/margin_large"
@@ -115,7 +117,7 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_start"

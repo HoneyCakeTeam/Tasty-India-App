@@ -104,12 +104,12 @@
                 android:layout_marginBottom="@dimen/margin_medium">
 
                 <TextView
-                    android:id="@+id/tv_description_title"
+                    android:id="@+id/tv_dishes_title"
                     style="@style/titleTextInKitchenInfoStyle"
-                    android:text="@string/why_spicey" />
+                    android:text="@string/dishes" />
 
                 <TextView
-                    android:id="@+id/tv_description_body"
+                    android:id="@+id/tv_dishes_body"
                     style="@style/bodyTextInKitchenInfoStyle"
                     android:text="@string/history_description" />
 

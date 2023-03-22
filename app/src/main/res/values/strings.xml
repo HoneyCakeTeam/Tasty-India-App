@@ -30,7 +30,7 @@
     <string name="recommendations_tv">Recommendations</string>
     <string name="recipeimage">recipeImage</string>
     <string name="recipe_name">Crepe with Orange and Honey</string>
-    <string name="time">40</string>
+    <string name="time">40 Min</string>
     <string name="easy">Easy</string>
     <string name="ingredients">Ingredients</string>
     <string name="how_to_prepare">How to prepare</string>
@@ -43,5 +43,7 @@
     <string name="food_name">Masala Chichen</string>
     <string name="food_time">30</string>
     <string name="food_ingredient_count">5</string>
+    <string name="creamy_pasta">Creamy Pasta</string>
+    <string name="indian_cuisine">Indian Cuisine</string>
 
 </resources>

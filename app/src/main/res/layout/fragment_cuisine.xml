@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/cuisine_item"
+        tools:listitem="@layout/item_cuisine"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

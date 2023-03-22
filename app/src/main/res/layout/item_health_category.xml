@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="95dp"
     android:layout_height="95dp"
-    app:cardCornerRadius="8dp"
+    app:cardCornerRadius="@dimen/radius_small"
     android:layout_marginEnd="@dimen/margin_small">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            android:src="@drawable/top_image"
+            android:src="@drawable/image_categories"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,35 +34,14 @@
 
         <TextView
             android:id="@+id/tv_name"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            style="@style/TextStyleNameCategories"
-            android:text="@string/food_name"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tv_time"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/ic_time"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
-            android:scaleType="centerCrop"
-            android:layout_marginEnd="@dimen/margin_tiny"
-            android:layout_marginBottom="@dimen/margin_tiny"
-            app:srcCompat="@drawable/ic_dishes"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
-
-        <TextView
-            android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/food_ingredient_count"
-            style="@style/TextStyleNumberCategories"
-            app:layout_constraintBottom_toBottomOf="@+id/ic_time"
-            app:layout_constraintEnd_toStartOf="@id/ic_time"
-            app:layout_constraintTop_toTopOf="@+id/ic_time" />
+             style="@style/TextStyleNameCategories"
+            android:text="@string/food_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

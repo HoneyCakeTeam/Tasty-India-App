@@ -72,7 +72,7 @@
                 android:layout_marginEnd="@dimen/margin_small"
                 android:layout_marginBottom="@dimen/margin_tiny"
                 android:backgroundTint="@color/white_300"
-                app:cardCornerRadius="@dimen/radius_category_item"
+                app:cardCornerRadius="@dimen/radius_semi_medium"
                 app:strokeWidth="0dp">
 
                 <ImageView
@@ -101,7 +101,7 @@
                 android:layout_height="@dimen/category_card_dimens"
                 android:layout_marginEnd="@dimen/margin_small"
                 android:backgroundTint="@color/white_300"
-                app:cardCornerRadius="@dimen/radius_category_item"
+                app:cardCornerRadius="@dimen/radius_semi_medium"
                 app:strokeWidth="0dp">
 
                 <ImageView
@@ -131,7 +131,7 @@
                 android:layout_marginEnd="@dimen/margin_small"
                 android:layout_marginBottom="@dimen/margin_tiny"
                 android:backgroundTint="@color/white_300"
-                app:cardCornerRadius="@dimen/radius_category_item"
+                app:cardCornerRadius="@dimen/radius_semi_medium"
                 app:strokeWidth="0dp">
 
                 <ImageView
@@ -162,7 +162,7 @@
                 android:layout_marginEnd="@dimen/margin_small"
                 android:layout_marginBottom="@dimen/margin_tiny"
                 android:backgroundTint="@color/white_300"
-                app:cardCornerRadius="@dimen/radius_category_item"
+                app:cardCornerRadius="@dimen/radius_semi_medium"
                 app:strokeWidth="0dp">
 
                 <ImageView
@@ -194,7 +194,7 @@
                 android:layout_marginEnd="@dimen/margin_small"
                 android:layout_marginBottom="@dimen/margin_tiny"
                 android:backgroundTint="@color/white_300"
-                app:cardCornerRadius="@dimen/radius_category_item"
+                app:cardCornerRadius="@dimen/radius_semi_medium"
                 app:strokeWidth="0dp">
 
                 <ImageView

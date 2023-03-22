@@ -9,7 +9,7 @@
         android:id="@+id/item_home_recipes_of_week"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/radius_recipe_of_week_item"
+        app:cardCornerRadius="@dimen/radius_semi_large"
         app:strokeWidth="0dp"
         >
         <ImageView

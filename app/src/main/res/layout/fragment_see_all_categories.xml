@@ -13,6 +13,6 @@
         android:padding="@dimen/padding_small"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
-        tools:listitem="@layout/card_view_category_squared" />
+        tools:listitem="@layout/item_category_squared" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

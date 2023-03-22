@@ -22,7 +22,11 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     protected val binding get() = _binding
     private lateinit var parser: CsvParser
     private lateinit var datasource: RecipeDataSource
-    protected lateinit var listOfRecipe: List<Recipe>
+    protected val listOfRecipe by lazy {
+        parser = CsvParser()
+        datasource = CsvDataSource(requireContext(), parser)
+        datasource.getAllRecipes()
+    }
 
     abstract fun getViewBinding(): VB
 
@@ -37,16 +41,14 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        listOfRecipe = getAllRecipes()
         setUp()
         addCallbacks()
-
     }
 
     abstract fun setUp()
     abstract fun addCallbacks()
-    protected fun log(value: String) {
-        Log.e(TAG, value)
+    protected fun log(value: Any?) {
+        Log.e(TAG, value.toString())
     }
 
     private fun getAllRecipes(): List<Recipe> {

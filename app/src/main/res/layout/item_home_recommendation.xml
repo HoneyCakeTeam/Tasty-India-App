@@ -29,7 +29,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Creamy Pasta"
+                android:text="@string/creamy_pasta"
                 android:fontFamily="@font/ubuntu_reguler"
                 android:textColor="@color/black_87"
                 android:textSize="@dimen/text_medium"
@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Indian Cusine"
+                android:text="@string/indian_cuisine"
                 android:fontFamily="@font/ubuntu_reguler"
                 android:textColor="@color/black_60"
                 android:textSize="@dimen/text_tiny"

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_small"
     android:backgroundTint="@color/white_300"
-    app:cardCornerRadius="@dimen/radius_16"
+    app:cardCornerRadius="@dimen/radius_semi_large"
     app:strokeWidth="0dp">
 
     <com.google.android.material.imageview.ShapeableImageView

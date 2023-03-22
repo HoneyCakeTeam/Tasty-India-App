@@ -33,8 +33,8 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
 
     private fun filterFastRecipes(): List<Pair<String, Int>> {
         return listOfRecipe.sortedBy {
-            it.totalTime
-        }.map { Pair(it.recipeName, it.totalTime) }
+            it.totalTimeInMins
+        }.map { Pair(it.recipeName, it.totalTimeInMins) }
     }
 
     private fun filterEasyRecipes(): List<Pair<String, Int>> {

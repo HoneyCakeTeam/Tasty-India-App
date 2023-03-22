@@ -4,17 +4,14 @@ import android.util.Log
 import com.example.tastyindia.databinding.FragmentRecipeDetailsBinding
 
 class RecipeDetails : BaseFragment<FragmentRecipeDetailsBinding>() {
-    override val TAG: String
-        get() = TODO("Not yet implemented")
+    override val TAG = "RecipeDetails"
 
-    override fun getViewBinding(): FragmentRecipeDetailsBinding {
-        TODO("Not yet implemented")
-    }
+    override fun getViewBinding() = FragmentRecipeDetailsBinding.inflate(layoutInflater)
 
     override fun setUp() {
         val recipe = getRecipeDetails(1)
         val recipeName = recipe.recipeName
-        Log.e("TAG", recipeName)
+        log(recipeName)
     }
 
     override fun addCallbacks() {

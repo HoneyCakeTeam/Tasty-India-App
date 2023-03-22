@@ -1,7 +1,7 @@
 package com.example.tastyindia.utils
 
 object Constants {
-    const val FILE_NAME = "indianFood.csv"
+    const val FILE_NAME = "indian_food_v3.csv"
     object ColumnIndex{
         const val recipeName = 0
         const val ingredients = 1

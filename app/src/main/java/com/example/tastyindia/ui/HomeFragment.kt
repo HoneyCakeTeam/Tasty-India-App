@@ -1,7 +1,6 @@
 package com.example.tastyindia.ui
 
 
-import android.util.Log
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentHomeBinding
 import kotlin.random.Random
@@ -25,8 +24,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         val randomNumbers = getRandomNumbersForRecipesOfTheWeek()
         val recipesOfTheWeek = getListOfRecipeUsingRandomNumbers(randomNumbers)
-        Log.i(TAG, "setUpppp: ${randomNumbers}")
-        Log.i(TAG, "setUpppp: ${recipesOfTheWeek.map { it.recipeName }}")
+        log("setUpppp: ${randomNumbers}")
+        log("setUpppp: ${recipesOfTheWeek.map { it.recipeName }}")
     }
 
     override fun addCallbacks() {

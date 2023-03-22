@@ -8,7 +8,7 @@ class CsvParser {
         return Recipe(
             recipeName = token[Constants.ColumnIndex.recipeName],
             ingredients = token[Constants.ColumnIndex.ingredients],
-            totalTime = token[Constants.ColumnIndex.totalTime].toInt(),
+            totalTimeInMins = token[Constants.ColumnIndex.totalTime].toInt(),
             cuisine = token[Constants.ColumnIndex.cuisine],
             instructions = token[Constants.ColumnIndex.instructions],
             url = token[Constants.ColumnIndex.url],

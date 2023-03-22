@@ -37,6 +37,17 @@
         <item name="android:scaleType">centerCrop</item>
     </style>
 
+    <style name="ThemeOverlay.search" parent="Widget.AppCompat.SearchView">
+        <!-- Text color -->
+        <item name="android:editTextColor">@color/black_60</item>
+        <!-- Hint text color -->
+        <item name="android:textColorHint">@color/white_200</item>
+        <item name="queryBackground">@android:color/transparent</item>
+        <item name="submitBackground">@android:color/transparent</item>
+        <item name="searchHintIcon">@null</item>
+        <item name="searchIcon">@null</item>
+    </style>
+
     <style name="titleTextInKitchenInfoStyle" parent="">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

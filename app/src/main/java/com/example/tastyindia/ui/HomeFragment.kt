@@ -16,20 +16,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun setUp() {
 
+        val randomNumbersForRecommendations = getRandomNumbersForRecipesOfTheWeek()
         Log.i(TAG, "setUppppp: ${getRandomNumbersForRecommendations()}")
-        Log.i(TAG, "setUppppp: ${getListOfRecipeForRecommendations().map { it.recipeName }}")
+        Log.i(TAG, "setUppppp: ${
+            getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
+                .map { it.recipeName }
+        }")
 
         val randomNumbers = getRandomNumbersForRecipesOfTheWeek()
-        val recipesOfTheWeek = getListOfRecipesOfTheWeek(randomNumbers)
-        Log.i(TAG,
-            "setUpppp: ${randomNumbers}"
-        )
-        Log.i(TAG,
-            "setUpppp: ${recipesOfTheWeek.map{
-                    it.recipeName
-                }
-            }"
-        )
+        val recipesOfTheWeek = getListOfRecipeUsingRandomNumbers(randomNumbers)
+        Log.i(TAG, "setUpppp: ${randomNumbers}")
+        Log.i(TAG, "setUpppp: ${recipesOfTheWeek.map{ it.recipeName }}")
     }
 
     override fun addCallbacks() {
@@ -42,15 +39,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         return listOfRandomNumbers
     }
 
-    fun getListOfRecipeForRecommendations(): List<Recipe>{
-        var randomNumbers = getRandomNumbersForRecommendations()
-        var listOfRecipeForRecommendations = mutableListOf<Recipe>()
-        for (i in randomNumbers) {
-            listOfRecipeForRecommendations.add(listOfRecipe[i])
-        }
-        return listOfRecipeForRecommendations
-    }
-
     private fun getRandomNumbersForRecipesOfTheWeek():List<Int>{
         val listOfRandomNumbers = List(10){
             Random.nextInt(listOfRecipe.size - 1)
@@ -58,11 +46,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         return listOfRandomNumbers
     }
 
-    private fun getListOfRecipesOfTheWeek(randomNumbers:List<Int>):List<Recipe> =
+    private fun getListOfRecipeUsingRandomNumbers(randomNumbers:List<Int>): List<Recipe> =
         randomNumbers.map {
             listOfRecipe[it]
         }
-
 
 
 }

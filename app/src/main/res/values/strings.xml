@@ -12,5 +12,6 @@
     <string name="see_all_tv">See all</string>
     <string name="good_morning">Good Morning</string>
     <string name="second_header_in_home_tv">What would you like to cook today?</string>
+    <string name="recommendations_tv">Recommendations</string>
 
 </resources>

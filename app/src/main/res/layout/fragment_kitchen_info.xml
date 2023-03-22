@@ -40,10 +40,11 @@
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/card_image"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/zero_dimens"
         android:layout_height="@dimen/card_image_height"
         android:layout_marginTop="@dimen/margin_large"
         android:contentDescription="@null"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/app_bar_kitchen_info"

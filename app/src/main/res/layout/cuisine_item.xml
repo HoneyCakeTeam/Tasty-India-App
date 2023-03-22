@@ -18,7 +18,7 @@
             android:id="@+id/cuisine_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/test_image"
+            app:srcCompat="@drawable/image_category"
             android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,4 +1,5 @@
 <resources>
+
     <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar">
         <item name="colorPrimary">@color/md_theme_dark_primary</item>
         <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
@@ -30,5 +31,10 @@
         <item name="android:windowSplashScreenBackground">@color/primary_400</item>
         <item name="android:windowSplashScreenAnimationDuration">1000</item>
         <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_splash</item>
+    </style>
+
+    <style name="CategoriesCardImageStyle">
+        <item name="cornerSize">16dp</item>
+        <item name="android:scaleType">fitXY</item>
     </style>
 </resources>

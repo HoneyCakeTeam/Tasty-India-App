@@ -17,4 +17,7 @@ class RecipeDetails() : BaseFragment<FragmentRecipeDetailsBinding>() {
     override fun addCallbacks() {
         TODO("Not yet implemented")
     }
+    fun getRecipeDetails(id:Int){
+
+    }
 }

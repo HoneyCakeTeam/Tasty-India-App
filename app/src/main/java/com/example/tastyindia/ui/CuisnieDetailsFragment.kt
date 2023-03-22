@@ -1,15 +1,10 @@
 package com.example.tastyindia.ui
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.example.tastyindia.R
 import com.example.tastyindia.databinding.FragmentCuisineDetailsBinding
 
-class CuisnieDetailsFragment : BaseFragment<FragmentCuisineDetailsBinding> (){
+class CuisnieDetailsFragment : BaseFragment<FragmentCuisineDetailsBinding>() {
     override val TAG: String = "CUISINEDETAILS"
-    override fun getViewBinding()=FragmentCuisineDetailsBinding.inflate(layoutInflater)
+    override fun getViewBinding() = FragmentCuisineDetailsBinding.inflate(layoutInflater)
 
     override fun setUp() {
         log(getRecipeName().toString())
@@ -20,9 +15,9 @@ class CuisnieDetailsFragment : BaseFragment<FragmentCuisineDetailsBinding> (){
     }
 
     private fun getRecipeName(): List<String> {
-        return listOfRecipe
+        return getAllRecipes()
             .filter { it.cuisine == "Indian" }
-            .map{it.recipeName}
+            .map { it.recipeName }
             .take(10)
     }
 }

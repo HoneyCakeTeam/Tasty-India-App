@@ -26,29 +26,29 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         val randomNumbers = getRandomNumbersForRecipesOfTheWeek()
         val recipesOfTheWeek = getListOfRecipeUsingRandomNumbers(randomNumbers)
         Log.i(TAG, "setUpppp: ${randomNumbers}")
-        Log.i(TAG, "setUpppp: ${recipesOfTheWeek.map{ it.recipeName }}")
+        Log.i(TAG, "setUpppp: ${recipesOfTheWeek.map { it.recipeName }}")
     }
 
     override fun addCallbacks() {
     }
 
-    fun getRandomNumbersForRecommendations(): List<Int> {
+    private fun getRandomNumbersForRecommendations(): List<Int> {
         val listOfRandomNumbers = List(10) {
-            Random.nextInt(0, listOfRecipe.size - 1)
+            Random.nextInt(0, getAllRecipes().size - 1)
         }
         return listOfRandomNumbers
     }
 
-    private fun getRandomNumbersForRecipesOfTheWeek():List<Int>{
-        val listOfRandomNumbers = List(10){
-            Random.nextInt(listOfRecipe.size - 1)
+    private fun getRandomNumbersForRecipesOfTheWeek(): List<Int> {
+        val listOfRandomNumbers = List(10) {
+            Random.nextInt(getAllRecipes().size - 1)
         }
         return listOfRandomNumbers
     }
 
-    private fun getListOfRecipeUsingRandomNumbers(randomNumbers:List<Int>): List<Recipe> =
+    private fun getListOfRecipeUsingRandomNumbers(randomNumbers: List<Int>): List<Recipe> =
         randomNumbers.map {
-            listOfRecipe[it]
+            getAllRecipes()[it]
         }
 
 

@@ -7,52 +7,23 @@
     android:background="@color/white_100"
     tools:context=".ui.CategoryFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
-
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            >
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="12dp"
-                app:srcCompat="@drawable/ic_arrow"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/categories"
-                android:textColor="@color/black_87"
-                android:textSize="@dimen/text_medium"
-                android:fontFamily="@font/poppins_semi_bold"
-                />
-        </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/top_image"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_small"
         android:scaleType="centerCrop"
         android:src="@drawable/top_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/ImageCornerCategories" />
 
     <TextView
-        android:id="@+id/text_health"
+        android:id="@+id/tv_health"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
@@ -77,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/top_image" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_health_categories"
+        android:id="@+id/rv_health_categories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/health_categories"
@@ -88,10 +59,10 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_health" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_health" />
 
     <TextView
-        android:id="@+id/text_fast_food"
+        android:id="@+id/tv_fast_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
@@ -101,7 +72,7 @@
         android:textColor="@color/black_87"
         android:textSize="@dimen/text_medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_health_categories" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_health_categories" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -113,10 +84,10 @@
         android:textColor="@color/primary_500"
         android:textSize="@dimen/text_small"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_health_categories" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_health_categories" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_fast_food_categories"
+        android:id="@+id/rv_fast_food_categories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
@@ -127,10 +98,10 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_fast_food" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_fast_food" />
 
     <TextView
-        android:id="@+id/text_easy"
+        android:id="@+id/tv_easy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
@@ -140,7 +111,7 @@
         android:textColor="@color/black_87"
         android:textSize="@dimen/text_medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_fast_food_categories" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_fast_food_categories" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -152,10 +123,10 @@
         android:textColor="@color/primary_500"
         android:textSize="@dimen/text_small"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_fast_food_categories" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_fast_food_categories" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_easy_categories"
+        android:id="@+id/rv_easy_categories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
@@ -166,5 +137,5 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_easy" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_easy" />
 </androidx.constraintlayout.widget.ConstraintLayout>

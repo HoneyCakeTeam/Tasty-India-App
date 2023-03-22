@@ -6,6 +6,7 @@
     <dimen name="margin_medium">16dp</dimen>
     <dimen name="margin_large">24dp</dimen>
     <dimen name="margin_giant">32dp</dimen>
+    <dimen name="margin_negative">-48dp</dimen>
 
     <!--padding dimens-->
     <dimen name="padding_tiny">4dp</dimen>
@@ -20,6 +21,7 @@
     <dimen name="text_medium">16sp</dimen>
     <dimen name="text_large">18sp</dimen>
     <dimen name="text_giant">20sp</dimen>
+    <dimen name="very_tiny">2dp</dimen>
 
     <dimen name="zero_dimens">0dp</dimen>
     <dimen name="card_image_height">190dp</dimen>

@@ -28,5 +28,13 @@
     <string name="good_morning">Good Morning</string>
     <string name="second_header_in_home_tv">What would you like to cook today?</string>
     <string name="recommendations_tv">Recommendations</string>
+    <string name="recipeimage">recipeImage</string>
+    <string name="recipe_name">Crepe with Orange and Honey</string>
+    <string name="time">40</string>
+    <string name="easy">Easy</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="how_to_prepare">How to prepare</string>
+    <string name="min">Min</string>
+    <string name="_1_2_cup_all_purpose_flour">½ Cup All Purpose Flour</string>
 
 </resources>

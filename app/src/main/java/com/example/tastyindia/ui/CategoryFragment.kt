@@ -1,22 +1,18 @@
 package com.example.tastyindia.ui
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.example.tastyindia.R
+import com.example.tastyindia.databinding.FragmentCategoryBinding
 
 
-class CategoryFragment : Fragment() {
+class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
+    override val TAG = "CategoryFragment"
 
+    override fun getViewBinding() = FragmentCategoryBinding.inflate(layoutInflater)
+    override fun setUp() {
+        TODO("Not yet implemented")
+    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_category, container, false)
+    override fun addCallbacks() {
+        TODO("Not yet implemented")
     }
 
 

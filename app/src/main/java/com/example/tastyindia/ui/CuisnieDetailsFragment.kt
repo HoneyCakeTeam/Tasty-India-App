@@ -15,7 +15,7 @@ class CuisnieDetailsFragment : BaseFragment<FragmentCuisineDetailsBinding>() {
     }
 
     private fun getRecipeName(): List<String> {
-        return getAllRecipes()
+        return listOfRecipe
             .filter { it.cuisine == "Indian" }
             .map { it.recipeName }
             .take(10)

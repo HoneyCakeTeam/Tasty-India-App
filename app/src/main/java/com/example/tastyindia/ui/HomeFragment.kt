@@ -9,7 +9,7 @@ import kotlin.random.Random
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
-    override val TAG: String = "HOME"
+    override val TAG: String = "HomeFragment"
 
     override fun getViewBinding(): FragmentHomeBinding =
         FragmentHomeBinding.inflate(layoutInflater)
@@ -17,8 +17,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun setUp() {
 
         val randomNumbersForRecommendations = getRandomNumbersForRecipesOfTheWeek()
-        Log.i(TAG, "setUppppp: ${getRandomNumbersForRecommendations()}")
-        Log.i(TAG, "setUppppp: ${
+        log("setUppppp: ${getRandomNumbersForRecommendations()}")
+        log("setUppppp: ${
             getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
                 .map { it.recipeName }
         }")
@@ -34,21 +34,21 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun getRandomNumbersForRecommendations(): List<Int> {
         val listOfRandomNumbers = List(10) {
-            Random.nextInt(0, getAllRecipes().size - 1)
+            Random.nextInt(0, listOfRecipe.size - 1)
         }
         return listOfRandomNumbers
     }
 
     private fun getRandomNumbersForRecipesOfTheWeek(): List<Int> {
         val listOfRandomNumbers = List(10) {
-            Random.nextInt(getAllRecipes().size - 1)
+            Random.nextInt(listOfRecipe.size - 1)
         }
         return listOfRandomNumbers
     }
 
     private fun getListOfRecipeUsingRandomNumbers(randomNumbers: List<Int>): List<Recipe> =
         randomNumbers.map {
-            getAllRecipes()[it]
+            listOfRecipe[it]
         }
 
 

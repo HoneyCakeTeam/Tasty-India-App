@@ -21,6 +21,6 @@ class RecipeDetails : BaseFragment<FragmentRecipeDetailsBinding>() {
         TODO("Not yet implemented")
     }
 
-    private fun getRecipeDetails(id: Int) = getAllRecipes()[id]
+    private fun getRecipeDetails(id: Int) = listOfRecipe[id]
 
 }

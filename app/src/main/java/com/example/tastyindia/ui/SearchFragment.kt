@@ -32,7 +32,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     }
 
     private fun searchByRecipeOrCuisine(searchWord: String): List<Recipe> {
-        return getAllRecipes()
+        return listOfRecipe
             .filter {
                 it.cuisine.lowercase().contains(searchWord.lowercase()) || it.recipeName.lowercase()
                     .contains(searchWord.lowercase())

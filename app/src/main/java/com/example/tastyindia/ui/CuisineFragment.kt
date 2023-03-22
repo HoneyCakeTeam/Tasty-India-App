@@ -15,6 +15,6 @@ class CuisineFragment : BaseFragment<FragmentCuisineBinding>() {
 
     }
 
-    private fun getAllCuisines() = getAllRecipes().map { it.cuisine }.distinct()
+    private fun getAllCuisines() = listOfRecipe.map { it.cuisine }.distinct()
 
 }

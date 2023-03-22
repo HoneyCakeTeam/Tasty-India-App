@@ -11,19 +11,34 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override val TAG: String = "HOME"
 
-    override fun getViewBinding(): FragmentHomeBinding = FragmentHomeBinding.inflate(layoutInflater)
+    override fun getViewBinding(): FragmentHomeBinding =
+        FragmentHomeBinding.inflate(layoutInflater)
 
     override fun setUp() {
 
         Log.i(TAG, "setUppppp: ${getRandomNumbersForRecommendations()}")
         Log.i(TAG, "setUppppp: ${getListOfRecipeForRecommendations().map { it.recipeName }}")
+
+        val randomNumbers = getRandomNumbersForRecipesOfTheWeek()
+        val recipesOfTheWeek = getListOfRecipesOfTheWeek(randomNumbers)
+        Log.i(TAG,
+            "setUpppp: ${randomNumbers}"
+        )
+        Log.i(TAG,
+            "setUpppp: ${recipesOfTheWeek.map{
+                    it.recipeName
+                }
+            }"
+        )
     }
 
     override fun addCallbacks() {
     }
 
     fun getRandomNumbersForRecommendations(): List<Int> {
-        val listOfRandomNumbers = List(10) { Random.nextInt(0, listOfRecipe.size - 1) }
+        val listOfRandomNumbers = List(10) {
+            Random.nextInt(0, listOfRecipe.size - 1)
+        }
         return listOfRandomNumbers
     }
 
@@ -35,6 +50,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
         return listOfRecipeForRecommendations
     }
+
+    private fun getRandomNumbersForRecipesOfTheWeek():List<Int>{
+        val listOfRandomNumbers = List(10){
+            Random.nextInt(listOfRecipe.size - 1)
+        }
+        return listOfRandomNumbers
+    }
+
+    private fun getListOfRecipesOfTheWeek(randomNumbers:List<Int>):List<Recipe> =
+        randomNumbers.map {
+            listOfRecipe[it]
+        }
+
 
 
 }

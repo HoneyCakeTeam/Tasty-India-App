@@ -12,13 +12,13 @@
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         >
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/cuisine_image"
+            android:id="@+id/image_kitchen"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/image_category"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/card_image"
             android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
             android:background="@drawable/cuisine_background_shape"
             />
         <TextView
-            android:id="@+id/cuisine_title"
+            android:id="@+id/text_kitchenName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tool:text="Egyptian Cuisine"

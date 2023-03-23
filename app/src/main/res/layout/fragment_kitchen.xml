@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.CuisineFragment">
+    tools:context=".ui.KitchenFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_cuisine"
+        android:id="@+id/rv_kitchen"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"

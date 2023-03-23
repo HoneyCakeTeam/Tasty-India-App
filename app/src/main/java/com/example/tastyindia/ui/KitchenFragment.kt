@@ -1,11 +1,11 @@
 package com.example.tastyindia.ui
 
-import com.example.tastyindia.databinding.FragmentCuisineBinding
+import com.example.tastyindia.databinding.FragmentKitchenBinding
 
-class CuisineFragment : BaseFragment<FragmentCuisineBinding>() {
+class KitchenFragment : BaseFragment<FragmentKitchenBinding>() {
     override val TAG: String = "CuisineFragment"
-    override fun getViewBinding(): FragmentCuisineBinding =
-        FragmentCuisineBinding.inflate(layoutInflater)
+    override fun getViewBinding(): FragmentKitchenBinding =
+        FragmentKitchenBinding.inflate(layoutInflater)
 
     override fun setUp() {
         log(getAllCuisines().size.toString())

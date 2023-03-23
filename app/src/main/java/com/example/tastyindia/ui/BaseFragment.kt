@@ -21,9 +21,9 @@ import com.example.tastyindia.utils.CsvParser
  */
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
-    abstract val TAG: String
+    abstract val tag: String
     private var _binding: VB? = null
-    protected val binding get() = _binding
+    protected val binding get() = _binding!!
     private lateinit var parser: CsvParser
     private lateinit var datasource: RecipeDataSource
     protected val listOfRecipe by lazy {
@@ -40,7 +40,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = getViewBinding()
-        return binding?.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,8 +51,8 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     abstract fun setUp()
     abstract fun addCallbacks()
-    protected fun log(value: Any?) {
-        Log.e(TAG, value.toString())
+    protected fun log(value: Any) {
+        Log.e(tag, value.toString())
     }
 
     private fun getAllRecipes(): List<Recipe> {

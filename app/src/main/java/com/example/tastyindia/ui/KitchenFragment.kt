@@ -6,15 +6,15 @@ import com.example.tastyindia.databinding.FragmentKitchenBinding
 class KitchenFragment : BaseFragment<FragmentKitchenBinding>() {
 
     private lateinit var adapter: KitchenAdapter
-    override val TAG: String = "CuisineFragment"
+    override val TAG: String = this::class.simpleName.toString()
 
     override fun getViewBinding(): FragmentKitchenBinding =
         FragmentKitchenBinding.inflate(layoutInflater)
 
     override fun setUp() {
-
+        setUpAppBar(true,"Cuisine",false)
         adapter = KitchenAdapter(getAllCuisines())
-        binding?.rvKitchen?.adapter = adapter
+        binding.rvKitchen.adapter = adapter
     }
 
     override fun addCallbacks() {

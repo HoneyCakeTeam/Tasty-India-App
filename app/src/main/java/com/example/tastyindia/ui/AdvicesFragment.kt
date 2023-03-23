@@ -4,7 +4,7 @@ import com.example.tastyindia.data.domain.Advice
 import com.example.tastyindia.databinding.FragmentAdvicesBinding
 
 class AdvicesFragment : BaseFragment<FragmentAdvicesBinding>() {
-    override val tag: String = "AdvicesFragment"
+    override val TAG: String = "AdvicesFragment"
     val advices: MutableList<Advice> = mutableListOf()
 
     override fun getViewBinding(): FragmentAdvicesBinding =

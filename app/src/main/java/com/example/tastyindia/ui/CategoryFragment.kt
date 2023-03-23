@@ -6,7 +6,7 @@ import com.example.tastyindia.databinding.FragmentCategoryBinding
 
 
 class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
-    override val tag: String = "CategoryFragment"
+    override val TAG: String = "CategoryFragment"
 
     override fun getViewBinding(): FragmentCategoryBinding =
         FragmentCategoryBinding.inflate(layoutInflater)

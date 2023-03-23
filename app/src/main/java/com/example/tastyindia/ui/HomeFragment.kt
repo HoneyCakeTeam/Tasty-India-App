@@ -8,7 +8,7 @@ import kotlin.random.Random
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
-    override val tag: String = "HomeFragment"
+    override val TAG: String = "HomeFragment"
 
     override fun getViewBinding(): FragmentHomeBinding =
         FragmentHomeBinding.inflate(layoutInflater)

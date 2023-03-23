@@ -3,7 +3,7 @@ package com.example.tastyindia.ui
 import com.example.tastyindia.databinding.FragmentSeeAllCategoriesBinding
 
 class SeeAllCategoriesFragment : BaseFragment<FragmentSeeAllCategoriesBinding>() {
-    override val tag = "SeeAllCategoriesFragment"
+    override val TAG = "SeeAllCategoriesFragment"
 
     override fun getViewBinding(): FragmentSeeAllCategoriesBinding =
         FragmentSeeAllCategoriesBinding.inflate(layoutInflater)

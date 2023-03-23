@@ -125,4 +125,8 @@
         <item name="android:textColor">@color/white_100</item>
         <item name="android:textSize">@dimen/text_tiny</item>
     </style>
+
+    <style name="AppTheme.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/primary_200</item>
+    </style>
 </resources>

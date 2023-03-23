@@ -21,7 +21,7 @@ import com.example.tastyindia.utils.CsvParser
  */
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
-    abstract val tag: String
+    abstract val TAG: String
     private var _binding: VB? = null
     protected val binding get() = _binding!!
     private lateinit var parser: CsvParser
@@ -52,7 +52,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     abstract fun setUp()
     abstract fun addCallbacks()
     protected fun log(value: Any) {
-        Log.e(tag, value.toString())
+        Log.e(TAG, value.toString())
     }
 
     private fun getAllRecipes(): List<Recipe> {
@@ -66,10 +66,10 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         _binding = null
     }
 
-    protected fun setAppBar(
+    protected fun setUpAppBar(
         visibility: Boolean,
         title: String? = null,
-        showNavigationIcon: Boolean = true
+        showBackIcon: Boolean = true
     ) {
         val toolbar: ConstraintLayout? = activity?.findViewById(R.id.toolbarContainer)
         val pageTitle: TextView? = activity?.findViewById(R.id.text_pageTitle)
@@ -80,7 +80,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
             title?.let {
                 pageTitle?.text = title
             }
-            if (showNavigationIcon) {
+            if (showBackIcon) {
                 navigateIcon?.visibility = View.VISIBLE
             } else {
                 navigateIcon?.visibility = View.GONE

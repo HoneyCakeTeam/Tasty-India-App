@@ -6,7 +6,7 @@ import com.example.tastyindia.databinding.FragmentSearchBinding
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
-    override val tag: String = "SearchFragment"
+    override val TAG: String = "SearchFragment"
     override fun getViewBinding() = FragmentSearchBinding.inflate(layoutInflater)
 
     override fun setUp() {
@@ -17,7 +17,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     }
 
     private fun addSearchListener() {
-        binding?.searchBar?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        binding.searchBar?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
 
                 return false

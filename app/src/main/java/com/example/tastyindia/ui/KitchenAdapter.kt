@@ -8,13 +8,13 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
-import com.example.tastyindia.databinding.KitchenItemBinding
+import com.example.tastyindia.databinding.ItemKitchenBinding
 
 class KitchenAdapter(private val kitchenList: List<Recipe>) :
     RecyclerView.Adapter<KitchenAdapter.KitchenViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KitchenViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_kitchen, parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_kitchen, parent, false)
         return KitchenViewHolder(view)
     }
 
@@ -34,7 +34,7 @@ class KitchenAdapter(private val kitchenList: List<Recipe>) :
     override fun getItemCount() = kitchenList.size
 
     class KitchenViewHolder(viewItem: View) : ViewHolder(viewItem) {
-        val binding = KitchenItemBinding.bind(itemView)
+        val binding = ItemKitchenBinding.bind(itemView)
     }
 }
 

@@ -1,6 +1,5 @@
 package com.example.tastyindia.ui
 
-import com.example.tastyindia.adapters.KitchenAdapter
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentKitchenBinding
 

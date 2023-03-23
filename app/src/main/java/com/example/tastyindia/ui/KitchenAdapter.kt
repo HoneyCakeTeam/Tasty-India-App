@@ -1,4 +1,4 @@
-package com.example.tastyindia.adapters
+package com.example.tastyindia.ui
 
 import android.view.LayoutInflater
 import android.view.View

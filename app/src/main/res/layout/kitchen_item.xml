@@ -12,12 +12,12 @@
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         >
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/image_kitchen"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/card_image"
             android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"

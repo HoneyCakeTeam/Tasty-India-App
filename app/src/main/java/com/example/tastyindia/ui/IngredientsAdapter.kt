@@ -7,10 +7,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tastyindia.R
 
-class IngredientsAdapter(private val ingredientsList: List<String>) : RecyclerView.Adapter<IngredientsAdapter.IngredientsViewHolder>() {
+class IngredientsAdapter(private val ingredientsList: List<String>) :
+    RecyclerView.Adapter<IngredientsAdapter.IngredientsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_ingerdient, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_ingerdient, parent, false)
         return IngredientsViewHolder(view)
     }
 
@@ -22,8 +24,8 @@ class IngredientsAdapter(private val ingredientsList: List<String>) : RecyclerVi
         holder.textIngredients.text = ingredientsList[position]
     }
 
-    class IngredientsViewHolder(viewItem: View):RecyclerView.ViewHolder(viewItem) {
-        val textIngredients : TextView = viewItem.findViewById(R.id.tv_ingredients)
+    class IngredientsViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
+        val textIngredients: TextView = viewItem.findViewById(R.id.tv_ingredients)
     }
 }
 

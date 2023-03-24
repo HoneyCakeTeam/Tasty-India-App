@@ -23,9 +23,8 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         binding.rvIngredients.adapter = ingredientsAdapter
         binding.rvInstructions.adapter = instructionsAdapter
 
-        setUpAppBar(true,"",true)
+        setUpAppBar(true, "", true)
     }
-
 
     override fun addCallbacks() {
         TODO("Not yet implemented")
@@ -36,6 +35,7 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
     private fun getIngredients(recipe: Recipe): List<String> {
         return recipe.ingredients.split(";")
     }
+
     private fun getInstructions(recipe: Recipe): List<String> {
         return recipe.instructions.split(".").map { it.trim() }
     }

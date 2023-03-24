@@ -1,12 +1,16 @@
 package com.example.tastyindia.ui
 
 import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.Fragment
+import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentKitchenDetailsBinding
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>() {
+class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(), KitchenAdapter.KitchenDetailsInteractionListener {
 
     override val TAG: String = "CUISINEDETAILS"
     private lateinit var recipeAdapter: KitchenDetailsAdapter
@@ -23,21 +27,14 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>() {
             kitchenName = it.getString(KITCHEN_NAME).toString()
             kitchenImageUrl = it.getString(KITCHEN_IMAGE_URL).toString()
         }
-        log(getRecipeName().toString())
     }
 
-    override fun addCallbacks() {
-        TODO("Not yet implemented")
-    }
+    override fun addCallbacks() {}
+
 
     private fun getRecipeName(): List<Recipe> {
         return listOfRecipe.distinctBy { it.cuisine == kitchenName }
-
-      /*  return listOfRecipe
-            .filter { it.cuisine == kitchenName }
-            .map { it.recipeName }
-            .take(10)
-*/    }
+    }
 
 
     companion object {
@@ -49,4 +46,25 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>() {
                 }
             }
     }
+
+    override fun onClickRecipe(recipe: Recipe) {
+        navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe)
+
+    }
+
+    private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe: Recipe) {
+        val kitchenName = recipe.cuisine
+        val kitchenImageUrl = recipe.imageUrl
+        newInstance(kitchenName, kitchenImageUrl)
+        replaceFragment(RecipeDetailsFragment())
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
+        transaction.replace(R.id.fragmentContainerView, fragment)
+        bottomNavigation.visibility = View.GONE
+        transaction.commit()
+    }
+
 }

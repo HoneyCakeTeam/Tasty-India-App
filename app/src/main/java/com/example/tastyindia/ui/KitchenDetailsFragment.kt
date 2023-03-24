@@ -2,8 +2,8 @@ package com.example.tastyindia.ui
 
 import android.os.Bundle
 import com.example.tastyindia.databinding.FragmentCuisineDetailsBinding
-import com.example.tastyindia.utils.Constants.KITCHEN_IMAGE_URL
-import com.example.tastyindia.utils.Constants.KITCHEN_NAME
+import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
+import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
 
 class KitchenDetailsFragment : BaseFragment<FragmentCuisineDetailsBinding>() {
     override val TAG: String = "CUISINEDETAILS"

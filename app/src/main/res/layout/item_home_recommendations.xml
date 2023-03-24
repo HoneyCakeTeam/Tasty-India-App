@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_marginEnd="@dimen/margin_small">
+    android:layout_marginEnd="@dimen/margin_small"
+    android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_small"
-        app:strokeWidth="0dp"
-        >
+        app:strokeWidth="0dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -21,28 +20,34 @@
 
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_home_recommendation_recipe_image"
                 android:layout_width="150dp"
                 android:layout_height="165dp"
                 android:src="@drawable/ic_splash_foreground"
                 app:shapeAppearanceOverlay="@style/homeRecommendationCardImageStyle" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/creamy_pasta"
+                android:id="@+id/tv_home_recommendation_recipe_name"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="@dimen/margin_small"
                 android:fontFamily="@font/ubuntu_reguler"
+
+                android:lines="1"
+                android:text="Creamy Pasta"
                 android:textColor="@color/black_87"
-                android:textSize="@dimen/text_medium"
-                android:layout_marginTop="@dimen/margin_small"/>
+                android:textSize="@dimen/text_medium" />
+
             <TextView
+                android:id="@+id/tv_home_recommendation_kitchen_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/indian_cuisine"
-                android:fontFamily="@font/ubuntu_reguler"
-                android:textColor="@color/black_60"
-                android:textSize="@dimen/text_tiny"
                 android:layout_marginTop="@dimen/margin_tiny"
-                android:layout_marginBottom="@dimen/margin_small"/>
+                android:layout_marginBottom="@dimen/margin_small"
+                android:fontFamily="@font/ubuntu_reguler"
+                android:text="Indian Cusine"
+                android:textColor="@color/black_60"
+                android:textSize="@dimen/text_tiny" />
 
         </LinearLayout>
 

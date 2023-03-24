@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!--Figma Colors-->
     <color name="primary_500">#FF9C36</color>
     <color name="primary_400">#FFB348</color>

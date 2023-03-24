@@ -1,21 +1,28 @@
 package com.example.tastyindia.ui
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.example.tastyindia.R
+import com.example.tastyindia.data.domain.Recipe
+import com.example.tastyindia.databinding.FragmentKitchenBinding
 
-class KitchenFragment : Fragment() {
+class KitchenFragment : BaseFragment<FragmentKitchenBinding>() {
 
+    private lateinit var adapter: KitchenAdapter
+    override val TAG: String = this::class.simpleName.toString()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_kitchen, container, false)
+    override fun getViewBinding(): FragmentKitchenBinding =
+        FragmentKitchenBinding.inflate(layoutInflater)
+
+    override fun setUp() {
+        setUpAppBar(true,"Cuisine",false)
+        adapter = KitchenAdapter(getAllCuisines())
+        binding.rvKitchen.adapter = adapter
+    }
+
+    override fun addCallbacks() {
+
+    }
+
+    private fun getAllCuisines():List<Recipe>{
+        return listOfRecipe.distinctBy { it.cuisine }
     }
 
 }

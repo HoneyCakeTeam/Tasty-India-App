@@ -1,34 +1,132 @@
 <resources>
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/md_theme_light_primary</item>
-        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
-        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
-        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
-        <item name="colorSecondary">@color/md_theme_light_secondary</item>
-        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
-        <item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
-        <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
-        <item name="colorTertiary">@color/md_theme_light_tertiary</item>
-        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
-        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>
-        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>
-        <item name="colorError">@color/md_theme_light_error</item>
-        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
-        <item name="colorOnError">@color/md_theme_light_onError</item>
-        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
-        <item name="android:colorBackground">@color/md_theme_light_background</item>
-        <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
-        <item name="colorSurface">@color/md_theme_light_surface</item>
-        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
-        <item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
-        <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
-        <item name="colorOutline">@color/md_theme_light_outline</item>
-        <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
-        <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
-        <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
+
+        <!-- Make status bar transparent -->
+        <item name="android:windowTranslucentStatus">true</item>
+
         <!-- Splash Screen-->
         <item name="android:windowSplashScreenBackground">@color/primary_400</item>
         <item name="android:windowSplashScreenAnimationDuration">1000</item>
         <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_splash</item>
+    </style>
+
+    <style name="CategoriesCardImageStyle">
+        <item name="cornerSize">16dp</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="ThemeOverlay.search" parent="Widget.AppCompat.SearchView">
+        <!-- Text color -->
+        <item name="android:editTextColor">@color/black_60</item>
+        <!-- Hint text color -->
+        <item name="android:textColorHint">@color/white_200</item>
+        <item name="queryBackground">@android:color/transparent</item>
+        <item name="submitBackground">@android:color/transparent</item>
+        <item name="searchHintIcon">@null</item>
+        <item name="searchIcon">@null</item>
+    </style>
+
+    <style name="titleTextInKitchenInfoStyle" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/black_87</item>
+        <item name="android:layout_marginBottom">@dimen/margin_small</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="bodyTextInKitchenInfoStyle" parent="titleTextInKitchenInfoStyle">
+        <item name="android:fontFamily">@font/poppins_reguler</item>
+        <item name="android:textColor">@color/black_60</item>
+        <item name="android:layout_marginBottom">@dimen/zero_dimens</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <style name="linearLayoutStyle" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="recipeTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/black_87</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+    </style>
+
+    <style name="Ingredients" parent="recipeTextView">
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+    </style>
+
+    <style name="appBarTextStyle">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:layout_margin">@dimen/margin_small</item>
+        <item name="android:padding">@dimen/padding_tiny</item>
+        <item name="android:textColor">@color/black_87</item>
+
+    </style>
+
+    <style name="mealsTextStyle">
+
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:padding">@dimen/padding_tiny</item>
+        <item name="android:textColor">@color/black_87</item>
+        <item name="android:layout_margin">@dimen/margin_medium</item>
+    </style>
+
+    <style name="home_recycle_header_text_style" parent="">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/black_87</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+    </style>
+
+    <style name="home_see_all_text_style" parent="">
+        <item name="android:fontFamily">@font/ubuntu_reguler</item>
+        <item name="android:textColor">@color/primary_500</item>
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
+    </style>
+
+    <style name="ImageCornerCategories" >
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+    <style name="TextStyleCategories" >
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/black_87</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+    <style name="TextStyleSeeAll" >
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:fontFamily">@font/ubuntu_reguler</item>
+        <item name="android:textColor">@color/primary_500</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+    <style name="TextStyleNameCategories" >
+        <item name="android:layout_marginStart">@dimen/margin_tiny</item>
+        <item name="android:layout_marginBottom">@dimen/margin_tiny</item>
+        <item name="android:fontFamily">@font/poppins_reguler</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="TextStyleNumberCategories" >
+        <item name="android:layout_marginEnd">@dimen/margin_tiny</item>
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textSize">@dimen/text_tiny</item>
+    </style>
+
+    <style name="AppTheme.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/primary_200</item>
     </style>
 </resources>

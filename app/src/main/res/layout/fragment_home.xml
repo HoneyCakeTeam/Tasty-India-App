@@ -1,10 +1,287 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_8"
+    android:background="@color/white_100"
     tools:context=".ui.HomeFragment">
 
+    <TextView
+        android:id="@+id/goog_morning_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:fontFamily="@font/ubuntu_reguler"
+        android:text="@string/good_morning"
+        android:textColor="@color/black_60"
+        android:textSize="@dimen/text_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/welcome_header_tv"
+        android:layout_width="195dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="@dimen/margin_small"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="@string/second_header_in_home_tv"
+        android:textColor="@color/black_87"
+        android:textSize="@dimen/text_giant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/goog_morning_tv"
+        app:layout_constraintTop_toBottomOf="@id/goog_morning_tv" />
+
+    <TextView
+        android:id="@+id/categories_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="@string/categories_tv"
+        android:textColor="@color/black_87"
+        android:textSize="@dimen/text_medium"
+        app:layout_constraintStart_toStartOf="@+id/welcome_header_tv"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_header_tv" />
+
+    <HorizontalScrollView
+        android:id="@+id/categories_sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categories_tv">
+
+        <LinearLayout
+            android:id="@+id/categories_ly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/categories_chicken_cv"
+                android:layout_width="@dimen/category_card_dimens"
+                android:layout_height="@dimen/category_card_dimens"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                android:backgroundTint="@color/white_300"
+                app:cardCornerRadius="@dimen/radius_semi_medium"
+                app:strokeWidth="0dp">
+
+                <ImageView
+                    android:layout_width="@dimen/category_icon_dimens"
+                    android:layout_height="@dimen/category_icon_dimens"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@mipmap/ic_chicken"
+                    android:hardwareAccelerated="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:fontFamily="@font/ubuntu_reguler"
+                    android:paddingBottom="@dimen/padding_tiny"
+                    android:text="@string/chicken_tv"
+                    android:textColor="@color/black_38"
+                    android:textSize="@dimen/text_medium" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/categories_Meal_cv"
+                android:layout_width="@dimen/category_card_dimens"
+                android:layout_height="@dimen/category_card_dimens"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:backgroundTint="@color/white_300"
+                app:cardCornerRadius="@dimen/radius_semi_medium"
+                app:strokeWidth="0dp">
+
+                <ImageView
+                    android:layout_width="@dimen/category_icon_dimens"
+                    android:layout_height="@dimen/category_icon_dimens"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@mipmap/ic_meal"
+                    android:hardwareAccelerated="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:fontFamily="@font/ubuntu_reguler"
+                    android:paddingBottom="@dimen/padding_tiny"
+                    android:text="@string/meal_tv"
+                    android:textColor="@color/black_38"
+                    android:textSize="@dimen/text_medium" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/categories_soups_cv"
+                android:layout_width="@dimen/category_card_dimens"
+                android:layout_height="@dimen/category_card_dimens"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                android:backgroundTint="@color/white_300"
+                app:cardCornerRadius="@dimen/radius_semi_medium"
+                app:strokeWidth="0dp">
+
+                <ImageView
+                    android:layout_width="@dimen/category_icon_dimens"
+                    android:layout_height="@dimen/category_icon_dimens"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@mipmap/ic_soup"
+                    android:hardwareAccelerated="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:fontFamily="@font/ubuntu_reguler"
+                    android:paddingBottom="@dimen/padding_tiny"
+                    android:text="@string/soups_tv"
+                    android:textColor="@color/black_38"
+                    android:textSize="@dimen/text_medium" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/categories_sea_food_cv"
+                android:layout_width="@dimen/category_card_dimens"
+                android:layout_height="@dimen/category_card_dimens"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                android:backgroundTint="@color/white_300"
+                app:cardCornerRadius="@dimen/radius_semi_medium"
+                app:strokeWidth="0dp">
+
+                <ImageView
+                    android:layout_width="@dimen/category_icon_dimens"
+                    android:layout_height="@dimen/category_icon_dimens"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@mipmap/ic_sea_food"
+                    android:hardwareAccelerated="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:fontFamily="@font/ubuntu_reguler"
+                    android:paddingBottom="@dimen/padding_tiny"
+                    android:text="@string/sea_food_tv"
+                    android:textColor="@color/black_38"
+                    android:textSize="@dimen/text_medium" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/categories_spicy_cv"
+                android:layout_width="@dimen/category_card_dimens"
+                android:layout_height="@dimen/category_card_dimens"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_tiny"
+                android:backgroundTint="@color/white_300"
+                app:cardCornerRadius="@dimen/radius_semi_medium"
+                app:strokeWidth="0dp">
+
+                <ImageView
+                    android:layout_width="@dimen/category_icon_dimens"
+                    android:layout_height="@dimen/category_icon_dimens"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@mipmap/ic_spicy"
+                    android:hardwareAccelerated="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:fontFamily="@font/ubuntu_reguler"
+                    android:paddingBottom="@dimen/padding_tiny"
+                    android:text="@string/spicy_tv"
+                    android:textColor="@color/black_38"
+                    android:textSize="@dimen/text_medium" />
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/home_recommendation_tv"
+        style="@style/home_recycle_header_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recommendations_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categories_sv" />
+
+    <TextView
+        style="@style/home_see_all_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/see_all_tv"
+        app:layout_constraintBottom_toBottomOf="@id/home_recommendation_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/home_recommendation_tv" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_recommendation_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_small"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_recommendation_tv" />
+
+
+    <TextView
+        android:id="@+id/recipes_of_week_heading_tv"
+        style="@style/home_recycle_header_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/recipes_of_the_week_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_recommendation_rv" />
+
+    <TextView
+        android:id="@+id/see_all_tv"
+        style="@style/home_see_all_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/see_all_tv"
+        app:layout_constraintBottom_toBottomOf="@id/recipes_of_week_heading_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/recipes_of_week_heading_tv" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recipes_of_week_heading_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

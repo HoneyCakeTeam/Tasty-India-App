@@ -1,22 +1,41 @@
 package com.example.tastyindia.ui
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.example.tastyindia.R
+import android.widget.SearchView
+import com.example.tastyindia.data.domain.Recipe
+import com.example.tastyindia.databinding.FragmentSearchBinding
 
-class SearchFragment : Fragment() {
+class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
+    override val TAG: String = "SearchFragment"
+    override fun getViewBinding() = FragmentSearchBinding.inflate(layoutInflater)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
+    override fun setUp() {
     }
 
+    override fun addCallbacks() {
+        addSearchListener()
+    }
 
+    private fun addSearchListener() {
+        binding.searchBar?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val result = searchByRecipeOrCuisine(newText!!)
+                log(result.size.toString())
+                return true
+            }
+        })
+    }
+
+    private fun searchByRecipeOrCuisine(searchWord: String): List<Recipe> {
+        return listOfRecipe
+            .filter {
+                it.cuisine.lowercase().contains(searchWord.lowercase()) || it.recipeName.lowercase()
+                    .contains(searchWord.lowercase())
+            }
+    }
 }

@@ -1,23 +1,51 @@
 package com.example.tastyindia.ui
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.example.tastyindia.R
+
+import com.example.tastyindia.data.domain.Recipe
+import com.example.tastyindia.databinding.FragmentCategoryBinding
 
 
-class CategoryFragment : Fragment() {
+class CategoryFragment : BaseFragment<FragmentCategoryBinding>() {
+    override val TAG: String = "CategoryFragment"
 
+    override fun getViewBinding(): FragmentCategoryBinding =
+        FragmentCategoryBinding.inflate(layoutInflater)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_category, container, false)
+    override fun setUp() {
+        val recipe = listOf(
+            "Chicken", "Fish", "Lentils", "Millet", "Cardamom", "Tomatoes", "Ginger", "Turmeric", "Cinnamon", "Sweet Potato", "Spinach", "Spinach", "Fenugreek"
+        )
+        val listHealthy = filterHealthyRecipes(recipe)
+        log(listHealthy.toString())
+        val listFast = filterFastRecipes()
+        log(listFast.toString())
+        val listEasy = filterEasyRecipes()
+        log(listEasy.toString())
     }
 
+    override fun addCallbacks() {
+    }
 
+    private fun filterHealthyRecipes(health: List<String>): List<Pair<String, String>> {
+        return listOfRecipe.filter { excludeUnHealthyRecipes(it, health) }
+            .map { Pair(it.recipeName, it.ingredients) }
+    }
+
+    private fun filterFastRecipes(): List<Pair<String, Int>> {
+        return listOfRecipe.sortedBy {
+            it.totalTimeInMins
+        }.map { Pair(it.recipeName, it.totalTimeInMins) }
+    }
+
+    private fun filterEasyRecipes(): List<Pair<String, Int>> {
+        return listOfRecipe.sortedBy {
+            it.ingredientsCount
+        }.map { Pair(it.recipeName, it.ingredientsCount) }
+    }
+
+    private fun excludeUnHealthyRecipes(recipe: Recipe, health: List<String>): Boolean {
+        return health.any {
+            recipe.ingredients.lowercase().contains(it.lowercase())
+        }
+    }
 }

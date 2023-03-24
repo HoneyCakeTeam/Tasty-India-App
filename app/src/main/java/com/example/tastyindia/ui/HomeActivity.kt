@@ -13,19 +13,28 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var parser: CsvParser
     private lateinit var datasource: RecipeDataSource
-    private val fragmentHome = HomeFragment()
-    private val fragmentCategory = CategoryFragment()
-    private val fragmentKitchen = KitchenFragment()
-    private val fragmentSearch = SearchFragment()
+    private lateinit var fragmentHome: HomeFragment
+    private lateinit var fragmentCategory: CategoryFragment
+    private lateinit var fragmentCuisine: KitchenFragment
+    private lateinit var fragmentSearch: SearchFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        initObjects()
         setup()
         initSubView()
         addNavigationListener()
 
+    }
+
+    private fun initObjects() {
+        fragmentHome = HomeFragment()
+        fragmentCategory = CategoryFragment()
+        fragmentCuisine = KitchenFragment()
+        fragmentSearch = SearchFragment()
     }
 
     private fun setup() {
@@ -44,8 +53,8 @@ class HomeActivity : AppCompatActivity() {
                     replaceFragment(fragmentCategory)
                     true
                 }
-                R.id.kitchenFragment -> {
-                    replaceFragment(fragmentKitchen)
+                R.id.CuisineFragment -> {
+                    replaceFragment(fragmentCuisine)
                     true
                 }
                 R.id.searchFragment -> {

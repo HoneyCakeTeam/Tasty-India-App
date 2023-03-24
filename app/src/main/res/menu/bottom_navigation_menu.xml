@@ -5,17 +5,17 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_home"
-        android:title="Home" />
+        android:title="@string/home" />
     <item
-        android:id="@+id/kitchenFragment"
+        android:id="@+id/CuisineFragment"
         android:icon="@drawable/ic_kitchen"
-        android:title="kitchen" />
+        android:title="@string/cuisine" />
     <item
         android:id="@+id/categoryFragment"
         android:icon="@drawable/ic_category"
-        android:title="Category" />
+        android:title="@string/category" />
     <item
         android:id="@+id/searchFragment"
         android:icon="@drawable/ic_search"
-        android:title="Search" />
+        android:title="@string/search" />
 </menu>

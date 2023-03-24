@@ -1,9 +1,9 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.search
 
-import android.content.Context
 import android.widget.SearchView
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentSearchBinding
+import com.example.tastyindia.ui.BaseFragment
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     private lateinit var adapter: SearchAdapter
@@ -11,7 +11,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     override fun getViewBinding() = FragmentSearchBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        setUpAppBar(visibility = true , title = "Search",showBackIcon = true)
+       // setUpAppBar(visibility = true , title = "Search",showBackIcon = true)
         log(listOfRecipe.size)
     }
 

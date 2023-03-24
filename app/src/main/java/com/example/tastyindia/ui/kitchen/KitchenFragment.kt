@@ -1,10 +1,12 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.kitchen
 
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentKitchenBinding
+import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.kitchendetails.KitchenDetailsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 

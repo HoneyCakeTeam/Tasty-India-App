@@ -1,7 +1,9 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.categorydetails
 
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentCategoryDetailsBinding
+import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.Constants
 
 class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),

@@ -1,4 +1,4 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.kitchen
 
 import android.os.Bundle
 import android.widget.TextView
@@ -6,6 +6,7 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.KitchenInfo
 import com.example.tastyindia.data.domain.kitchens
 import com.example.tastyindia.databinding.FragmentKitchenInfoBinding
+import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
 
@@ -19,7 +20,7 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
         FragmentKitchenInfoBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        setUpAppBar(visibility = true, title = "Kitchen Info", showBackIcon = true)
+       // setUpAppBar(visibility = true, title = "Kitchen Info", showBackIcon = true)
 
         arguments?.let {
             kitchenName = it.getString(KITCHEN_NAME)!!

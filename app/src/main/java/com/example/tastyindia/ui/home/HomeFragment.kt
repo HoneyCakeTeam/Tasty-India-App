@@ -1,10 +1,13 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.home
 
 
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentHomeBinding
+import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.category.CategoryFragment
+import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
+import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import kotlin.random.Random
 
 
@@ -34,10 +37,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsLis
     override fun addCallbacks() {
 
         binding.tvHomeRecommendationSeeAll.setOnClickListener {
-            replaceFragment(SeeAllCategoriesFragment())
+            replaceFragment(SeeAllRecipesFragment())
         }
         binding.tvHomeRecipeOfWeekSeeAll.setOnClickListener {
-            replaceFragment(SeeAllCategoriesFragment())
+            replaceFragment(SeeAllRecipesFragment())
         }
         binding.cvCategoriesMeal.setOnClickListener {
             replaceFragment(CategoryFragment())

@@ -1,8 +1,9 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.recipedetails
 
 import android.os.Bundle
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentRecipeDetailsBinding
+import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.utils.Constants
 
 class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {

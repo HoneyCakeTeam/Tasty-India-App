@@ -1,4 +1,4 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.search
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
-import com.example.tastyindia.databinding.ItemKitchenBinding
 import com.example.tastyindia.databinding.ItemSearchSquaredBinding
 
 class SearchAdapter(private val RecipesList: List<Recipe>) :
@@ -16,14 +15,14 @@ class SearchAdapter(private val RecipesList: List<Recipe>) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-    ): SearchAdapter.SearchViewHolder {
+    ): SearchViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_search_squared, parent, false)
-        return SearchAdapter.SearchViewHolder(view)
+        return SearchViewHolder(view)
     }
 
 
-    override fun onBindViewHolder(holder: SearchAdapter.SearchViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
         val currentRecipe = RecipesList[position]
         holder.binding.apply {
             tvRecipeName.text = currentRecipe.recipeName

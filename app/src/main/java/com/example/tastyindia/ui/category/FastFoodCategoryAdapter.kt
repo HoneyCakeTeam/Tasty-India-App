@@ -1,25 +1,25 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.category
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.tastyindia.R
 import com.bumptech.glide.Glide
+import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
-import com.example.tastyindia.databinding.FastFoodCategoriesBinding
-import layout.CatecoryInteractorListener
+import com.example.tastyindia.databinding.ItemFastFoodCategoryBinding
 
-class FastFoodCategoryAdabter(private val fastList: List<Recipe>,private val listener : CatecoryInteractorListener) :
-    RecyclerView.Adapter<FastFoodCategoryAdabter.FastFoodViewHolder>() {
+class FastFoodCategoryAdapter(private val fastList: List<Recipe>, private val listener : CatecoryInteractorListener) :
+    RecyclerView.Adapter<FastFoodCategoryAdapter.FastFoodViewHolder>() {
 
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): FastFoodViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.fast_food_categories,parent,false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_fast_food_category, parent, false)
         return FastFoodViewHolder(view)
     }
 
@@ -43,7 +43,7 @@ class FastFoodCategoryAdabter(private val fastList: List<Recipe>,private val lis
     override fun getItemCount(): Int = fastList.size
 
     class FastFoodViewHolder(viewItem: View) : ViewHolder(viewItem) {
-        val binding = FastFoodCategoriesBinding.bind(viewItem)
+        val binding = ItemFastFoodCategoryBinding.bind(viewItem)
     }
 }
 

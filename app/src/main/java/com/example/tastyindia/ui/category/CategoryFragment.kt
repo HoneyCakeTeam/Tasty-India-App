@@ -1,15 +1,15 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.category
 
 
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentCategoryBinding
-import layout.CatecoryInteractorListener
+import com.example.tastyindia.ui.BaseFragment
 
 
 class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CatecoryInteractorListener {
     override val TAG: String = "CategoryFragment"
-    private lateinit var healthAdabter: HealthCategoryAdabter
-    private lateinit var fastFoodAdabter: FastFoodCategoryAdabter
+    private lateinit var healthAdabter: HealthCategoryAdapter
+    private lateinit var fastFoodAdabter: FastFoodCategoryAdapter
     private lateinit var easyAdabter: EasyCategoryAdabter
     override fun getViewBinding(): FragmentCategoryBinding =
         FragmentCategoryBinding.inflate(layoutInflater)
@@ -34,9 +34,9 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CatecoryIntera
         val listFast = filterFastFoodRecipes()
         val listEasy = filterEasyRecipes()
 
-        healthAdabter = HealthCategoryAdabter(listHealthy, this)
+        healthAdabter = HealthCategoryAdapter(listHealthy, this)
         binding?.rvHealthCategories?.adapter = healthAdabter
-        fastFoodAdabter = FastFoodCategoryAdabter(listFast, this)
+        fastFoodAdabter = FastFoodCategoryAdapter(listFast, this)
         binding?.rvFastFoodCategories?.adapter = fastFoodAdabter
         easyAdabter = EasyCategoryAdabter(listEasy, this)
         binding?.rvEasyCategories?.adapter = easyAdabter

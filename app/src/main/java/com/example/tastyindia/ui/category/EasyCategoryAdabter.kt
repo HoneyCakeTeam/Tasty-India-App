@@ -1,4 +1,4 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.category
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +8,9 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.tastyindia.R
 import com.bumptech.glide.Glide
 import com.example.tastyindia.data.domain.Recipe
-import com.example.tastyindia.databinding.EasyCategoriesBinding
-import layout.CatecoryInteractorListener
+import com.example.tastyindia.databinding.ItemEasyCategoryBinding
 
-class EasyCategoryAdabter(private val easyList:List<Recipe >,private val listener:CatecoryInteractorListener) :
+class EasyCategoryAdabter(private val easyList:List<Recipe >,private val listener: CatecoryInteractorListener) :
     RecyclerView.Adapter<EasyCategoryAdabter.EasyViewHolder>() {
 
 
@@ -20,7 +19,7 @@ class EasyCategoryAdabter(private val easyList:List<Recipe >,private val listene
         viewType: Int
     ): EasyViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.easy_categories, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.item_easy_category, parent, false)
         return EasyViewHolder(view)
     }
 
@@ -46,7 +45,7 @@ class EasyCategoryAdabter(private val easyList:List<Recipe >,private val listene
     override fun getItemCount(): Int = easyList.size
 
     class EasyViewHolder(viewItem: View) : ViewHolder(viewItem) {
-        val binding = EasyCategoriesBinding.bind(viewItem)
+        val binding = ItemEasyCategoryBinding.bind(viewItem)
     }
 }
 

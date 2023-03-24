@@ -1,4 +1,4 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.home
 
 import com.example.tastyindia.data.domain.Recipe
 

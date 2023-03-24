@@ -1,4 +1,4 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.category
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,18 +8,17 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.tastyindia.R
 import com.bumptech.glide.Glide
 import com.example.tastyindia.data.domain.Recipe
-import com.example.tastyindia.databinding.HealthCategoriesBinding
-import layout.CatecoryInteractorListener
+import com.example.tastyindia.databinding.ItemHealthCategoryBinding
 
-class HealthCategoryAdabter(private val healthList: List<Recipe>,private val listener :CatecoryInteractorListener) :
-    RecyclerView.Adapter<HealthCategoryAdabter.HealthViewHolder>() {
+class HealthCategoryAdapter(private val healthList: List<Recipe>, private val listener : CatecoryInteractorListener) :
+    RecyclerView.Adapter<HealthCategoryAdapter.HealthViewHolder>() {
 
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): HealthViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.health_categories,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_health_category,parent,false)
         return HealthViewHolder(view)
     }
 
@@ -42,7 +41,7 @@ class HealthCategoryAdabter(private val healthList: List<Recipe>,private val lis
     override fun getItemCount(): Int = healthList.size
 
     class HealthViewHolder(viewItem: View) : ViewHolder(viewItem) {
-        val binding = HealthCategoriesBinding.bind(viewItem)
+        val binding = ItemHealthCategoryBinding.bind(viewItem)
     }
 }
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_recipe_details_scene"
-    tools:context=".ui.RecipeDetailsFragment">
+    tools:context=".ui.recipedetails.RecipeDetailsFragment">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_recipe"

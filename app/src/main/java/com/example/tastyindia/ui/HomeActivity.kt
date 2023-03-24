@@ -1,16 +1,17 @@
 package com.example.tastyindia.ui
 
-import android.content.res.Configuration
-import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.data.source.RecipeDataSource
 import com.example.tastyindia.databinding.ActivityHomeBinding
+import com.example.tastyindia.ui.category.CategoryFragment
+import com.example.tastyindia.ui.home.HomeFragment
+import com.example.tastyindia.ui.kitchen.KitchenFragment
+import com.example.tastyindia.ui.kitchen.KitchenInfoFragment
+import com.example.tastyindia.ui.search.SearchFragment
 import com.example.tastyindia.utils.CsvParser
 
 class HomeActivity : AppCompatActivity() {
@@ -64,7 +65,7 @@ class HomeActivity : AppCompatActivity() {
                     true
                 }
                 R.id.searchFragment -> {
-                    replaceFragment(fragmentKitchenInfo)
+                    replaceFragment(fragmentSearch)
                     true
                 }
                 else -> false

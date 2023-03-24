@@ -6,7 +6,6 @@ object Constants {
     }
 
     object Key {
-        const val RECIPE_NAME = "RecipeName"
         const val KITCHEN_NAME = "kitchenName"
         const val KITCHEN_IMAGE_URL = "kitchenImageUrl"
         const val RECIPE_NAME = "recipeName"

@@ -1,12 +1,14 @@
 package com.example.tastyindia.ui
 
 
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentHomeBinding
 import kotlin.random.Random
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsListener {
 
     override val TAG: String = "HomeFragment"
 
@@ -15,20 +17,44 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun setUp() {
 
-        val randomNumbersForRecommendations = getRandomNumbersForRecipesOfTheWeek()
-        log("setUppppp: ${getRandomNumbersForRecommendations()}")
-        log("setUppppp: ${
-            getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
-                .map { it.recipeName }
-        }")
+        setUpAppBar(false)
+
+        val randomNumbersForRecommendations = getRandomNumbersForRecommendations()
+        val listOfRecommendationRecipes = getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
+        val adapter = HomeRecommendationAdapter(listOfRecommendationRecipes, this)
+        binding?.rvHomeRecommendation?.adapter = adapter
 
         val randomNumbers = getRandomNumbersForRecipesOfTheWeek()
         val recipesOfTheWeek = getListOfRecipeUsingRandomNumbers(randomNumbers)
         log("setUpppp: ${randomNumbers}")
         log("setUpppp: ${recipesOfTheWeek.map { it.recipeName }}")
+
     }
 
     override fun addCallbacks() {
+
+        binding.tvHomeRecommendationSeeAll.setOnClickListener {
+            replaceFragment(SeeAllCategoriesFragment())
+        }
+        binding.tvHomeRecipeOfWeekSeeAll.setOnClickListener {
+            replaceFragment(SeeAllCategoriesFragment())
+        }
+        binding.cvCategoriesMeal.setOnClickListener {
+            replaceFragment(CategoryFragment())
+        }
+        binding.cvHomeCategoriesChicken.setOnClickListener {
+            replaceFragment(CategoryFragment())
+        }
+        binding.cvCategoriesSeaFood.setOnClickListener {
+            replaceFragment(CategoryFragment())
+        }
+        binding.cvCategoriesSoups.setOnClickListener {
+            replaceFragment(CategoryFragment())
+        }
+        binding.cvCategoriesSpicy.setOnClickListener {
+            replaceFragment(CategoryFragment())
+        }
+
     }
 
     private fun getRandomNumbersForRecommendations(): List<Int> {
@@ -50,5 +76,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             listOfRecipe[it]
         }
 
+    override fun onClickItem(recipe: Recipe) {
+        replaceFragment(RecipeDetailsFragment())
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(com.example.tastyindia.R.id.fragmentContainerView, fragment)
+        fragmentTransaction.commit()
+    }
 
 }

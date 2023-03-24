@@ -1,5 +1,7 @@
 package com.example.tastyindia.ui
 
+import com.bumptech.glide.Glide
+import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentRecipeDetailsBinding
 
@@ -10,6 +12,8 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
 
 
     override fun setUp() {
+        setUpAppBar(true, "", true)
+
         val recipe = getRecipeDetails(1)
         val recipeName = recipe.recipeName
         log(recipeName)
@@ -23,7 +27,11 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         binding.rvIngredients.adapter = ingredientsAdapter
         binding.rvInstructions.adapter = instructionsAdapter
 
-        setUpAppBar(true, "", true)
+        // set Image
+        Glide.with(binding.root).load(recipe.imageUrl)
+            .placeholder(R.drawable.ic_launcher_foreground)
+            .error(R.drawable.ic_launcher_background)
+            .into(binding.ivRecipe)
     }
 
     override fun addCallbacks() {

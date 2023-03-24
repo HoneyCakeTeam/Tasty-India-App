@@ -1,15 +1,19 @@
 package com.example.tastyindia.ui
 
+import android.content.Context
 import android.widget.SearchView
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentSearchBinding
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
-
+    private lateinit var adapter: SearchAdapter
     override val TAG: String = "SearchFragment"
     override fun getViewBinding() = FragmentSearchBinding.inflate(layoutInflater)
 
     override fun setUp() {
+
+
+
     }
 
     override fun addCallbacks() {
@@ -25,6 +29,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 val result = searchByRecipeOrCuisine(newText!!)
+                adapter = SearchAdapter(result)
+                binding.rvSearchResult.adapter=adapter
                 log(result.size.toString())
                 return true
             }
@@ -32,6 +38,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     }
 
     private fun searchByRecipeOrCuisine(searchWord: String): List<Recipe> {
+
         return listOfRecipe
             .filter {
                 it.cuisine.lowercase().contains(searchWord.lowercase()) || it.recipeName.lowercase()

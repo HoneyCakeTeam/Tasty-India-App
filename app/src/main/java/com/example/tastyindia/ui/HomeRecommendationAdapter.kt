@@ -40,7 +40,7 @@ class HomeRecommendationAdapter(val list: List<Recipe>, val listener: HomeRecomm
                 .into(ivHomeRecommendationRecipeImage)
 
             root.setOnClickListener {
-                listener.onClickItem(position)
+                listener.onClickItem(currentMeal)
             }
         }
 

@@ -81,7 +81,7 @@
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
         <item name="android:textColor">@color/black_87</item>
         <item name="android:textSize">@dimen/text_medium</item>
-        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+
         <item name="android:layout_marginTop">@dimen/margin_medium</item>
     </style>
 
@@ -129,4 +129,33 @@
     <style name="AppTheme.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/primary_200</item>
     </style>
+
+    <style name="HomeRecycleViewStyle">
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="HomeCategoriesCardStyle">
+        <item name="android:layout_marginEnd">@dimen/margin_small</item>
+        <item name="android:layout_marginBottom">@dimen/margin_tiny</item>
+        <item name="android:backgroundTint">@color/white_300</item>
+    </style>
+
+    <style name="HomeCategoriesCardImageStyle">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:background">@mipmap/ic_soup</item>
+        <item name="android:hardwareAccelerated">false</item>
+    </style>
+
+    <style name="HomeCategoriesCardNameStyle">
+        <item name="android:layout_gravity">bottom|center_horizontal</item>
+        <item name="android:layout_marginBottom">@dimen/margin_small</item>
+        <item name="android:fontFamily">@font/ubuntu_reguler</item>
+        <item name="android:paddingBottom">@dimen/padding_tiny</item>
+        <item name="android:textColor">@color/black_38</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
 </resources>

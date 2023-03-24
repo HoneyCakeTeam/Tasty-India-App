@@ -7,287 +7,257 @@
     android:background="@color/white_100"
     tools:context=".ui.HomeFragment">
 
-    <TextView
-        android:id="@+id/tv_goog_morning"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:fontFamily="@font/ubuntu_reguler"
-        android:text="@string/good_morning"
-        android:textColor="@color/black_60"
-        android:textSize="@dimen/text_medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_home_welcome_header"
-        android:layout_width="195dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="@dimen/margin_small"
-        android:fontFamily="@font/poppins_semi_bold"
-        android:text="@string/second_header_in_home_tv"
-        android:textColor="@color/black_87"
-        android:textSize="@dimen/text_giant"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/tv_goog_morning"
-        app:layout_constraintTop_toBottomOf="@id/tv_goog_morning" />
-
-    <TextView
-        android:id="@+id/tv_home_categories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:fontFamily="@font/poppins_semi_bold"
-        android:text="@string/categories_tv"
-        android:textColor="@color/black_87"
-        android:textSize="@dimen/text_medium"
-        app:layout_constraintStart_toStartOf="@+id/tv_home_welcome_header"
-        app:layout_constraintTop_toBottomOf="@+id/tv_home_welcome_header" />
-
-    <HorizontalScrollView
-        android:id="@+id/sv_home_categories"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
-
-        android:scrollbars="none"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_home_categories">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/ly_home_categories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cv_home_categories_chicken"
-                android:layout_width="@dimen/category_card_dimens"
-                android:layout_height="@dimen/category_card_dimens"
+            <TextView
+                android:id="@+id/tv_goog_morning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
-                android:layout_marginEnd="@dimen/margin_small"
-                android:layout_marginBottom="@dimen/margin_tiny"
-                android:backgroundTint="@color/white_300"
-                app:cardCornerRadius="@dimen/radius_semi_medium"
-                app:strokeWidth="0dp">
+                android:layout_marginTop="@dimen/margin_medium"
+                android:fontFamily="@font/ubuntu_reguler"
+                android:text="@string/good_morning"
+                android:textColor="@color/black_60"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.052"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:layout_width="@dimen/category_icon_dimens"
-                    android:layout_height="@dimen/category_icon_dimens"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:background="@mipmap/ic_chicken"
-                    android:hardwareAccelerated="false" />
+            <TextView
+                android:id="@+id/tv_home_welcome_header"
+                android:layout_width="195dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="@string/second_header_in_home_tv"
+                android:textColor="@color/black_87"
+                android:textSize="@dimen/text_giant"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/tv_goog_morning"
+                app:layout_constraintTop_toBottomOf="@id/tv_goog_morning" />
 
-                <TextView
+            <TextView
+                android:id="@+id/tv_home_categories"
+                style="@style/home_recycle_header_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/categories_tv"
+                android:textColor="@color/black_87"
+                app:layout_constraintStart_toStartOf="@+id/tv_home_welcome_header"
+                app:layout_constraintTop_toBottomOf="@+id/tv_home_welcome_header" />
+
+            <HorizontalScrollView
+                android:id="@+id/sv_home_categories"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_home_categories"
+                app:layout_constraintTop_toBottomOf="@id/tv_home_categories">
+
+                <LinearLayout
+                    android:id="@+id/ly_home_categories"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="@dimen/margin_small"
-                    android:fontFamily="@font/ubuntu_reguler"
-                    android:paddingBottom="@dimen/padding_tiny"
-                    android:text="@string/chicken_tv"
-                    android:textColor="@color/black_38"
-                    android:textSize="@dimen/text_medium" />
-            </com.google.android.material.card.MaterialCardView>
+                    android:orientation="horizontal">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cv_categories_Meal"
-                android:layout_width="@dimen/category_card_dimens"
-                android:layout_height="@dimen/category_card_dimens"
-                android:layout_marginEnd="@dimen/margin_small"
-                android:backgroundTint="@color/white_300"
-                app:cardCornerRadius="@dimen/radius_semi_medium"
-                app:strokeWidth="0dp">
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cv_home_categories_chicken"
+                        style="@style/HomeCategoriesCardStyle"
+                        android:layout_width="@dimen/category_card_dimens"
+                        android:layout_height="@dimen/category_card_dimens"
+                        app:cardCornerRadius="@dimen/radius_semi_medium"
+                        app:strokeWidth="0dp">
 
-                <ImageView
-                    android:layout_width="@dimen/category_icon_dimens"
-                    android:layout_height="@dimen/category_icon_dimens"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:background="@mipmap/ic_meal"
-                    android:hardwareAccelerated="false" />
+                        <ImageView
+                            style="@style/HomeCategoriesCardImageStyle"
+                            android:layout_width="@dimen/category_icon_dimens"
+                            android:layout_height="@dimen/category_icon_dimens" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="@dimen/margin_small"
-                    android:fontFamily="@font/ubuntu_reguler"
-                    android:paddingBottom="@dimen/padding_tiny"
-                    android:text="@string/meal_tv"
-                    android:textColor="@color/black_38"
-                    android:textSize="@dimen/text_medium" />
-            </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            style="@style/HomeCategoriesCardNameStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/chicken_tv" />
+                    </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cv_categories_soups"
-                android:layout_width="@dimen/category_card_dimens"
-                android:layout_height="@dimen/category_card_dimens"
-                android:layout_marginEnd="@dimen/margin_small"
-                android:layout_marginBottom="@dimen/margin_tiny"
-                android:backgroundTint="@color/white_300"
-                app:cardCornerRadius="@dimen/radius_semi_medium"
-                app:strokeWidth="0dp">
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cv_categories_Meal"
+                        android:layout_width="@dimen/category_card_dimens"
+                        android:layout_height="@dimen/category_card_dimens"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        android:backgroundTint="@color/white_300"
+                        app:cardCornerRadius="@dimen/radius_semi_medium"
+                        app:strokeWidth="0dp">
 
-                <ImageView
-                    android:layout_width="@dimen/category_icon_dimens"
-                    android:layout_height="@dimen/category_icon_dimens"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:background="@mipmap/ic_soup"
-                    android:hardwareAccelerated="false" />
+                        <ImageView
+                            android:layout_width="@dimen/category_icon_dimens"
+                            android:layout_height="@dimen/category_icon_dimens"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:background="@mipmap/ic_meal"
+                            android:hardwareAccelerated="false" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="@dimen/margin_small"
-                    android:fontFamily="@font/ubuntu_reguler"
-                    android:paddingBottom="@dimen/padding_tiny"
-                    android:text="@string/soups_tv"
-                    android:textColor="@color/black_38"
-                    android:textSize="@dimen/text_medium" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:layout_marginBottom="@dimen/margin_small"
+                            android:fontFamily="@font/ubuntu_reguler"
+                            android:paddingBottom="@dimen/padding_tiny"
+                            android:text="@string/meal_tv"
+                            android:textColor="@color/black_38"
+                            android:textSize="@dimen/text_medium" />
+                    </com.google.android.material.card.MaterialCardView>
 
-            </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cv_categories_soups"
+                        style="@style/HomeCategoriesCardStyle"
+                        android:layout_width="@dimen/category_card_dimens"
+                        android:layout_height="@dimen/category_card_dimens"
+                        app:cardCornerRadius="@dimen/radius_semi_medium"
+                        app:strokeWidth="0dp">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cv_categories_sea_food"
-                android:layout_width="@dimen/category_card_dimens"
-                android:layout_height="@dimen/category_card_dimens"
-                android:layout_marginEnd="@dimen/margin_small"
-                android:layout_marginBottom="@dimen/margin_tiny"
-                android:backgroundTint="@color/white_300"
-                app:cardCornerRadius="@dimen/radius_semi_medium"
-                app:strokeWidth="0dp">
+                        <ImageView
+                            style="@style/HomeCategoriesCardImageStyle"
+                            android:layout_width="@dimen/category_icon_dimens"
+                            android:layout_height="@dimen/category_icon_dimens" />
 
-                <ImageView
-                    android:layout_width="@dimen/category_icon_dimens"
-                    android:layout_height="@dimen/category_icon_dimens"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:background="@mipmap/ic_sea_food"
-                    android:hardwareAccelerated="false" />
+                        <TextView
+                            style="@style/HomeCategoriesCardNameStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/soups_tv" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="@dimen/margin_small"
-                    android:fontFamily="@font/ubuntu_reguler"
-                    android:paddingBottom="@dimen/padding_tiny"
-                    android:text="@string/sea_food_tv"
-                    android:textColor="@color/black_38"
-                    android:textSize="@dimen/text_medium" />
+                    </com.google.android.material.card.MaterialCardView>
 
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cv_categories_sea_food"
+                        style="@style/HomeCategoriesCardStyle"
+                        android:layout_width="@dimen/category_card_dimens"
+                        android:layout_height="@dimen/category_card_dimens"
+                        app:cardCornerRadius="@dimen/radius_semi_medium"
+                        app:strokeWidth="0dp">
 
-            </com.google.android.material.card.MaterialCardView>
+                        <ImageView
+                            style="@style/HomeCategoriesCardImageStyle"
+                            android:layout_width="@dimen/category_icon_dimens"
+                            android:layout_height="@dimen/category_icon_dimens" />
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cv_categories_spicy"
-                android:layout_width="@dimen/category_card_dimens"
-                android:layout_height="@dimen/category_card_dimens"
-                android:layout_marginEnd="@dimen/margin_small"
-                android:layout_marginBottom="@dimen/margin_tiny"
-                android:backgroundTint="@color/white_300"
-                app:cardCornerRadius="@dimen/radius_semi_medium"
-                app:strokeWidth="0dp">
+                        <TextView
+                            style="@style/HomeCategoriesCardNameStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/sea_food_tv" />
 
-                <ImageView
-                    android:layout_width="@dimen/category_icon_dimens"
-                    android:layout_height="@dimen/category_icon_dimens"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:background="@mipmap/ic_spicy"
-                    android:hardwareAccelerated="false" />
+                    </com.google.android.material.card.MaterialCardView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="@dimen/margin_small"
-                    android:fontFamily="@font/ubuntu_reguler"
-                    android:paddingBottom="@dimen/padding_tiny"
-                    android:text="@string/spicy_tv"
-                    android:textColor="@color/black_38"
-                    android:textSize="@dimen/text_medium" />
-            </com.google.android.material.card.MaterialCardView>
-        </LinearLayout>
-    </HorizontalScrollView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cv_categories_spicy"
+                        style="@style/HomeCategoriesCardStyle"
+                        android:layout_width="@dimen/category_card_dimens"
+                        android:layout_height="@dimen/category_card_dimens"
+                        app:cardCornerRadius="@dimen/radius_semi_medium"
+                        app:strokeWidth="0dp">
 
-    <TextView
-        android:id="@+id/tv_home_recommendation"
-        style="@style/home_recycle_header_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/recommendations_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sv_home_categories" />
+                        <ImageView
+                            style="@style/HomeCategoriesCardImageStyle"
+                            android:layout_width="@dimen/category_icon_dimens"
+                            android:layout_height="@dimen/category_icon_dimens" />
 
-    <TextView
-        android:id="@+id/tv_home_recommendation_see_all"
-        style="@style/home_see_all_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/see_all_tv"
-        app:layout_constraintBottom_toBottomOf="@id/tv_home_recommendation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_home_recommendation" />
+                        <TextView
+                            style="@style/HomeCategoriesCardNameStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/spicy_tv" />
+
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/tv_home_recommendation"
+                style="@style/home_recycle_header_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recommendations_tv"
+                app:layout_constraintStart_toStartOf="@id/tv_home_categories"
+                app:layout_constraintTop_toBottomOf="@+id/sv_home_categories" />
+
+            <TextView
+                android:id="@+id/tv_home_recommendation_see_all"
+                style="@style/home_see_all_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/see_all_tv"
+                app:layout_constraintBottom_toBottomOf="@id/tv_home_recommendation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_home_recommendation" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_home_recommendation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.187"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_home_recommendation" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_recommendation"
+                style="@style/HomeRecycleViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.187"
+                app:layout_constraintStart_toStartOf="@id/tv_home_recommendation"
+                app:layout_constraintTop_toBottomOf="@+id/tv_home_recommendation" />
 
-    <TextView
-        android:id="@+id/tv_recipes_of_week_heading"
-        style="@style/home_recycle_header_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/recipes_of_the_week_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rv_home_recommendation" />
+            <TextView
+                android:id="@+id/tv_recipes_of_week_heading"
+                style="@style/home_recycle_header_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recipes_of_the_week_tv"
+                app:layout_constraintHorizontal_bias="0.062"
+                app:layout_constraintStart_toStartOf="@id/tv_home_recommendation"
+                app:layout_constraintTop_toBottomOf="@id/rv_home_recommendation" />
 
-    <TextView
-        android:id="@+id/tv_home_recipe_of_week_see_all"
-        style="@style/home_see_all_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/see_all_tv"
-        app:layout_constraintBottom_toBottomOf="@id/tv_recipes_of_week_heading"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_recipes_of_week_heading" />
+            <TextView
+                android:id="@+id/tv_home_recipe_of_week_see_all"
+                style="@style/home_see_all_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/see_all_tv"
+                app:layout_constraintBottom_toBottomOf="@id/tv_recipes_of_week_heading"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_recipes_of_week_heading" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_home_recipes_of_week"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/margin_medium"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_recipes_of_week_heading" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_recipes_of_week"
+                style="@style/HomeRecycleViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.042"
+                app:layout_constraintStart_toStartOf="@id/tv_recipes_of_week_heading"
+                app:layout_constraintTop_toBottomOf="@id/tv_recipes_of_week_heading" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

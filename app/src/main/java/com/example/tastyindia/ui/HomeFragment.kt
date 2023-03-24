@@ -76,8 +76,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsLis
             listOfRecipe[it]
         }
 
-    override fun onClickItem(id: Int) {
-        Toast.makeText(requireContext(), "$id", Toast.LENGTH_SHORT).show()
+    override fun onClickItem(recipe: Recipe) {
         replaceFragment(RecipeDetailsFragment())
     }
 

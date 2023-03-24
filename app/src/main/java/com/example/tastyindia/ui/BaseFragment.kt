@@ -15,6 +15,7 @@ import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.data.source.RecipeDataSource
 import com.example.tastyindia.utils.CsvParser
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 /**
  * Created by Aziza Helmy on 3/18/2023.
@@ -56,7 +57,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     protected fun log(value: Any) {
         Log.e(TAG, value.toString())
     }
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
@@ -84,5 +84,4 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
             infoButton.visibility = if (showInfoButton) View.VISIBLE else View.GONE
         }
     }
-
 }

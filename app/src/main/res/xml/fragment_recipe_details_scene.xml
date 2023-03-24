@@ -9,7 +9,7 @@
         motion:duration="1000">
         <OnSwipe
             motion:touchAnchorId="@+id/constraint_layout"
-            motion:touchAnchorSide="bottom" />
+            motion:touchAnchorSide="top" />
     </Transition>
 
     <ConstraintSet android:id="@+id/start">

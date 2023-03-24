@@ -23,14 +23,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsLis
         setUpAppBar(false)
 
         val randomNumbersForRecommendations = getRandomNumbersForRecommendations()
-        val listOfRecommendationRecipes = getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
+        val listOfRecommendationRecipes =
+            getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
         val adapter = HomeRecommendationAdapter(listOfRecommendationRecipes, this)
-        binding?.rvHomeRecommendation?.adapter = adapter
+        binding.rvHomeRecommendation.adapter = adapter
 
         val randomNumbers = getRandomNumbersForRecipesOfTheWeek()
         val recipesOfTheWeek = getListOfRecipeUsingRandomNumbers(randomNumbers)
-        log("setUpppp: ${randomNumbers}")
-        log("setUpppp: ${recipesOfTheWeek.map { it.recipeName }}")
 
     }
 
@@ -81,6 +80,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsLis
 
     override fun onClickItem(recipe: Recipe) {
         replaceFragment(RecipeDetailsFragment())
+        RecipeDetailsFragment.newInstance(recipe)
     }
 
     private fun replaceFragment(fragment: Fragment) {

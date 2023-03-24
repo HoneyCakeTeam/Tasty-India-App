@@ -18,7 +18,6 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
         FragmentCategoryDetailsBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        //TODO check args first then show data
         arguments?.let {
             categoryName = it.getString(Constants.Key.CATEGORY_NAME).toString()
             categoryImage = it.getString(Constants.Key.CATEGORY_IMAGE).toString()
@@ -37,7 +36,7 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
     }
 
     override fun onClickItem(recipe: Recipe) {
-        RecipeDetailsFragment.newInstance(recipe.recipeName, recipe.imageUrl)
+        RecipeDetailsFragment.newInstance(recipe)
     }
 
     private fun getAllRecipes(): List<Recipe> {

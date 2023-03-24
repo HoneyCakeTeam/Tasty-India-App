@@ -17,7 +17,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     }
 
     private fun addSearchListener() {
-        binding?.searchBar?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        binding.searchBar?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
 
                 return false

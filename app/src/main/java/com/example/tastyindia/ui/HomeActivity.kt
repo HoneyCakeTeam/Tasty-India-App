@@ -15,7 +15,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var datasource: RecipeDataSource
     private lateinit var fragmentHome: HomeFragment
     private lateinit var fragmentCategory: CategoryFragment
-    private lateinit var fragmentCuisine: CuisineFragment
+    private lateinit var fragmentCuisine: KitchenFragment
     private lateinit var fragmentSearch: SearchFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +33,7 @@ class HomeActivity : AppCompatActivity() {
     private fun initObjects() {
         fragmentHome = HomeFragment()
         fragmentCategory = CategoryFragment()
-        fragmentCuisine = CuisineFragment()
+        fragmentCuisine = KitchenFragment()
         fragmentSearch = SearchFragment()
     }
 

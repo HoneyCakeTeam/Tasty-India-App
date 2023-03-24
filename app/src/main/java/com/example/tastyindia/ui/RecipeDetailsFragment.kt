@@ -1,9 +1,8 @@
 package com.example.tastyindia.ui
 
-import android.util.Log
 import com.example.tastyindia.databinding.FragmentRecipeDetailsBinding
 
-class RecipeDetails : BaseFragment<FragmentRecipeDetailsBinding>() {
+class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
     override val TAG = "RecipeDetails"
 
     override fun getViewBinding() = FragmentRecipeDetailsBinding.inflate(layoutInflater)

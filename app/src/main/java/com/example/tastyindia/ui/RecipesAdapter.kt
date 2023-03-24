@@ -49,12 +49,11 @@ class RecipesAdapter(private val context: Context, private val listener: RecipeI
                 tvKitchenName.text = recipe.cuisine
                 Glide.with(context).load(recipe.url).into(ivRecipe)
             }
-//                binding.cvRecipeItem.setOnClickListener {
-//                    listener.onClickItem(recipes[position])
-//                }
         }
 
     }
 
-
+    interface RecipeInteractionListener {
+        fun onClickItem(recipe: Recipe)
+    }
 }

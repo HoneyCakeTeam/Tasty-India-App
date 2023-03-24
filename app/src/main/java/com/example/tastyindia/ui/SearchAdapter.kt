@@ -10,22 +10,24 @@ import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemKitchenBinding
 import com.example.tastyindia.databinding.ItemSearchSquaredBinding
 
-class SearchAdapter (private val RecipesList: List<Recipe>):RecyclerView.Adapter<SearchAdapter.SearchViewHolder>()
+class SearchAdapter(private val RecipesList: List<Recipe>) :
+    RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
-{
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchAdapter.SearchViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_search_squared, parent, false)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int,
+    ): SearchAdapter.SearchViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_search_squared, parent, false)
         return SearchAdapter.SearchViewHolder(view)
     }
 
 
-
     override fun onBindViewHolder(holder: SearchAdapter.SearchViewHolder, position: Int) {
         val currentRecipe = RecipesList[position]
-
         holder.binding.apply {
-            tvRecipeName.text=currentRecipe.recipeName
+            tvRecipeName.text = currentRecipe.recipeName
+            tvRecipeCuisine.text = currentRecipe.cuisine
             Glide
                 .with(holder.binding.root)
                 .load(currentRecipe.imageUrl)
@@ -35,17 +37,11 @@ class SearchAdapter (private val RecipesList: List<Recipe>):RecyclerView.Adapter
     }
 
 
-
-
-    override fun getItemCount()=RecipesList.size
+    override fun getItemCount() = RecipesList.size
 
     class SearchViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
-        val binding =ItemSearchSquaredBinding.bind(itemView)
+        val binding = ItemSearchSquaredBinding.bind(itemView)
     }
-
-
-
-
 
 
 }

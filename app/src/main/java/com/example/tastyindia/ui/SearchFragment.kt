@@ -11,9 +11,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     override fun getViewBinding() = FragmentSearchBinding.inflate(layoutInflater)
 
     override fun setUp() {
-
-
-
+        setUpAppBar(visibility = true , title = "Search",showBackIcon = true)
+        log(listOfRecipe.size)
     }
 
     override fun addCallbacks() {
@@ -21,17 +20,41 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     }
 
     private fun addSearchListener() {
-        binding.searchBar?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query!!.isNotEmpty()){
+                    val result = searchByRecipeOrCuisine(query)
+                    adapter = SearchAdapter(result)
+                    binding.rvSearchResult.adapter=adapter
+                    log(result.size.toString())
+                }
+                else if (query.isEmpty())
+                {
+                    adapter = SearchAdapter(emptyList())
+                    binding.rvSearchResult.adapter = adapter
+                    log("Empty List ")
 
-                return false
+
+                }
+                return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                val result = searchByRecipeOrCuisine(newText!!)
-                adapter = SearchAdapter(result)
-                binding.rvSearchResult.adapter=adapter
-                log(result.size.toString())
+                 if (newText!!.isNotEmpty()){
+                    val result = searchByRecipeOrCuisine(newText)
+                    adapter = SearchAdapter(result)
+                    binding.rvSearchResult.adapter=adapter
+                    log(result.size.toString())
+                }
+                else if (newText.isEmpty())
+                 {
+                    //val result = searchByRecipeOrCuisine(newText)
+                     adapter = SearchAdapter(emptyList())
+                     binding.rvSearchResult.adapter = adapter
+                     log("Empty List ")
+
+
+                }
                 return true
             }
         })
@@ -41,8 +64,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
         return listOfRecipe
             .filter {
-                it.cuisine.lowercase().contains(searchWord.lowercase()) || it.recipeName.lowercase()
-                    .contains(searchWord.lowercase())
+                it.cuisine.lowercase().contains(searchWord.lowercase())
+                        || it.recipeName.lowercase().contains(searchWord.lowercase())
             }
     }
 }

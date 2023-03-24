@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:iconifiedByDefault="false"
-        android:theme="@style/ThemeOverlay.search"
+        android:theme="@style/ThemeOverlay.Material3.Search"
         android:background="@drawable/search_rounded"
         android:layout_margin="@dimen/margin_medium"
         android:queryHint="@string/search"
@@ -30,7 +30,7 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar"
-        app:spanCount="2"
+        app:spanCount="1"
         tools:itemCount="15"
         tools:listitem="@layout/item_search_squared" />
 

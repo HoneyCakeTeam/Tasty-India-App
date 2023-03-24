@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.tastyindia.R
 import com.bumptech.glide.Glide
+import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.EasyCategoriesBinding
-import com.example.tastyindia.databinding.HealthCategoriesBinding
+import layout.CatecoryInteractorListener
 
-class EasyCategoryAdabter(private val easyList: List<Pair<Pair<String, Int>, String>>) :
+class EasyCategoryAdabter(private val easyList:List<Recipe >,private val listener:CatecoryInteractorListener) :
     RecyclerView.Adapter<EasyCategoryAdabter.EasyViewHolder>() {
 
 
@@ -26,13 +27,18 @@ class EasyCategoryAdabter(private val easyList: List<Pair<Pair<String, Int>, Str
     override fun onBindViewHolder(holder: EasyViewHolder, position: Int) {
         val currentEasy = easyList[position]
         holder.binding.apply {
-            tvName.text = currentEasy.first.first
-            tvCount.text = currentEasy.first.second.toString()
+            tvName.text = currentEasy.recipeName
+            tvCount.text = currentEasy.ingredientsCount.toString()
             Glide
                 .with(holder.binding.root)
-                .load(currentEasy.second)
+                .load(currentEasy.imageUrl)
                 .into(easyImage)
+
+            root.setOnClickListener {
+                listener.onClickItem(currentEasy)
+            }
         }
+
 
     }
 

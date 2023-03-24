@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.tastyindia.R
 import com.bumptech.glide.Glide
+import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.HealthCategoriesBinding
+import layout.CatecoryInteractorListener
 
-class HealthCategoryAdabter(private val healthList: List<Pair<String, String>>) :
+class HealthCategoryAdabter(private val healthList: List<Recipe>,private val listener :CatecoryInteractorListener) :
     RecyclerView.Adapter<HealthCategoryAdabter.HealthViewHolder>() {
 
 
@@ -24,11 +26,14 @@ class HealthCategoryAdabter(private val healthList: List<Pair<String, String>>) 
     override fun onBindViewHolder(holder: HealthViewHolder, position: Int) {
         val currentHealth = healthList[position]
         holder.binding.apply {
-            tvName.text = currentHealth.first
+            tvName.text = currentHealth.recipeName
             Glide
                 .with(holder.binding.root)
-                .load(currentHealth.second)
+                .load(currentHealth.imageUrl)
                 .into(healthImage)
+            root.setOnClickListener {
+                listener.onClickItem(currentHealth)
+            }
         }
 
     }

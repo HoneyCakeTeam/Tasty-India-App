@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.tastyindia.R
 import com.bumptech.glide.Glide
+import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FastFoodCategoriesBinding
-import com.example.tastyindia.databinding.HealthCategoriesBinding
+import layout.CatecoryInteractorListener
 
-class FastFoodCategoryAdabter(private val fastList: List<Pair<Pair<String, Int>,String>>) :
+class FastFoodCategoryAdabter(private val fastList: List<Recipe>,private val listener : CatecoryInteractorListener) :
     RecyclerView.Adapter<FastFoodCategoryAdabter.FastFoodViewHolder>() {
 
 
@@ -25,12 +26,15 @@ class FastFoodCategoryAdabter(private val fastList: List<Pair<Pair<String, Int>,
     override fun onBindViewHolder(holder: FastFoodViewHolder, position: Int) {
         val currentFastFood = fastList[position]
         holder.binding.apply {
-            tvName.text = currentFastFood.first.first
-            tvTime.text = currentFastFood.first.second.toString()
+            tvName.text = currentFastFood.recipeName
+            tvTime.text = currentFastFood.totalTimeInMins.toString()
             Glide
                 .with(holder.binding.root)
-                .load(currentFastFood.second)
+                .load(currentFastFood.imageUrl)
                 .into(fastFoodImage)
+            root.setOnClickListener {
+                listener.onClickItem(currentFastFood)
+            }
         }
 
     }

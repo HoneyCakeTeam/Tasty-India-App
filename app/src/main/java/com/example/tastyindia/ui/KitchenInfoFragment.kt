@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.widget.TextView
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.KitchenInfo
-import com.example.tastyindia.data.domain.indianKitchen
 import com.example.tastyindia.data.domain.kitchens
-import com.example.tastyindia.data.domain.mexicanKitchen
 import com.example.tastyindia.databinding.FragmentKitchenInfoBinding
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
@@ -31,9 +29,12 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
         val kitchen = getKitchenInfo("European")
 
         view?.findViewById<TextView>(R.id.tv_history_title)?.text = kitchen[0].kitchenName
-        view?.findViewById<TextView>(R.id.tv_history_description)?.text = kitchen[0].historyDescription
-        view?.findViewById<TextView>(R.id.tv_region_description)?.text = kitchen[0].RegionsDescription
-        view?.findViewById<TextView>(R.id.tv_dishes_description)?.text = kitchen[0].dishesDescription
+        view?.findViewById<TextView>(R.id.tv_history_description)?.text =
+            kitchen[0].historyDescription
+        view?.findViewById<TextView>(R.id.tv_region_description)?.text =
+            kitchen[0].RegionsDescription
+        view?.findViewById<TextView>(R.id.tv_dishes_description)?.text =
+            kitchen[0].dishesDescription
     }
 
     override fun addCallbacks() {

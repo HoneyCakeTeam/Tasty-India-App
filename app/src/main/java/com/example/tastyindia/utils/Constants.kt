@@ -8,6 +8,8 @@ object Constants {
     object Key {
         const val KITCHEN_NAME = "kitchenName"
         const val KITCHEN_IMAGE_URL = "kitchenImageUrl"
+        const val RECIPE_NAME = "recipeName"
+        const val RECIPE_URL = "recipeUrl"
     }
 
     object ColumnIndex {

@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
-            android:id="@+id/tv_lable_details"
+            android:id="@+id/tv_label_details"
             style="@style/recipeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,12 +47,12 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_giant"
             android:gravity="start"
-            app:layout_constraintStart_toStartOf="@id/tv_lable_details"
-            app:layout_constraintTop_toBottomOf="@id/tv_lable_details"
-            tools:text="Discover a variety of delicious and nutritious soups to support your health and taste preferences. From hearty stews to light broths." />
+            app:layout_constraintStart_toStartOf="@id/tv_label_details"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_details"
+            android:text="Discover a variety of delicious and nutritious soups to support your health and taste preferences. From hearty stews to light broths." />
 
         <TextView
-            android:id="@+id/tv_lable_recipes"
+            android:id="@+id/tv_label_recipes"
             style="@style/recipeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,11 +66,12 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/rv_recipe"
             android:layout_marginHorizontal="@dimen/margin_giant"
             android:layout_marginTop="@dimen/margin_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_lable_recipes"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_recipes"
             tools:itemCount="4"
             tools:listitem="@layout/item_recipe_of_category" />
     </androidx.constraintlayout.widget.ConstraintLayout>

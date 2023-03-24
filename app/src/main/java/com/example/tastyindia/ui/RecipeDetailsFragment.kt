@@ -1,6 +1,8 @@
 package com.example.tastyindia.ui
 
+import android.os.Bundle
 import com.example.tastyindia.databinding.FragmentRecipeDetailsBinding
+import com.example.tastyindia.utils.Constants
 
 class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
     override val TAG = "RecipeDetails"
@@ -19,4 +21,13 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
 
     private fun getRecipeDetails(id: Int) = listOfRecipe[id]
 
+    companion object {
+        fun newInstance(recipeName: String, recipeImageUrl: String) =
+            RecipeDetailsFragment().apply {
+                arguments = Bundle().apply {
+                    putString(Constants.Key.RECIPE_NAME, recipeName)
+                    putString(Constants.Key.RECIPE_URL, recipeImageUrl)
+                }
+            }
+    }
 }

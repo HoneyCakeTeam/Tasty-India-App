@@ -44,9 +44,8 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>(), KitchenInteracti
 
     private fun replaceFragment(fragment: Fragment) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
         transaction.replace(R.id.fragmentContainerView, fragment)
-        bottomNavigation.visibility = View.GONE
         transaction.commit()
     }
+
 }

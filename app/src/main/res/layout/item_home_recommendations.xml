@@ -23,6 +23,7 @@
                 android:id="@+id/iv_home_recommendation_recipe_image"
                 android:layout_width="150dp"
                 android:layout_height="165dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/ic_splash_foreground"
                 app:shapeAppearanceOverlay="@style/homeRecommendationCardImageStyle" />
 

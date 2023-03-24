@@ -1,10 +1,13 @@
 package com.example.tastyindia.ui.recipedetails
 
 import android.os.Bundle
+import android.view.View
+import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentRecipeDetailsBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.utils.Constants
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
     override val TAG = "RecipeDetails"
@@ -13,6 +16,7 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
 
 
     override fun setUp() {
+        hideBottomNavigation()
         val recipe = getRecipeDetails(1)
         val recipeName = recipe.recipeName
         log(recipeName)
@@ -30,17 +34,16 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
     }
 
     override fun addCallbacks() {
-        TODO("Not yet implemented")
+
     }
 
     private fun getRecipeDetails(id: Int) = listOfRecipe[id]
 
     companion object {
-        fun newInstance(recipeName: String, recipeImageUrl: String) =
+        fun newInstance(recipe: Recipe) =
             RecipeDetailsFragment().apply {
                 arguments = Bundle().apply {
-                    putString(Constants.Key.RECIPE_NAME, recipeName)
-                    putString(Constants.Key.RECIPE_URL, recipeImageUrl)
+                    putParcelable(Constants.Key.RECIPE,recipe)
                 }
             }
     }
@@ -52,4 +55,8 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         return recipe.instructions.split(".").map { it.trim() }
     }
 
+    private fun hideBottomNavigation(){
+        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
+        bottomNavigation.visibility = View.GONE
+    }
 }

@@ -23,13 +23,14 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(), Ki
     override fun getViewBinding() = FragmentKitchenDetailsBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        setUpAppBar(true, kitchenName, true)
         arguments?.let {
-           // recipeAdapter = KitchenDetailsAdapter(getRecipeName())
-            //binding.rvRecipe.adapter = recipeAdapter
             kitchenName = it.getString(KITCHEN_NAME).toString()
             kitchenImageUrl = it.getString(KITCHEN_IMAGE_URL).toString()
         }
+        hideBottomNavigation()
+        setUpAppBar(true, kitchenName, true)
+        // recipeAdapter = KitchenDetailsAdapter(getRecipeName())
+        //binding.rvRecipe.adapter = recipeAdapter
     }
 
     override fun addCallbacks() {}
@@ -64,10 +65,11 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(), Ki
 
     private fun replaceFragment(fragment: Fragment) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
         transaction.replace(R.id.fragmentContainerView, fragment)
-        bottomNavigation.visibility = View.GONE
         transaction.commit()
     }
-
+    private fun hideBottomNavigation(){
+        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
+        bottomNavigation.visibility = View.GONE
+    }
 }

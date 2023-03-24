@@ -1,12 +1,14 @@
 package com.example.tastyindia.ui
 
 
+import android.util.Log
+import android.widget.Toast
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentHomeBinding
 import kotlin.random.Random
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsListener {
 
     override val TAG: String = "HomeFragment"
 
@@ -16,11 +18,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun setUp() {
 
         val randomNumbersForRecommendations = getRandomNumbersForRecipesOfTheWeek()
-        log("setUppppp: ${getRandomNumbersForRecommendations()}")
-        log("setUppppp: ${
-            getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
-                .map { it.recipeName }
-        }")
+        val listOfRecommendationRecipes = getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
+        Log.i(TAG, "setUppppp: ${getRandomNumbersForRecommendations()}")
+        Log.i(TAG, "setUppppp: ${listOfRecommendationRecipes.map { it.recipeName }}")
+
+        val adapter = HomeRecommendationAdapter(listOfRecommendationRecipes , this)
+        binding?.rvHomeRecommendation?.adapter = adapter
+
 
         val randomNumbers = getRandomNumbersForRecipesOfTheWeek()
         val recipesOfTheWeek = getListOfRecipeUsingRandomNumbers(randomNumbers)
@@ -49,6 +53,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         randomNumbers.map {
             listOfRecipe[it]
         }
+
+    override fun onClickItem(id: Int) {
+        Toast.makeText(requireContext(),"$id",Toast.LENGTH_SHORT).show()
+    }
 
 
 }

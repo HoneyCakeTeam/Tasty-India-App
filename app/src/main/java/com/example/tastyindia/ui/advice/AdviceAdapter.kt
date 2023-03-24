@@ -1,4 +1,4 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.advice
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,19 +9,15 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Advice
 import com.example.tastyindia.databinding.ItemAdvicesBinding
 
-class adviceAdabter(val list: List<Advice>) : RecyclerView.Adapter<adviceAdabter.adviceViewHolder>() {
+class AdviceAdapter(val list: List<Advice>) :
+    RecyclerView.Adapter<AdviceAdapter.AdviceViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adviceViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdviceViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_advices, parent, false)
-        return adviceViewHolder(view)
+        return AdviceViewHolder(view)
     }
-
-    override fun getItemCount(): Int {
-        return list.size
-    }
-
-    override fun onBindViewHolder(holder: adviceViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: AdviceViewHolder, position: Int) {
         val currentAdvice = list[position]
         holder.binding.apply {
             adviceText.text = currentAdvice.text
@@ -32,8 +28,9 @@ class adviceAdabter(val list: List<Advice>) : RecyclerView.Adapter<adviceAdabter
                 .into(imgVeg)
         }
     }
+    override fun getItemCount(): Int = list.size
 
-    class adviceViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
+    inner class AdviceViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = ItemAdvicesBinding.bind(viewItem)
     }
 }

@@ -3,7 +3,6 @@ package com.example.tastyindia.ui.advice
 import com.example.tastyindia.data.domain.Advice
 import com.example.tastyindia.databinding.FragmentAdvicesBinding
 import com.example.tastyindia.ui.BaseFragment
-import com.example.tastyindia.ui.adviceAdabter
 
 class AdvicesFragment : BaseFragment<FragmentAdvicesBinding>() {
     override val TAG: String = "AdvicesFragment"
@@ -14,8 +13,8 @@ class AdvicesFragment : BaseFragment<FragmentAdvicesBinding>() {
 
     override fun setUp() {
         addItems()
-        val adabter = adviceAdabter(advices)
-        binding.rvAdvices.adapter = adabter
+        val adviceAdapter = AdviceAdapter(advices)
+        binding.rvAdvices.adapter = adviceAdapter
     }
 
     override fun addCallbacks() {

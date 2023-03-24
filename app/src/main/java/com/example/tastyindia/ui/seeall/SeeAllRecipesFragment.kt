@@ -8,7 +8,6 @@ import com.example.tastyindia.data.domain.RecipeList
 import com.example.tastyindia.databinding.FragmentSeeAllRecipesBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.kitchendetails.KitchenDetailsFragment
-import com.example.tastyindia.ui.RecipeInteractionListener
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.google.android.material.snackbar.Snackbar
 

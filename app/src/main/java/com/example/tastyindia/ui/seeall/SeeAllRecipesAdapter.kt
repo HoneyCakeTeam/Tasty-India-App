@@ -8,7 +8,6 @@ import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemRecipeSquaredBinding
-import com.example.tastyindia.ui.RecipeInteractionListener
 
 class SeeAllRecipesAdapter(
     private val RecipeList: List<Recipe>,

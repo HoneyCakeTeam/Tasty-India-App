@@ -12,7 +12,7 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>() {
         FragmentKitchenBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        setUpAppBar(true,"Cuisine",false)
+        setUpAppBar(appbarVisibility = true, title = "Kitchens")
         adapter = KitchenAdapter(getAllCuisines())
         binding.rvKitchen.adapter = adapter
     }
@@ -21,7 +21,7 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>() {
 
     }
 
-    private fun getAllCuisines():List<Recipe>{
+    private fun getAllCuisines(): List<Recipe> {
         return listOfRecipe.distinctBy { it.cuisine }
     }
 

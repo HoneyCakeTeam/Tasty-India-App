@@ -45,6 +45,8 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setUpAppBar()
         setUp()
         addCallbacks()
     }
@@ -61,26 +63,26 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     }
 
     protected fun setUpAppBar(
-        visibility: Boolean,
+        appbarVisibility: Boolean = false,
         title: String? = null,
-        showBackIcon: Boolean = true
+        showBackButton: Boolean = false,
+        showInfoButton: Boolean = false
     ) {
-        val toolbar: ConstraintLayout? = activity?.findViewById(R.id.toolbarContainer)
-        val pageTitle: TextView? = activity?.findViewById(R.id.text_pageTitle)
-        val navigateIcon: ImageButton? = activity?.findViewById(R.id.button_navDirection)
+        activity?.findViewById<ConstraintLayout>(R.id.app_toolbar)?.let { toolbar ->
+            toolbar.visibility = if (appbarVisibility) View.VISIBLE else View.GONE
+        }
 
-        if (visibility) {
-            toolbar?.visibility = View.VISIBLE
-            title?.let {
-                pageTitle?.text = title
-            }
-            if (showBackIcon) {
-                navigateIcon?.visibility = View.VISIBLE
-            } else {
-                navigateIcon?.visibility = View.GONE
-            }
-        } else {
-            toolbar?.visibility = View.GONE
+        activity?.findViewById<TextView>(R.id.text_pageTitle)?.let { pageTitle ->
+            pageTitle.text = title ?: ""
+        }
+
+        activity?.findViewById<ImageButton>(R.id.button_navDirection)?.let { navigateIcon ->
+            navigateIcon.visibility = if (showBackButton) View.VISIBLE else View.GONE
+        }
+
+        activity?.findViewById<ImageButton>(R.id.button_info)?.let { infoButton ->
+            infoButton.visibility = if (showInfoButton) View.VISIBLE else View.GONE
         }
     }
+
 }

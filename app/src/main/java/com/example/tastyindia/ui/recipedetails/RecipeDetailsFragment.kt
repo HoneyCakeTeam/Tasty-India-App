@@ -53,9 +53,9 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
     private fun getRecipe(): Recipe {
         arguments?.let {
             recipe = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                it.getParcelable(Constants.Key.RECIPE_NAME, Recipe::class.java)!!
+                it.getParcelable(Constants.Key.RECIPE, Recipe::class.java)!!
             } else {
-                it.getParcelable(Constants.Key.RECIPE_NAME)!!
+                it.getParcelable(Constants.Key.RECIPE)!!
             }
         }
         return recipe

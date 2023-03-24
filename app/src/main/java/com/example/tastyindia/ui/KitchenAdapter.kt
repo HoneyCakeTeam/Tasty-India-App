@@ -10,7 +10,10 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemKitchenBinding
 
-class KitchenAdapter(private val kitchenList: List<Recipe>) :
+class KitchenAdapter(
+    private val kitchenList: List<Recipe>,
+    private val listener: KitchenInteractionListener
+) :
     RecyclerView.Adapter<KitchenAdapter.KitchenViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KitchenViewHolder {
@@ -28,6 +31,8 @@ class KitchenAdapter(private val kitchenList: List<Recipe>) :
                 .load(currentKitchen.imageUrl)
                 .placeholder(R.drawable.ic_error)
                 .into(imageKitchen)
+
+            root.setOnClickListener { listener.onClickItem(currentKitchen) }
         }
     }
 

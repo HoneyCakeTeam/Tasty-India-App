@@ -12,7 +12,7 @@ class CsvDataSource(private val context: Context, private val parser: CsvParser)
     override fun getAllRecipes(): List<Recipe> {
         val recipeList = mutableListOf<Recipe>()
         context.apply {
-            val inputStream = assets.open(Constants.FILE_NAME)
+            val inputStream = assets.open(Constants.Name.CSV_FILE_NAME)
             val buffer = BufferedReader(InputStreamReader(inputStream))
             buffer.forEachLine {
                 val currentRecipe = parser.parseLine(it)

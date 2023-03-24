@@ -1,6 +1,10 @@
 package com.example.tastyindia.ui
 
+import android.content.res.Configuration
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
@@ -17,6 +21,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var fragmentCategory: CategoryFragment
     private lateinit var fragmentCuisine: KitchenFragment
     private lateinit var fragmentSearch: SearchFragment
+    private lateinit var fragmentKitchenInfo: KitchenInfoFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +40,7 @@ class HomeActivity : AppCompatActivity() {
         fragmentCategory = CategoryFragment()
         fragmentCuisine = KitchenFragment()
         fragmentSearch = SearchFragment()
+        fragmentKitchenInfo = KitchenInfoFragment()
     }
 
     private fun setup() {
@@ -58,7 +64,7 @@ class HomeActivity : AppCompatActivity() {
                     true
                 }
                 R.id.searchFragment -> {
-                    replaceFragment(fragmentSearch)
+                    replaceFragment(fragmentKitchenInfo)
                     true
                 }
                 else -> false

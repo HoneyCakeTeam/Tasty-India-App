@@ -14,7 +14,10 @@
         <item name="cornerSize">16dp</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
-
+<style name="CircleImageStyle">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">50%</item>
+</style>
     <style name="ThemeOverlay.search" parent="Widget.AppCompat.SearchView">
         <!-- Text color -->
         <item name="android:editTextColor">@color/black_60</item>

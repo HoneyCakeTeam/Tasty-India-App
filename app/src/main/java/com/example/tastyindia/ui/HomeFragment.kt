@@ -17,6 +17,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsLis
 
     override fun setUp() {
 
+        setUpAppBar(false)
+
         val randomNumbersForRecommendations = getRandomNumbersForRecipesOfTheWeek()
         val listOfRecommendationRecipes = getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
         Log.i(TAG, "setUppppp: ${getRandomNumbersForRecommendations()}")
@@ -25,11 +27,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsLis
         val adapter = HomeRecommendationAdapter(listOfRecommendationRecipes , this)
         binding?.rvHomeRecommendation?.adapter = adapter
 
-
         val randomNumbers = getRandomNumbersForRecipesOfTheWeek()
         val recipesOfTheWeek = getListOfRecipeUsingRandomNumbers(randomNumbers)
         log("setUpppp: ${randomNumbers}")
         log("setUpppp: ${recipesOfTheWeek.map { it.recipeName }}")
+
+        binding.tvHomeRecommendationSeeAll.setOnClickListener {
+
+        }
+        binding.tvHomeRecipeOfWeekSeeAll.setOnClickListener {
+
+        }
+        binding.cvCategoriesMeal.setOnClickListener {
+
+        }
     }
 
     override fun addCallbacks() {

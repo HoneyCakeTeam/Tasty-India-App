@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="95dp"
     android:layout_height="95dp"
-    android:layout_marginEnd="@dimen/margin_small"
-    app:cardCornerRadius="@dimen/radius_small">
+    app:cardCornerRadius="8dp"
+    android:layout_marginEnd="@dimen/margin_small">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -12,7 +13,7 @@
 
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/image"
+            android:id="@+id/easyImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
@@ -25,8 +26,8 @@
         <View
             android:layout_width="95dp"
             android:layout_height="95dp"
-            android:background="@drawable/image_background"
             android:scaleType="centerCrop"
+            android:background="@drawable/image_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,31 +35,32 @@
 
         <TextView
             android:id="@+id/tv_name"
-            style="@style/TextStyleNameCategories"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
+            style="@style/TextStyleNameCategories"
             android:text="@string/food_name"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tv_time"
+            app:layout_constraintEnd_toStartOf="@+id/tv_count"
             app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ic_time"
             android:layout_width="14dp"
             android:layout_height="14dp"
+            android:scaleType="centerCrop"
             android:layout_marginEnd="@dimen/margin_tiny"
             android:layout_marginBottom="@dimen/margin_tiny"
-            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_dishes"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_dishes" />
+            />
 
         <TextView
-            android:id="@+id/tv_time"
-            style="@style/TextStyleNumberCategories"
+            android:id="@+id/tv_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/food_ingredient_count"
+            style="@style/TextStyleNumberCategories"
             app:layout_constraintBottom_toBottomOf="@+id/ic_time"
             app:layout_constraintEnd_toStartOf="@id/ic_time"
             app:layout_constraintTop_toTopOf="@+id/ic_time" />

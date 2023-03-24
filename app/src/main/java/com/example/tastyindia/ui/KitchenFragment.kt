@@ -29,7 +29,13 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>(), KitchenInteracti
     }
 
     override fun onClickItem(recipe: Recipe) {
-        KitchenDetailsFragment.newInstance(recipe.cuisine, recipe.imageUrl)
+        navigateToKitchenDetailsFragmentWithSelectedKitchenData(recipe)
+    }
+
+    private fun navigateToKitchenDetailsFragmentWithSelectedKitchenData(recipe: Recipe) {
+        val kitchenName = recipe.cuisine
+        val kitchenImageUrl = recipe.imageUrl
+        KitchenDetailsFragment.newInstance(kitchenName, kitchenImageUrl)
         Snackbar.make(binding.root, "${recipe.cuisine} Kitchen ", Snackbar.LENGTH_LONG).show()
         replaceFragment(KitchenDetailsFragment())
     }

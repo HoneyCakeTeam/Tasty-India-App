@@ -9,12 +9,10 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
         FragmentKitchenInfoBinding.inflate(layoutInflater)
 
     override fun setUp() {
-
+        setUpAppBar(visibility = true, title = "Kitchen Info", showBackIcon = true)
     }
 
     override fun addCallbacks() {
-        getViewBinding().icBackKitchenInfo.setOnClickListener {
 
-        }
     }
 }

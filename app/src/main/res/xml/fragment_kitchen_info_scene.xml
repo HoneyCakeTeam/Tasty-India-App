@@ -11,18 +11,18 @@
             <KeyAttribute
                 android:alpha="0"
                 motion:framePosition="100"
-                motion:motionTarget="@+id/card_image" />
+                motion:motionTarget="@+id/iv_card_image" />
             <KeyAttribute
                 android:scaleX="0"
                 motion:framePosition="100"
-                motion:motionTarget="@+id/card_image" />
+                motion:motionTarget="@+id/iv_card_image" />
             <KeyAttribute
                 android:scaleY="0"
                 motion:framePosition="100"
-                motion:motionTarget="@+id/card_image" />
+                motion:motionTarget="@+id/iv_card_image" />
         </KeyFrameSet>
         <OnSwipe
-            motion:touchAnchorId="@+id/card_image"
+            motion:touchAnchorId="@+id/iv_card_image"
             motion:touchAnchorSide="bottom" />
     </Transition>
 
@@ -32,7 +32,7 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/card_image"
+            android:id="@+id/iv_card_image"
             android:layout_width="match_parent"
             android:layout_height="1dp" />
     </ConstraintSet>

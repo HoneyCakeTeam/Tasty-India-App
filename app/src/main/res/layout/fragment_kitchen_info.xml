@@ -41,7 +41,7 @@
                     tool:text="History of Indian Cuisine" />
 
                 <TextView
-                    android:id="@+id/tv_history_body"
+                    android:id="@+id/tv_history_description"
                     style="@style/bodyTextInKitchenInfoStyle"
                     android:text="@string/history_description" />
 
@@ -57,7 +57,7 @@
                     android:text="@string/regions" />
 
                 <TextView
-                    android:id="@+id/tv_region_body"
+                    android:id="@+id/tv_region_description"
                     style="@style/bodyTextInKitchenInfoStyle"
                     android:text="@string/history_description" />
 
@@ -73,7 +73,7 @@
                     android:text="@string/dishes" />
 
                 <TextView
-                    android:id="@+id/tv_dishes_body"
+                    android:id="@+id/tv_dishes_description"
                     style="@style/bodyTextInKitchenInfoStyle"
                     android:text="@string/history_description" />
 

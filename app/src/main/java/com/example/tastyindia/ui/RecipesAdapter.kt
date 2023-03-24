@@ -47,7 +47,7 @@ class RecipesAdapter(private val context: Context, private val listener: RecipeI
             binding.apply {
                 tvRecipeName.text = recipe.recipeName
                 tvKitchenName.text = recipe.cuisine
-                Glide.with(context).load(recipe.url).into(ivRecipe)
+                Glide.with(context).load(recipe.imageUrl).into(ivRecipe)
             }
         }
 

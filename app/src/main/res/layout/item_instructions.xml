@@ -14,13 +14,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_ingredients"
+        android:id="@+id/tv_instructions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/ubuntu_reguler"
-        android:text="@string/_1_2_cup_all_purpose_flour"
+        android:text="@string/add_two_eggs_in_a_medium_bowl"
         android:textColor="@color/black_87"
         android:textSize="@dimen/text_small"
         app:layout_constraintBottom_toBottomOf="@+id/view2"

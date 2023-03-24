@@ -47,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_giant"
             android:text="@string/time"
+            android:fontFamily="@font/ubuntu_reguler"
             android:textColor="@color/black_87"
             android:textSize="@dimen/text_small"
             app:layout_constraintBottom_toBottomOf="@+id/view"
@@ -60,6 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_giant"
             android:text="@string/easy"
+            android:fontFamily="@font/ubuntu_reguler"
             android:textColor="@color/black_87"
             android:textSize="@dimen/text_small"
             app:layout_constraintBottom_toBottomOf="@+id/view"
@@ -77,13 +79,27 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_recipe_name" />
 
         <TextView
-            android:id="@+id/tv_ingredients"
+            android:id="@+id/text_view"
             style="@style/Ingredients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ingredients"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/tv_ingredients_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_medium"
+            android:textColor="@color/black_87"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:text="15"
+            android:fontFamily="@font/poppins_medium"
+            app:layout_constraintBottom_toBottomOf="@+id/text_view"
+            app:layout_constraintStart_toEndOf="@+id/text_view"
+            app:layout_constraintTop_toTopOf="@+id/text_view" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_ingredients"
@@ -94,11 +110,11 @@
             android:layout_marginEnd="@dimen/margin_large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_ingredients"
+            app:layout_constraintTop_toBottomOf="@+id/text_view"
             tools:listitem="@layout/item_ingerdient" />
 
         <TextView
-            android:id="@+id/tv_prepare"
+            android:id="@+id/text_view2"
             style="@style/Ingredients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -107,7 +123,7 @@
             app:layout_constraintTop_toBottomOf="@+id/rv_ingredients" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_how_to_prepare"
+            android:id="@+id/rv_instructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_large"
@@ -115,8 +131,9 @@
             android:layout_marginEnd="@dimen/margin_large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_prepare"
-            tools:listitem="@layout/item_ingerdient" />
+            app:layout_constraintTop_toBottomOf="@+id/text_view2"
+            tools:listitem="@layout/item_instructions" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

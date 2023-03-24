@@ -45,5 +45,6 @@
     <string name="food_ingredient_count">5</string>
     <string name="creamy_pasta">Creamy Pasta</string>
     <string name="indian_cuisine">Indian Cuisine</string>
+    <string name="add_two_eggs_in_a_medium_bowl">add two eggs in a medium bowl</string>
 
 </resources>

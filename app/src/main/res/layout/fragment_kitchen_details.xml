@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white_100"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.KitchenDetailsFragment">
+
+    <ImageView
+        android:id="@+id/img_cuisine"
+        android:layout_width="0dp"
+        android:layout_height="215dp"
+        android:layout_margin="@dimen/margin_medium"
+        android:background="@drawable/img_cuisine"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="Orientation">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/tv_popular_meals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/img_cuisine"
+        app:layout_constraintStart_toStartOf="@+id/img_cuisine"
+        app:layout_constraintEnd_toEndOf="@+id/img_cuisine"
+        style="@style/mealsTextStyle"
+        android:text="@string/popular_indian_meals" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_recipe"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_medium"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_category_squared"
+        app:layout_constraintTop_toBottomOf="@+id/tv_popular_meals"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,5 +41,9 @@ class KitchenAdapter(
     class KitchenViewHolder(viewItem: View) : ViewHolder(viewItem) {
         val binding = ItemKitchenBinding.bind(itemView)
     }
+
+    interface KitchenDetailsInteractionListener {
+        fun onClickRecipe(recipe: Recipe)
+    }
 }
 

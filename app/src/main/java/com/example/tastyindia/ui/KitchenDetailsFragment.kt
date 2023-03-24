@@ -1,34 +1,41 @@
 package com.example.tastyindia.ui
 
 import android.os.Bundle
-import com.example.tastyindia.databinding.FragmentCuisineDetailsBinding
+import android.view.View
+import androidx.fragment.app.Fragment
+import com.example.tastyindia.R
+import com.example.tastyindia.data.domain.Recipe
+import com.example.tastyindia.databinding.FragmentKitchenDetailsBinding
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class KitchenDetailsFragment : BaseFragment<FragmentCuisineDetailsBinding>() {
+class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(), KitchenAdapter.KitchenDetailsInteractionListener {
+
     override val TAG: String = "CUISINEDETAILS"
+    private lateinit var recipeAdapter: KitchenDetailsAdapter
     private lateinit var kitchenName: String
     private lateinit var kitchenImageUrl: String
-    override fun getViewBinding() = FragmentCuisineDetailsBinding.inflate(layoutInflater)
+
+    override fun getViewBinding() = FragmentKitchenDetailsBinding.inflate(layoutInflater)
 
     override fun setUp() {
+        setUpAppBar(true, kitchenName, true)
         arguments?.let {
+            recipeAdapter = KitchenDetailsAdapter(getRecipeName())
+            binding.rvRecipe.adapter = recipeAdapter
             kitchenName = it.getString(KITCHEN_NAME).toString()
             kitchenImageUrl = it.getString(KITCHEN_IMAGE_URL).toString()
         }
-        log(getRecipeName().toString())
     }
 
-    override fun addCallbacks() {
-        TODO("Not yet implemented")
+    override fun addCallbacks() {}
+
+
+    private fun getRecipeName(): List<Recipe> {
+        return listOfRecipe.distinctBy { it.cuisine == kitchenName }
     }
 
-    private fun getRecipeName(): List<String> {
-        return listOfRecipe
-            .filter { it.cuisine == kitchenName }
-            .map { it.recipeName }
-            .take(10)
-    }
 
     companion object {
         fun newInstance(kitchenName: String, kitchenImageUrl: String) =
@@ -39,4 +46,25 @@ class KitchenDetailsFragment : BaseFragment<FragmentCuisineDetailsBinding>() {
                 }
             }
     }
+
+    override fun onClickRecipe(recipe: Recipe) {
+        navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe)
+
+    }
+
+    private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe: Recipe) {
+        val kitchenName = recipe.cuisine
+        val kitchenImageUrl = recipe.imageUrl
+        newInstance(kitchenName, kitchenImageUrl)
+        replaceFragment(RecipeDetailsFragment())
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
+        transaction.replace(R.id.fragmentContainerView, fragment)
+        bottomNavigation.visibility = View.GONE
+        transaction.commit()
+    }
+
 }

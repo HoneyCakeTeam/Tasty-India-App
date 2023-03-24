@@ -1,27 +1,30 @@
 package com.example.tastyindia.ui
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tastyindia.R
 
-class IngredientsAdapter : RecyclerView.Adapter<IngredientsAdapter.IngredientsViewHolder>() {
+class IngredientsAdapter(private val ingredientsList: List<String>) : RecyclerView.Adapter<IngredientsAdapter.IngredientsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientsViewHolder {
-        TODO("Not yet implemented")
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_ingerdient, parent, false)
+        return IngredientsViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return ingredientsList.size
     }
 
     override fun onBindViewHolder(holder: IngredientsViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.textIngredients.text = ingredientsList[position]
     }
 
     class IngredientsViewHolder(viewItem: View):RecyclerView.ViewHolder(viewItem) {
         val textIngredients : TextView = viewItem.findViewById(R.id.tv_ingredients)
     }
 }
+
 

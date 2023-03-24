@@ -2,16 +2,23 @@ package com.example.tastyindia.ui.home
 
 
 import androidx.fragment.app.Fragment
+import com.example.tastyindia.data.DataManager
+import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.Recipe
+import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentHomeBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.category.CategoryFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
+import com.example.tastyindia.utils.CsvParser
 import kotlin.random.Random
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsListener {
+
+    private val dataSource = CsvDataSource(requireContext(), CsvParser())
+    private val dataManager: DataManagerInterface = DataManager(dataSource)
 
     override val TAG: String = "HomeFragment"
 

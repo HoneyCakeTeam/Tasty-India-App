@@ -1,5 +1,6 @@
 package com.example.tastyindia.ui
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -14,18 +15,30 @@ import com.google.android.material.snackbar.Snackbar
 class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
     RecipeInteractionListener {
     private lateinit var adapter: RecipesAdapter
+    private lateinit var recipeList: RecipeList
     override val TAG = this::class.simpleName.toString()
 
     override fun getViewBinding(): FragmentSeeAllRecipesBinding =
         FragmentSeeAllRecipesBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        adapter = RecipesAdapter(listOf(), this)
+        adapter = RecipesAdapter(getRecipesList().recipeList, this)
         binding.rvRecipes.adapter = adapter
     }
 
     override fun addCallbacks() {
 
+    }
+
+    private fun getRecipesList(): RecipeList {
+        arguments?.let {
+            recipeList = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                it.getParcelable(RECIPE_NAME, recipeList::class.java)!!
+            } else {
+                it.getParcelable(RECIPE_NAME)!!
+            }
+        }
+        return recipeList
     }
 
     companion object {

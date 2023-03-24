@@ -1,9 +1,14 @@
 package com.example.tastyindia.utils
 
 object Constants {
-    const val FILE_NAME = "indian_food_v3.csv"
-    const val KITCHEN_NAME = "kitchenName"
-    const val KITCHEN_IMAGE_URL = "kitchenImageUrl"
+    object Name {
+        const val CSV_FILE_NAME = "indian_food_v3.csv"
+    }
+
+    object Key {
+        const val KITCHEN_NAME = "kitchenName"
+        const val KITCHEN_IMAGE_URL = "kitchenImageUrl"
+    }
 
     object ColumnIndex {
         const val recipeName = 0

@@ -55,12 +55,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         Log.e(TAG, value.toString())
     }
 
-    private fun getAllRecipes(): List<Recipe> {
-        parser = CsvParser()
-        datasource = CsvDataSource(requireContext(), parser)
-        return datasource.getAllRecipes()
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

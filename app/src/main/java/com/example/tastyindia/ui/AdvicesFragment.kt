@@ -5,13 +5,15 @@ import com.example.tastyindia.databinding.FragmentAdvicesBinding
 
 class AdvicesFragment : BaseFragment<FragmentAdvicesBinding>() {
     override val TAG: String = "AdvicesFragment"
-    val advices: MutableList<Advice> = mutableListOf()
+    private val advices: MutableList<Advice> = mutableListOf()
 
     override fun getViewBinding(): FragmentAdvicesBinding =
         FragmentAdvicesBinding.inflate(layoutInflater)
 
     override fun setUp() {
         addItems()
+        val adabter = adviceAdabter(advices)
+        binding.rvAdvices.adapter = adabter
     }
 
     override fun addCallbacks() {

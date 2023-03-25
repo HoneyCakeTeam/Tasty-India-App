@@ -1,6 +1,8 @@
 package com.example.tastyindia.ui.search
 
 import android.widget.SearchView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.DiffUtil.DiffResult
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.Recipe
@@ -28,6 +30,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     private fun addCallbacks() {
         addSearchListener()
     }
+
+
 
     private fun addSearchListener() {
         binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {

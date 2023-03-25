@@ -7,14 +7,13 @@
     android:background="@color/white_100"
     tools:context=".ui.category.CategoryFragment">
 
-
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/top_image"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginEnd="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_medium"
         android:scaleType="centerCrop"
         android:src="@drawable/image_more_recipes"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,99 +21,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/ImageCornerCategories" />
 
-    <TextView
-        android:id="@+id/tv_health"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/healthy"
-        style="@style/TextStyleCategories"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_image" />
-
-    <TextView
-        android:id="@+id/see_all_health"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/TextStyleSeeAll"
-        android:text="@string/see_all"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_image" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_health_categories"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_health_category"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_health" />
+        app:layout_constraintTop_toBottomOf="@id/top_image">
 
-    <TextView
-        android:id="@+id/tv_fast_food"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/TextStyleCategories"
-        android:text="@string/fast_food"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_health_categories" />
+        <include
+            android:id="@+id/layout_categoryHealthy"
+            layout="@layout/layout_category_healthy"/>
 
-    <TextView
-        android:id="@+id/see_all_fast_food"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/TextStyleSeeAll"
-        android:text="@string/see_all"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_health_categories" />
+        <include
+            android:id="@+id/layout_categoryFast"
+            layout="@layout/layout_category_fast" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_fast_food_categories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:orientation="horizontal"
-        tools:listitem="@layout/item_fast_food_category"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_fast_food" />
+        <include
+            android:id="@+id/layout_categoryEasy"
+            layout="@layout/layout_category_easy" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_easy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/TextStyleCategories"
-        android:text="@string/easy"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_fast_food_categories" />
 
-    <TextView
-        android:id="@+id/see_all_easy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/see_all"
-        style="@style/TextStyleSeeAll"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_fast_food_categories" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_easy_categories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:orientation="horizontal"
-        tools:listitem="@layout/item_easy_category"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_easy" />
 </androidx.constraintlayout.widget.ConstraintLayout>

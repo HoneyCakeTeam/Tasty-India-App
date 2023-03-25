@@ -30,7 +30,8 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
 //    private lateinit var kitchenName: String
 //    private lateinit var kitchenImageUrl: String
 
-    override fun getViewBinding() = FragmentKitchenDetailsBinding.inflate(layoutInflater)
+    override fun getViewBinding() :FragmentKitchenDetailsBinding=
+        FragmentKitchenDetailsBinding.inflate(layoutInflater)
 
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())

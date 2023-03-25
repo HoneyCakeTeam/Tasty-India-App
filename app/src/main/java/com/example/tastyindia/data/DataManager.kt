@@ -144,6 +144,6 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
     }//endregion
 
     override fun getRecipesByKitchen(kitchenName: String): List<Recipe> {
-        return listOfRecipe.distinctBy { it.cuisine == kitchenName }
+        return listOfRecipe.filter { it.cuisine == kitchenName}
     }
 }

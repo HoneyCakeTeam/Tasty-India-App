@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="@+id/img_cuisine"
         app:layout_constraintEnd_toEndOf="@+id/img_cuisine"
         style="@style/mealsTextStyle"
-        android:text="@string/popular_indian_meals" />
+        android:text="@string/popular_meals" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_recipe"

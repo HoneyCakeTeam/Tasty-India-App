@@ -27,8 +27,8 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
     private lateinit var recipeAdapter: RecipeAdapter
-//    private lateinit var kitchenName: String
-//    private lateinit var kitchenImageUrl: String
+    private lateinit var kitchenName: String
+    private lateinit var kitchenImageUrl: String
 
     override fun getViewBinding() :FragmentKitchenDetailsBinding=
         FragmentKitchenDetailsBinding.inflate(layoutInflater)
@@ -37,12 +37,12 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
         arguments?.let {
-            log(it.getString(KITCHEN_NAME).toString())
-            log(it.getString(KITCHEN_IMAGE_URL).toString())
+            kitchenName= it.getString(KITCHEN_NAME).toString()
+            kitchenImageUrl= it.getString(KITCHEN_IMAGE_URL).toString()
         }
-        recipeAdapter = RecipeAdapter(dataManager.getRecipesByKitchen(KITCHEN_NAME), this)
+        recipeAdapter = RecipeAdapter(dataManager.getRecipesByKitchen(kitchenName), this)
         binding.rvRecipe.adapter =  recipeAdapter
-        setUpAppBar(true, KITCHEN_NAME, true, true)
+        setUpAppBar(true, kitchenName, true, true)
     }
 
     companion object {
@@ -72,9 +72,9 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
     }
 
     private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe: Recipe) {
-//        val kitchenName = recipe.cuisine
-//        val kitchenImageUrl = recipe.imageUrl
-        newInstance(KITCHEN_NAME, KITCHEN_IMAGE_URL)
+        kitchenName = recipe.cuisine
+        kitchenImageUrl = recipe.imageUrl
+        newInstance(kitchenName, kitchenImageUrl)
         replaceFragment(RecipeDetailsFragment())
     }
 

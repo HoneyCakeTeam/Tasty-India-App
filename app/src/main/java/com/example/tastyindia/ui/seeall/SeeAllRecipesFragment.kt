@@ -11,7 +11,6 @@ import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.kitchendetails.KitchenDetailsFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.Constants.Key.RECIPES
-import com.example.tastyindia.utils.Constants.Key.RECIPE_NAME
 import com.google.android.material.snackbar.Snackbar
 
 class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
@@ -50,9 +49,9 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
 
 
     private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe: Recipe) {
-        //RecipeDetailsFragment.newInstance(recipe)
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
         Snackbar.make(binding.root, "${recipe.recipeName} Recipe ", Snackbar.LENGTH_SHORT).show()
-        replaceFragment(RecipeDetailsFragment())
+        replaceFragment(recipeDetailsFragment)
     }
 
     private fun replaceFragment(fragment: Fragment) {

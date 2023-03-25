@@ -9,10 +9,13 @@ interface DataManagerInterface {
     fun getRandomNumbersForRecipesOfTheWeek(): List<Int>
     fun getListOfRecipeUsingRandomNumbers(randomNumbers: List<Int>): List<Recipe>
     fun getKitchenInfo(kitchenName: String): MutableList<KitchenInfo>
-    fun getAllKitchen(): List<Recipe>
+    fun getAllKitchenRecipes(): List<Recipe>
     fun getAdvicesList(): List<Advice>
     fun getHealthyRecipes(health: List<String>): List<Recipe>
     fun getFastFoodRecipes(): List<Recipe>
     fun getEasyRecipes(): List<Recipe>
     fun getHealthyIngredients(): List<String>
+    fun getIngredients(recipe: Recipe): List<String>
+    fun getInstructions(recipe: Recipe): List<String>
+    fun searchByRecipeOrCuisine(searchWord: String): List<Recipe>
 }

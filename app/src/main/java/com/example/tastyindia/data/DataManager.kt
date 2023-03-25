@@ -41,7 +41,7 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
             .toMutableList()
     }
 
-    override fun getAllKitchen(): List<Recipe> {
+    override fun getAllKitchenRecipes(): List<Recipe> {
         return listOfRecipe.distinctBy { it.cuisine }
     }//endregion
 
@@ -124,6 +124,23 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
             "Spinach",
             "Fenugreek"
         )
+    }//endregion
+
+    //region Recipe Details screen
+    override fun getIngredients(recipe: Recipe): List<String> {
+        return recipe.ingredients.split(";")
+    }
+
+    override fun getInstructions(recipe: Recipe): List<String> {
+        return recipe.instructions.split(".").map { it.trim() }
+    }//endregion
+
+    //region Search screen
+    override fun searchByRecipeOrCuisine(searchWord: String): List<Recipe> {
+        return listOfRecipe.filter {
+            it.cuisine.lowercase().contains(searchWord.lowercase()) || it.recipeName.lowercase()
+                .contains(searchWord.lowercase())
+        }
     }
     //endregion
 }

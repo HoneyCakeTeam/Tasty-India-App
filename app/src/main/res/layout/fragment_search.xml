@@ -12,14 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:iconifiedByDefault="false"
+        android:queryBackground="@null"
         android:theme="@style/ThemeOverlay.Material3.Search"
         android:background="@drawable/search_rounded"
         android:layout_margin="@dimen/margin_medium"
         android:queryHint="@string/search"
         android:searchIcon="@drawable/ic_search"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+     />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_search_result"

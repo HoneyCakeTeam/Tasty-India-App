@@ -10,6 +10,7 @@ import com.example.tastyindia.databinding.FragmentSeeAllRecipesBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.kitchendetails.KitchenDetailsFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
+import com.example.tastyindia.utils.Constants.Key.RECIPES
 import com.example.tastyindia.utils.Constants.Key.RECIPE_NAME
 import com.google.android.material.snackbar.Snackbar
 
@@ -30,9 +31,9 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
     private fun getRecipesList(): RecipeList {
         arguments?.let {
             recipeList = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                it.getParcelable(RECIPE_NAME, recipeList::class.java)!!
+                it.getParcelable(RECIPES, recipeList::class.java)!!
             } else {
-                it.getParcelable(RECIPE_NAME)!!
+                it.getParcelable(RECIPES)!!
             }
         }
         return recipeList
@@ -42,7 +43,7 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
         fun newInstance(recipes: RecipeList) =
             KitchenDetailsFragment().apply {
                 arguments = Bundle().apply {
-                    //  putParcelable(RECIPE_NAME, recipes)
+                    putParcelable(RECIPES, recipes)
                 }
             }
     }

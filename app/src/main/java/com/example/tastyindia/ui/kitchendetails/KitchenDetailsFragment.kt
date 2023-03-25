@@ -30,16 +30,16 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
     override fun getViewBinding() = FragmentKitchenDetailsBinding.inflate(layoutInflater)
 
     override fun setUp() {
+        arguments?.let {
+            kitchenName = it.getString(KITCHEN_NAME).toString()
+            kitchenImageUrl = it.getString(KITCHEN_IMAGE_URL).toString()
+        }
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
-        arguments?.let {
-            log(it.getString(KITCHEN_NAME).toString())
-            log(it.getString(KITCHEN_IMAGE_URL).toString())
-        }
-        /*hideBottomNavigation()
+        hideBottomNavigation()
         setUpAppBar(true, kitchenName, true)
         recipeAdapter = RecipesAdapter(dataManager.getRecipesByKitchen(kitchenName), this)
-        binding.rvRecipe.adapter = recipeAdapter*/
+        binding.rvRecipe.adapter = recipeAdapter
     }
 
     companion object {

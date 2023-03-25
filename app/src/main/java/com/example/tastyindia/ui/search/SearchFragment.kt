@@ -39,18 +39,18 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     private fun addSearchListener() {
         binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let { search(it) }
+                query?.let { searchByQueryAndSetDataInAdapter(it) }
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                newText?.let { search(it) }
+                newText?.let { searchByQueryAndSetDataInAdapter(it) }
                 return true
             }
         })
     }
 
-    fun search(query: String?) {
+    fun searchByQueryAndSetDataInAdapter(query: String?) {
         if (query!!.isNotEmpty()) {
             val result = dataManager.searchByRecipeOrCuisine(query)
             adapter.setData(result)

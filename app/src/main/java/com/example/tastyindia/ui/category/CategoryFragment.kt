@@ -6,11 +6,14 @@ import com.example.tastyindia.databinding.FragmentCategoryBinding
 import com.example.tastyindia.ui.BaseFragment
 
 
-class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CatecoryInteractorListener {
+class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
+    HealthCategoryAdapter.CategoryInteractionListener,
+    FastFoodCategoryAdapter.CategoryInteractionListener,
+    EasyCategoryAdapter.CategoryInteractionListener {
     override val TAG: String = "CategoryFragment"
-    private lateinit var healthAdabter: HealthCategoryAdapter
-    private lateinit var fastFoodAdabter: FastFoodCategoryAdapter
-    private lateinit var easyAdabter: EasyCategoryAdabter
+    private lateinit var healthAdapter: HealthCategoryAdapter
+    private lateinit var fastFoodAdapter: FastFoodCategoryAdapter
+    private lateinit var easyAdapter: EasyCategoryAdapter
     override fun getViewBinding(): FragmentCategoryBinding =
         FragmentCategoryBinding.inflate(layoutInflater)
 
@@ -35,19 +38,19 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CatecoryIntera
         val listFast = filterFastFoodRecipes()
         val listEasy = filterEasyRecipes()
 
-        healthAdabter = HealthCategoryAdapter(listHealthy, this)
-        binding?.rvHealthCategories?.adapter = healthAdabter
-        fastFoodAdabter = FastFoodCategoryAdapter(listFast, this)
-        binding?.rvFastFoodCategories?.adapter = fastFoodAdabter
-        easyAdabter = EasyCategoryAdabter(listEasy, this)
-        binding?.rvEasyCategories?.adapter = easyAdabter
+        healthAdapter = HealthCategoryAdapter(listHealthy, this)
+        binding.rvHealthCategories.adapter = healthAdapter
+        fastFoodAdapter = FastFoodCategoryAdapter(listFast, this)
+        binding.rvFastFoodCategories.adapter = fastFoodAdapter
+        easyAdapter = EasyCategoryAdapter(listEasy, this)
+        binding.rvEasyCategories.adapter = easyAdapter
     }
 
     private fun addCallbacks() {
-        binding?.seeAllHealth?.setOnClickListener {
+        binding.seeAllHealth.setOnClickListener {
             TODO("Not yet implemented")
         }
-        binding?.seeAllFastFood?.setOnClickListener {
+        binding.seeAllFastFood.setOnClickListener {
             TODO("Not yet implemented")
         }
         binding?.seeAllEasy?.setOnClickListener {
@@ -78,7 +81,9 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CatecoryIntera
         }
     }
 
-    override fun onClickItem(recipe: Recipe) {
+    override fun onClickRecipe(recipe: Recipe) {
         TODO("Not yet implemented")
     }
+
+
 }

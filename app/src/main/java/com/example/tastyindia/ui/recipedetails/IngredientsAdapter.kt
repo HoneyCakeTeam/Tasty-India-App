@@ -16,9 +16,8 @@ class IngredientsAdapter(private val ingredientsList: List<String>) :
         return IngredientsViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return ingredientsList.size
-    }
+    override fun getItemCount(): Int = ingredientsList.size
+
 
     override fun onBindViewHolder(holder: IngredientsViewHolder, position: Int) {
         holder.textIngredients.text = ingredientsList[position]

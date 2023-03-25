@@ -41,6 +41,8 @@ class SearchAdapter(private val RecipesList: List<Recipe>) :
     class SearchViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = ItemSearchSquaredBinding.bind(itemView)
     }
-
+    interface RecipeInteractionListener {
+        fun onClickRecipe(recipe: Recipe)
+    }
 
 }

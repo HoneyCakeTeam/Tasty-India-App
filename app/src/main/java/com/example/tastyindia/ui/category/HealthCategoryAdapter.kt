@@ -5,12 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.tastyindia.R
 import com.bumptech.glide.Glide
+import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemHealthCategoryBinding
 
-class HealthCategoryAdapter(private val healthList: List<Recipe>, private val listener : CatecoryInteractorListener) :
+class HealthCategoryAdapter(
+    private val healthList: List<Recipe>,
+    private val listener: CategoryInteractionListener
+) :
     RecyclerView.Adapter<HealthCategoryAdapter.HealthViewHolder>() {
 
 
@@ -18,7 +21,8 @@ class HealthCategoryAdapter(private val healthList: List<Recipe>, private val li
         parent: ViewGroup,
         viewType: Int
     ): HealthViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_health_category,parent,false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_health_category, parent, false)
         return HealthViewHolder(view)
     }
 
@@ -31,7 +35,7 @@ class HealthCategoryAdapter(private val healthList: List<Recipe>, private val li
                 .load(currentHealth.imageUrl)
                 .into(healthImage)
             root.setOnClickListener {
-                listener.onClickItem(currentHealth)
+                listener.onClickRecipe(currentHealth)
             }
         }
 
@@ -42,6 +46,10 @@ class HealthCategoryAdapter(private val healthList: List<Recipe>, private val li
 
     class HealthViewHolder(viewItem: View) : ViewHolder(viewItem) {
         val binding = ItemHealthCategoryBinding.bind(viewItem)
+    }
+
+    interface CategoryInteractionListener {
+        fun onClickRecipe(recipe: Recipe)
     }
 }
 

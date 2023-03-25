@@ -31,7 +31,7 @@ class SeeAllRecipesAdapter(
                 .load(currentRecipe.imageUrl)
                 .placeholder(R.drawable.ic_error)
                 .into(ivRecipeImage)
-            root.setOnClickListener { listener.onClickItem(currentRecipe) }
+            root.setOnClickListener { listener.onClickRecipe(currentRecipe) }
         }
     }
 
@@ -39,5 +39,9 @@ class SeeAllRecipesAdapter(
 
     class CategoryViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = ItemRecipeSquaredBinding.bind(itemView)
+    }
+
+    interface RecipeInteractionListener {
+        fun onClickRecipe(recipe: Recipe)
     }
 }

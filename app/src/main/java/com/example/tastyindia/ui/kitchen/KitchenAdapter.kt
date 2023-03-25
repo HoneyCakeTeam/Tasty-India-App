@@ -32,7 +32,7 @@ class KitchenAdapter(
                 .placeholder(R.drawable.ic_error)
                 .into(imageKitchen)
 
-            root.setOnClickListener { listener.onClickItem(currentKitchen) }
+            root.setOnClickListener { listener.onClickRecipe(currentKitchen) }
         }
     }
 
@@ -42,7 +42,7 @@ class KitchenAdapter(
         val binding = ItemKitchenBinding.bind(itemView)
     }
 
-    interface KitchenDetailsInteractionListener {
+    interface KitchenInteractionListener {
         fun onClickRecipe(recipe: Recipe)
     }
 }

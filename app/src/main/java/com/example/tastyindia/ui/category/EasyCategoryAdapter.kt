@@ -10,8 +10,8 @@ import com.bumptech.glide.Glide
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemEasyCategoryBinding
 
-class EasyCategoryAdabter(private val easyList:List<Recipe >,private val listener: CatecoryInteractorListener) :
-    RecyclerView.Adapter<EasyCategoryAdabter.EasyViewHolder>() {
+class EasyCategoryAdapter(private val easyList:List<Recipe >, private val listener: CategoryInteractionListener) :
+    RecyclerView.Adapter<EasyCategoryAdapter.EasyViewHolder>() {
 
 
     override fun onCreateViewHolder(
@@ -34,7 +34,7 @@ class EasyCategoryAdabter(private val easyList:List<Recipe >,private val listene
                 .into(easyImage)
 
             root.setOnClickListener {
-                listener.onClickItem(currentEasy)
+                listener.onClickRecipe(currentEasy)
             }
         }
 
@@ -46,6 +46,9 @@ class EasyCategoryAdabter(private val easyList:List<Recipe >,private val listene
 
     class EasyViewHolder(viewItem: View) : ViewHolder(viewItem) {
         val binding = ItemEasyCategoryBinding.bind(viewItem)
+    }
+    interface CategoryInteractionListener {
+        fun onClickRecipe(recipe: Recipe)
     }
 }
 

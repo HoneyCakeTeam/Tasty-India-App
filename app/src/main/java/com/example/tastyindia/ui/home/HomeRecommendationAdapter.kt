@@ -10,8 +10,10 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemHomeRecommendationsBinding
 
-class HomeRecommendationAdapter(val list: List<Recipe>, val listener: HomeRecommendationsListener) :
-    RecyclerView.Adapter<HomeRecommendationAdapter.HomeRecommendationViewHolder>() {
+class HomeRecommendationAdapter(
+    val list: List<Recipe>,
+    private val listener: HomeRecommendationsListener
+) : RecyclerView.Adapter<HomeRecommendationAdapter.HomeRecommendationViewHolder>() {
 
 
     class HomeRecommendationViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
@@ -27,7 +29,6 @@ class HomeRecommendationAdapter(val list: List<Recipe>, val listener: HomeRecomm
         return HomeRecommendationViewHolder(view)
     }
 
-    override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: HomeRecommendationViewHolder, position: Int) {
         val currentMeal = list[position]
@@ -40,9 +41,14 @@ class HomeRecommendationAdapter(val list: List<Recipe>, val listener: HomeRecomm
                 .into(ivHomeRecommendationRecipeImage)
 
             root.setOnClickListener {
-                listener.onClickItem(currentMeal)
+                listener.onClickRecipe(currentMeal)
             }
         }
 
+    }
+
+    override fun getItemCount() = list.size
+    interface HomeRecommendationsListener {
+        fun onClickRecipe(recipe: Recipe)
     }
 }

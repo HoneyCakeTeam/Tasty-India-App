@@ -14,7 +14,7 @@
         android:layout_height="156dp"
         android:scaleType="centerCrop"
         app:shapeAppearance="@style/CategoriesCardImageStyle"
-        app:srcCompat="@drawable/image_category" />
+        app:srcCompat="@drawable/image_recipe_chicken" />
     <View
         android:id="@+id/view_gradiant"
         android:layout_width="match_parent"

@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/guideline_top"
         app:roundPercent="0.1"
-        app:srcCompat="@drawable/card_image" />
+        app:srcCompat="@drawable/image_more_recipes" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/kitchen_info_body"

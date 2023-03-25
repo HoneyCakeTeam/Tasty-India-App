@@ -14,7 +14,7 @@
         android:layout_height="150dp"
         android:scaleType="centerCrop"
         app:shapeAppearance="@style/CategoriesCardImageStyle"
-        app:srcCompat="@drawable/image_search" />
+        app:srcCompat="@drawable/image_recipe" />
 
     <View
         android:id="@+id/view_gradiant"

@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/CircleImageStyle"
-            app:srcCompat="@drawable/image_placeholder" />
+            app:srcCompat="@drawable/image_recipe" />
 
         <TextView
             android:id="@+id/tv_recipe_name"

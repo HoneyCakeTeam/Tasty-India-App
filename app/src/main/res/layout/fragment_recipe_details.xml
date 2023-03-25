@@ -13,7 +13,7 @@
         android:layout_height="350dp"
         android:contentDescription="@string/recipeimage"
         android:scaleType="centerCrop"
-        android:src="@drawable/crepe"
+        android:src="@drawable/image_recipe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

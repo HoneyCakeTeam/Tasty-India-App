@@ -16,7 +16,7 @@
             android:id="@+id/recipe_of_week_bg"
             android:layout_width="@dimen/recipe_of_week_item_width"
             android:layout_height="@dimen/recipe_of_week_item_height"
-            android:background="@mipmap/recipe_of_week_bg"
+            android:background="@drawable/image_recipe_chicken"
             />
         <View
             android:layout_width="@dimen/recipe_of_week_item_width"

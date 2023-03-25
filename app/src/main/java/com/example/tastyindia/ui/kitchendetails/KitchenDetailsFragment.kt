@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
+import com.example.tastyindia.data.domain.KitchenInfo
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentKitchenDetailsBinding
 import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.kitchen.KitchenFragment
+import com.example.tastyindia.ui.kitchen.KitchenInfoFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
@@ -18,12 +21,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlin.math.log
 
 class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
-    RecipesAdapter.RecipeInteractionListener {
+    RecipeAdapter.RecipeInteractionListener {
 
     override val TAG: String = "CUISINEDETAILS"
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
-    private lateinit var recipeAdapter: RecipesAdapter
+    private lateinit var recipeAdapter: RecipeAdapter
     private lateinit var kitchenName: String
     private lateinit var kitchenImageUrl: String
 
@@ -32,6 +35,9 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
+       // setUpAppBar(true, kitchenName, true, true)
+        recipeAdapter = RecipeAdapter(dataManager.getRecipesByKitchen(kitchenName), this)
+        binding.rvRecipe.adapter =  recipeAdapter
         arguments?.let {
             log(it.getString(KITCHEN_NAME).toString())
             log(it.getString(KITCHEN_IMAGE_URL).toString())
@@ -52,9 +58,20 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
             }
     }
 
+    override fun onClickBack() {
+        navigateToKitchenFragment()
+    }
+
     override fun onClickRecipe(recipe: Recipe) {
         navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe)
+    }
 
+    override fun onClickInfo() {
+        navigateToKitchenInfoFragmentWithSelectedRecipeData()
+    }
+
+    private fun navigateToKitchenFragment() {
+        replaceFragment(KitchenFragment())
     }
 
     private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe: Recipe) {
@@ -62,6 +79,10 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
         val kitchenImageUrl = recipe.imageUrl
         newInstance(kitchenName, kitchenImageUrl)
         replaceFragment(RecipeDetailsFragment())
+    }
+
+    private fun navigateToKitchenInfoFragmentWithSelectedRecipeData() {
+        replaceFragment(KitchenInfoFragment())
     }
 
     private fun replaceFragment(fragment: Fragment) {

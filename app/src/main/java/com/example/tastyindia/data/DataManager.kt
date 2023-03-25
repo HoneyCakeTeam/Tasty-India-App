@@ -141,6 +141,9 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
             it.cuisine.lowercase().contains(searchWord.lowercase()) || it.recipeName.lowercase()
                 .contains(searchWord.lowercase())
         }
+    }//endregion
+
+    override fun getRecipesByKitchen(kitchenName: String): List<Recipe> {
+        return listOfRecipe.distinctBy { it.cuisine == kitchenName }
     }
-    //endregion
 }

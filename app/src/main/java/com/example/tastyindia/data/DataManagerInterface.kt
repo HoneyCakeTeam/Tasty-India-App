@@ -18,4 +18,5 @@ interface DataManagerInterface {
     fun getIngredients(recipe: Recipe): List<String>
     fun getInstructions(recipe: Recipe): List<String>
     fun searchByRecipeOrCuisine(searchWord: String): List<Recipe>
+    fun getRecipesByKitchen(kitchenName: String): List<Recipe>
 }

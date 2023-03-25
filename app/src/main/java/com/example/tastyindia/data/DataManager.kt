@@ -5,7 +5,7 @@ import com.example.tastyindia.data.source.CsvDataSource
 import kotlin.random.Random
 
 
-class DataManager(private val dataSource: CsvDataSource) : DataManagerInterface {
+class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
 
     private val listOfRecipe = dataSource.getAllRecipes()
     override fun getRandomNumbersForRecommendations(): List<Int> {
@@ -16,10 +16,15 @@ class DataManager(private val dataSource: CsvDataSource) : DataManagerInterface 
     }
 
     override fun getRandomNumbersForRecipesOfTheWeek(): List<Int> {
-        TODO("Not yet implemented")
+        val listOfRandomNumbers = List(10) {
+            Random.nextInt(listOfRecipe.size - 1)
+        }
+        return listOfRandomNumbers
     }
 
-    override fun getListOfRecipeUsingRandomNumbers(randomNumbers: List<Int>): List<Recipe> {
-        TODO("Not yet implemented")
-    }
+    override fun getListOfRecipeUsingRandomNumbers(randomNumbers: List<Int>): List<Recipe> =
+        randomNumbers.map {
+            listOfRecipe[it]
+        }
+
 }

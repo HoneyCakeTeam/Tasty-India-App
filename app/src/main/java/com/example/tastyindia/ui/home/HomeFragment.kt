@@ -30,13 +30,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsLis
         setUpAppBar(false)
 
         val randomNumbersForRecommendations = getRandomNumbersForRecommendations()
-        val listOfRecommendationRecipes =
-            getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
+        val listOfRecommendationRecipes =dataManager.getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
+           // getListOfRecipeUsingRandomNumbers()
         val adapter = HomeRecommendationAdapter(listOfRecommendationRecipes, this)
         binding.rvHomeRecommendation.adapter = adapter
 
         val randomNumbers = getRandomNumbersForRecipesOfTheWeek()
-        val recipesOfTheWeek = getListOfRecipeUsingRandomNumbers(randomNumbers)
+        //val recipesOfTheWeek = getListOfRecipeUsingRandomNumbers(randomNumbers)
 
     }
 

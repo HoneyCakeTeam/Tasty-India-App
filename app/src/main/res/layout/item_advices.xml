@@ -5,38 +5,29 @@
     android:layout_height="124dp"
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_marginHorizontal="@dimen/margin_medium"
-    android:layout_marginBottom="@dimen/margin_medium"
+    android:layout_marginVertical="@dimen/margin_small"
     app:cardCornerRadius="@dimen/radius_small">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        android:layout_height="match_parent">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imgVeg"
+            android:id="@+id/img_related_with_advice"
             android:layout_width="124dp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tool:src="@drawable/crepe" />
 
         <TextView
             android:id="@+id/advice_text"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             tool:text="Base your meals on higher fibre starchy carbohydrates"
+            app:layout_constraintStart_toEndOf="@+id/img_related_with_advice"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imgVeg"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="@dimen/margin_small"
-            android:layout_marginVertical="@dimen/margin_tiny"/>
+            android:layout_margin="@dimen/margin_small"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

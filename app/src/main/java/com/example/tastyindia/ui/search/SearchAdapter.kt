@@ -3,13 +3,14 @@ package com.example.tastyindia.ui.search
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemSearchSquaredBinding
 
-class SearchAdapter(private val RecipesList: List<Recipe>) :
+class SearchAdapter(private var RecipesList: List<Recipe>) :
     RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -20,7 +21,11 @@ class SearchAdapter(private val RecipesList: List<Recipe>) :
             .inflate(R.layout.item_search_squared, parent, false)
         return SearchViewHolder(view)
     }
-
+fun setData(newRicpesLis :List<Recipe>){
+    val diffResult=DiffUtil.calculateDiff(RecipeDiffUtil(RecipesList,newRicpesLis))
+    RecipesList=newRicpesLis
+    diffResult.dispatchUpdatesTo(this)
+}
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
         val currentRecipe = RecipesList[position]

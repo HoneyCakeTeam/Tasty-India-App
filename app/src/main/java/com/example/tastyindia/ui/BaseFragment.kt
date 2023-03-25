@@ -49,11 +49,10 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
         setUpAppBar()
         setUp()
-        addCallbacks()
     }
 
     abstract fun setUp()
-    abstract fun addCallbacks()
+
     protected fun log(value: Any) {
         Log.e(TAG, value.toString())
     }

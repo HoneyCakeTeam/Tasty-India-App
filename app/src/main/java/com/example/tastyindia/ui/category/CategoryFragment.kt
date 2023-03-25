@@ -15,6 +15,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CatecoryIntera
         FragmentCategoryBinding.inflate(layoutInflater)
 
     override fun setUp() {
+        addCallbacks()
         val recipe = listOf(
             "Chicken",
             "Fish",
@@ -42,7 +43,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CatecoryIntera
         binding?.rvEasyCategories?.adapter = easyAdabter
     }
 
-    override fun addCallbacks() {
+    private fun addCallbacks() {
         binding?.seeAllHealth?.setOnClickListener {
             TODO("Not yet implemented")
         }

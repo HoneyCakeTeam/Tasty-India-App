@@ -33,9 +33,6 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(), Ki
         //binding.rvRecipe.adapter = recipeAdapter
     }
 
-    override fun addCallbacks() {}
-
-
     private fun getRecipeName(): List<Recipe> {
         return listOfRecipe.distinctBy { it.cuisine == kitchenName }
     }

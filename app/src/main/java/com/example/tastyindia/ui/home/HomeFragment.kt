@@ -17,7 +17,7 @@ import kotlin.random.Random
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsListener {
 
-    private val dataSource = CsvDataSource(requireContext(), CsvParser())
+    private val dataSource = CsvDataSource(requireContext().applicationContext, CsvParser())
     private val dataManager: DataManagerInterface = DataManager(dataSource)
 
     override val TAG: String = "HomeFragment"
@@ -26,7 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsLis
         FragmentHomeBinding.inflate(layoutInflater)
 
     override fun setUp() {
-
+        addCallbacks()
         setUpAppBar(false)
 
         val randomNumbersForRecommendations = getRandomNumbersForRecommendations()
@@ -40,7 +40,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsLis
 
     }
 
-    override fun addCallbacks() {
+    private fun addCallbacks() {
 
         binding.tvHomeRecommendationSeeAll.setOnClickListener {
             replaceFragment(SeeAllRecipesFragment())

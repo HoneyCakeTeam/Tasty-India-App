@@ -24,8 +24,6 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>(), KitchenInteracti
         binding.rvKitchen.adapter = adapter
     }
 
-    override fun addCallbacks() {}
-
     private fun getAllCuisines(): List<Recipe> {
         return listOfRecipe.distinctBy { it.cuisine }
     }

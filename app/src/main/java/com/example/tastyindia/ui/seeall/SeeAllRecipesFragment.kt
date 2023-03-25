@@ -27,10 +27,6 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
         binding.rvRecipes.adapter = adapter
     }
 
-    override fun addCallbacks() {
-
-    }
-
     private fun getRecipesList(): RecipeList {
         arguments?.let {
             recipeList = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

@@ -35,10 +35,6 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         setUpAppBar(true, "", true)
     }
 
-    override fun addCallbacks() {
-
-    }
-
     private fun getRecipeDetails(id: Int) = listOfRecipe[id]
 
     companion object {

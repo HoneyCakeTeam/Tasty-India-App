@@ -11,11 +11,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     override fun getViewBinding() = FragmentSearchBinding.inflate(layoutInflater)
 
     override fun setUp() {
+        addCallbacks()
        // setUpAppBar(visibility = true , title = "Search",showBackIcon = true)
         log(listOfRecipe.size)
     }
 
-    override fun addCallbacks() {
+   private fun addCallbacks() {
         addSearchListener()
     }
 

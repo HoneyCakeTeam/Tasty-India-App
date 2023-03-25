@@ -31,10 +31,6 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
         binding.rvRecipe.adapter = recipeAdapter
     }
 
-    override fun addCallbacks() {
-        //TODO handle back btn
-    }
-
     override fun onClickItem(recipe: Recipe) {
         RecipeDetailsFragment.newInstance(recipe)
     }

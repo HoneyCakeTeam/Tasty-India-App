@@ -17,9 +17,6 @@ class AdvicesFragment : BaseFragment<FragmentAdvicesBinding>() {
         binding.rvAdvices.adapter = adviceAdapter
     }
 
-    override fun addCallbacks() {
-
-    }
 
     private fun addItems() {
         advices.add(

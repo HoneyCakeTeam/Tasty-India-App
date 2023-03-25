@@ -30,24 +30,11 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
-        val recipe = listOf(
-            "Chicken",
-            "Fish",
-            "Lentils",
-            "Millet",
-            "Cardamom",
-            "Tomatoes",
-            "Ginger",
-            "Turmeric",
-            "Cinnamon",
-            "Sweet Potato",
-            "Spinach",
-            "Spinach",
-            "Fenugreek"
-        )
-        val listHealthy = filterHealthyRecipes(recipe)
-        val listFast = filterFastFoodRecipes()
-        val listEasy = filterEasyRecipes()
+
+        val healthyIngredients = dataManager.getHealthyIngredients()
+        val listHealthy = dataManager.getHealthyRecipes(healthyIngredients)
+        val listFast = dataManager.getFastFoodRecipes()
+        val listEasy = dataManager.getEasyRecipes()
 
         healthAdapter = HealthCategoryAdapter(listHealthy, this)
         binding.rvHealthCategories.adapter = healthAdapter
@@ -55,29 +42,6 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
         binding.rvFastFoodCategories.adapter = fastFoodAdapter
         easyAdapter = EasyCategoryAdapter(listEasy, this)
         binding.rvEasyCategories.adapter = easyAdapter
-    }
-
-    private fun filterHealthyRecipes(health: List<String>): List<Recipe> {
-        return listOfRecipe.filter { excludeUnHealthyRecipes(it, health) }
-    }
-
-
-    private fun filterFastFoodRecipes(): List<Recipe> {
-        return listOfRecipe.sortedBy {
-            it.totalTimeInMins
-        }
-    }
-
-    private fun filterEasyRecipes(): List<Recipe> {
-        return listOfRecipe.sortedBy {
-            it.ingredientsCount
-        }
-    }
-
-    private fun excludeUnHealthyRecipes(recipe: Recipe, health: List<String>): Boolean {
-        return health.any {
-            recipe.ingredients.lowercase().contains(it.lowercase())
-        }
     }
 
     override fun onClickRecipe(recipe: Recipe) {
@@ -92,6 +56,5 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
 
         }
     }
-
 
 }

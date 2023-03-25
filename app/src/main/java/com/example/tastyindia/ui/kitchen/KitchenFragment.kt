@@ -27,7 +27,7 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>(),
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
         setUpAppBar(true, "Cuisine", false)
-        adapter = KitchenAdapter(dataManager.getAllKitchen(), this)
+        adapter = KitchenAdapter(dataManager.getAllKitchenRecipes(), this)
         binding.rvKitchen.adapter = adapter
     }
 

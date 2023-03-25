@@ -34,25 +34,6 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
         }
 
     //endregion
-    //region category screen
-    override fun filterFastFoodRecipes(): List<Recipe> {
-        return listOfRecipe.sortedBy {
-            it.totalTimeInMins
-        }
-    }
-
-    override fun filterEasyRecipes(): List<Recipe> {
-        return listOfRecipe.sortedBy {
-            it.ingredientsCount
-        }
-    }
-
-    override fun excludeUnHealthyRecipes(recipe: Recipe, health: List<String>): Boolean {
-        return health.any {
-            recipe.ingredients.lowercase().contains(it.lowercase())
-        }
-    }//endregion
-
     //region Kitchen screen
     override fun getKitchenInfo(kitchenName: String): MutableList<KitchenInfo> {
         return kitchens
@@ -60,10 +41,11 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
             .toMutableList()
     }
 
-    override fun getAllKitchen(): List<Recipe> {
+    override fun getAllKitchenRecipes(): List<Recipe> {
         return listOfRecipe.distinctBy { it.cuisine }
-    }
+    }//endregion
 
+    //region Advices screen
     override fun getAdvicesList(): List<Advice> {
         return listOf(
             Advice(
@@ -103,7 +85,62 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
                 text = "A daily multivitamin is a great nutrition insurance policy. Some extra vitamin D may add an extra health boost"
             )
         )
+    }//endregion
+
+    //region Category screen
+    override fun getHealthyRecipes(health: List<String>): List<Recipe> {
+        return listOfRecipe.filter { recipe ->
+            health.any {
+                recipe.ingredients.lowercase().contains(it.lowercase())
+            }
+        }
     }
 
+    override fun getFastFoodRecipes(): List<Recipe> {
+        return listOfRecipe.sortedBy {
+            it.totalTimeInMins
+        }
+    }
+
+    override fun getEasyRecipes(): List<Recipe> {
+        return listOfRecipe.sortedBy {
+            it.ingredientsCount
+        }
+    }
+
+    override fun getHealthyIngredients(): List<String> {
+        return listOf(
+            "Chicken",
+            "Fish",
+            "Lentils",
+            "Millet",
+            "Cardamom",
+            "Tomatoes",
+            "Ginger",
+            "Turmeric",
+            "Cinnamon",
+            "Sweet Potato",
+            "Spinach",
+            "Spinach",
+            "Fenugreek"
+        )
+    }//endregion
+
+    //region Recipe Details screen
+    override fun getIngredients(recipe: Recipe): List<String> {
+        return recipe.ingredients.split(";")
+    }
+
+    override fun getInstructions(recipe: Recipe): List<String> {
+        return recipe.instructions.split(".").map { it.trim() }
+    }//endregion
+
+    //region Search screen
+    override fun searchByRecipeOrCuisine(searchWord: String): List<Recipe> {
+        return listOfRecipe.filter {
+            it.cuisine.lowercase().contains(searchWord.lowercase()) || it.recipeName.lowercase()
+                .contains(searchWord.lowercase())
+        }
+    }
     //endregion
 }

@@ -5,10 +5,11 @@ import com.example.tastyindia.data.domain.KitchenInfo
 import com.example.tastyindia.data.domain.Recipe
 
 interface DataManagerInterface {
+    fun getKitchenInfoList(): List<KitchenInfo>
     fun getRandomNumbersForRecommendations(): List<Int>
     fun getRandomNumbersForRecipesOfTheWeek(): List<Int>
     fun getListOfRecipeUsingRandomNumbers(randomNumbers: List<Int>): List<Recipe>
-    fun getKitchenInfo(kitchenName: String): MutableList<KitchenInfo>
+    fun getKitchenInfoByName(kitchenName: String): MutableList<KitchenInfo>
     fun getAllKitchenRecipes(): List<Recipe>
     fun getAdvicesList(): List<Advice>
     fun getHealthyRecipes(health: List<String>): List<Recipe>

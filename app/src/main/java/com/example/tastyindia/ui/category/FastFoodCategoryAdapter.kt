@@ -27,7 +27,7 @@ class FastFoodCategoryAdapter(private val fastList: List<Recipe>, private val li
         val currentFastFood = fastList[position]
         holder.binding.apply {
             tvName.text = currentFastFood.recipeName
-            tvTime.text = currentFastFood.totalTimeInMins.toString()
+            tvTime.text = currentFastFood.totalTimeInMinutes.toString()
             Glide
                 .with(holder.binding.root)
                 .load(currentFastFood.imageUrl)

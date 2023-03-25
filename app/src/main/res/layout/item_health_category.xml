@@ -4,7 +4,8 @@
     android:layout_width="95dp"
     android:layout_height="95dp"
     app:cardCornerRadius="@dimen/radius_small"
-    android:layout_marginEnd="@dimen/margin_small">
+   android:layout_margin="2dp"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"

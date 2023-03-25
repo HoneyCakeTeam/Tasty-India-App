@@ -7,12 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
+import com.example.tastyindia.data.domain.CategoryItem
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemHealthCategoryBinding
 
 class HealthCategoryAdapter(
-    private val healthList: List<Recipe>,
-    private val listener: CategoryInteractionListener
+    val healthList: List<Recipe>,
+    val listener: CategoryInteractionListener
 ) :
     RecyclerView.Adapter<HealthCategoryAdapter.HealthViewHolder>() {
 

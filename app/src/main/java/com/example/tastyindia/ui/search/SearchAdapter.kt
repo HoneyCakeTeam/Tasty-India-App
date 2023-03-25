@@ -11,10 +11,10 @@ import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemSearchSquaredBinding
 
 class SearchAdapter(
-    private var RecipesList: List<Recipe>,
-    private val listener: RecipeInteractionListener,
+    private val listener: RecipeInteractionListener
 ) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
+    private  var RecipesList = arrayListOf<Recipe>()
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
@@ -27,7 +27,7 @@ class SearchAdapter(
     fun setData(newRecipesList: List<Recipe>) {
         val diffCallback = RecipeDiffUtil(RecipesList, newRecipesList)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
-        RecipesList = newRecipesList
+        RecipesList = newRecipesList as ArrayList<Recipe>
         diffResult.dispatchUpdatesTo(this)
     }
 

@@ -9,7 +9,8 @@ class RecipeDiffUtil(val OldRecipesLis: List<Recipe>, val NewRecipesList: List<R
 
     override fun getNewListSize() = NewRecipesList.size
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return (OldRecipesLis[oldItemPosition].recipeName == NewRecipesList[newItemPosition].recipeName || OldRecipesLis[oldItemPosition].cuisine == NewRecipesList[newItemPosition].cuisine)
+        return (OldRecipesLis[oldItemPosition].recipeName == NewRecipesList[newItemPosition].recipeName
+                || OldRecipesLis[oldItemPosition].cuisine == NewRecipesList[newItemPosition].cuisine)
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {

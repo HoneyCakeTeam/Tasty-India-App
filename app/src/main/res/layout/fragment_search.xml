@@ -11,15 +11,23 @@
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium"
+        android:background="@drawable/search_rounded"
         android:iconifiedByDefault="false"
         android:queryBackground="@null"
-        android:theme="@style/ThemeOverlay.Material3.Search"
-        android:background="@drawable/search_rounded"
-        android:layout_margin="@dimen/margin_medium"
         android:queryHint="@string/search"
         android:searchIcon="@drawable/ic_search"
-        app:layout_constraintTop_toTopOf="parent"
-     />
+        android:theme="@style/ThemeOverlay.Material3.Search"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="72dp"
+        android:src="@drawable/image_search"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/search_bar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_search_result"
@@ -27,6 +35,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_small"
         android:padding="@dimen/padding_small"
+        android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar"

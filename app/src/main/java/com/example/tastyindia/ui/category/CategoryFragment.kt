@@ -1,6 +1,7 @@
 package com.example.tastyindia.ui.category
 
 
+import android.view.View
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.FragmentCategoryBinding
 import com.example.tastyindia.ui.BaseFragment
@@ -9,16 +10,18 @@ import com.example.tastyindia.ui.BaseFragment
 class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
     HealthCategoryAdapter.CategoryInteractionListener,
     FastFoodCategoryAdapter.CategoryInteractionListener,
-    EasyCategoryAdapter.CategoryInteractionListener {
-    override val TAG: String = "CategoryFragment"
+    EasyCategoryAdapter.CategoryInteractionListener, View.OnClickListener {
+
     private lateinit var healthAdapter: HealthCategoryAdapter
     private lateinit var fastFoodAdapter: FastFoodCategoryAdapter
     private lateinit var easyAdapter: EasyCategoryAdapter
+
+    override val TAG: String = this::class.simpleName.toString()
+
     override fun getViewBinding(): FragmentCategoryBinding =
         FragmentCategoryBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        addCallbacks()
         val recipe = listOf(
             "Chicken",
             "Fish",
@@ -46,18 +49,6 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
         binding.rvEasyCategories.adapter = easyAdapter
     }
 
-    private fun addCallbacks() {
-        binding.seeAllHealth.setOnClickListener {
-            TODO("Not yet implemented")
-        }
-        binding.seeAllFastFood.setOnClickListener {
-            TODO("Not yet implemented")
-        }
-        binding?.seeAllEasy?.setOnClickListener {
-            TODO("Not yet implemented")
-        }
-    }
-
     private fun filterHealthyRecipes(health: List<String>): List<Recipe> {
         return listOfRecipe.filter { excludeUnHealthyRecipes(it, health) }
     }
@@ -82,7 +73,16 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
     }
 
     override fun onClickRecipe(recipe: Recipe) {
-        TODO("Not yet implemented")
+
+    }
+
+    override fun onClick(view: View?) {
+        when (view) {
+            binding.seeAllFastFood -> {}
+            binding.seeAllEasy -> {}
+            binding.seeAllHealth -> {}
+
+        }
     }
 
 

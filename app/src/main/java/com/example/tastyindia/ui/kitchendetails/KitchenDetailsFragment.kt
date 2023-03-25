@@ -27,8 +27,8 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
     private lateinit var recipeAdapter: RecipeAdapter
-    private lateinit var kitchenName: String
-    private lateinit var kitchenImageUrl: String
+//    private lateinit var kitchenName: String
+//    private lateinit var kitchenImageUrl: String
 
     override fun getViewBinding() = FragmentKitchenDetailsBinding.inflate(layoutInflater)
 

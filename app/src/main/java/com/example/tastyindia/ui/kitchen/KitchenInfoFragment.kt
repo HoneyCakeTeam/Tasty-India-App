@@ -3,15 +3,19 @@ package com.example.tastyindia.ui.kitchen
 import android.os.Bundle
 import android.widget.TextView
 import com.example.tastyindia.R
-import com.example.tastyindia.data.domain.KitchenInfo
-import com.example.tastyindia.data.domain.kitchens
+import com.example.tastyindia.data.DataManager
+import com.example.tastyindia.data.DataManagerInterface
+import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentKitchenInfoBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
+import com.example.tastyindia.utils.CsvParser
 
 class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
 
+    private lateinit var dataSource: CsvDataSource
+    private lateinit var dataManager: DataManagerInterface
     override val TAG: String = this::class.simpleName!!
     private lateinit var kitchenName: String
     private lateinit var kitchenImageUrl: String
@@ -20,14 +24,16 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
         FragmentKitchenInfoBinding.inflate(layoutInflater)
 
     override fun setUp() {
-       // setUpAppBar(visibility = true, title = "Kitchen Info", showBackIcon = true)
+        dataSource = CsvDataSource(requireContext(), CsvParser())
+        dataManager = DataManager(dataSource)
+        // setUpAppBar(visibility = true, title = "Kitchen Info", showBackIcon = true)
 
         arguments?.let {
             kitchenName = it.getString(KITCHEN_NAME)!!
             kitchenImageUrl = it.getString(KITCHEN_IMAGE_URL)!!
         }
 
-        val kitchen = getKitchenInfo("European")
+        val kitchen = dataManager.getKitchenInfo("European")
 
         view?.findViewById<TextView>(R.id.tv_history_title)?.text = kitchen[0].kitchenName
         view?.findViewById<TextView>(R.id.tv_history_description)?.text =
@@ -36,10 +42,6 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
             kitchen[0].RegionsDescription
         view?.findViewById<TextView>(R.id.tv_dishes_description)?.text =
             kitchen[0].dishesDescription
-    }
-
-    override fun addCallbacks() {
-
     }
 
     companion object {
@@ -52,9 +54,4 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
             }
     }
 
-    private fun getKitchenInfo(kitchenName: String): MutableList<KitchenInfo> {
-        return kitchens
-            .filter { it.kitchenName == kitchenName }
-            .toMutableList()
-    }
 }

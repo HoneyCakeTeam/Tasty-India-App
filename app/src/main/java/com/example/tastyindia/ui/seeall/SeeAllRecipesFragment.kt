@@ -14,7 +14,7 @@ import com.example.tastyindia.utils.Constants.Key.RECIPE_NAME
 import com.google.android.material.snackbar.Snackbar
 
 class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
-    RecipeInteractionListener {
+    SeeAllRecipesAdapter.RecipeInteractionListener {
     private lateinit var recipeList: RecipeList
     private lateinit var adapter: SeeAllRecipesAdapter
     override val TAG = this::class.simpleName.toString()
@@ -47,9 +47,6 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
             }
     }
 
-    override fun onClickItem(recipe: Recipe) {
-        navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe)
-    }
 
     private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe: Recipe) {
         //RecipeDetailsFragment.newInstance(recipe)
@@ -61,6 +58,10 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentContainerView, fragment)
         transaction.commit()
+    }
+
+    override fun onClickRecipe(recipe: Recipe) {
+        navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe)
     }
 
 }

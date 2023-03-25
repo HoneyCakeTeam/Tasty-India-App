@@ -1,17 +1,22 @@
 package com.example.tastyindia.ui.kitchen
 
-import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
+import com.example.tastyindia.data.DataManager
+import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.Recipe
+import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentKitchenBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.kitchendetails.KitchenDetailsFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.tastyindia.utils.CsvParser
 import com.google.android.material.snackbar.Snackbar
 
-class KitchenFragment : BaseFragment<FragmentKitchenBinding>(), KitchenInteractionListener {
+class KitchenFragment : BaseFragment<FragmentKitchenBinding>(),
+    KitchenAdapter.KitchenInteractionListener {
 
+    private lateinit var dataSource: CsvDataSource
+    private lateinit var dataManager: DataManagerInterface
     private lateinit var adapter: KitchenAdapter
     override val TAG: String = this::class.simpleName.toString()
 
@@ -19,17 +24,11 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>(), KitchenInteracti
         FragmentKitchenBinding.inflate(layoutInflater)
 
     override fun setUp() {
+        dataSource = CsvDataSource(requireContext(), CsvParser())
+        dataManager = DataManager(dataSource)
         setUpAppBar(true, "Cuisine", false)
-        adapter = KitchenAdapter(getAllCuisines(), this)
+        adapter = KitchenAdapter(dataManager.getAllKitchen(), this)
         binding.rvKitchen.adapter = adapter
-    }
-
-    private fun getAllCuisines(): List<Recipe> {
-        return listOfRecipe.distinctBy { it.cuisine }
-    }
-
-    override fun onClickItem(recipe: Recipe) {
-        navigateToKitchenDetailsFragmentWithSelectedKitchenData(recipe)
     }
 
     private fun navigateToKitchenDetailsFragmentWithSelectedKitchenData(recipe: Recipe) {
@@ -44,6 +43,10 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>(), KitchenInteracti
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentContainerView, fragment)
         transaction.commit()
+    }
+
+    override fun onClickRecipe(recipe: Recipe) {
+        navigateToKitchenDetailsFragmentWithSelectedKitchenData(recipe)
     }
 
 }

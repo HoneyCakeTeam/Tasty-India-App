@@ -13,7 +13,7 @@ import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(), KitchenAdapter.KitchenDetailsInteractionListener {
+class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(), KitchenAdapter.KitchenInteractionListener {
 
     override val TAG: String = "CUISINEDETAILS"
    // private lateinit var recipeAdapter: KitchenDetailsAdapter

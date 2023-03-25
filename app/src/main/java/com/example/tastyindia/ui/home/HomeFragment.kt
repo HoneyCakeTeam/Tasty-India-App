@@ -15,10 +15,11 @@ import com.example.tastyindia.utils.CsvParser
 import kotlin.random.Random
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsListener {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(),
+    HomeRecommendationAdapter.HomeRecommendationsListener {
 
-    private val dataSource = CsvDataSource(requireContext().applicationContext, CsvParser())
-    private val dataManager: DataManagerInterface = DataManager(dataSource)
+    private lateinit var dataSource: CsvDataSource
+    private lateinit var dataManager: DataManagerInterface
 
     override val TAG: String = "HomeFragment"
 
@@ -26,18 +27,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsLis
         FragmentHomeBinding.inflate(layoutInflater)
 
     override fun setUp() {
+        dataSource = CsvDataSource(requireContext(), CsvParser())
+        dataManager = DataManager(dataSource)
         addCallbacks()
         setUpAppBar(false)
 
-        val randomNumbersForRecommendations = getRandomNumbersForRecommendations()
-        val listOfRecommendationRecipes =dataManager.getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
-           // getListOfRecipeUsingRandomNumbers()
+        val randomNumbersForRecommendations = dataManager.getRandomNumbersForRecommendations()
+        val listOfRecommendationRecipes =
+            dataManager.getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
         val adapter = HomeRecommendationAdapter(listOfRecommendationRecipes, this)
         binding.rvHomeRecommendation.adapter = adapter
 
-        val randomNumbers = getRandomNumbersForRecipesOfTheWeek()
-        //val recipesOfTheWeek = getListOfRecipeUsingRandomNumbers(randomNumbers)
-
+        val randomNumbers = dataManager.getRandomNumbersForRecipesOfTheWeek()
+        val recipesOfTheWeek = dataManager.getListOfRecipeUsingRandomNumbers(randomNumbers)
     }
 
     private fun addCallbacks() {
@@ -63,31 +65,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsLis
         binding.cvCategoriesSpicy.setOnClickListener {
             replaceFragment(CategoryFragment())
         }
-
-    }
-
-    private fun getRandomNumbersForRecommendations(): List<Int> {
-        val listOfRandomNumbers = List(10) {
-            Random.nextInt(0, listOfRecipe.size - 1)
-        }
-        return listOfRandomNumbers
-    }
-
-    private fun getRandomNumbersForRecipesOfTheWeek(): List<Int> {
-        val listOfRandomNumbers = List(10) {
-            Random.nextInt(listOfRecipe.size - 1)
-        }
-        return listOfRandomNumbers
-    }
-
-    private fun getListOfRecipeUsingRandomNumbers(randomNumbers: List<Int>): List<Recipe> =
-        randomNumbers.map {
-            listOfRecipe[it]
-        }
-
-    override fun onClickItem(recipe: Recipe) {
-        replaceFragment(RecipeDetailsFragment())
-        RecipeDetailsFragment.newInstance(recipe)
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -95,6 +72,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeRecommendationsLis
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(com.example.tastyindia.R.id.fragmentContainerView, fragment)
         fragmentTransaction.commit()
+    }
+
+    override fun onClickRecipe(recipe: Recipe) {
+        replaceFragment(RecipeDetailsFragment())
+        RecipeDetailsFragment.newInstance(recipe)
     }
 
 }

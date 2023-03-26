@@ -26,7 +26,7 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>(),
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
-        setUpAppBar(true, "Cuisine", false)
+        setUpAppBar(true, getString(R.string.cuisine_app_bar_title), false)
         adapter = KitchenAdapter(dataManager.getAllKitchenRecipes(), this)
         binding.rvKitchen.adapter = adapter
     }

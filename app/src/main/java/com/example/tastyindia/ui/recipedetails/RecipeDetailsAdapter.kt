@@ -64,15 +64,15 @@ class RecipeDetailsAdapter(
         INSTRUCTIONS
     }
 
-    class HeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    abstract class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemView)
+    class HeaderViewHolder(itemView: View) : BaseViewHolder<RecipeDetailsItem.Header>(itemView) {
         val binding = ItemIngredientsBinding.bind(itemView)
     }
-
-    class IngredientsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class IngredientsViewHolder(itemView: View) : BaseViewHolder<RecipeDetailsItem.Ingredients>(itemView) {
+        val binding = ItemRecipeDetailsBinding.bind(itemView)
+    }
+    class InstructionsViewHolder(itemView: View) : BaseViewHolder<RecipeDetailsItem.Instructions>(itemView) {
         val binding = ItemRecipeDetailsBinding.bind(itemView)
     }
 
-    class InstructionsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val binding = ItemRecipeDetailsBinding.bind(itemView)
-    }
 }

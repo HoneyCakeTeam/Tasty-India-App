@@ -50,7 +50,7 @@ class RecipeDetailsAdapter(
 
     override fun getItemViewType(position: Int): Int = items[position].type.ordinal
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = items.size-1
 
     sealed class RecipeDetailsItem(val type: RecipeDetailsItemType) {
         data class Header(val text: String) : RecipeDetailsItem(RecipeDetailsItemType.HEADER)

@@ -52,7 +52,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     private fun setDataOnAdapter(query: String) {
         val resultOfSearch = dataManager.searchByRecipeOrCuisine(query)
         adapter.setData(resultOfSearch)
-        binding.rvSearchResult.adapter = adapter}
+        binding.rvSearchResult.adapter = adapter
+    }
+
     private fun visibilityOfImageAndRecyclerInSearchFragment(query: String?) {
         val result = dataManager.searchByRecipeOrCuisine(query!!)
         binding.imgSearch.visibility = if (query.isNotEmpty()) View.GONE else View.VISIBLE
@@ -69,13 +71,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
         query?.let { searchByQueryAndSetDataInAdapter(it) }
         return true
     }
-
-    private fun navigateToRecipeDetailsFragmentWithSelectedKitchenData(recipe: Recipe) {
-        RecipeDetailsFragment.newInstance(recipe)
-        Snackbar.make(binding.root, "$recipe Recipe ", Snackbar.LENGTH_LONG).show()
-        replaceFragment(RecipeDetailsFragment())
-    }
-
     private fun replaceFragment(fragment: Fragment) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentContainerView, fragment)
@@ -83,6 +78,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     }
 
     override fun onClickRecipe(recipe: Recipe) {
-        navigateToRecipeDetailsFragmentWithSelectedKitchenData(recipe)
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+        replaceFragment(recipeDetailsFragment)
     }
+
 }

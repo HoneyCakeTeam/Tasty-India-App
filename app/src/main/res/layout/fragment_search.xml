@@ -23,16 +23,16 @@
     <ImageView
         android:id="@+id/img_search"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="72dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="200dp"
         android:src="@drawable/image_search"
         android:visibility="visible"
         app:layout_constraintTop_toBottomOf="@id/search_bar" />
     <ImageView
         android:id="@+id/img_search_not_found"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="72dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="200dp"
         android:src="@drawable/search_notfound"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/search_bar" />

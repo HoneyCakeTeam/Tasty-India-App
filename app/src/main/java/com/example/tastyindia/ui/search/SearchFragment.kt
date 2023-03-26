@@ -50,11 +50,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     }
 
     private fun setDataOnAdapter(query: String) {
-        val result = dataManager.searchByRecipeOrCuisine(query)
-        adapter.setData(result)
-        binding.rvSearchResult.adapter = adapter
-    }
-
+        val resultOfSearch = dataManager.searchByRecipeOrCuisine(query)
+        adapter.setData(resultOfSearch)
+        binding.rvSearchResult.adapter = adapter}
     private fun visibilityOfImageAndRecyclerInSearchFragment(query: String?) {
         val result = dataManager.searchByRecipeOrCuisine(query!!)
         binding.imgSearch.visibility = if (query.isNotEmpty()) View.GONE else View.VISIBLE

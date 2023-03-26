@@ -1,6 +1,7 @@
 package com.example.tastyindia.ui.recipedetails
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
@@ -25,9 +26,9 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
     override val TAG = "RecipeDetails"
+    private lateinit var recipe: Recipe
 
     override fun getViewBinding() = FragmentRecipeDetailsBinding.inflate(layoutInflater)
-
 
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
@@ -114,8 +115,14 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         }
     }
     private fun retrieveRecipeFromArguments(): Recipe {
-        return requireArguments().getParcelable(Constants.Key.RECIPE)
-            ?: throw IllegalStateException("Missing recipe argument")
+        arguments?.let {
+            recipe = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                it.getParcelable(Constants.Key.RECIPE, Recipe::class.java)!!
+            } else {
+                it.getParcelable(Constants.Key.RECIPE)!!
+            }
+        }
+        return recipe
     }
 
     private fun calculateRecipeDifficultyLevel(numberOfMinutesToCook: Int) =

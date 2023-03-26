@@ -73,10 +73,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         fragmentTransaction.replace(com.example.tastyindia.R.id.fragmentContainerView, fragment)
         fragmentTransaction.commit()
     }
-
     override fun onClickRecipe(recipe: Recipe) {
-        replaceFragment(RecipeDetailsFragment())
-        RecipeDetailsFragment.newInstance(recipe)
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+        replaceFragment(recipeDetailsFragment)
     }
 
 }

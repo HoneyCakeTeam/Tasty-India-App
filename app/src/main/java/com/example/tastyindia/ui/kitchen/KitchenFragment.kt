@@ -34,9 +34,9 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>(),
     private fun navigateToKitchenDetailsFragmentWithSelectedKitchenData(recipe: Recipe) {
         val kitchenName = recipe.cuisine
         val kitchenImageUrl = recipe.imageUrl
-        KitchenDetailsFragment.newInstance(kitchenName, kitchenImageUrl)
+       val kitchenDetailsFragment= KitchenDetailsFragment.newInstance(kitchenName, kitchenImageUrl)
         Snackbar.make(binding.root, "${recipe.cuisine} Kitchen ", Snackbar.LENGTH_LONG).show()
-        replaceFragment(KitchenDetailsFragment())
+        replaceFragment(kitchenDetailsFragment)
     }
 
     private fun replaceFragment(fragment: Fragment) {

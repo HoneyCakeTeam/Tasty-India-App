@@ -33,7 +33,7 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
             kitchenImageUrl = it.getString(KITCHEN_IMAGE_URL)!!
         }
 
-        val kitchen = dataManager.getKitchenInfo("European")
+        val kitchen = dataManager.getKitchenInfoByName("European")
 
         view?.findViewById<TextView>(R.id.tv_history_title)?.text = kitchen[0].kitchenName
         view?.findViewById<TextView>(R.id.tv_history_description)?.text =

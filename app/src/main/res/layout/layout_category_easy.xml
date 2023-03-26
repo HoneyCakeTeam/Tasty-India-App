@@ -18,7 +18,7 @@
         />
 
     <TextView
-        android:id="@+id/see_all_fast"
+        android:id="@+id/see_all_easy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/see_all"

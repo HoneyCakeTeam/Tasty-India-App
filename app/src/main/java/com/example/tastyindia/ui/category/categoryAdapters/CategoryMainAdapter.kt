@@ -14,6 +14,7 @@ import com.example.tastyindia.databinding.LayoutPosterImageBinding
 import com.example.tastyindia.ui.category.CategoryItem
 import com.example.tastyindia.ui.category.CategoryItemType
 
+@Suppress("UNCHECKED_CAST")
 class CategoryMainAdapter(
     private val items: List<CategoryItem<Any>>,
     private val listener: CategoryInteractionListener
@@ -60,18 +61,19 @@ class CategoryMainAdapter(
     private fun bindImagePoster(holder: ImagePosterViewHolder, position: Int) {
         val imagePoster = items[position].item as String
         holder.binding.apply {
-            Glide.with(topImage).load(imagePoster).into(topImage)
+            Glide.with(root).load(imagePoster).into(topImage)
         }
     }
 
     private fun bindHealthyCategory(holder: HealthyFoodCategoryViewHolder, position: Int) {
-       val listHealthy = items[position].item as List<Recipe>
+        val listHealthy = items[position].item as List<Recipe>
         val adapter = HealthCategoryAdapter(
            listHealthy,
             listener
         )
         holder.binding.apply {
             rvHealthCategories.adapter = adapter
+            seeAllHealth.setOnClickListener {listener.onClickSeeAll(CategoryItemType.TYPE_HEALTHY_CATEGORY)}
         }
     }
 
@@ -83,6 +85,7 @@ class CategoryMainAdapter(
         )
         holder.binding.apply {
             rvFastFoodCategories.adapter = adapter
+            seeAllFast.setOnClickListener {listener.onClickSeeAll(CategoryItemType.TYPE_FAST_CATEGORY)}
         }
     }
 
@@ -94,6 +97,7 @@ class CategoryMainAdapter(
         )
         holder.binding.apply {
             rvEasyFoodCategories.adapter = adapter
+            seeAllEasy.setOnClickListener {listener.onClickSeeAll(CategoryItemType.TYPE_EASY_CATEGORY)}
         }
     }
 
@@ -126,8 +130,8 @@ class CategoryMainAdapter(
     }
 
     companion object {
-        private const val VIEW_TYPE_IMAGE_POSTER = 1
-        private const val VIEW_TYPE_CATEGORY_HEALTHY = 2
+        private const val VIEW_TYPE_IMAGE_POSTER = 50
+        private const val VIEW_TYPE_CATEGORY_HEALTHY = 60
         private const val VIEW_TYPE_CATEGORY_Fast = 3
         private const val VIEW_TYPE_CATEGORY_Easy = 4
     }

@@ -12,8 +12,7 @@ import com.example.tastyindia.ui.category.categoryAdapters.*
 import com.example.tastyindia.utils.CsvParser
 import com.google.android.material.snackbar.Snackbar
 
-class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryInteractionListener,
-    View.OnClickListener {
+class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryInteractionListener{
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
     override val TAG: String = this::class.simpleName.toString()
@@ -52,12 +51,8 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryIntera
             .show()
     }
 
-    override fun onClick(view: View?) {
-        when (view?.id) {
-            R.id.see_all_health -> {Snackbar.make(binding.root, "health", Snackbar.LENGTH_LONG).show()}
-            R.id.see_all_fast -> {Snackbar.make(binding.root, "Fast", Snackbar.LENGTH_LONG).show()}
-            R.id.see_all_easy -> {Snackbar.make(binding.root, "Easy", Snackbar.LENGTH_LONG).show()}
-        }
+    override fun onClickSeeAll(type: CategoryItemType) {
+        Snackbar.make(binding.root, "type : $type", Snackbar.LENGTH_LONG).show()
     }
 
 }

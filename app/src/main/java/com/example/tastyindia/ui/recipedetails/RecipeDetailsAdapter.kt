@@ -64,7 +64,7 @@ class RecipeDetailsAdapter(
         INSTRUCTIONS
     }
 
-    abstract class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemView)
+    abstract class BaseViewHolder<RecipeDetailsItem>(itemView: View) : RecyclerView.ViewHolder(itemView)
     class HeaderViewHolder(itemView: View) : BaseViewHolder<RecipeDetailsItem.Header>(itemView) {
         val binding = ItemIngredientsBinding.bind(itemView)
     }

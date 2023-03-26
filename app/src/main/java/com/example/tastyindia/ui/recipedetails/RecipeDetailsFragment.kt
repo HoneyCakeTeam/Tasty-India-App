@@ -1,7 +1,6 @@
 package com.example.tastyindia.ui.recipedetails
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
@@ -26,7 +25,6 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
     override val TAG = "RecipeDetails"
-    private lateinit var recipe: Recipe
 
     override fun getViewBinding() = FragmentRecipeDetailsBinding.inflate(layoutInflater)
 
@@ -78,18 +76,18 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
             .into(imageView)
     }
 
-    fun createHeader(recipe: Recipe): RecipeDetailsAdapter.RecipeDetailsItem.Header {
+    private fun createHeader(recipe: Recipe): RecipeDetailsAdapter.RecipeDetailsItem.Header {
         return RecipeDetailsAdapter.RecipeDetailsItem.Header("Ingredients  -  ${recipe.ingredientsCount}")
     }
-    fun createSecondHeader(): RecipeDetailsAdapter.RecipeDetailsItem.Header {
+    private fun createSecondHeader(): RecipeDetailsAdapter.RecipeDetailsItem.Header {
         return RecipeDetailsAdapter.RecipeDetailsItem.Header("How to prepare")
     }
-    fun createIngredientsList(ingredientsList: List<String>): List<RecipeDetailsAdapter.RecipeDetailsItem.Ingredients> {
+    private fun createIngredientsList(ingredientsList: List<String>): List<RecipeDetailsAdapter.RecipeDetailsItem.Ingredients> {
         return ingredientsList.map {
             RecipeDetailsAdapter.RecipeDetailsItem.Ingredients(it)
         }
     }
-    fun createInstructionsList(instructionsList: List<String>): List<RecipeDetailsAdapter.RecipeDetailsItem.Instructions> {
+    private fun createInstructionsList(instructionsList: List<String>): List<RecipeDetailsAdapter.RecipeDetailsItem.Instructions> {
         return instructionsList.map {
             RecipeDetailsAdapter.RecipeDetailsItem.Instructions(it)
         }
@@ -107,12 +105,11 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottomNavigation.visibility = View.GONE
     }
-    fun navigateToHomeFragment() {
+    private fun navigateToHomeFragment() {
         requireActivity().findViewById<ImageButton>(R.id.button_navDirection).setOnClickListener {
             val homeFragment = HomeFragment()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.fragmentContainerView, homeFragment)
-                ?.addToBackStack(null)
                 ?.commit()
         }
     }

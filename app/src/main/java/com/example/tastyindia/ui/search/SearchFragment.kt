@@ -56,8 +56,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     }
 
     private fun visibilityOfImageAndRecyclerInSearchFragment(query: String?) {
-        binding.imgSearch.visibility = if (query!!.isNotEmpty()) View.GONE else View.VISIBLE
+        val result = dataManager.searchByRecipeOrCuisine(query!!)
+        binding.imgSearch.visibility = if (query.isNotEmpty()) View.GONE else View.VISIBLE
         binding.rvSearchResult.visibility = if (query.isNotEmpty()) View.VISIBLE else View.GONE
+        binding.imgSearchNotFound.visibility = if(result.isEmpty()) View.VISIBLE else View.GONE
     }
     override fun onQueryTextChange(newText: String?): Boolean {
         newText?.let { searchByQueryAndSetDataInAdapter(it) }

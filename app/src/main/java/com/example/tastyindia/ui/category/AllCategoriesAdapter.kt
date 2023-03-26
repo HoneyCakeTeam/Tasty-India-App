@@ -23,39 +23,69 @@ class AllCategoriesAdapter(
         parent: ViewGroup,
         viewType: Int
     ): BaseViewHolder {
-        return when(viewType ){
-            IMAGE_CATEGORY_TYPE ->{ val view = LayoutInflater.from(parent.context).inflate(R.layout.item_image, parent, false)
-            BaseViewHolder.HeaderViewHolder(view)}
-            HEALTH_CATEGORY_TYPE->{ val view = LayoutInflater.from(parent.context).inflate(R.layout.item_child_category, parent, false)
-                BaseViewHolder.HealthViewHolder(view)}
-            else -> {throw Exception("Unknown view")}
+        return when (viewType) {
+            IMAGE_CATEGORY_TYPE -> {
+                val view =
+                    LayoutInflater.from(parent.context).inflate(R.layout.item_image, parent, false)
+                BaseViewHolder.HeaderViewHolder(view)
+            }
+            HEALTH_CATEGORY_TYPE -> {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_child_category, parent, false)
+                BaseViewHolder.HealthViewHolder(view)
+            }
+            Fast_CATEGORY_TYPE -> {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_child_category, parent, false)
+                BaseViewHolder.FastViewHolder(view)
+            }
+            else -> {
+                throw Exception("Unknown view")
+            }
         }
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-      when(holder){
-          is BaseViewHolder.HeaderViewHolder -> bindImage(holder,position)
-          is BaseViewHolder.HealthViewHolder -> bindHealthCategory(holder,position)
-    }}
+        when (holder) {
+            is BaseViewHolder.HeaderViewHolder -> bindImage(holder, position)
+            is BaseViewHolder.HealthViewHolder -> bindHealthCategory(holder, position)
+        }
+    }
 
     private fun bindHealthCategory(holder: BaseViewHolder.HealthViewHolder, position: Int) {
-        val currentItem =categoriesList[position].list.toString() as List<Recipe>
-        val adapter =HealthCategoryAdapter(currentItem, listener )
-        holder.binding.apply {
-
-            rvHealthCategories.adapter =adapter
-        }}
+        val currentItem = categoriesList[position].list
+        val currentType = categoriesList[position].type
+        if (currentType == CategoryItemType.TYPE_HEALTH_ITEM) {
+            val adapter = HealthCategoryAdapter(currentItem, listener)
+            holder.binding.apply {
+                rvHealthCategories.adapter = adapter
+            } }
+        if (currentType == CategoryItemType.TYPE_FAST_ITEM) {
+            val adapter = FastFoodCategoryAdapter(currentItem, listener)
+            holder.binding.apply {
+                tvHealth.text ="Fast"
+                rvHealthCategories.adapter = adapter
+            }}
+            if (currentType == CategoryItemType.TYPE_EASY_ITEM) {
+                val adapter = EasyCategoryAdapter(currentItem, listener)
+                holder.binding.apply {
+                    tvHealth.text ="Easy"
+                    rvHealthCategories.adapter = adapter
+                }
+        }
+    }
 
     private fun bindImage(holder: BaseViewHolder.HeaderViewHolder, position: Int) {
 
-     }
+    }
 
-    override fun getItemViewType( position: Int): Int {
-         if(position ==0) {return IMAGE_CATEGORY_TYPE}
-        else{
-             return HEALTH_CATEGORY_TYPE
-        }}
-
+    override fun getItemViewType(position: Int): Int {
+        if (position == 0) {
+            return IMAGE_CATEGORY_TYPE
+        }
+        //else if (categoriesList[position].type==CategoryItemType.TYPE_FAST_ITEM){return Fast_CATEGORY_TYPE}
+        else return HEALTH_CATEGORY_TYPE
+    }
 
 
     override fun getItemCount(): Int = categoriesList.size
@@ -65,13 +95,19 @@ class AllCategoriesAdapter(
             val binding = ItemChildCategoryBinding.bind(viewItem)
         }
 
+        class FastViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
+            val binding = ItemChildCategoryBinding.bind(viewItem)
+        }
+
         class HeaderViewHolder(viewItem: View) : BaseViewHolder(viewItem) {
             val binding = ItemImageBinding.bind(viewItem)
         }
     }
 
-    interface CategoryInteractionListener : HealthCategoryAdapter.CategoryInteractionListener {
-    override fun onClickRecipe(recipe: Recipe)
+    interface CategoryInteractionListener : HealthCategoryAdapter.CategoryInteractionListener,
+        FastFoodCategoryAdapter.CategoryInteractionListener,
+        EasyCategoryAdapter.CategoryInteractionListener {
+        override fun onClickRecipe(recipe: Recipe)
     }
 
     companion object {

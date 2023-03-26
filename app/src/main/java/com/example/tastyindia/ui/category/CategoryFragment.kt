@@ -38,10 +38,15 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
         val listHealthy = dataManager.getHealthyRecipes(healthyIngredients)
         val listFast = dataManager.getFastFoodRecipes()
         val listEasy = dataManager.getEasyRecipes()
+
+        setUpAppBar(true, "Categories", false)
+
         val list : List<CategoryItem> = listOf(CategoryItem(listHealthy,CategoryItemType.TYPE_HEALTH_ITEM),
-          CategoryItem(listHealthy,CategoryItemType.TYPE_HEALTH_ITEM))
+          CategoryItem(listHealthy,CategoryItemType.TYPE_HEALTH_ITEM),
+            CategoryItem(listFast,CategoryItemType.TYPE_FAST_ITEM),
+        CategoryItem(listEasy,CategoryItemType.TYPE_EASY_ITEM))
         allCategoriesAdapter = AllCategoriesAdapter(list, this)
-        binding.rvHealthCategories.adapter = allCategoriesAdapter
+        binding.rvCategories.adapter = allCategoriesAdapter
        // fastFoodAdapter = FastFoodCategoryAdapter(listFast, this)
 //        binding.rvFastFoodCategories.adapter = fastFoodAdapter
 //        easyAdapter = EasyCategoryAdapter(listEasy, this)

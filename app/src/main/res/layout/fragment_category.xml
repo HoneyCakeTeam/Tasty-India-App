@@ -7,20 +7,24 @@
     android:background="@color/white_100"
     tools:context=".ui.category.CategoryFragment">
 
-
+<include layout="@layout/app_toolbar"
+    android:id="@+id/included"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/rv_categories"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    />
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_health_categories"
+        android:id="@+id/rv_categories"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_child_category"
         tools:itemCount="3"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/included"        />
 </androidx.constraintlayout.widget.ConstraintLayout>
 <!--
     <com.google.android.material.imageview.ShapeableImageView

@@ -1,4 +1,4 @@
-package com.example.tastyindia.ui.category
+package com.example.tastyindia.ui.category.categoryAdapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +12,7 @@ import com.example.tastyindia.databinding.ItemHealthCategoryBinding
 
 class HealthCategoryAdapter(
     private val healthList: List<Recipe>,
-    private val listener: CategoryInteractionListener
+    private val listener: BaseCategoryInteractionListener
 ) :
     RecyclerView.Adapter<HealthCategoryAdapter.HealthViewHolder>() {
 
@@ -48,9 +48,6 @@ class HealthCategoryAdapter(
         val binding = ItemHealthCategoryBinding.bind(viewItem)
     }
 
-    interface CategoryInteractionListener {
-        fun onClickRecipe(recipe: Recipe)
-    }
 }
 
 

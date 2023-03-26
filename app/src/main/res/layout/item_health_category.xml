@@ -4,9 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="120dp"
     android:layout_height="160dp"
-    android:clipToPadding="true"
     app:cardCornerRadius="@dimen/radius_small"
-    android:layout_marginEnd="@dimen/margin_small">
+    android:layout_marginEnd="@dimen/margin_small"
+    android:layout_marginVertical="@dimen/margin_small"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -40,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/food_name"
-            android:layout_marginBottom="@dimen/margin_small"
+            android:layout_marginHorizontal="@dimen/margin_small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

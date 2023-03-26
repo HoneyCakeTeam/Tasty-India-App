@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="200dp"
+    android:layout_marginBottom="@dimen/margin_small"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -30,7 +31,8 @@
         android:id="@+id/rv_health_categories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/margin_small"
+        android:paddingHorizontal="@dimen/padding_small"
+        android:clipToPadding="false"
         tools:listitem="@layout/item_health_category"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

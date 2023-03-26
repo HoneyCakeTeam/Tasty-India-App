@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="200dp"
+    android:layout_marginBottom="@dimen/margin_small"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -27,12 +28,13 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_fast_food_categories"
+        android:id="@+id/rv_easy_food_categories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/margin_small"
         tools:listitem="@layout/item_easy_category"
         android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/padding_small"
+        android:clipToPadding="false"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

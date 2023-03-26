@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,40 +8,15 @@
     android:background="@color/white_100"
     tools:context=".ui.category.CategoryFragment">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/top_image"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_main"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:scaleType="centerCrop"
-        android:src="@drawable/image_more_recipes"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/ImageCornerCategories" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_image">
-
-        <include
-            android:id="@+id/layout_categoryHealthy"
-            layout="@layout/layout_category_healthy"/>
-
-        <include
-            android:id="@+id/layout_categoryFast"
-            layout="@layout/layout_category_fast" />
-
-        <include
-            android:id="@+id/layout_categoryEasy"
-            layout="@layout/layout_category_easy" />
-    </LinearLayout>
-
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

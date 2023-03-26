@@ -1,4 +1,4 @@
-package com.example.tastyindia.ui.category
+package com.example.tastyindia.ui.category.categoryAdapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemEasyCategoryBinding
 
-class EasyCategoryAdapter(private val easyList:List<Recipe >, private val listener: CategoryInteractionListener) :
+class EasyCategoryAdapter(private val easyList:List<Recipe >, private val listener: BaseCategoryInteractionListener) :
     RecyclerView.Adapter<EasyCategoryAdapter.EasyViewHolder>() {
 
 
@@ -38,18 +38,14 @@ class EasyCategoryAdapter(private val easyList:List<Recipe >, private val listen
             }
         }
 
-
     }
-
 
     override fun getItemCount(): Int = easyList.size
 
     class EasyViewHolder(viewItem: View) : ViewHolder(viewItem) {
         val binding = ItemEasyCategoryBinding.bind(viewItem)
     }
-    interface CategoryInteractionListener {
-        fun onClickRecipe(recipe: Recipe)
-    }
+
 }
 
 

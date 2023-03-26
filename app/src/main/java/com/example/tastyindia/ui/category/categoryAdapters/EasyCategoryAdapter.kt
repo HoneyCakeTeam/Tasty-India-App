@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemEasyCategoryBinding
 
-class EasyCategoryAdapter(private val easyList:List<Recipe >, private val listener: BaseCategoryInteractionListener) :
+class EasyCategoryAdapter(private val easyList:List<Recipe >, private val listener: CategoryInteractionListener) :
     RecyclerView.Adapter<EasyCategoryAdapter.EasyViewHolder>() {
 
 

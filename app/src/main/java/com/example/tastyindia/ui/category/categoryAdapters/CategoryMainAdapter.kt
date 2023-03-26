@@ -16,7 +16,7 @@ import com.example.tastyindia.ui.category.CategoryItemType
 
 class CategoryMainAdapter(
     private val items: List<CategoryItem<Any>>,
-    private val listener: BaseCategoryInteractionListener
+    private val listener: CategoryInteractionListener
 ) :
     RecyclerView.Adapter<CategoryMainAdapter.BaseCategoryViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseCategoryViewHolder {

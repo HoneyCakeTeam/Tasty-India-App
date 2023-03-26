@@ -1,7 +1,6 @@
 package com.example.tastyindia.ui.category
 
 import android.view.View
-import android.widget.TextView
 import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
@@ -13,7 +12,7 @@ import com.example.tastyindia.ui.category.categoryAdapters.*
 import com.example.tastyindia.utils.CsvParser
 import com.google.android.material.snackbar.Snackbar
 
-class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), BaseCategoryInteractionListener,
+class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryInteractionListener,
     View.OnClickListener {
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface

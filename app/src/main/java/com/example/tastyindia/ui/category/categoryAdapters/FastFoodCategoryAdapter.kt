@@ -10,7 +10,7 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemFastFoodCategoryBinding
 
-class FastFoodCategoryAdapter(private val fastList: List<Recipe>, private val listener : BaseCategoryInteractionListener) :
+class FastFoodCategoryAdapter(private val fastList: List<Recipe>, private val listener : CategoryInteractionListener) :
     RecyclerView.Adapter<FastFoodCategoryAdapter.FastFoodViewHolder>() {
 
 

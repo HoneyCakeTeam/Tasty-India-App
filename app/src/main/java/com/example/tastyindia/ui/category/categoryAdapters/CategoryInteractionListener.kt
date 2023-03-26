@@ -2,6 +2,6 @@ package com.example.tastyindia.ui.category.categoryAdapters
 
 import com.example.tastyindia.data.domain.Recipe
 
-interface BaseCategoryInteractionListener{
+interface CategoryInteractionListener{
     fun onClickRecipe(recipe: Recipe)
 }

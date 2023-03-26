@@ -12,10 +12,9 @@ import com.example.tastyindia.databinding.ItemHealthCategoryBinding
 
 class HealthCategoryAdapter(
     private val healthList: List<Recipe>,
-    private val listener: BaseCategoryInteractionListener
+    private val listener: CategoryInteractionListener
 ) :
     RecyclerView.Adapter<HealthCategoryAdapter.HealthViewHolder>() {
-
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -40,7 +39,6 @@ class HealthCategoryAdapter(
         }
 
     }
-
 
     override fun getItemCount(): Int = healthList.size
 

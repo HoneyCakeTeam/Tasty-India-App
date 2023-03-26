@@ -28,8 +28,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
         dataManager = DataManager(dataSource)
         adapter = SearchAdapter(this)
         addCallbacks()
-        // setUpAppBar(visibility = true , title = "Search",showBackIcon = true)
-        log(listOfRecipe.size)
     }
 
     private fun addCallbacks() {
@@ -39,6 +37,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     private fun addSearchListener() {
         binding.searchBar.setOnQueryTextListener(this)
     }
+
     private fun searchByQueryAndSetDataInAdapter(query: String?) {
         query?.let {
             binding.apply {
@@ -49,6 +48,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
             }
         }
     }
+
     private fun setDataOnAdapter(query: String) {
         val result = dataManager.searchByRecipeOrCuisine(query)
         adapter.setData(result)
@@ -59,16 +59,19 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
         val result = dataManager.searchByRecipeOrCuisine(query!!)
         binding.imgSearch.visibility = if (query.isNotEmpty()) View.GONE else View.VISIBLE
         binding.rvSearchResult.visibility = if (query.isNotEmpty()) View.VISIBLE else View.GONE
-        binding.imgSearchNotFound.visibility = if(result.isEmpty()) View.VISIBLE else View.GONE
+        binding.imgSearchNotFound.visibility = if (result.isEmpty()) View.VISIBLE else View.GONE
     }
+
     override fun onQueryTextChange(newText: String?): Boolean {
         newText?.let { searchByQueryAndSetDataInAdapter(it) }
         return true
     }
+
     override fun onQueryTextSubmit(query: String?): Boolean {
         query?.let { searchByQueryAndSetDataInAdapter(it) }
         return true
     }
+
     private fun navigateToRecipeDetailsFragmentWithSelectedKitchenData(recipe: Recipe) {
         RecipeDetailsFragment.newInstance(recipe)
         Snackbar.make(binding.root, "$recipe Recipe ", Snackbar.LENGTH_LONG).show()
@@ -84,6 +87,4 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     override fun onClickRecipe(recipe: Recipe) {
         navigateToRecipeDetailsFragmentWithSelectedKitchenData(recipe)
     }
-
-
 }

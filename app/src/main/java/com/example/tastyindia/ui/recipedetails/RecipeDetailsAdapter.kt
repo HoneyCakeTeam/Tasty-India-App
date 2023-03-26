@@ -74,5 +74,4 @@ class RecipeDetailsAdapter(
     class InstructionsViewHolder(itemView: View) : BaseViewHolder<RecipeDetailsItem.Instructions>(itemView) {
         val binding = ItemRecipeDetailsBinding.bind(itemView)
     }
-
 }

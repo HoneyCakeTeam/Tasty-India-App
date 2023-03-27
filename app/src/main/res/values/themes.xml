@@ -1,13 +1,13 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
 
         <item name="android:fitsSystemWindows">true</item>
 
         <!-- Splash Screen-->
-        <item name="android:windowSplashScreenBackground">@color/primary_400</item>
-        <item name="android:windowSplashScreenAnimationDuration">1000</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_splash</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/primary_400</item>
+        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">1000</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@mipmap/ic_splash</item>
     </style>
 
     <style name="CategoriesCardImageStyle">
@@ -165,6 +165,17 @@
         <item name="android:paddingBottom">@dimen/padding_tiny</item>
         <item name="android:textColor">@color/black_38</item>
         <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="ItemRecipeSquaredTextStyle">
+        <item name="android:fontFamily">@font/ubuntu_reguler</item>
+        <item name="android:layout_gravity">center_horizontal|bottom</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:layout_marginVertical">@dimen/margin_medium</item>
+        <item name="android:layout_marginHorizontal">@dimen/margin_small</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
 </resources>

@@ -65,7 +65,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
 
     private fun addCallbacks() {
     }
-
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
@@ -78,14 +77,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         replaceFragment(RecipeDetailsFragment())
     }
 
-    override fun onClickRecommendationRecipe(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+    override fun onClickRecommendationRecipe(id: Int) {
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(id)
         replaceFragment(recipeDetailsFragment)
+        Toast.makeText(requireContext(), "$id", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onClickRecipeOfWeek(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+    override fun onClickRecipeOfWeek(id: Int) {
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(id)
         replaceFragment(recipeDetailsFragment)
+        Toast.makeText(requireContext(), "$id", Toast.LENGTH_SHORT).show()
     }
 
     override fun onClickHomeSeeAll(name: String) {

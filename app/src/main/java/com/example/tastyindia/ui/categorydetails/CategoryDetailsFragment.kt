@@ -40,7 +40,7 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
     }
 
     override fun onClickItem(recipe: Recipe) {
-        RecipeDetailsFragment.newInstance(recipe)
+      //  RecipeDetailsFragment.newInstance(recipe)
     }
 
 }

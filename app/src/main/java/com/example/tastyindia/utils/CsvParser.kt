@@ -3,9 +3,10 @@ import com.example.tastyindia.data.domain.Recipe
 
 class CsvParser {
 
-    fun parseLine(line: String): Recipe {
+    fun parseLine(line: String , id:Int): Recipe {
         val token = line.split(",")
         return Recipe(
+            id = id,
             recipeName = token[Constants.ColumnIndex.recipeName],
             ingredients = token[Constants.ColumnIndex.ingredients],
             totalTimeInMinutes = token[Constants.ColumnIndex.totalTime].toInt(),

@@ -78,8 +78,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     }
 
     override fun onClickRecipe(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
-        replaceFragment(recipeDetailsFragment)
+     //   val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+      //  replaceFragment(recipeDetailsFragment)
     }
 
 }

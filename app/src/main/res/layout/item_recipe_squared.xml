@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_small"
+    android:layout_margin="@dimen/margin_tiny"
     android:backgroundTint="@color/white_300"
     app:cardCornerRadius="@dimen/radius_semi_large"
     app:strokeWidth="0dp">
@@ -26,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/margin_medium"
+        android:layout_marginHorizontal="@dimen/margin_tiny"
         android:text="@string/masala_karela"
         android:fontFamily="@font/ubuntu_medium"
         android:layout_gravity="center_horizontal|bottom"

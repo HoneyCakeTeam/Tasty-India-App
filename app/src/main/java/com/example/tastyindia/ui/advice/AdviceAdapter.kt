@@ -17,6 +17,7 @@ class AdviceAdapter(val list: List<Advice>) :
             .inflate(R.layout.item_advices, parent, false)
         return AdviceViewHolder(view)
     }
+
     override fun onBindViewHolder(holder: AdviceViewHolder, position: Int) {
         val currentAdvice = list[position]
         holder.binding.apply {
@@ -25,9 +26,10 @@ class AdviceAdapter(val list: List<Advice>) :
                 .with(holder.binding.root)
                 .load(currentAdvice.url)
                 .placeholder(R.drawable.ic_error)
-                .into(imgVeg)
+                .into(imgRelatedWithAdvice)
         }
     }
+
     override fun getItemCount(): Int = list.size
 
     inner class AdviceViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {

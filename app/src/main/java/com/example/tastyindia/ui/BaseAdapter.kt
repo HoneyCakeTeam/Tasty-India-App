@@ -25,28 +25,17 @@ abstract class BaseAdapter<T, VB : ViewBinding>(
         val item = items[position]
         onBindViewHolder(holder, position, item)
     }
-
     abstract fun onBindViewHolder(holder: BaseViewHolder<VB>, position: Int, item: T)
-
     override fun getItemCount() = items.size
 
     class ItemViewHolder<VB : ViewBinding>(binding: VB) : BaseViewHolder<VB>(binding)
-
-    abstract class BaseViewHolder<VB : ViewBinding>(val binding: VB) :
-        RecyclerView.ViewHolder(binding.root)
+    abstract class BaseViewHolder<VB : ViewBinding>(val binding: VB) : RecyclerView.ViewHolder(binding.root)
 
     open fun setItems(newItems: List<T>) {
-        val diffResult =
-            DiffUtil.calculateDiff(BaseDiffUtil(items, newItems, ::areItemsSame, ::areContentSame))
+        val diffResult = DiffUtil.calculateDiff(BaseDiffUtil(items, newItems, ::areItemsSame, ::areContentSame))
         items = newItems
         diffResult.dispatchUpdatesTo(this)
     }
-
-    open fun areItemsSame(oldItem: T, newItem: T): Boolean {
-        return oldItem?.equals(newItem) == true
-    }
-
+    open fun areItemsSame(oldItem: T, newItem: T) = oldItem?.equals(newItem) == true
     open fun areContentSame(oldPosition: T, newPosition: T) = true
 }
-
-

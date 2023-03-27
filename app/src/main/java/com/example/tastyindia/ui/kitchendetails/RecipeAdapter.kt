@@ -32,8 +32,6 @@ class RecipeAdapter(
                 .placeholder(R.drawable.ic_error)
                 .into(ivRecipeImage)
             root.setOnClickListener { listener.onClickRecipe(currentRecipe) }
-            root.setOnClickListener { listener.onClickBack() }
-            root.setOnClickListener { listener.onClickInfo() }
         }
     }
 

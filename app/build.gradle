@@ -49,4 +49,7 @@ dependencies {
     // Glide dependency
     implementation 'com.github.bumptech.glide:glide:4.15.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.15.0'
+
+    // Data binding dependency
+    implementation 'androidx.databinding:databinding-runtime:7.4.2'
 }

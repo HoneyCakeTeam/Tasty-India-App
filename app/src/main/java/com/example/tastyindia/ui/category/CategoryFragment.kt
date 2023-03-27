@@ -1,6 +1,7 @@
 package com.example.tastyindia.ui.category
 
 
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
@@ -12,6 +13,7 @@ import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentCategoryBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
+import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import com.example.tastyindia.utils.CsvParser
 
 
@@ -66,9 +68,8 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryIntera
     }
 
     override fun onClickSeeAll(type: CategoryItemType) {
-        TODO("ADD TYPE IN SEE ALL FRAGMENT")
-        /*val seeAllFragment = SeeAllRecipesFragment.newInstance(type)
-            replaceFragment(seeAllFragment)*/
+        val seeAllFragment = SeeAllRecipesFragment.newInstance(type)
+        replaceFragment(seeAllFragment)
     }
 
 }

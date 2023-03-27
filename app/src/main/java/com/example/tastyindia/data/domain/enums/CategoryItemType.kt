@@ -1,6 +1,10 @@
 package com.example.tastyindia.data.domain.enums
 
-enum class CategoryItemType {
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+enum class CategoryItemType : Parcelable {
     TYPE_POSTER_IMAGE,
     TYPE_HEALTHY_CATEGORY,
     TYPE_FAST_CATEGORY,

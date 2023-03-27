@@ -18,6 +18,7 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>(),
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
     private lateinit var adapter: KitchenAdapter
+    private lateinit var kitchenDetailsFragment: KitchenDetailsFragment
     override val TAG: String = this::class.simpleName.toString()
 
     override fun getViewBinding(): FragmentKitchenBinding =
@@ -26,7 +27,7 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>(),
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
-        setUpAppBar(true, "Cuisine", false)
+        setUpAppBar(true, getString(R.string.kitchenPageTitle), false)
         adapter = KitchenAdapter(dataManager.getAllKitchenRecipes(), this)
         binding.rvKitchen.adapter = adapter
     }
@@ -34,9 +35,10 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>(),
     private fun navigateToKitchenDetailsFragmentWithSelectedKitchenData(recipe: Recipe) {
         val kitchenName = recipe.cuisine
         val kitchenImageUrl = recipe.imageUrl
-       val kitchenDetailsFragment= KitchenDetailsFragment.newInstance(kitchenName, kitchenImageUrl)
-        Snackbar.make(binding.root, "${recipe.cuisine} Kitchen ", Snackbar.LENGTH_LONG).show()
+        kitchenDetailsFragment = KitchenDetailsFragment.newInstance(kitchenName, kitchenImageUrl)
         replaceFragment(kitchenDetailsFragment)
+        Snackbar.make(binding.root, "${recipe.cuisine} ${getString(R.string.kitchenPageTitle)}"
+            , Snackbar.LENGTH_LONG).show()
     }
 
     private fun replaceFragment(fragment: Fragment) {

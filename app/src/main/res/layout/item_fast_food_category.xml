@@ -49,7 +49,7 @@
         android:scaleType="centerCrop"
         android:layout_marginEnd="@dimen/margin_tiny"
         android:layout_marginBottom="@dimen/margin_tiny"
-        app:srcCompat="@drawable/time"
+        app:srcCompat="@drawable/ic_time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />

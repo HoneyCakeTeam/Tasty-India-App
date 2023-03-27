@@ -12,8 +12,6 @@ object Constants {
         const val RECIPE_URL = "recipeUrl"
         const val RECIPE_ID = 1
         const val RECIPE = "recipe"
-        const val CATEGORY_NAME="categoryName"
-        const val CATEGORY_IMAGE="categoryImage"
         const val RECIPE_LIST="RecipeList"
     }
 

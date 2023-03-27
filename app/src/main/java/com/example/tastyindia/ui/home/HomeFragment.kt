@@ -2,7 +2,6 @@ package com.example.tastyindia.ui.home
 
 
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.HomeItem
@@ -11,9 +10,11 @@ import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentHomeBinding
 import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.categorydetails.CategoryDetailsFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import com.example.tastyindia.utils.CsvParser
+import com.example.tastyindia.utils.replaceFragment
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     HomeRecommendationAdapter.HomeRecommendationsListener,
@@ -32,7 +33,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
-        addCallbacks()
+
         setUpAppBar(false)
 
         val randomNumbersForRecommendations =
@@ -63,18 +64,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
 
     }
 
-    private fun addCallbacks() {
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = requireActivity().supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(com.example.tastyindia.R.id.fragmentContainerView, fragment)
-        fragmentTransaction.commit()
-    }
-
     override fun onClickCategory(categoryName: String) {
-        //CategoryDetailsFragment.newInstance(categoryName)
+        CategoryDetailsFragment.newInstance(categoryName)
         replaceFragment(RecipeDetailsFragment())
     }
 

@@ -16,6 +16,7 @@ import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
 import com.example.tastyindia.utils.CsvParser
+import com.example.tastyindia.utils.replaceFragment
 
 class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
     RecipeAdapter.RecipeInteractionListener {
@@ -69,9 +70,4 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
         replaceFragment(recipeDetailsFragment)
     }
 
-    private fun replaceFragment(fragment: Fragment) {
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainerView, fragment)
-        transaction.commit()
-    }
 }

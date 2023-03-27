@@ -10,6 +10,7 @@ import com.example.tastyindia.databinding.FragmentKitchenBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.kitchendetails.KitchenDetailsFragment
 import com.example.tastyindia.utils.CsvParser
+import com.example.tastyindia.utils.replaceFragment
 import com.google.android.material.snackbar.Snackbar
 
 class KitchenFragment : BaseFragment<FragmentKitchenBinding>(),
@@ -39,12 +40,6 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>(),
         replaceFragment(kitchenDetailsFragment)
         Snackbar.make(binding.root, "${recipe.cuisine} ${getString(R.string.kitchenPageTitle)}"
             , Snackbar.LENGTH_LONG).show()
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainerView, fragment)
-        transaction.commit()
     }
 
     override fun onClickRecipe(recipe: Recipe) {

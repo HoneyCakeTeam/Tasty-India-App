@@ -25,13 +25,13 @@ class KitchenAdapter(
         val currentKitchen = kitchenList[position]
 
         holder.binding.apply {
-            textKitchenName.text = currentKitchen.cuisine
+            tvKitchenName.text = currentKitchen.cuisine
             Glide
                 .with(holder.binding.root)
                 .load(currentKitchen.imageUrl)
-                .placeholder(R.drawable.ic_error)
+                .placeholder(R.drawable.ic_loading)
+                .error(R.drawable.ic_error)
                 .into(imageKitchen)
-
             root.setOnClickListener { listener.onClickRecipe(currentKitchen) }
         }
     }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_small"
+    android:orientation="horizontal">
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="@dimen/margin_tiny"
+        android:background="@drawable/cirecle_view" />
+
+    <TextView
+        android:id="@+id/tv_recipe_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_small"
+        android:fontFamily="@font/ubuntu_reguler"
+        android:text="@string/_1_2_cup_all_purpose_flour"
+        android:textColor="@color/black_87"
+        android:textSize="@dimen/text_small" />
+
+</LinearLayout>

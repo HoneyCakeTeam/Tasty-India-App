@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="160dp"
-    android:layout_marginHorizontal="@dimen/margin_medium"
-    android:layout_marginVertical="@dimen/margin_small"
+    android:layout_marginBottom="@dimen/margin_small"
+    android:layout_marginHorizontal="@dimen/margin_tiny"
     app:cardCornerRadius="@dimen/radius_medium"
-    app:cardElevation="@dimen/elevation_medium"
     app:strokeWidth="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,17 +35,21 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/text_kitchenName"
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_kitchenName"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_medium"
             android:fontFamily="@font/poppins_medium"
             android:textColor="@color/white_100"
-            android:textSize="@dimen/text_giant"
+            android:textSize="@dimen/text_large"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tool:text="Egyptian Cuisine" />
+            tool:text="Egyptian Cuisine"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:gravity="center"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

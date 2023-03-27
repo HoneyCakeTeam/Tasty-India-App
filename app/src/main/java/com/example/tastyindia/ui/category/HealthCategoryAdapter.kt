@@ -41,15 +41,10 @@ class HealthCategoryAdapter(
 
     }
 
-
     override fun getItemCount(): Int = healthList.size
 
     class HealthViewHolder(viewItem: View) : ViewHolder(viewItem) {
         val binding = ItemHealthCategoryBinding.bind(viewItem)
-    }
-
-    interface CategoryInteractionListener {
-        fun onClickRecipe(recipe: Recipe)
     }
 }
 

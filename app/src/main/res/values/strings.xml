@@ -7,15 +7,15 @@
     <string name="regions">Regions</string>
     <string name="dishes">Popular Dishes</string>
     <string name="home">Home</string>
-    <string name="cuisine">Cuisine</string>
+    <string name="cuisine">Kitchens</string>
     <string name="category">Category</string>
     <string name="search">Search</string>
     <string name="masala_karela">Masala karela</string>
     <string name="recipe">Recipe</string>
     <string name="indian">Indian</string>
-    <string name="popular_indian_meals">Popular Indian Meals</string>
+    <string name="popular_meals">Popular Meals</string>
     <string name="indian_cuisnie">Indian Cuisine</string>
-    <string name="categories_tv">Categories</string>
+    <string name="tv_categories">Categories</string>
     <string name="chicken_tv">Chicken</string>
     <string name="meal_tv">Meal</string>
     <string name="soups_tv">Soups</string>
@@ -47,5 +47,7 @@
     <string name="recipes">Recipes</string>
     <string name="details">Details</string>
     <string name="add_two_eggs_in_a_medium_bowl">add two eggs in a medium bowl</string>
+    <string name="category_image_poster">https://cdn.pixabay.com/photo/2016/12/26/17/28/spaghetti-1932466__340.jpg</string>
+    <string name="kitchenPageTitle">Kitchens</string>
 
 </resources>

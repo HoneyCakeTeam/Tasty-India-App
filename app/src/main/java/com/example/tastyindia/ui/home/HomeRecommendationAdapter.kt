@@ -10,25 +10,17 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemHomeRecommendationsBinding
 
-class HomeRecommendationAdapter(
-    val list: List<Recipe>,
-    private val listener: HomeRecommendationsListener
-) : RecyclerView.Adapter<HomeRecommendationAdapter.HomeRecommendationViewHolder>() {
-
+class HomeRecommendationAdapter(val list: List<Recipe>, private val listener: HomeRecommendationsListener)
+    : RecyclerView.Adapter<HomeRecommendationAdapter.HomeRecommendationViewHolder>() {
 
     class HomeRecommendationViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = ItemHomeRecommendationsBinding.bind(viewItem)
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): HomeRecommendationViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_home_recommendations, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeRecommendationViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_recommendations, parent, false)
         return HomeRecommendationViewHolder(view)
     }
-
 
     override fun onBindViewHolder(holder: HomeRecommendationViewHolder, position: Int) {
         val currentMeal = list[position]
@@ -36,19 +28,18 @@ class HomeRecommendationAdapter(
             tvHomeRecommendationRecipeName.text = currentMeal.recipeName
             tvHomeRecommendationKitchenName.text = currentMeal.cuisine
             Glide.with(root).load(currentMeal.imageUrl)
-                .placeholder(R.drawable.ic_launcher_foreground)
                 .error(R.drawable.ic_launcher_background)
                 .into(ivHomeRecommendationRecipeImage)
 
             root.setOnClickListener {
-                listener.onClickRecipe(currentMeal)
+                listener.onClickRecommendationRecipe(currentMeal)
             }
         }
-
     }
 
     override fun getItemCount() = list.size
     interface HomeRecommendationsListener {
-        fun onClickRecipe(recipe: Recipe)
+        fun onClickRecommendationRecipe(recipe: Recipe)
     }
+
 }

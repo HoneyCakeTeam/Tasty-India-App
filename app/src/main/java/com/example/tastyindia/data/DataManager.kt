@@ -1,6 +1,8 @@
 package com.example.tastyindia.data
 
+import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Advice
+import com.example.tastyindia.data.domain.HomeCategoriesModel
 import com.example.tastyindia.data.domain.KitchenInfo
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
@@ -12,16 +14,9 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
     private val listOfRecipe = dataSource.getAllRecipes()
 
     //region home screen
-    override fun getRandomNumbersForRecommendations(): List<Int> {
-        val listOfRandomNumbers = List(10) {
+    override fun getRandomNumbersInListOfRecipe(): List<Int> {
+        val listOfRandomNumbers = List(listOfRecipe.size - 1) {
             Random.nextInt(0, listOfRecipe.size - 1)
-        }
-        return listOfRandomNumbers
-    }
-
-    override fun getRandomNumbersForRecipesOfTheWeek(): List<Int> {
-        val listOfRandomNumbers = List(10) {
-            Random.nextInt(listOfRecipe.size - 1)
         }
         return listOfRandomNumbers
     }
@@ -35,7 +30,6 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
     //region Kitchen screen
     override fun getKitchenInfoByName(kitchenName: String): MutableList<KitchenInfo> =
         getKitchenInfoList().filter { it.kitchenName == kitchenName }.toMutableList()
-
 
     override fun getAllKitchenRecipes(): List<Recipe> =
         listOfRecipe.distinctBy { it.cuisine }
@@ -84,6 +78,14 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
     override fun getRecipesByKitchen(kitchenName: String): List<Recipe> =
         listOfRecipe.distinctBy { it.cuisine == kitchenName }
 
+    override fun getListOfHomeCategories(): List<HomeCategoriesModel> =
+        listOf(
+         HomeCategoriesModel("Chicken", R.drawable.ic_chicken)
+        ,HomeCategoriesModel("Meat", R.drawable.ic_meal )
+        ,HomeCategoriesModel("Sea Food", R.drawable.ic_sea_food )
+        ,HomeCategoriesModel("Soup", R.drawable.ic_soup )
+        ,HomeCategoriesModel("Spicy", R.drawable.ic_spicy)
+        )
 
     //region Category static data
     override fun getHealthyIngredients(): List<String> =

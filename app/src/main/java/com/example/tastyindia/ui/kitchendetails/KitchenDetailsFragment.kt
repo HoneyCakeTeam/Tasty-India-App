@@ -1,7 +1,7 @@
 package com.example.tastyindia.ui.kitchendetails
 
 import android.os.Bundle
-import android.view.View
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
@@ -10,36 +10,38 @@ import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentKitchenDetailsBinding
 import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.kitchen.KitchenFragment
+import com.example.tastyindia.ui.kitchen.KitchenInfoFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
 import com.example.tastyindia.utils.CsvParser
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlin.math.log
 
 class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
-    RecipesAdapter.RecipeInteractionListener {
+    RecipeAdapter.RecipeInteractionListener {
 
     override val TAG: String = "CUISINEDETAILS"
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
-    private lateinit var recipeAdapter: RecipesAdapter
+    private lateinit var recipeAdapter: RecipeAdapter
     private lateinit var kitchenName: String
     private lateinit var kitchenImageUrl: String
 
-    override fun getViewBinding() = FragmentKitchenDetailsBinding.inflate(layoutInflater)
+    override fun getViewBinding(): FragmentKitchenDetailsBinding =
+        FragmentKitchenDetailsBinding.inflate(layoutInflater)
 
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
         arguments?.let {
-            log(it.getString(KITCHEN_NAME).toString())
-            log(it.getString(KITCHEN_IMAGE_URL).toString())
+            kitchenName = it.getString(KITCHEN_NAME).toString()
+            kitchenImageUrl = it.getString(KITCHEN_IMAGE_URL).toString()
         }
-        /*hideBottomNavigation()
-        setUpAppBar(true, kitchenName, true)
-        recipeAdapter = RecipesAdapter(dataManager.getRecipesByKitchen(kitchenName), this)
-        binding.rvRecipe.adapter = recipeAdapter*/
+        recipeAdapter = RecipeAdapter(dataManager.getRecipesByKitchen(kitchenName), this)
+        binding.rvRecipe.adapter = recipeAdapter
+        setUpAppBar(true, kitchenName, true, true)
+        onClickBack()
+        onClickInfo()
     }
 
     companion object {
@@ -52,26 +54,24 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
             }
     }
 
-    override fun onClickRecipe(recipe: Recipe) {
-        navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe)
-
+    override fun onClickBack() {
+        val btn_back = requireActivity().findViewById<ImageButton>(R.id.button_navDirection)
+        btn_back.setOnClickListener { replaceFragment(KitchenFragment()) }
     }
 
-    private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe: Recipe) {
-        val kitchenName = recipe.cuisine
-        val kitchenImageUrl = recipe.imageUrl
-        newInstance(kitchenName, kitchenImageUrl)
-        replaceFragment(RecipeDetailsFragment())
+    override fun onClickInfo() {
+        val btn_info = requireActivity().findViewById<ImageButton>(R.id.button_info)
+        btn_info.setOnClickListener { replaceFragment(KitchenInfoFragment()) }
+    }
+
+    override fun onClickRecipe(recipe: Recipe) {
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+        replaceFragment(recipeDetailsFragment)
     }
 
     private fun replaceFragment(fragment: Fragment) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentContainerView, fragment)
         transaction.commit()
-    }
-
-    private fun hideBottomNavigation() {
-        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
-        bottomNavigation.visibility = View.GONE
     }
 }

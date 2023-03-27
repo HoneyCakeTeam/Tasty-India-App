@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_small"
+    android:layout_margin="@dimen/margin_tiny"
     android:backgroundTint="@color/white_300"
     app:cardCornerRadius="@dimen/radius_semi_large"
     app:strokeWidth="0dp">
@@ -11,24 +11,21 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_recipe_image"
         android:layout_width="match_parent"
-        android:layout_height="156dp"
+        android:layout_height="200dp"
         android:scaleType="centerCrop"
         app:shapeAppearance="@style/CategoriesCardImageStyle"
         app:srcCompat="@drawable/image_recipe_chicken" />
+
     <View
         android:id="@+id/view_gradiant"
         android:layout_width="match_parent"
-        android:layout_height="156dp"
-        android:background="@drawable/card_gradiant"/>
+        android:layout_height="200dp"
+        android:background="@drawable/card_gradiant" />
 
     <TextView
         android:id="@+id/tv_recipe_name"
+        style="@style/ItemRecipeSquaredTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/margin_medium"
-        android:text="@string/masala_karela"
-        android:fontFamily="@font/ubuntu_medium"
-        android:layout_gravity="center_horizontal|bottom"
-        android:textColor="@color/white_100"
-        android:textSize="@dimen/text_medium" />
+        android:text="@string/masala_karela" />
 </com.google.android.material.card.MaterialCardView>

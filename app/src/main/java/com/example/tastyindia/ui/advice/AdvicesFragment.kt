@@ -18,7 +18,7 @@ class AdvicesFragment : BaseFragment<FragmentAdvicesBinding>() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
         val adviceAdapter = AdviceAdapter(dataManager.getAdvicesList())
-        binding.rvAdvices.adapter = adviceAdapter
+        binding.recyclerAdvices.adapter = adviceAdapter
     }
 
 }

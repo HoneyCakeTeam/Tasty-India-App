@@ -10,9 +10,11 @@ object Constants {
         const val KITCHEN_IMAGE_URL = "kitchenImageUrl"
         const val RECIPE_NAME = "recipeName"
         const val RECIPE_URL = "recipeUrl"
+        const val RECIPE_ID = 1
         const val RECIPE = "recipe"
         const val CATEGORY_NAME="categoryName"
         const val CATEGORY_IMAGE="categoryImage"
+        const val RECIPE_LIST="RecipeList"
     }
 
     object ColumnIndex {

@@ -6,7 +6,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/top_image"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="200dp"
         android:layout_marginStart="@dimen/margin_medium"
         android:layout_marginEnd="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_small"

@@ -10,7 +10,10 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemFastFoodCategoryBinding
 
-class FastFoodCategoryAdapter(private val fastList: List<Recipe>, private val listener:CategoryInteractionListener) :
+class FastFoodCategoryAdapter(
+    private val fastList: List<Recipe>,
+    private val listener: CategoryInteractionListener
+) :
     RecyclerView.Adapter<FastFoodCategoryAdapter.FastFoodViewHolder>() {
 
 
@@ -39,14 +42,10 @@ class FastFoodCategoryAdapter(private val fastList: List<Recipe>, private val li
 
     }
 
-
     override fun getItemCount(): Int = fastList.size
 
     class FastFoodViewHolder(viewItem: View) : ViewHolder(viewItem) {
         val binding = ItemFastFoodCategoryBinding.bind(viewItem)
-    }
-    interface CategoryInteractionListener {
-        fun onClickRecipe(recipe: Recipe)
     }
 }
 

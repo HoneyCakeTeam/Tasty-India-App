@@ -76,7 +76,6 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         Glide.with(imageView.context).load(imageUrl).placeholder(R.drawable.ic_error)
             .into(imageView)
     }
-
     private fun createHeader(recipe: Recipe): RecipeDetailsAdapter.RecipeDetailsItem.Header {
         return RecipeDetailsAdapter.RecipeDetailsItem.Header("Ingredients  -  ${recipe.ingredientsCount}")
     }
@@ -92,15 +91,6 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         return instructionsList.map {
             RecipeDetailsAdapter.RecipeDetailsItem.Instructions(it)
         }
-    }
-
-    companion object {
-        fun newInstance(recipe: Recipe) =
-            RecipeDetailsFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable(Constants.Key.RECIPE, recipe)
-                }
-            }
     }
     private fun hideBottomNavigation() {
         val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
@@ -124,11 +114,18 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         }
         return recipe
     }
-
     private fun calculateRecipeDifficultyLevel(numberOfMinutesToCook: Int) =
         when {
             numberOfMinutesToCook <= 20 -> "Easy"
             numberOfMinutesToCook <= 40 -> "Medium"
             else -> "Hard"
+        }
+    companion object {
+            fun newInstance(recipe: Recipe) =
+                RecipeDetailsFragment().apply {
+                    arguments = Bundle().apply {
+                        putParcelable(Constants.Key.RECIPE, recipe)
+                    }
+                }
         }
 }

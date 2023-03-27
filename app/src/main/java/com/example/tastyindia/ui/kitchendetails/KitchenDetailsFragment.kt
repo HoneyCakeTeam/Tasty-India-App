@@ -66,7 +66,7 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
     }
 
     override fun onClickRecipe(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(1)
         replaceFragment(recipeDetailsFragment)
     }
 

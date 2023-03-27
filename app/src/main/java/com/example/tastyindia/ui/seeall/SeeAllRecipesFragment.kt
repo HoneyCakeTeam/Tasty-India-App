@@ -66,7 +66,7 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
     }
 
     private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(1)
         replaceFragment(recipeDetailsFragment)
     }
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tasty India</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="discover_indian_cuisine">اكتشف المطبخ الهندي</string>
+    <string name="history_description">قبل آلاف السنين، أدرك الحكماء الهيمالايون أن استخدام التوابل والأعشاب كوسيلة طبيعية يمكن أن يساعد على توازن أيض الجسم. وقد أصبح هذا المعرفة الركيزة الرئيسية للعلم الأيورفيدي - "علم الحياة". إن تنوع وتركيب هذه التوابل يغذي الجسم والروح ويمنح تجربة لا تُنسى.</string>
+    <string name="regions">الأقاليم</string>
+    <string name="dishes">أشهر الأطباق</string>
+    <string name="home">الرئيسية</string>
+    <string name="cuisine">المطبخ</string>
+    <string name="category">التصنيف</string>
+    <string name="search">البحث</string>
+    <string name="masala_karela">مسالا كاريلا</string>
+    <string name="recipe">الوصفه</string>
+    <string name="indian">الهندي</string>
+    <string name="popular_indian_meals">الوجبات الهندية المشهورة</string>
+    <string name="indian_cuisnie">المطبخ الهندي</string>
+    <string name="categories_tv">التصنيفات</string>
+    <string name="chicken_tv">دجاج</string>
+    <string name="meal_tv">وجبات</string>
+    <string name="soups_tv">حساء</string>
+    <string name="sea_food_tv">أطعمة بحرية</string>
+    <string name="spicy_tv">حار</string>
+    <string name="recipe_of_week_tv">الدجاح المقرمش</string>
+    <string name="recipes_of_the_week_tv">وصفات الأسبوع</string>
+    <string name="see_all_tv">عرض المزيد</string>
+    <string name="good_morning">صباح الخير</string>
+    <string name="second_header_in_home_tv">ما الذي تريد إعداده اليوم ؟</string>
+    <string name="recommendations_tv">التوصيات</string>
+    <string name="recipeimage">recipeImage</string>
+    <string name="recipe_name">كريب بالرتقال و العسل</string>
+    <string name="time">40 دقيقة</string>
+    <string name="easy">سهل</string>
+    <string name="ingredients">المكونات</string>
+    <string name="how_to_prepare">طريقة الإعداد</string>
+    <string name="min">دقيقة</string>
+    <string name="_1_2_cup_all_purpose_flour">نصف كوب دقيق متعدد الاستخدامات</string>
+    <string name="categories">التصنيفات</string>
+    <string name="healthy">صحي</string>
+    <string name="fast_food">الوجبات السريعة</string>
+    <string name="see_all">عرض المزيد</string>
+    <string name="food_name">مسالا تشيكن</string>
+    <string name="food_time">30</string>
+    <string name="food_ingredient_count">5</string>
+    <string name="creamy_pasta">"كريمي باستا</string>
+    <string name="indian_cuisine">المبطخ الهندي</string>
+    <string name="recipes">الوصفات</string>
+    <string name="details">التفاصيل</string>
+    <string name="add_two_eggs_in_a_medium_bowl">add two eggs in a medium bowl</string>
+    <string name="cuisine_app_bar_title">المطابخ</string>
+
+</resources>

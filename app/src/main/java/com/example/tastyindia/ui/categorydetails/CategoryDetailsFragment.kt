@@ -35,7 +35,7 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
     }
 
     private fun initRecyclerView() {
-        recipeAdapter = RecipesAdapter(requireContext(), this)
+        recipeAdapter = RecipesAdapter( this)
         binding.rvRecipe.adapter = recipeAdapter
     }
 

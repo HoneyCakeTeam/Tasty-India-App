@@ -54,7 +54,6 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
 
     override fun onClickRecipe(recipe: Recipe) {
         navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe)
-
     }
 
     private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe: Recipe) {

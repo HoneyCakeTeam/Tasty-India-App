@@ -60,7 +60,7 @@
     </style>
 
     <style name="Ingredients" parent="recipeTextView">
-        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginStart">@dimen/margin_small</item>
         <item name="android:layout_marginTop">@dimen/margin_medium</item>
     </style>
 

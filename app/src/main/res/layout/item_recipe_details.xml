@@ -1,36 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="4dp">
+    android:padding="@dimen/padding_small"
+    android:orientation="horizontal">
 
     <View
         android:id="@+id/view2"
         android:layout_width="10dp"
         android:layout_height="10dp"
-        android:layout_margin="@dimen/margin_small"
-        android:background="@drawable/cirecle_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="@dimen/margin_tiny"
+        android:background="@drawable/cirecle_view" />
 
     <TextView
         android:id="@+id/tv_recipe_details"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
-        android:maxLines="20"
-
-        android:lineSpacingExtra="4dp"
-        android:breakStrategy="simple"
+        android:layout_marginStart="@dimen/margin_small"
         android:fontFamily="@font/ubuntu_reguler"
         android:text="@string/_1_2_cup_all_purpose_flour"
         android:textColor="@color/black_87"
-        android:textSize="@dimen/text_small"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+        android:textSize="@dimen/text_small" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

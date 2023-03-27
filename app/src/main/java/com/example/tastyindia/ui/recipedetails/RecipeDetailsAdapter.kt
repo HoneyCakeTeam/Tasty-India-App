@@ -8,9 +8,8 @@ import com.example.tastyindia.R
 import com.example.tastyindia.databinding.ItemIngredientsBinding
 import com.example.tastyindia.databinding.ItemRecipeDetailsBinding
 
-class RecipeDetailsAdapter(
-    private val items: List<RecipeDetailsItem>
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecipeDetailsAdapter(private val items: List<RecipeDetailsItem>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -32,17 +31,18 @@ class RecipeDetailsAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val item: RecipeDetailsItem
         when (holder) {
             is HeaderViewHolder -> {
-                val item = items[position] as RecipeDetailsItem.Header
+                item = items[position] as RecipeDetailsItem.Header
                 holder.binding.tvHeader.text = item.text
             }
             is IngredientsViewHolder -> {
-                val item = items[position] as RecipeDetailsItem.Ingredients
+                item = items[position] as RecipeDetailsItem.Ingredients
                 holder.binding.tvRecipeDetails.text = item.text
             }
             is InstructionsViewHolder -> {
-                val item = items[position] as RecipeDetailsItem.Instructions
+                item = items[position] as RecipeDetailsItem.Instructions
                 holder.binding.tvRecipeDetails.text = item.text
             }
         }
@@ -50,12 +50,15 @@ class RecipeDetailsAdapter(
 
     override fun getItemViewType(position: Int): Int = items[position].type.ordinal
 
-    override fun getItemCount(): Int = items.size-1
+    override fun getItemCount(): Int = items.size - 1
 
     sealed class RecipeDetailsItem(val type: RecipeDetailsItemType) {
         data class Header(val text: String) : RecipeDetailsItem(RecipeDetailsItemType.HEADER)
-        data class Ingredients(val text: String) : RecipeDetailsItem(RecipeDetailsItemType.INGREDIENTS)
-        data class Instructions(val text: String) : RecipeDetailsItem(RecipeDetailsItemType.INSTRUCTIONS)
+        data class Ingredients(val text: String) :
+            RecipeDetailsItem(RecipeDetailsItemType.INGREDIENTS)
+
+        data class Instructions(val text: String) :
+            RecipeDetailsItem(RecipeDetailsItemType.INSTRUCTIONS)
     }
 
     enum class RecipeDetailsItemType {
@@ -64,14 +67,18 @@ class RecipeDetailsAdapter(
         INSTRUCTIONS
     }
 
-    abstract class BaseViewHolder<RecipeDetailsItem>(itemView: View) : RecyclerView.ViewHolder(itemView)
+    abstract class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemView)
     class HeaderViewHolder(itemView: View) : BaseViewHolder<RecipeDetailsItem.Header>(itemView) {
         val binding = ItemIngredientsBinding.bind(itemView)
     }
-    class IngredientsViewHolder(itemView: View) : BaseViewHolder<RecipeDetailsItem.Ingredients>(itemView) {
+
+    class IngredientsViewHolder(itemView: View) :
+        BaseViewHolder<RecipeDetailsItem.Ingredients>(itemView) {
         val binding = ItemRecipeDetailsBinding.bind(itemView)
     }
-    class InstructionsViewHolder(itemView: View) : BaseViewHolder<RecipeDetailsItem.Instructions>(itemView) {
+
+    class InstructionsViewHolder(itemView: View) :
+        BaseViewHolder<RecipeDetailsItem.Instructions>(itemView) {
         val binding = ItemRecipeDetailsBinding.bind(itemView)
     }
 }

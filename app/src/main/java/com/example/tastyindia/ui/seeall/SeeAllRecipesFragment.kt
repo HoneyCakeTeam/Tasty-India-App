@@ -30,6 +30,7 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
 
     override fun setUp() {
         getRecipesList()
+        setUpAppBar(true,recipeType.name)
         adapter = SeeAllRecipesAdapter(getList(), this)
         binding.rvRecipes.adapter = adapter
     }
@@ -66,7 +67,6 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
 
     private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe: Recipe) {
         val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
-        Snackbar.make(binding.root, "${recipe.recipeName} Recipe ", Snackbar.LENGTH_SHORT).show()
         replaceFragment(recipeDetailsFragment)
     }
 

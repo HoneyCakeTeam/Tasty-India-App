@@ -47,7 +47,6 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
             }
     }
 
-
     private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe: Recipe) {
         //RecipeDetailsFragment.newInstance(recipe)
         Snackbar.make(binding.root, "${recipe.recipeName} Recipe ", Snackbar.LENGTH_SHORT).show()

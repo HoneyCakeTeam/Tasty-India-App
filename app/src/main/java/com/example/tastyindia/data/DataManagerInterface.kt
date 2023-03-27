@@ -1,13 +1,13 @@
 package com.example.tastyindia.data
 
 import com.example.tastyindia.data.domain.Advice
+import com.example.tastyindia.data.domain.HomeCategoriesModel
 import com.example.tastyindia.data.domain.KitchenInfo
 import com.example.tastyindia.data.domain.Recipe
 
 interface DataManagerInterface {
     fun getKitchenInfoList(): List<KitchenInfo>
-    fun getRandomNumbersForRecommendations(): List<Int>
-    fun getRandomNumbersForRecipesOfTheWeek(): List<Int>
+    fun getRandomNumbersInListOfRecipe(): List<Int>
     fun getListOfRecipeUsingRandomNumbers(randomNumbers: List<Int>): List<Recipe>
     fun getKitchenInfoByName(kitchenName: String): MutableList<KitchenInfo>
     fun getAllKitchenRecipes(): List<Recipe>
@@ -20,4 +20,5 @@ interface DataManagerInterface {
     fun getInstructions(recipe: Recipe): List<String>
     fun searchByRecipeOrCuisine(searchWord: String): List<Recipe>
     fun getRecipesByKitchen(kitchenName: String): List<Recipe>
+    fun getListOfHomeCategories(): List<HomeCategoriesModel>
 }

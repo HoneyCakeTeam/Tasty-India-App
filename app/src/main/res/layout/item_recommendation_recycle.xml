@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/recommendations_tv"
+        android:paddingStart="@dimen/padding_medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -32,12 +33,13 @@
         style="@style/HomeRecycleViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/margin_medium"
+        android:clipToPadding="false"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_home_recommendation"
         tools:listitem="@layout/item_home_recommendations"/>
 
-
-
+    add
 </androidx.constraintlayout.widget.ConstraintLayout>

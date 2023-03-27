@@ -133,7 +133,7 @@
     </style>
 
     <style name="HomeRecycleViewStyle">
-        <item name="android:paddingStart">@dimen/margin_medium</item>
+
         <item name="android:clipToPadding">false</item>
         <item name="android:layout_marginTop">@dimen/margin_small</item>
         <item name="android:orientation">horizontal</item>

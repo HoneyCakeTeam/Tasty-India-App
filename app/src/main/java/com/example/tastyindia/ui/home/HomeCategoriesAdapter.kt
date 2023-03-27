@@ -4,12 +4,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.tastyindia.R
+import com.example.tastyindia.data.domain.HomeCategoriesModel
+import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemHomeCategoriesBinding
+import com.example.tastyindia.databinding.ItemHomeRecommendationsBinding
 
 class HomeCategoriesAdapter(
-    val list: List<Any>,
-    val listener:HomeCategoriesInteractionListener
+    private val list: List<HomeCategoriesModel>,
+    private val listener:HomeCategoriesInteractionListener
 )
     : RecyclerView.Adapter<HomeCategoriesAdapter.HomeCategoriesViewHolder>(){
 
@@ -19,15 +23,15 @@ class HomeCategoriesAdapter(
         return HomeCategoriesViewHolder(view)
     }
 
-    override fun getItemCount() = list.size
+
 
     override fun onBindViewHolder(holder: HomeCategoriesViewHolder, position: Int) {
-        val categoriesList = list[position]
+        val currentCategory = list[position]
         holder.binding.apply {
-            //tvItemHomeCategory.text = categoriesList.
-            //imgHomeCategory.background = categoriesList.
+            tvItemHomeCategory.text = currentCategory.categoryName
+            imgHomeCategory.setImageResource(currentCategory.categoryImage)
             root.setOnClickListener{
-                //listener.onClickCategory()
+                listener.onClickCategory(currentCategory.categoryName)
             }
         }
     }
@@ -35,6 +39,8 @@ class HomeCategoriesAdapter(
     class HomeCategoriesViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         val binding = ItemHomeCategoriesBinding.bind(itemView)
     }
+
+    override fun getItemCount() = list.size
 
     interface HomeCategoriesInteractionListener{
         fun onClickCategory(categoryName:String)

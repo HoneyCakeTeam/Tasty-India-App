@@ -14,7 +14,8 @@ import com.example.tastyindia.utils.CsvParser
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(),
-    HomeRecommendationAdapter.HomeRecommendationsListener {
+    HomeRecommendationAdapter.HomeRecommendationsListener,
+    HomeRecipesOfTheWeekAdapter.RecipeOfTheWeekInteractionListener {
 
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
@@ -33,10 +34,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         val randomNumbersForRecommendations = dataManager.getRandomNumbersForRecommendations()
         val listOfRecommendationRecipes = dataManager.getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
 
+        val randomNumbersForRecipesOfWeek = dataManager.getRandomNumbersForRecipesOfTheWeek()
+        val listOfRecipesOfWeek = dataManager.getListOfRecipeUsingRandomNumbers(randomNumbersForRecipesOfWeek)
+
         val itemList: MutableList<HomeItem<Any>> = mutableListOf()
         itemList.add(HomeItem("", HomeItemType.TYPE_HOME_WELCOME_HEADER))
         itemList.add(HomeItem(listOfRecommendationRecipes, HomeItemType.TYPE_HOME_RECOMMENDATION_RECYCLE))
-        val adapter = HomeAdapter(itemList , this)
+        itemList.add(HomeItem(listOfRecipesOfWeek, HomeItemType.TYPR_RECIPES_OF_WEEK_RECYCLE))
+        val adapter = HomeAdapter(itemList , this,this)
         binding.recyclevHome.adapter = adapter
 
 
@@ -61,6 +66,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(com.example.tastyindia.R.id.fragmentContainerView, fragment)
         fragmentTransaction.commit()
+    }
+
+    override fun onClickRecipeOfWeek(id: Int) {
+        replaceFragment(RecipeDetailsFragment())
+        //RecipeDetailsFragment.newInstance(id)
     }
 
     override fun onClickRecipe(id: Int) {

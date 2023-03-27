@@ -10,10 +10,12 @@ import com.example.tastyindia.data.domain.HomeItemType
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemHomeHeaderTextBinding
 import com.example.tastyindia.databinding.ItemRecommendationRecycleBinding
+import com.example.tastyindia.databinding.ItemWeekRecipesBinding
 
 class HomeAdapter(
     private val homeItem: List<HomeItem<Any>>,
-    private val recommendationListener: HomeRecommendationAdapter.HomeRecommendationsListener
+    private val recommendationListener: HomeRecommendationAdapter.HomeRecommendationsListener,
+    private val recipeOfWeekListener: HomeRecipesOfTheWeekAdapter.RecipeOfTheWeekInteractionListener
 ) : RecyclerView.Adapter<HomeAdapter.HomeBaseViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeBaseViewHolder {
@@ -28,12 +30,12 @@ class HomeAdapter(
                     .inflate(R.layout.item_recommendation_recycle, parent, false)
                 HomeRecommendationViewHolder(view)
             }
-            /*
+
             VIEW_TYPE_HOME_WEEK_RECYCLE ->{
-                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_recipes_of_week, parent, false)
+                val view = LayoutInflater.from(parent.context).inflate(R.layout.item_week_recipes, parent, false)
                 HomeRecipesOfWeekViewHolder(view)
             }
-            */
+
             else -> throw java.lang.Exception("Execption in home")
         }
 
@@ -45,7 +47,7 @@ class HomeAdapter(
         return when (homeItem[position].type) {
             HomeItemType.TYPE_HOME_WELCOME_HEADER -> VIEW_TYPE_WELCOME
             HomeItemType.TYPE_HOME_RECOMMENDATION_RECYCLE -> VIEW_TYPE_HOME_RECOMMENDATION_RECYCLE
-            // HomeItemType.TYPR_RECIPES_OF_WEEK_RECYCLE -> VIEW_TYPE_HOME_WEEK_RECYCLE
+             HomeItemType.TYPR_RECIPES_OF_WEEK_RECYCLE -> VIEW_TYPE_HOME_WEEK_RECYCLE
             else -> super.getItemViewType(position)
         }
     }
@@ -55,6 +57,7 @@ class HomeAdapter(
         when (holder) {
             is HomeGoodMorningViewHolder -> { }
             is HomeRecommendationViewHolder -> onBindRecommendationViewHolder(holder, position)
+            is HomeRecipesOfWeekViewHolder -> onBindRecipesOfWeekViewHolder(holder, position)
         }
     }
 
@@ -62,6 +65,12 @@ class HomeAdapter(
         val recipeList = homeItem[position].item as List<Recipe>
         val adapter = HomeRecommendationAdapter(recipeList, recommendationListener)
         holder.binding.rvHomeRecommendations.adapter = adapter
+    }
+
+    fun onBindRecipesOfWeekViewHolder(holder: HomeRecipesOfWeekViewHolder, position: Int) {
+        val recipeList = homeItem[position].item as List<Recipe>
+        val adapter = HomeRecipesOfTheWeekAdapter(recipeList,recipeOfWeekListener)
+        holder.binding.rvHomeWeekOfWeek.adapter = adapter
     }
 
     abstract class HomeBaseViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem)
@@ -80,9 +89,9 @@ class HomeAdapter(
         }
         */
 
-//    class HomeRecipesOfWeekViewHolder(viewItem: View) :HomeBaseViewHolder(viewItem) {
-//        val binding = ItemWeekRecipesBinding.bind(viewItem)
-//    }
+    class HomeRecipesOfWeekViewHolder(viewItem: View) :HomeBaseViewHolder(viewItem) {
+        val binding = ItemWeekRecipesBinding.bind(viewItem)
+    }
 
     companion object {
 

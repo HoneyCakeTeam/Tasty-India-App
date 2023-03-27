@@ -8,9 +8,10 @@
     <TextView
         android:id="@+id/tv_home_week"
         style="@style/home_recycle_header_text_style"
+        android:paddingStart="@dimen/padding_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/recommendations_tv"
+        android:text="@string/recipes_of_the_week_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 

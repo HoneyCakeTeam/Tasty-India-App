@@ -26,7 +26,7 @@ class AdviceAdapter(val list: List<Advice>) :
                 .with(holder.binding.root)
                 .load(currentAdvice.url)
                 .placeholder(R.drawable.ic_error)
-                .into(imgRelatedWithAdvice)
+                .into(imgVeg)
         }
     }
 

@@ -37,7 +37,7 @@ class HomeRecipesOfTheWeekAdapter(
                 .into(imgRecipeOfWeek)
 
             root.setOnClickListener {
-                listener.onClickRecipeOfWeek(position)
+                listener.onClickRecipeOfWeek(currentRecipe)
             }
         }
 
@@ -48,6 +48,6 @@ class HomeRecipesOfTheWeekAdapter(
     }
 
     interface RecipeOfTheWeekInteractionListener{
-        fun onClickRecipeOfWeek(id:Int)
+        fun onClickRecipeOfWeek(recipe: Recipe)
     }
 }

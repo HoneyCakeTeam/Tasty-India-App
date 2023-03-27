@@ -33,7 +33,7 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
-        hideBottomNavigation()
+        //hideBottomNavigation()
         val recipe = retrieveRecipeFromArguments()
         val recipeName = recipe.recipeName
 
@@ -58,8 +58,8 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         navigateToHomeFragment()
 
         setRecipeName(recipeName, binding.tvRecipeName)
-        setTimeToCookRecipe(recipe.totalTimeInMins, binding.tvTimeToCookRecipe)
-        setDifficultyLevel(recipe.totalTimeInMins, binding.tvDifficultyLevel)
+        setTimeToCookRecipe(recipe.totalTimeInMinutes, binding.tvTimeToCookRecipe)
+        setDifficultyLevel(recipe.totalTimeInMinutes, binding.tvDifficultyLevel)
         setRecipeImage(recipe.imageUrl, binding.ivRecipe)
     }
     private fun setRecipeName(recipeName: String, textView: TextView) {

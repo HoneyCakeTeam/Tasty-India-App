@@ -56,8 +56,8 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryIntera
     }
 
     override fun onClickRecipe(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
-        replaceFragment(recipeDetailsFragment)
+      //  val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+      //  replaceFragment(recipeDetailsFragment)
     }
 
     private fun replaceFragment(fragment: Fragment) {

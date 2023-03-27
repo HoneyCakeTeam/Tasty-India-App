@@ -32,14 +32,14 @@ class HomeRecommendationAdapter(val list: List<Recipe>, private val listener: Ho
                 .into(ivHomeRecommendationRecipeImage)
 
             root.setOnClickListener {
-                listener.onClickRecommendationRecipe(currentMeal)
+                listener.onClickRecommendationRecipe(currentMeal.id)
             }
         }
     }
 
     override fun getItemCount() = list.size
     interface HomeRecommendationsListener {
-        fun onClickRecommendationRecipe(recipe: Recipe)
+        fun onClickRecommendationRecipe(id: Int)
     }
 
 }

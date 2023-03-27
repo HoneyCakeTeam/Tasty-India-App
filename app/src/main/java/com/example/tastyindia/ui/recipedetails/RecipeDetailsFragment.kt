@@ -26,7 +26,8 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
     override val TAG = "RecipeDetails"
-    private lateinit var recipe: Recipe
+    private var id1: Int = 0
+    lateinit var recipe: Recipe
 
     override fun getViewBinding() = FragmentRecipeDetailsBinding.inflate(layoutInflater)
 
@@ -34,7 +35,9 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
         //hideBottomNavigation()
-        val recipe = retrieveRecipeFromArguments()
+         id1 = retrieveRecipeFromArguments()
+        recipe = dataManager.getRecipe(id1)
+       // val recipe = retrieveRecipeFromArguments()
         val recipeName = recipe.recipeName
 
         val ingredientsList = dataManager.getIngredients(recipe)
@@ -62,40 +65,50 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         setDifficultyLevel(recipe.totalTimeInMinutes, binding.tvDifficultyLevel)
         setRecipeImage(recipe.imageUrl, binding.ivRecipe)
     }
+
     private fun setRecipeName(recipeName: String, textView: TextView) {
         textView.text = recipeName
     }
+
     @SuppressLint("SetTextI18n")
     private fun setTimeToCookRecipe(totalTimeInMins: Int, textView: TextView) {
         textView.text = "$totalTimeInMins Minutes"
     }
+
     private fun setDifficultyLevel(totalTimeInMins: Int, textView: TextView) {
         textView.text = calculateRecipeDifficultyLevel(totalTimeInMins)
     }
+
     private fun setRecipeImage(imageUrl: String, imageView: ImageView) {
         Glide.with(imageView.context).load(imageUrl).placeholder(R.drawable.ic_error)
             .into(imageView)
     }
+
     private fun createHeader(recipe: Recipe): RecipeDetailsAdapter.RecipeDetailsItem.Header {
         return RecipeDetailsAdapter.RecipeDetailsItem.Header("Ingredients  -  ${recipe.ingredientsCount}")
     }
+
     private fun createSecondHeader(): RecipeDetailsAdapter.RecipeDetailsItem.Header {
         return RecipeDetailsAdapter.RecipeDetailsItem.Header("How to prepare")
     }
+
     private fun createIngredientsList(ingredientsList: List<String>): List<RecipeDetailsAdapter.RecipeDetailsItem.Ingredients> {
         return ingredientsList.map {
             RecipeDetailsAdapter.RecipeDetailsItem.Ingredients(it)
         }
     }
+
     private fun createInstructionsList(instructionsList: List<String>): List<RecipeDetailsAdapter.RecipeDetailsItem.Instructions> {
         return instructionsList.map {
             RecipeDetailsAdapter.RecipeDetailsItem.Instructions(it)
         }
     }
+
     private fun hideBottomNavigation() {
         val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottomNavigation.visibility = View.GONE
     }
+
     private fun navigateToHomeFragment() {
         requireActivity().findViewById<ImageButton>(R.id.button_navDirection).setOnClickListener {
             val homeFragment = HomeFragment()
@@ -104,7 +117,7 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
                 ?.commit()
         }
     }
-    private fun retrieveRecipeFromArguments(): Recipe {
+    /*private fun retrieveRecipeFromArguments(): Recipe {
         arguments?.let {
             recipe = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 it.getParcelable(Constants.Key.RECIPE, Recipe::class.java)!!
@@ -113,19 +126,33 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
             }
         }
         return recipe
+    }*/
+
+
+    private fun retrieveRecipeFromArguments(): Int {
+        arguments?.let {
+            id1 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                it.getInt(Constants.Key.RECIPE_ID.toString())
+            } else {
+                it.getInt(Constants.Key.RECIPE_ID.toString())
+            }
+        }
+        return id1
     }
+
     private fun calculateRecipeDifficultyLevel(numberOfMinutesToCook: Int) =
         when {
             numberOfMinutesToCook <= 20 -> "Easy"
             numberOfMinutesToCook <= 40 -> "Medium"
             else -> "Hard"
         }
+
     companion object {
-            fun newInstance(recipe: Recipe) =
-                RecipeDetailsFragment().apply {
-                    arguments = Bundle().apply {
-                        putParcelable(Constants.Key.RECIPE, recipe)
-                    }
+        fun newInstance(id: Int) =
+            RecipeDetailsFragment().apply {
+                arguments = Bundle().apply {
+                    putInt(Constants.Key.RECIPE_ID.toString(), id)
                 }
-        }
+            }
+    }
 }

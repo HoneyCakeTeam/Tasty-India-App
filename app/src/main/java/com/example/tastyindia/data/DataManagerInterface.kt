@@ -21,4 +21,5 @@ interface DataManagerInterface {
     fun searchByRecipeOrCuisine(searchWord: String): List<Recipe>
     fun getRecipesByKitchen(kitchenName: String): List<Recipe>
     fun getListOfHomeCategories(): List<HomeCategoriesModel>
+    fun getRecipe(id:Int):Recipe
 }

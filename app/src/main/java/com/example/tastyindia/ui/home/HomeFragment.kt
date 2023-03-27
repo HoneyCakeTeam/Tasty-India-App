@@ -4,15 +4,13 @@ package com.example.tastyindia.ui.home
 import androidx.fragment.app.Fragment
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
-import com.example.tastyindia.data.domain.Recipe
+import com.example.tastyindia.data.domain.HomeItem
+import com.example.tastyindia.data.domain.HomeItemType
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentHomeBinding
 import com.example.tastyindia.ui.BaseFragment
-import com.example.tastyindia.ui.category.CategoryFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
-import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import com.example.tastyindia.utils.CsvParser
-import kotlin.random.Random
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(),
@@ -33,6 +31,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         setUpAppBar(false)
 
         val randomNumbersForRecommendations = dataManager.getRandomNumbersForRecommendations()
+        val listOfRecommendationRecipes = dataManager.getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
+
+        val itemList: MutableList<HomeItem<Any>> = mutableListOf()
+        itemList.add(HomeItem("", HomeItemType.TYPE_HOME_WELCOME_HEADER))
+        itemList.add(HomeItem(listOfRecommendationRecipes, HomeItemType.TYPE_HOME_RECOMMENDATION_RECYCLE))
+        val adapter = HomeAdapter(itemList , this)
+        binding.recyclevHome.adapter = adapter
+
+
+        addCallbacks()
+        /*
+        val randomNumbersForRecommendations = dataManager.getRandomNumbersForRecommendations()
         val listOfRecommendationRecipes =
             dataManager.getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
         val adapter = HomeRecommendationAdapter(listOfRecommendationRecipes, this)
@@ -40,31 +50,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
 
         val randomNumbers = dataManager.getRandomNumbersForRecipesOfTheWeek()
         val recipesOfTheWeek = dataManager.getListOfRecipeUsingRandomNumbers(randomNumbers)
+        */
     }
 
     private fun addCallbacks() {
-
-        binding.tvHomeRecommendationSeeAll.setOnClickListener {
-            replaceFragment(SeeAllRecipesFragment())
-        }
-        binding.tvHomeRecipeOfWeekSeeAll.setOnClickListener {
-            replaceFragment(SeeAllRecipesFragment())
-        }
-        binding.cvCategoriesMeal.setOnClickListener {
-            replaceFragment(CategoryFragment())
-        }
-        binding.cvHomeCategoriesChicken.setOnClickListener {
-            replaceFragment(CategoryFragment())
-        }
-        binding.cvCategoriesSeaFood.setOnClickListener {
-            replaceFragment(CategoryFragment())
-        }
-        binding.cvCategoriesSoups.setOnClickListener {
-            replaceFragment(CategoryFragment())
-        }
-        binding.cvCategoriesSpicy.setOnClickListener {
-            replaceFragment(CategoryFragment())
-        }
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -74,9 +63,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         fragmentTransaction.commit()
     }
 
-    override fun onClickRecipe(recipe: Recipe) {
+    override fun onClickRecipe(id: Int) {
         replaceFragment(RecipeDetailsFragment())
-        RecipeDetailsFragment.newInstance(recipe)
+        //RecipeDetailsFragment.newInstance(id)
     }
 
 }

@@ -12,7 +12,6 @@ import com.example.tastyindia.databinding.FragmentSearchBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.CsvParser
-import com.google.android.material.snackbar.Snackbar
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     SearchAdapter.RecipeInteractionListener, SearchView.OnQueryTextListener {
@@ -57,9 +56,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
 
     private fun visibilityOfImageAndRecyclerInSearchFragment(query: String?) {
         val result = dataManager.searchByRecipeOrCuisine(query!!)
-        binding.imgSearch.visibility = if (query.isNotEmpty()) View.GONE else View.VISIBLE
-        binding.rvSearchResult.visibility = if (query.isNotEmpty()) View.VISIBLE else View.GONE
-        binding.imgSearchNotFound.visibility = if (result.isEmpty()) View.VISIBLE else View.GONE
+        binding.apply {
+            imgSearch.visibility = if (query.isNotEmpty()) View.GONE else View.VISIBLE
+            rvSearchResult.visibility = if (query.isNotEmpty()) View.VISIBLE else View.GONE
+            imgSearchNotFound.visibility = if (result.isEmpty()) View.VISIBLE else View.GONE
+
+        }
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {

@@ -117,18 +117,6 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
                 ?.commit()
         }
     }
-    /*private fun retrieveRecipeFromArguments(): Recipe {
-        arguments?.let {
-            recipe = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                it.getParcelable(Constants.Key.RECIPE, Recipe::class.java)!!
-            } else {
-                it.getParcelable(Constants.Key.RECIPE)!!
-            }
-        }
-        return recipe
-    }*/
-
-
     private fun retrieveRecipeFromArguments(): Int {
         arguments?.let {
             id1 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

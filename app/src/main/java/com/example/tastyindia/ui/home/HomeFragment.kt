@@ -11,6 +11,7 @@ import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentHomeBinding
 import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.categorydetails.CategoryDetailsFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import com.example.tastyindia.utils.CsvParser
@@ -73,8 +74,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     }
 
     override fun onClickCategory(categoryName: String) {
-        //CategoryDetailsFragment.newInstance(categoryName)
-        replaceFragment(RecipeDetailsFragment())
+       val categoryDetailsFragment = CategoryDetailsFragment.newInstance(categoryName)
+        replaceFragment(categoryDetailsFragment)
     }
 
     override fun onClickRecommendationRecipe(id: Int) {

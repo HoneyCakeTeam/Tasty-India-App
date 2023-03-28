@@ -15,6 +15,7 @@ import com.example.tastyindia.databinding.LayoutFastFoodCategoryBinding
 import com.example.tastyindia.databinding.LayoutHealthCategoryBinding
 import com.example.tastyindia.databinding.LayoutImagePosterBinding
 
+@Suppress("UNCHECKED_CAST")
 class MainCategoryAdapter(
     private val categoriesList: List<CategoryItem<Any>>,
     private val listener: CategoryInteractionListener
@@ -98,7 +99,11 @@ class MainCategoryAdapter(
     private fun bindImagePoster(holder: ImagePosterViewHolder, position: Int) {
         val imagePoster = categoriesList[position].listItem as String
         holder.binding.apply {
-            Glide.with(root).load(imagePoster).into(topImage)
+            Glide
+                .with(root)
+                .load(imagePoster)
+                .placeholder(R.drawable.ic_error)
+                .into(topImage)
         }
     }
 

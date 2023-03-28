@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_medium"
-        android:fontFamily="@font/ubuntu_reguler"
+        android:fontFamily="@font/ubuntu_regular"
         android:text="@string/good_morning"
         android:textColor="@color/black_60"
         android:textSize="@dimen/text_medium" />

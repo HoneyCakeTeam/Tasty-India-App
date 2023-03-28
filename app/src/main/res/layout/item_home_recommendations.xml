@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
                 android:layout_marginHorizontal="@dimen/margin_tiny"
-                android:fontFamily="@font/ubuntu_reguler"
+                android:fontFamily="@font/ubuntu_regular"
                 android:lines="1"
                 android:ellipsize="end"
                 android:text="Creamy Pasta"
@@ -48,7 +48,7 @@
                 android:layout_marginHorizontal="@dimen/margin_tiny"
                 android:lines="1"
                 android:ellipsize="end"
-                android:fontFamily="@font/ubuntu_reguler"
+                android:fontFamily="@font/ubuntu_regular"
                 android:text="Indian Cusine"
                 android:textColor="@color/black_60"
                 android:textSize="@dimen/text_tiny" />

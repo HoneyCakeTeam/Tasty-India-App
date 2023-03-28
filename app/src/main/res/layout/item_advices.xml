@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="124dp"
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_marginHorizontal="@dimen/margin_medium"
-    android:layout_marginBottom="@dimen/margin_medium"
-    app:cardCornerRadius="@dimen/radius_small">
+    android:layout_marginVertical="@dimen/margin_small"
+    app:cardElevation="@dimen/margin_small"
+    app:cardCornerRadius="@dimen/elevation_small">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,10 +34,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             tool:text="Base your meals on higher fibre starchy carbohydrates"
+            android:fontFamily="@font/poppins_regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imgVeg"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginHorizontal="@dimen/margin_small"
             android:layout_marginVertical="@dimen/margin_tiny"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

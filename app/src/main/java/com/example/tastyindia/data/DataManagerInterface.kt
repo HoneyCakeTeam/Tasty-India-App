@@ -7,7 +7,9 @@ import com.example.tastyindia.data.domain.Recipe
 
 interface DataManagerInterface {
     fun getKitchenInfoList(): List<KitchenInfo>
-    fun getRandomNumbersInListOfRecipe(): List<Int>
+    fun getRandomNumbersInListOfRecipe(recipeId: Int): List<Int>
+    fun getRecommendationFirstRecipeId():Int
+    fun getRecipesOfWeekFirstRecipeId():Int
     fun getListOfRecipeUsingRandomNumbers(randomNumbers: List<Int>): List<Recipe>
     fun getKitchenInfoByName(kitchenName: String): KitchenInfo
     fun getAnonymousKitchen(): KitchenInfo
@@ -24,4 +26,7 @@ interface DataManagerInterface {
     fun getListOfHomeCategories(): List<HomeCategoriesModel>
     fun getRecipe(id: Int): Recipe
     fun getRecipesByCategory(categoryName: String): ArrayList<Recipe>
+
+    fun getRandomImageInCategory(): String
+
 }

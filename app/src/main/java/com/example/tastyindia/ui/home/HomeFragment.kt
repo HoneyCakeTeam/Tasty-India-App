@@ -11,6 +11,7 @@ import com.example.tastyindia.data.domain.enums.SeeAllRecipesType
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentHomeBinding
 import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.HomeActivity
 import com.example.tastyindia.ui.categorydetails.CategoryDetailsFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
@@ -37,12 +38,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         setUpAppBar(false)
 
         val randomNumbersForRecommendations =
-            dataManager.getRandomNumbersInListOfRecipe().distinct().take(10)
+            dataManager.getRandomNumbersInListOfRecipe(
+                (requireActivity() as HomeActivity).recommendationFirstRecipeId
+            )
+                .distinct().take(10)
         val listOfRecommendationRecipes =
             dataManager.getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
 
         val randomNumbersForRecipesOfWeek =
-            dataManager.getRandomNumbersInListOfRecipe().distinct().take(10)
+            dataManager.getRandomNumbersInListOfRecipe(
+                (requireActivity() as HomeActivity).recipesOfWeekFirstRecipeId
+            ).distinct().take(10)
         val listOfRecipesOfWeek =
             dataManager.getListOfRecipeUsingRandomNumbers(randomNumbersForRecipesOfWeek)
 
@@ -59,7 +65,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         )
         itemList.add(HomeItem(listOfRecipesOfWeek, HomeItemType.TYPE_RECIPES_OF_WEEK_RECYCLE))
 
-        val adapter = HomeAdapter(itemList, this, this, this, this)
+        val adapter = HomeAdapter(
+            itemList,
+            this,
+            this,
+            this,
+            this
+        )
         binding.recyclevHome.adapter = adapter
 
     }

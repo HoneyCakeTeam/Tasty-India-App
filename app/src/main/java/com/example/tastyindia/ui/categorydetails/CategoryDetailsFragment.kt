@@ -3,7 +3,6 @@ package com.example.tastyindia.ui.categorydetails
 import android.os.Bundle
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
-import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentCategoryDetailsBinding
 import com.example.tastyindia.ui.BaseFragment
@@ -38,12 +37,12 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
     }
 
     private fun initRecyclerView() {
-        recipeAdapter = RecipesAdapter(dataManager.getRecipesByCategory(categoryName), this)
+        recipeAdapter = RecipesAdapter(this)
         binding.rvRecipe.adapter = recipeAdapter
     }
 
-    override fun onClickItem(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(1)
+    override fun onClickItem(recipeId: Int) {
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipeId)
         replaceFragment(recipeDetailsFragment)
     }
 

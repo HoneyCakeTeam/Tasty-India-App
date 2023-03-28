@@ -10,5 +10,6 @@ import com.example.tastyindia.R
     val fragmentManager = requireActivity().supportFragmentManager
     val fragmentTransaction = fragmentManager.beginTransaction()
     fragmentTransaction.replace(R.id.fragmentContainerView, fragment)
+    fragmentTransaction.addToBackStack(null)
     fragmentTransaction.commit()
 }

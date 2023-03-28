@@ -58,7 +58,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryIntera
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainerView, fragment)
+        fragmentTransaction.replace(R.id.fragmentContainerView, fragment).addToBackStack(null)
         fragmentTransaction.commit()
     }
 

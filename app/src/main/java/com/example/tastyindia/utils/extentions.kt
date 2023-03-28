@@ -9,6 +9,6 @@ import com.example.tastyindia.R
  fun Fragment.replaceFragment(fragment: Fragment) {
     val fragmentManager = requireActivity().supportFragmentManager
     val fragmentTransaction = fragmentManager.beginTransaction()
-    fragmentTransaction.replace(R.id.fragmentContainerView, fragment)
+    fragmentTransaction.replace(R.id.fragmentContainerView, fragment).addToBackStack(null)
     fragmentTransaction.commit()
 }

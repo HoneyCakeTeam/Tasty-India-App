@@ -82,7 +82,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(com.example.tastyindia.R.id.fragmentContainerView, fragment)
+        fragmentTransaction.replace(com.example.tastyindia.R.id.fragmentContainerView, fragment).addToBackStack(null)
         fragmentTransaction.commit()
     }
 

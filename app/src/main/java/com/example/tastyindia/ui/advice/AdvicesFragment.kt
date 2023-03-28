@@ -16,7 +16,7 @@ class AdvicesFragment : BaseFragment<FragmentAdvicesBinding>() {
         FragmentAdvicesBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        setUpAppBar(true , getString(R.string.advices))
+        setUpAppBar(true, getString(R.string.advices))
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
         val adviceAdapter = AdviceAdapter(dataManager.getAdvicesList())

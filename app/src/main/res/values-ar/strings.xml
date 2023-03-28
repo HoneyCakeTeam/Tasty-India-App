@@ -8,15 +8,15 @@
     <string name="regions">الأقاليم</string>
     <string name="dishes">أشهر الأطباق</string>
     <string name="home">الرئيسية</string>
-    <string name="cuisine">المطبخ</string>
-    <string name="category">التصنيف</string>
+    <string name="cuisine">المطابخ</string>
+    <string name="category">التصنيفات</string>
     <string name="search">البحث</string>
     <string name="masala_karela">مسالا كاريلا</string>
     <string name="recipe">الوصفه</string>
     <string name="indian">الهندي</string>
-    <string name="popular_indian_meals">الوجبات الهندية المشهورة</string>
+    <string name="popular_meals">الوجبات المشهورة</string>
     <string name="indian_cuisnie">المطبخ الهندي</string>
-    <string name="categories_tv">التصنيفات</string>
+    <string name="tv_categories">التصنيفات</string>
     <string name="chicken_tv">دجاج</string>
     <string name="meal_tv">وجبات</string>
     <string name="soups_tv">حساء</string>
@@ -26,12 +26,12 @@
     <string name="recipes_of_the_week_tv">وصفات الأسبوع</string>
     <string name="see_all_tv">عرض المزيد</string>
     <string name="good_morning">صباح الخير</string>
-    <string name="second_header_in_home_tv">ما الذي تريد إعداده اليوم ؟</string>
+    <string name="second_header_in_home_tv">ما الذي تود إعداده اليوم ؟</string>
     <string name="recommendations_tv">التوصيات</string>
-    <string name="recipeimage">recipeImage</string>
+    <string name="recipeimage">صورة الوصفة</string>
     <string name="recipe_name">كريب بالرتقال و العسل</string>
     <string name="time">40 دقيقة</string>
-    <string name="easy">سهل</string>
+    <string name="easy">سهلة التحضير</string>
     <string name="ingredients">المكونات</string>
     <string name="how_to_prepare">طريقة الإعداد</string>
     <string name="min">دقيقة</string>
@@ -48,6 +48,11 @@
     <string name="recipes">الوصفات</string>
     <string name="details">التفاصيل</string>
     <string name="add_two_eggs_in_a_medium_bowl">add two eggs in a medium bowl</string>
-    <string name="cuisine_app_bar_title">المطابخ</string>
+    <string name="category_image_poster">https://cdn.pixabay.com/photo/2016/12/26/17/28/spaghetti-1932466__340.jpg</string>
+    <string name="kitchenPageTitle">المطابخ</string>
+    <string name="categories_page_title">التصنيفات</string>
+    <string name="how_to_prepare_title">طريقة التحضير</string>
+    <string name="ingredients_header"> المكونات</string>
+
 
 </resources>

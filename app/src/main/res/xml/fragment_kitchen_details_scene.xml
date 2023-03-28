@@ -13,10 +13,6 @@
         <KeyFrameSet>
 
             <KeyAttribute
-                android:alpha="0.5"
-                motion:framePosition="100"
-                motion:motionTarget="@+id/image_cuisine" />
-            <KeyAttribute
                 android:scaleX="0"
                 motion:framePosition="100"
                 motion:motionTarget="@+id/image_cuisine" />
@@ -38,7 +34,7 @@
     <ConstraintSet android:id="@+id/end">
 
         <Constraint
-            android:id="@+id/img_cuisine"
+            android:id="@+id/image_cuisine"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/margin_medium"

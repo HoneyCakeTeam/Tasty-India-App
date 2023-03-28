@@ -42,7 +42,7 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
             .with(binding.root)
             .load(kitchenImageUrl)
             .placeholder(R.drawable.ic_error)
-            .into(binding.imgCuisine)
+            .into(binding.imageCuisine)
 
         recipeAdapter = RecipeAdapter(dataManager.getRecipesByKitchen(kitchenName), this)
         binding.rvRecipe.adapter = recipeAdapter

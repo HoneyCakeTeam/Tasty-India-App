@@ -9,14 +9,11 @@ import androidx.viewbinding.ViewBinding
 interface BaseInteractionListener
 
 abstract class BaseAdapter<T, VB : ViewBinding>(
-
     private var items: List<T>,
-
     private val listener: BaseInteractionListener
 ) : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<VB>>() {
 
     abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VB
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<VB> {
         val inflater = LayoutInflater.from(parent.context)
         val binding = bindingInflater(inflater, parent, false)
@@ -24,8 +21,8 @@ abstract class BaseAdapter<T, VB : ViewBinding>(
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<VB>, position: Int) {
-        val item = items[position]
-        onBindViewHolder(holder, position, item)
+        val currentItem = items[position]
+        onBindViewHolder(holder, position, currentItem)
     }
 
     abstract fun onBindViewHolder(holder: BaseViewHolder<VB>, position: Int, item: T)

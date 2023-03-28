@@ -10,13 +10,11 @@ class BaseDiffUtil<T>(
 ) : DiffUtil.Callback() {
 
     override fun getOldListSize() = oldList.size
-
     override fun getNewListSize() = newList.size
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         return checkIfSameItem(oldList[oldItemPosition], newList[newItemPosition])
     }
-
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         return checkIfSameContent(oldList[oldItemPosition], newList[newItemPosition])
     }

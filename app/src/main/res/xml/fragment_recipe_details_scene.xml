@@ -8,8 +8,14 @@
         motion:constraintSetStart="@id/start"
         motion:duration="1000">
         <OnSwipe
-            motion:touchAnchorId="@+id/constraint_layout"
-            motion:touchAnchorSide="top" />
+            motion:touchAnchorId="@+id/iv_recipe"
+            motion:touchAnchorSide="bottom" />
+        <KeyFrameSet >
+            <KeyAttribute
+                motion:motionTarget="@+id/iv_recipe"
+                motion:framePosition="100"
+                android:scaleX="0" />
+        </KeyFrameSet>
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
@@ -20,8 +26,19 @@
             android:id="@+id/iv_recipe"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="1dp"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/iv_recipe"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="-100dp"
+            android:id="@+id/constraint_layout" />
+
     </ConstraintSet>
+
 </MotionScene>

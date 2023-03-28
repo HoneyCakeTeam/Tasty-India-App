@@ -47,8 +47,7 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
         recipeAdapter = RecipeAdapter(dataManager.getRecipesByKitchen(kitchenName), this)
         binding.rvRecipe.adapter = recipeAdapter
         setUpAppBar(true, kitchenName, showBackButton = true, showInfoButton = true)
-        onClickBack()
-        onClickInfo()
+        addCallbacks()
     }
 
     companion object {
@@ -61,12 +60,17 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
             }
     }
 
-    private fun onClickBack() {
+    private fun addCallbacks() {
+        onClickBackNavigateToKitchenFragment()
+        onClickInfoNavigateToKitchenInfoFragment()
+    }
+
+    private fun onClickBackNavigateToKitchenFragment() {
         val backButton = requireActivity().findViewById<ImageButton>(R.id.button_navDirection)
         backButton.setOnClickListener { replaceFragment(KitchenFragment()) }
     }
 
-    private fun onClickInfo() {
+    private fun onClickInfoNavigateToKitchenInfoFragment() {
         val infoButton = requireActivity().findViewById<ImageButton>(R.id.button_info)
         val kitchenInfoFragment = KitchenInfoFragment.newInstance(kitchenName, kitchenImageUrl)
         infoButton.setOnClickListener { replaceFragment(kitchenInfoFragment) }

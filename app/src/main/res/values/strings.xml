@@ -52,5 +52,6 @@
     <string name="how_to_prepare_title">How to prepare</string>
     <string name="ingredients_header">Ingredients </string>
     <string name="advices">Advices</string>
+    <string name="back_button_description">back_button_description</string>
 
 </resources>

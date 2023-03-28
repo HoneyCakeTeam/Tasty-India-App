@@ -98,7 +98,11 @@ class MainCategoryAdapter(
     private fun bindImagePoster(holder: ImagePosterViewHolder, position: Int) {
         val imagePoster = categoriesList[position].listItem as String
         holder.binding.apply {
-            Glide.with(root).load(imagePoster).into(topImage)
+            Glide
+                .with(root)
+                .load(imagePoster)
+                .placeholder(R.drawable.ic_error)
+                .into(topImage)
         }
     }
 

@@ -34,35 +34,46 @@
 
     <TextView
         android:id="@+id/tv_name"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:text="@string/food_name"
         style="@style/TextStyleNameCategories"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tv_time"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ic_time"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:scaleType="centerCrop"
-        android:layout_marginEnd="@dimen/margin_tiny"
-        android:layout_marginBottom="@dimen/margin_tiny"
-        app:srcCompat="@drawable/ic_time"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/food_time"
-        style="@style/TextStyleNumberCategories"
-        app:layout_constraintBottom_toBottomOf="@+id/ic_time"
-        app:layout_constraintEnd_toStartOf="@id/ic_time"
-        app:layout_constraintTop_toTopOf="@+id/ic_time" />
+        android:padding="@dimen/margin_small"
+        android:text="@string/food_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:background="@drawable/text_background"
+        android:padding="@dimen/padding_tiny"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_time"
+            style="@style/TextStyleNumberCategories"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/food_time" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ic_time"
+            android:layout_width="0dp"
+            android:layout_height="14dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/margin_tiny"
+            android:layout_marginBottom="@dimen/margin_tiny"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_time" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

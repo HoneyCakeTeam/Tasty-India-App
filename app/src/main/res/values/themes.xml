@@ -117,17 +117,14 @@
     </style>
 
     <style name="TextStyleNameCategories">
-        <item name="android:layout_marginStart">@dimen/margin_tiny</item>
-        <item name="android:layout_marginBottom">@dimen/margin_tiny</item>
         <item name="android:fontFamily">@font/poppins_reguler</item>
-        <item name="android:textColor">@color/white_100</item>
-        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:textColor">@color/white_300</item>
+        <item name="android:textSize">@dimen/text_small</item>
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
     </style>
 
     <style name="TextStyleNumberCategories">
-        <item name="android:layout_marginEnd">@dimen/margin_tiny</item>
         <item name="android:fontFamily">@font/ubuntu_medium</item>
         <item name="android:textColor">@color/white_100</item>
         <item name="android:textSize">@dimen/text_tiny</item>

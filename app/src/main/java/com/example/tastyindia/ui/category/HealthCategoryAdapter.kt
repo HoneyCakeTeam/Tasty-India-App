@@ -33,6 +33,7 @@ class HealthCategoryAdapter(
             Glide
                 .with(holder.binding.root)
                 .load(currentHealth.imageUrl)
+                .placeholder(R.drawable.ic_error)
                 .into(healthImage)
             root.setOnClickListener {
                 listener.onClickRecipe(currentHealth.id)

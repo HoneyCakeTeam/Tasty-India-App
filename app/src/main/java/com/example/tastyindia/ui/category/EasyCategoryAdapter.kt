@@ -31,6 +31,7 @@ class EasyCategoryAdapter(private val easyList:List<Recipe >, private val listen
             Glide
                 .with(holder.binding.root)
                 .load(currentEasy.imageUrl)
+                .placeholder(R.drawable.ic_error)
                 .into(easyImage)
 
             root.setOnClickListener {

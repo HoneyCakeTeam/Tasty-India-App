@@ -11,6 +11,7 @@ interface BaseInteractionListener
 abstract class BaseAdapter<T, VB : ViewBinding>(
 
     private var items: List<T>,
+
     private val listener: BaseInteractionListener
 ) : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<VB>>() {
 

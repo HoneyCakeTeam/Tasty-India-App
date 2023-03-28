@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_small"
-        android:fontFamily="@font/ubuntu_reguler"
+        android:fontFamily="@font/ubuntu_regular"
         android:text="@string/_1_2_cup_all_purpose_flour"
         android:textColor="@color/black_87"
         android:textSize="@dimen/text_small" />

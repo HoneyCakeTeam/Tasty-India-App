@@ -12,10 +12,10 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.data.source.RecipeDataSource
 import com.example.tastyindia.databinding.ActivityHomeBinding
+import com.example.tastyindia.ui.advice.AdvicesFragment
 import com.example.tastyindia.ui.category.CategoryFragment
 import com.example.tastyindia.ui.home.HomeFragment
 import com.example.tastyindia.ui.kitchen.KitchenFragment
-import com.example.tastyindia.ui.kitchen.KitchenInfoFragment
 import com.example.tastyindia.ui.search.SearchFragment
 import com.example.tastyindia.utils.CsvParser
 
@@ -23,30 +23,21 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var parser: CsvParser
     private lateinit var datasource: RecipeDataSource
-    private lateinit var fragmentHome: HomeFragment
-    private lateinit var fragmentCategory: CategoryFragment
-    private lateinit var fragmentCuisine: KitchenFragment
-    private lateinit var fragmentSearch: SearchFragment
-    private lateinit var fragmentKitchenInfo: KitchenInfoFragment
+    private val fragmentHome: HomeFragment = HomeFragment()
+    private val fragmentCategory: CategoryFragment = CategoryFragment()
+    private val fragmentCuisine: KitchenFragment = KitchenFragment()
+    private val fragmentSearch: SearchFragment = SearchFragment()
+    private val fragmentAdvices: AdvicesFragment = AdvicesFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initObjects()
         setup()
         initSubView()
         addNavigationListener()
         statusBarMode(this)
-    }
-
-    private fun initObjects() {
-        fragmentHome = HomeFragment()
-        fragmentCategory = CategoryFragment()
-        fragmentCuisine = KitchenFragment()
-        fragmentSearch = SearchFragment()
-        fragmentKitchenInfo = KitchenInfoFragment()
     }
 
     private fun setup() {
@@ -71,6 +62,10 @@ class HomeActivity : AppCompatActivity() {
                 }
                 R.id.searchFragment -> {
                     replaceFragment(fragmentSearch)
+                    true
+                }
+                R.id.advicesFragment -> {
+                    replaceFragment(fragmentAdvices)
                     true
                 }
                 else -> false

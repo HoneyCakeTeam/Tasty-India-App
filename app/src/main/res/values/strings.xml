@@ -49,5 +49,6 @@
     <string name="add_two_eggs_in_a_medium_bowl">add two eggs in a medium bowl</string>
     <string name="category_image_poster">https://cdn.pixabay.com/photo/2016/12/26/17/28/spaghetti-1932466__340.jpg</string>
     <string name="kitchenPageTitle">Kitchens</string>
+    <string name="advices">Advices</string>
 
 </resources>

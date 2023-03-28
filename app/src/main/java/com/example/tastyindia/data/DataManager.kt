@@ -109,7 +109,6 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
         listOf(
             HomeCategoriesModel("Chicken", R.drawable.ic_chicken),
             HomeCategoriesModel("Meat", R.drawable.ic_meal),
-            HomeCategoriesModel("Sea Food", R.drawable.ic_sea_food),
             HomeCategoriesModel("Soup", R.drawable.ic_soup),
             HomeCategoriesModel("Spicy", R.drawable.ic_spicy)
         )

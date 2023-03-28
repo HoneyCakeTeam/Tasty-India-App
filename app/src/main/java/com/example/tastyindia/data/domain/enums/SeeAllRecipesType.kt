@@ -4,8 +4,9 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-enum class CategoryItemType : Parcelable {
-    TYPE_POSTER_IMAGE,
+enum class SeeAllRecipesType : Parcelable {
+    TYPE_HOME_RECOMMENDATION,
+    TYPE_RECIPES_OF_WEEK,
     TYPE_HEALTHY_CATEGORY,
     TYPE_FAST_CATEGORY,
     TYPE_EASY_CATEGORY

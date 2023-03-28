@@ -38,7 +38,7 @@ class SearchAdapter(
             tvRecipeCuisine.text = currentRecipe.cuisine
             Glide.with(holder.binding.root).load(currentRecipe.imageUrl)
                 .placeholder(R.drawable.ic_error).into(ivRecipeImage)
-            root.setOnClickListener { listener.onClickRecipe(currentRecipe) }
+            root.setOnClickListener { listener.onClickRecipe(currentRecipe.id) }
         }
 
     }
@@ -50,7 +50,7 @@ class SearchAdapter(
     }
 
     interface RecipeInteractionListener {
-        fun onClickRecipe(recipe: Recipe)
+        fun onClickRecipe(recipeId: Int)
     }
 
 }

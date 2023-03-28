@@ -73,14 +73,15 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
         query?.let { searchByQueryAndSetDataInAdapter(it) }
         return true
     }
+
     private fun replaceFragment(fragment: Fragment) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentContainerView, fragment)
         transaction.commit()
     }
 
-    override fun onClickRecipe(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+    override fun onClickRecipe(recipeId: Int) {
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipeId)
         replaceFragment(recipeDetailsFragment)
     }
 

@@ -1,45 +1,54 @@
 package com.example.tastyindia.ui.kitchendetails
 
 import android.os.Bundle
-import android.view.View
-import androidx.fragment.app.Fragment
+import android.widget.ImageButton
+import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
-import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentKitchenDetailsBinding
 import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.kitchen.KitchenFragment
+import com.example.tastyindia.ui.kitchen.KitchenInfoFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
 import com.example.tastyindia.utils.CsvParser
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlin.math.log
+import com.example.tastyindia.utils.replaceFragment
 
 class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
-    RecipesAdapter.RecipeInteractionListener {
+    RecipeAdapter.RecipeInteractionListener {
 
     override val TAG: String = "CUISINEDETAILS"
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
-    private lateinit var recipeAdapter: RecipesAdapter
+    private lateinit var recipeAdapter: RecipeAdapter
     private lateinit var kitchenName: String
     private lateinit var kitchenImageUrl: String
 
-    override fun getViewBinding() = FragmentKitchenDetailsBinding.inflate(layoutInflater)
+    override fun getViewBinding(): FragmentKitchenDetailsBinding =
+        FragmentKitchenDetailsBinding.inflate(layoutInflater)
 
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
         arguments?.let {
-            log(it.getString(KITCHEN_NAME).toString())
-            log(it.getString(KITCHEN_IMAGE_URL).toString())
+            kitchenName = it.getString(KITCHEN_NAME).toString()
+            kitchenImageUrl = it.getString(KITCHEN_IMAGE_URL).toString()
         }
-        /*hideBottomNavigation()
-        setUpAppBar(true, kitchenName, true)
-        recipeAdapter = RecipesAdapter(dataManager.getRecipesByKitchen(kitchenName), this)
-        binding.rvRecipe.adapter = recipeAdapter*/
+
+        Glide
+            .with(binding.root)
+            .load(kitchenImageUrl)
+            .placeholder(R.drawable.ic_error)
+            .into(binding.imgCuisine)
+
+        recipeAdapter = RecipeAdapter(dataManager.getRecipesByKitchen(kitchenName), this)
+        binding.rvRecipe.adapter = recipeAdapter
+        setUpAppBar(true, kitchenName, showBackButton = true, showInfoButton = true)
+        onClickBack()
+        onClickInfo()
     }
 
     companion object {
@@ -52,25 +61,20 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
             }
     }
 
-    override fun onClickRecipe(recipe: Recipe) {
-        navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe)
+    private fun onClickBack() {
+        val backButton = requireActivity().findViewById<ImageButton>(R.id.button_navDirection)
+        backButton.setOnClickListener { replaceFragment(KitchenFragment()) }
     }
 
-    private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe: Recipe) {
-        val kitchenName = recipe.cuisine
-        val kitchenImageUrl = recipe.imageUrl
-        newInstance(kitchenName, kitchenImageUrl)
-        replaceFragment(RecipeDetailsFragment())
+    private fun onClickInfo() {
+        val infoButton = requireActivity().findViewById<ImageButton>(R.id.button_info)
+        val kitchenInfoFragment = KitchenInfoFragment.newInstance(kitchenName, kitchenImageUrl)
+        infoButton.setOnClickListener { replaceFragment(kitchenInfoFragment) }
     }
 
-    private fun replaceFragment(fragment: Fragment) {
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainerView, fragment)
-        transaction.commit()
+    override fun onClickRecipe(recipeId: Int) {
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipeId)
+        replaceFragment(recipeDetailsFragment)
     }
 
-    private fun hideBottomNavigation() {
-        val bottomNavigation = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav)
-        bottomNavigation.visibility = View.GONE
-    }
 }

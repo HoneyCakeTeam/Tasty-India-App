@@ -6,11 +6,12 @@ import androidx.fragment.app.Fragment
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.HomeItem
-import com.example.tastyindia.data.domain.HomeItemType
-import com.example.tastyindia.data.domain.Recipe
+import com.example.tastyindia.data.domain.enums.HomeItemType
+import com.example.tastyindia.data.domain.enums.SeeAllRecipesType
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentHomeBinding
 import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.categorydetails.CategoryDetailsFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import com.example.tastyindia.utils.CsvParser
@@ -56,7 +57,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
                 HomeItemType.TYPE_HOME_RECOMMENDATION_RECYCLE
             )
         )
-        itemList.add(HomeItem(listOfRecipesOfWeek, HomeItemType.TYPR_RECIPES_OF_WEEK_RECYCLE))
+        itemList.add(HomeItem(listOfRecipesOfWeek, HomeItemType.TYPE_RECIPES_OF_WEEK_RECYCLE))
 
         val adapter = HomeAdapter(itemList, this, this, this, this)
         binding.recyclevHome.adapter = adapter
@@ -74,23 +75,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     }
 
     override fun onClickCategory(categoryName: String) {
-        //CategoryDetailsFragment.newInstance(categoryName)
-        replaceFragment(RecipeDetailsFragment())
+        val categoryDetailsFragment = CategoryDetailsFragment.newInstance(categoryName)
+        replaceFragment(categoryDetailsFragment)
     }
 
-    override fun onClickRecommendationRecipe(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+    override fun onClickRecommendationRecipe(id: Int) {
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(id)
         replaceFragment(recipeDetailsFragment)
+        Toast.makeText(requireContext(), "$id", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onClickRecipeOfWeek(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+    override fun onClickRecipeOfWeek(id: Int) {
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(id)
         replaceFragment(recipeDetailsFragment)
+        Toast.makeText(requireContext(), "$id", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onClickHomeSeeAll(name: String) {
-        Toast.makeText(requireContext(), "jh", Toast.LENGTH_SHORT).show()
-        replaceFragment(SeeAllRecipesFragment())
+    override fun onClickHomeSeeAll(type: SeeAllRecipesType) {
+        val seeAllRecipesFragment = SeeAllRecipesFragment.newInstance(type)
+        replaceFragment(seeAllRecipesFragment)
     }
 
 }

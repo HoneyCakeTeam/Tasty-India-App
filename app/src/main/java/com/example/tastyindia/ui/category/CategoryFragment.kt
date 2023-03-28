@@ -8,10 +8,12 @@ import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.CategoryItem
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.domain.enums.CategoryItemType
+import com.example.tastyindia.data.domain.enums.SeeAllRecipesType
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentCategoryBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
+import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import com.example.tastyindia.utils.CsvParser
 
 
@@ -53,9 +55,9 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryIntera
 
     }
 
-    override fun onClickRecipe(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
-        replaceFragment(recipeDetailsFragment)
+    override fun onClickRecipe(recipeId: Int) {
+      val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipeId)
+      replaceFragment(recipeDetailsFragment)
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -65,10 +67,9 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryIntera
         fragmentTransaction.commit()
     }
 
-    override fun onClickSeeAll(type: CategoryItemType) {
-        TODO("ADD TYPE IN SEE ALL FRAGMENT")
-        /*val seeAllFragment = SeeAllRecipesFragment.newInstance(type)
-            replaceFragment(seeAllFragment)*/
+    override fun onClickSeeAll(type: SeeAllRecipesType) {
+        val seeAllFragment = SeeAllRecipesFragment.newInstance(type)
+        replaceFragment(seeAllFragment)
     }
 
 }

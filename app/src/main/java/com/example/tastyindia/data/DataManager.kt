@@ -28,12 +28,32 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
 
     //endregion
     //region Kitchen screen
-    override fun getKitchenInfoByName(kitchenName: String): MutableList<KitchenInfo> =
-        getKitchenInfoList().filter { it.kitchenName == kitchenName }.toMutableList()
+    override fun getKitchenInfoByName(kitchenName: String): KitchenInfo {
+        return if (getKitchenInfoList().any { it.kitchenName == kitchenName }) {
+            getKitchenInfoList().filter { it.kitchenName == kitchenName }[0]
+        } else {
+            getAnonymousKitchen()
+        }
+    }
+
+    override fun getAnonymousKitchen(): KitchenInfo {
+        return KitchenInfo(
+            "This",
+            "This cuisine dates back over 5000 years. Each region has its own traditions, religions and culture that influence its food. Hindus tend to be vegetarian and Muslims tend to have meat dishes, although pork is forbidden. Indian food has been influenced by Mongolian, Persian and Chinese cuisine, among others. The common thread throughout the centuries remains the distinct mixing of spices that invariably give Indian cuisine its flavor and aroma.",
+            "Food choice varies north, south, east and west. Indians from the north eat flat breads like chapati and naan, while Southern Indians prefer to eat rice and coconut. The versatile coconut not only provides milk, it thickens stews, makes a chewy snack and is used in many sweet southern dishes as an ingredient or as a garnish. Western India is more cosmopolitan, but is known for its traditional spicy curries. Mumbai, formerly Bombay, at the heart of the region, is flooded with city dwellers, students and workers. They all have their traditional cuisines, but seafood and curries, hot and spicy sausages and snacks with chai tea are popular traditional fare. East Indian food relies heavily on rice, milk and vegetables, prepared simply with yogurt, seeds and spices steamed and curried. East Indians love their sweets and use milk and other dairy products abundantly in them.",
+            "This cuisine makes best use of what is available, which is why each region has its own popular dishes. Dal, a lentil dish, is popular in the North. Meen Moli, a white fish curry, is loved in the South. Western Indians can’t get along without Vindaloo, a pork dish. East Indians love their sweets—one of the most popular being Chhenagaja—chhena, flour and sugar syrup. Halwa, a popular breakfast dish, consists of wheat, butter, sugar and almonds or pistachios. Indian snacks include samosas, a spicy turnover stuffed with potatoes and peas and a puffy rice, yogurt, tamarind and potato blend snack called bhel puri. Kabobs, meatballs, tandoori (clay-baked) chicken, rasam soup, and rice cakes, called idli, are popular dishes."
+        )
+    }
 
     override fun getAllKitchenRecipes(): List<Recipe> =
         listOfRecipe.distinctBy { it.cuisine }
     //endregion
+
+    override fun getRecipesByCategory(categoryName: String): ArrayList<Recipe> {
+        return listOfRecipe.filter { recipe ->
+            recipe.ingredients.lowercase().contains(categoryName.lowercase())
+        } as ArrayList<Recipe>
+    }
 
     //region Category screen
     override fun getHealthyRecipes(health: List<String>): List<Recipe> {
@@ -76,16 +96,18 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
     }//endregion
 
     override fun getRecipesByKitchen(kitchenName: String): List<Recipe> =
-        listOfRecipe.distinctBy { it.cuisine == kitchenName }
+        listOfRecipe.filter { it.cuisine == kitchenName }
 
     override fun getListOfHomeCategories(): List<HomeCategoriesModel> =
         listOf(
-         HomeCategoriesModel("Chicken", R.drawable.ic_chicken)
-        ,HomeCategoriesModel("Meat", R.drawable.ic_meal )
-        ,HomeCategoriesModel("Sea Food", R.drawable.ic_sea_food )
-        ,HomeCategoriesModel("Soup", R.drawable.ic_soup )
-        ,HomeCategoriesModel("Spicy", R.drawable.ic_spicy)
+            HomeCategoriesModel("Chicken", R.drawable.ic_chicken),
+            HomeCategoriesModel("Meat", R.drawable.ic_meal),
+            HomeCategoriesModel("Sea Food", R.drawable.ic_sea_food),
+            HomeCategoriesModel("Soup", R.drawable.ic_soup),
+            HomeCategoriesModel("Spicy", R.drawable.ic_spicy)
         )
+
+    override fun getRecipe(id: Int) = listOfRecipe[id]
 
     //region Category static data
     override fun getHealthyIngredients(): List<String> =

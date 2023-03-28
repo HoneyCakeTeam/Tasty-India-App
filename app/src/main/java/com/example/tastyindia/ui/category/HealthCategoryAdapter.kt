@@ -35,7 +35,7 @@ class HealthCategoryAdapter(
                 .load(currentHealth.imageUrl)
                 .into(healthImage)
             root.setOnClickListener {
-                listener.onClickRecipe(currentHealth)
+                listener.onClickRecipe(currentHealth.id)
             }
         }
 

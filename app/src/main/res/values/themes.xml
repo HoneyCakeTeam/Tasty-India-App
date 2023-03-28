@@ -40,7 +40,7 @@
     </style>
 
     <style name="bodyTextInKitchenInfoStyle" parent="titleTextInKitchenInfoStyle">
-        <item name="android:fontFamily">@font/poppins_reguler</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
         <item name="android:textColor">@color/black_60</item>
         <item name="android:layout_marginBottom">@dimen/zero_dimens</item>
         <item name="android:textSize">@dimen/text_small</item>
@@ -89,7 +89,7 @@
     </style>
 
     <style name="home_see_all_text_style" parent="">
-        <item name="android:fontFamily">@font/ubuntu_reguler</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
         <item name="android:textColor">@color/primary_500</item>
         <item name="android:textSize">@dimen/text_tiny</item>
         <item name="android:layout_marginEnd">@dimen/margin_medium</item>
@@ -111,15 +111,17 @@
     <style name="TextStyleSeeAll">
         <item name="android:layout_marginEnd">@dimen/margin_medium</item>
         <item name="android:layout_marginTop">@dimen/margin_small</item>
-        <item name="android:fontFamily">@font/ubuntu_reguler</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
         <item name="android:textColor">@color/primary_500</item>
         <item name="android:textSize">@dimen/text_small</item>
     </style>
 
     <style name="TextStyleNameCategories">
-        <item name="android:fontFamily">@font/poppins_reguler</item>
-        <item name="android:textColor">@color/white_300</item>
-        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:layout_marginStart">@dimen/margin_tiny</item>
+        <item name="android:layout_marginBottom">@dimen/margin_tiny</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textSize">@dimen/text_tiny</item>
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
     </style>
@@ -158,14 +160,14 @@
     <style name="HomeCategoriesCardNameStyle">
         <item name="android:layout_gravity">bottom|center_horizontal</item>
         <item name="android:layout_marginBottom">@dimen/margin_small</item>
-        <item name="android:fontFamily">@font/ubuntu_reguler</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
         <item name="android:paddingBottom">@dimen/padding_tiny</item>
         <item name="android:textColor">@color/black_38</item>
         <item name="android:textSize">@dimen/text_medium</item>
     </style>
 
     <style name="ItemRecipeSquaredTextStyle">
-        <item name="android:fontFamily">@font/ubuntu_reguler</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
         <item name="android:layout_gravity">center_horizontal|bottom</item>
         <item name="android:textColor">@color/white_100</item>
         <item name="android:textSize">@dimen/text_medium</item>

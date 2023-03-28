@@ -18,4 +18,8 @@
         android:id="@+id/searchFragment"
         android:icon="@drawable/ic_search"
         android:title="@string/search" />
+    <item
+        android:id="@+id/advicesFragment"
+        android:icon="@drawable/ic_advices"
+        android:title="@string/advices" />
 </menu>

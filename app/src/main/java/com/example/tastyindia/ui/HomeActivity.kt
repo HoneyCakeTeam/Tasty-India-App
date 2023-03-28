@@ -12,7 +12,9 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.source.CsvDataSource
+import com.example.tastyindia.data.source.RecipeDataSource
 import com.example.tastyindia.databinding.ActivityHomeBinding
+import com.example.tastyindia.ui.advice.AdvicesFragment
 import com.example.tastyindia.ui.category.CategoryFragment
 import com.example.tastyindia.ui.home.HomeFragment
 import com.example.tastyindia.ui.kitchen.KitchenFragment
@@ -29,6 +31,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var fragmentCuisine: KitchenFragment
     private lateinit var fragmentSearch: SearchFragment
     private lateinit var fragmentKitchenInfo: KitchenInfoFragment
+    private val fragmentAdvices: AdvicesFragment = AdvicesFragment()
     val recommendationFirstRecipeId: Int by lazy {
         dataManager.getRecommendationFirstRecipeId()
     }
@@ -41,22 +44,14 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initObjects()
         setup()
         initSubView()
         addNavigationListener()
         statusBarMode(this)
     }
 
-    private fun initObjects() {
-        fragmentHome = HomeFragment()
-        fragmentCategory = CategoryFragment()
-        fragmentCuisine = KitchenFragment()
-        fragmentSearch = SearchFragment()
-        fragmentKitchenInfo = KitchenInfoFragment()
-    }
-
     private fun setup() {
+
     }
 
     private fun addNavigationListener() {
@@ -76,6 +71,10 @@ class HomeActivity : AppCompatActivity() {
                 }
                 R.id.searchFragment -> {
                     replaceFragment(fragmentSearch)
+                    true
+                }
+                R.id.advicesFragment -> {
+                    replaceFragment(fragmentAdvices)
                     true
                 }
                 else -> false

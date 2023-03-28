@@ -9,11 +9,27 @@
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
         motion:duration="1000">
+
+        <KeyFrameSet>
+
+            <KeyAttribute
+                android:alpha="0.5"
+                motion:framePosition="100"
+                motion:motionTarget="@+id/image_cuisine" />
+            <KeyAttribute
+                android:scaleX="0"
+                motion:framePosition="100"
+                motion:motionTarget="@+id/image_cuisine" />
+            <KeyAttribute
+                android:scaleY="0"
+                motion:framePosition="100"
+                motion:motionTarget="@+id/image_cuisine" />
+        </KeyFrameSet>
+
         <OnSwipe
-            motion:touchAnchorId="@+id/rv_recipe"
-            motion:touchAnchorSide="top" />
-       <KeyFrameSet>
-       </KeyFrameSet>
+            motion:touchAnchorId="@+id/image_cuisine"
+            motion:touchAnchorSide="bottom" />
+
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
@@ -26,7 +42,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/margin_medium"
-            android:visibility="gone"
             android:background="@drawable/image_more_recipes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,15 +55,14 @@
             android:layout_height="0dp"
             android:text="@string/popular_meals"
             android:layout_marginTop="@dimen/margin_small"
-            app:layout_constraintEnd_toEndOf="@+id/img_cuisine"
-            app:layout_constraintStart_toStartOf="@+id/img_cuisine"
+            app:layout_constraintEnd_toEndOf="@+id/image_cuisine"
+            app:layout_constraintStart_toStartOf="@+id/image_cuisine"
             app:layout_constraintBottom_toTopOf="parent"/>
 
         <Constraint
             android:id="@+id/rv_recipe"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/margin_medium"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

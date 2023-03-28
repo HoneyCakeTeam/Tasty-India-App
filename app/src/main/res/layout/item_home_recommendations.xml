@@ -36,7 +36,7 @@
                 android:lines="1"
                 android:ellipsize="end"
                 android:text="Creamy Pasta"
-                android:textColor="@color/black_87"
+                android:textColor="@color/black_60"
                 android:textSize="@dimen/text_medium" />
 
             <TextView

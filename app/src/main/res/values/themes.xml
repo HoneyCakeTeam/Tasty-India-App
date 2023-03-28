@@ -1,5 +1,31 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <!--Primary-->
+        <item name="colorPrimary">@color/primary_500</item>
+        <item name="colorOnPrimary">@color/white_100</item>
+        <item name="colorPrimaryContainer">@color/primary_100</item>
+        <item name="colorOnPrimaryContainer">@color/primary_400</item>
+        <!--Secondary-->
+        <item name="colorSecondary">@color/black_8</item>
+        <item name="colorOnSecondary">@color/white_100</item>
+        <item name="colorSecondaryContainer">@color/primary_100</item>
+        <item name="colorOnSecondaryContainer">@color/black_60</item>
+        <!--Tertiary-->
+        <item name="colorTertiary">@color/primary_300</item>
+        <item name="colorOnTertiary">@color/white_100</item>
+        <item name="colorTertiaryContainer">@color/primary_100</item>
+        <item name="colorOnTertiaryContainer">@color/primary_400</item>
+        <!--Surface & Background-->
+        <item name="colorOutline">@color/md_theme_light_outline</item>
+        <item name="android:colorBackground">@color/white_100</item>
+        <item name="colorOnBackground">@color/black_60</item>
+        <item name="colorSurface">@color/white_200</item>
+        <item name="colorOnSurface">@color/black_60</item>
+        <item name="colorSurfaceVariant">@color/white_300</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
+        <item name="colorPrimaryInverse">@color/primary_100</item>
 
         <item name="android:fitsSystemWindows">true</item>
 
@@ -34,7 +60,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
-        <item name="android:textColor">@color/black_87</item>
+        <item name="android:textColor">@color/black_60</item>
         <item name="android:layout_marginBottom">@dimen/margin_small</item>
         <item name="android:textSize">@dimen/text_medium</item>
     </style>
@@ -53,7 +79,7 @@
     </style>
 
     <style name="recipeTextView" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/black_87</item>
+        <item name="android:textColor">@color/black_60</item>
         <item name="android:textSize">@dimen/text_medium</item>
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
     </style>
@@ -68,7 +94,7 @@
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
         <item name="android:layout_margin">@dimen/margin_small</item>
         <item name="android:padding">@dimen/padding_tiny</item>
-        <item name="android:textColor">@color/black_87</item>
+        <item name="android:textColor">@color/black_60</item>
 
     </style>
 
@@ -77,13 +103,13 @@
         <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:textSize">@dimen/text_large</item>
         <item name="android:padding">@dimen/padding_tiny</item>
-        <item name="android:textColor">@color/black_87</item>
+        <item name="android:textColor">@color/black_60</item>
         <item name="android:layout_margin">@dimen/margin_medium</item>
     </style>
 
     <style name="home_recycle_header_text_style" parent="">
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
-        <item name="android:textColor">@color/black_87</item>
+        <item name="android:textColor">@color/black_60</item>
         <item name="android:textSize">@dimen/text_medium</item>
         <item name="android:layout_marginTop">@dimen/margin_medium</item>
     </style>
@@ -104,7 +130,7 @@
         <item name="android:layout_marginStart">@dimen/margin_medium</item>
         <item name="android:layout_marginTop">@dimen/margin_small</item>
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
-        <item name="android:textColor">@color/black_87</item>
+        <item name="android:textColor">@color/black_60</item>
         <item name="android:textSize">@dimen/text_medium</item>
     </style>
 

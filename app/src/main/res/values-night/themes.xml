@@ -1,13 +1,41 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <!--Primary-->
+        <item name="colorPrimary">@color/primary_200</item>
+        <item name="colorOnPrimary">@color/primary_500</item>
+        <item name="colorPrimaryContainer">@color/primary_300</item>
+        <item name="colorOnPrimaryContainer">@color/primary_200</item>
+        <!--Secondary-->
+        <item name="colorSecondary">@color/primary_200</item>
+        <item name="colorOnSecondary">@color/white_300</item>
+        <item name="colorSecondaryContainer">@color/white_100</item>
+        <item name="colorOnSecondaryContainer">@color/primary_100</item>
+        <!--Tertiary-->
+        <item name="colorTertiary">@color/primary_200</item>
+        <item name="colorOnTertiary">@color/primary_500</item>
+        <item name="colorTertiaryContainer">@color/primary_400</item>
+        <item name="colorOnTertiaryContainer">@color/primary_100</item>
+        <!--Surface & Background-->
+        <item name="colorOutline">@color/md_theme_dark_outline</item>
+        <item name="android:colorBackground">@color/black_38</item>
+        <item name="colorOnBackground">@color/white_300</item>
+        <item name="colorSurface">@color/black_60</item>
+        <item name="colorOnSurface">@color/white_200</item>
+        <item name="colorSurfaceVariant">@color/md_theme_dark_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/white_200</item>
+        <item name="colorSurfaceInverse">@color/white_200</item>
+        <item name="colorOnSurfaceInverse">@color/md_theme_dark_inverseOnSurface</item>
+        <item name="colorPrimaryInverse">@color/primary_300</item>
 
         <item name="android:fitsSystemWindows">true</item>
 
         <!-- Splash Screen-->
-        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/primary_400</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/primary_400
+        </item>
         <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">1000</item>
-        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@mipmap/ic_splash</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@mipmap/ic_splash
+        </item>
     </style>
 
     <style name="CategoriesCardImageStyle">

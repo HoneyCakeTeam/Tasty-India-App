@@ -14,11 +14,18 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
     private val listOfRecipe = dataSource.getAllRecipes()
 
     //region home screen
-    override fun getRandomNumbersInListOfRecipe(): List<Int> {
-        val listOfRandomNumbers = List(listOfRecipe.size - 1) {
-            Random.nextInt(0, listOfRecipe.size - 1)
+    override fun getRandomNumbersInListOfRecipe(recipeId: Int): List<Int> {
+        val listOfRandomNumbers = List(30) {
+            recipeId + it + 1
         }
         return listOfRandomNumbers
+    }
+
+    override fun getRecommendationFirstRecipeId(): Int {
+        return Random.nextInt(0, listOfRecipe.size - 31)
+    }
+    override fun getRecipesOfWeekFirstRecipeId(): Int {
+        return Random.nextInt(0, listOfRecipe.size - 31)
     }
 
     override fun getListOfRecipeUsingRandomNumbers(randomNumbers: List<Int>): List<Recipe> =

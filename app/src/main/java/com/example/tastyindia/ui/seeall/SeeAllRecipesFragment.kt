@@ -11,6 +11,7 @@ import com.example.tastyindia.data.domain.enums.SeeAllRecipesType
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentSeeAllRecipesBinding
 import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.HomeActivity
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.Constants.Key.RECIPE_LIST
 import com.example.tastyindia.utils.CsvParser
@@ -40,10 +41,10 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
                 dataManager.getHealthyRecipes(dataManager.getHealthyIngredients())
             SeeAllRecipesType.TYPE_FAST_CATEGORY -> dataManager.getFastFoodRecipes()
             SeeAllRecipesType.TYPE_HOME_RECOMMENDATION -> dataManager.getListOfRecipeUsingRandomNumbers(
-                dataManager.getRandomNumbersInListOfRecipe()
+                dataManager.getRandomNumbersInListOfRecipe((requireActivity() as HomeActivity).recommendationFirstRecipeId)
             )
             SeeAllRecipesType.TYPE_RECIPES_OF_WEEK -> dataManager.getListOfRecipeUsingRandomNumbers(
-                dataManager.getRandomNumbersInListOfRecipe()
+                dataManager.getRandomNumbersInListOfRecipe((requireActivity() as HomeActivity).recipesOfWeekFirstRecipeId)
             )
         }
     }

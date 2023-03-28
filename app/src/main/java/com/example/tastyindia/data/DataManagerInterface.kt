@@ -24,4 +24,7 @@ interface DataManagerInterface {
     fun getListOfHomeCategories(): List<HomeCategoriesModel>
     fun getRecipe(id: Int): Recipe
     fun getRecipesByCategory(categoryName: String): ArrayList<Recipe>
+
+    fun getRandomImageInCategory(): String
+
 }

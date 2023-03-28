@@ -199,4 +199,8 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
         )
     )
     //endregion
+
+    override fun getRandomImageInCategory(): String  = listOfRecipe.random().imageUrl
+
+
 }

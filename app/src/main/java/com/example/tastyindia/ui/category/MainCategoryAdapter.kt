@@ -15,6 +15,7 @@ import com.example.tastyindia.databinding.LayoutFastFoodCategoryBinding
 import com.example.tastyindia.databinding.LayoutHealthCategoryBinding
 import com.example.tastyindia.databinding.LayoutImagePosterBinding
 
+@Suppress("UNCHECKED_CAST")
 class MainCategoryAdapter(
     private val categoriesList: List<CategoryItem<Any>>,
     private val listener: CategoryInteractionListener

@@ -6,7 +6,6 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.CategoryItem
-import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.domain.enums.CategoryItemType
 import com.example.tastyindia.data.domain.enums.SeeAllRecipesType
 import com.example.tastyindia.data.source.CsvDataSource
@@ -37,16 +36,12 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryIntera
         val listHealthy = dataManager.getHealthyRecipes(healthyIngredients)
         val listFast = dataManager.getFastFoodRecipes()
         val listEasy = dataManager.getEasyRecipes()
+        val randomImageUrl = dataManager.getRandomImageInCategory()
 
         setUpAppBar(true, "Categories", false)
 
         val itemList: MutableList<CategoryItem<Any>> = mutableListOf()
-        itemList.add(
-            CategoryItem(
-                getString(R.string.category_image_poster),
-                CategoryItemType.TYPE_POSTER_IMAGE
-            )
-        )
+        itemList.add(CategoryItem(randomImageUrl, CategoryItemType.TYPE_POSTER_IMAGE))
         itemList.add(CategoryItem(listHealthy, CategoryItemType.TYPE_HEALTHY_CATEGORY))
         itemList.add(CategoryItem(listFast, CategoryItemType.TYPE_FAST_CATEGORY))
         itemList.add(CategoryItem(listEasy, CategoryItemType.TYPE_EASY_CATEGORY))

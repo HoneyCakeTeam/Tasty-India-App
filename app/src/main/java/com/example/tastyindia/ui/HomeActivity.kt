@@ -12,13 +12,11 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.source.CsvDataSource
-import com.example.tastyindia.data.source.RecipeDataSource
 import com.example.tastyindia.databinding.ActivityHomeBinding
 import com.example.tastyindia.ui.advice.AdvicesFragment
 import com.example.tastyindia.ui.category.CategoryFragment
 import com.example.tastyindia.ui.home.HomeFragment
 import com.example.tastyindia.ui.kitchen.KitchenFragment
-import com.example.tastyindia.ui.kitchen.KitchenInfoFragment
 import com.example.tastyindia.ui.search.SearchFragment
 import com.example.tastyindia.utils.CsvParser
 
@@ -26,12 +24,11 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private val dataSource by lazy { CsvDataSource(this, CsvParser()) }
     private val dataManager: DataManagerInterface by lazy { DataManager(dataSource) }
-    private lateinit var fragmentHome: HomeFragment
-    private lateinit var fragmentCategory: CategoryFragment
-    private lateinit var fragmentCuisine: KitchenFragment
-    private lateinit var fragmentSearch: SearchFragment
-    private lateinit var fragmentKitchenInfo: KitchenInfoFragment
-    private val fragmentAdvices: AdvicesFragment = AdvicesFragment()
+    private val fragmentHome = HomeFragment()
+    private val fragmentCategory = CategoryFragment()
+    private val fragmentCuisine = KitchenFragment()
+    private val fragmentSearch = SearchFragment()
+    private val fragmentAdvices = AdvicesFragment()
     val recommendationFirstRecipeId: Int by lazy {
         dataManager.getRecommendationFirstRecipeId()
     }

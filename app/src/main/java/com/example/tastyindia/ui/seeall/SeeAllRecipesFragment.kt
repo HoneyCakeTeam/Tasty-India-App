@@ -40,12 +40,18 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
             SeeAllRecipesType.TYPE_HEALTHY_CATEGORY ->
                 dataManager.getHealthyRecipes(dataManager.getHealthyIngredients())
             SeeAllRecipesType.TYPE_FAST_CATEGORY -> dataManager.getFastFoodRecipes()
-            SeeAllRecipesType.TYPE_HOME_RECOMMENDATION -> dataManager.getListOfRecipeUsingRandomNumbers(
-                dataManager.getRandomNumbersInListOfRecipe((requireActivity() as HomeActivity).recommendationFirstRecipeId)
-            )
-            SeeAllRecipesType.TYPE_RECIPES_OF_WEEK -> dataManager.getListOfRecipeUsingRandomNumbers(
-                dataManager.getRandomNumbersInListOfRecipe((requireActivity() as HomeActivity).recipesOfWeekFirstRecipeId)
-            )
+            SeeAllRecipesType.TYPE_HOME_RECOMMENDATION ->
+                dataManager.getListOfRecipeUsingRandomNumbers(
+                    dataManager.getRandomNumbersInListOfRecipe(
+                        (requireActivity() as HomeActivity).recommendationFirstRecipeId
+                    )
+                )
+            SeeAllRecipesType.TYPE_RECIPES_OF_WEEK ->
+                dataManager.getListOfRecipeUsingRandomNumbers(
+                    dataManager.getRandomNumbersInListOfRecipe(
+                        (requireActivity() as HomeActivity).recipesOfWeekFirstRecipeId
+                    )
+                )
         }
     }
 

@@ -38,13 +38,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         setUpAppBar(false)
 
         val randomNumbersForRecommendations =
-            dataManager.getRandomNumbersInListOfRecipe((requireActivity() as HomeActivity).recommendationFirstRecipeId)
+            dataManager.getRandomNumbersInListOfRecipe(
+                (requireActivity() as HomeActivity).recommendationFirstRecipeId
+            )
                 .distinct().take(10)
         val listOfRecommendationRecipes =
             dataManager.getListOfRecipeUsingRandomNumbers(randomNumbersForRecommendations)
 
         val randomNumbersForRecipesOfWeek =
-            dataManager.getRandomNumbersInListOfRecipe((requireActivity() as HomeActivity).recipesOfWeekFirstRecipeId).distinct().take(10)
+            dataManager.getRandomNumbersInListOfRecipe(
+                (requireActivity() as HomeActivity).recipesOfWeekFirstRecipeId
+            ).distinct().take(10)
         val listOfRecipesOfWeek =
             dataManager.getListOfRecipeUsingRandomNumbers(randomNumbersForRecipesOfWeek)
 
@@ -61,7 +65,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         )
         itemList.add(HomeItem(listOfRecipesOfWeek, HomeItemType.TYPE_RECIPES_OF_WEEK_RECYCLE))
 
-        val adapter = HomeAdapter(itemList, this, this, this, this)
+        val adapter = HomeAdapter(
+            itemList,
+            this,
+            this,
+            this,
+            this
+        )
         binding.recyclevHome.adapter = adapter
 
     }

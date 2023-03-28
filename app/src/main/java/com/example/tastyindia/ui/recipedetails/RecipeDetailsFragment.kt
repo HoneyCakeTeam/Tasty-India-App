@@ -85,7 +85,7 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
 
     private fun createHeader(recipe: Recipe): RecipeDetailsAdapter.RecipeDetailsItem.Header {
         return RecipeDetailsAdapter.RecipeDetailsItem.Header(
-            getString(R.string.ingredients_header)+"-  ${recipe.ingredientsCount}"
+            getString(R.string.ingredients_header)+" -  ${recipe.ingredientsCount}"
         )
     }
 

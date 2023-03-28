@@ -48,11 +48,11 @@
     <string name="recipes">الوصفات</string>
     <string name="details">التفاصيل</string>
     <string name="add_two_eggs_in_a_medium_bowl">add two eggs in a medium bowl</string>
-    <string name="category_image_poster">https://cdn.pixabay.com/photo/2016/12/26/17/28/spaghetti-1932466__340.jpg</string>
     <string name="kitchenPageTitle">المطابخ</string>
     <string name="categories_page_title">التصنيفات</string>
     <string name="how_to_prepare_title">طريقة التحضير</string>
     <string name="ingredients_header"> المكونات</string>
+    <string name="advices">النصائح</string>
 
 
 </resources>

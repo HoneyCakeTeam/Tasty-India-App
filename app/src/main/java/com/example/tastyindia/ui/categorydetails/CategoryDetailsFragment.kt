@@ -1,5 +1,7 @@
 package com.example.tastyindia.ui.categorydetails
 
+import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.Recipe
@@ -7,8 +9,8 @@ import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentCategoryDetailsBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
-import com.example.tastyindia.utils.Constants
 import com.example.tastyindia.utils.CsvParser
+import com.example.tastyindia.utils.replaceFragment
 
 class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
     RecipesAdapter.RecipeInteractionListener {
@@ -17,7 +19,6 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
     private lateinit var dataManager: DataManagerInterface
     private lateinit var recipeAdapter: RecipesAdapter
     private lateinit var categoryName: String
-    private lateinit var categoryImage: String
 
     override val TAG: String = this::class.simpleName.toString()
     override fun getViewBinding(): FragmentCategoryDetailsBinding =
@@ -26,21 +27,38 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
-        arguments?.let {
-            categoryName = it.getString(Constants.Key.CATEGORY_NAME).toString()
-            categoryImage = it.getString(Constants.Key.CATEGORY_IMAGE).toString()
-        }
+        getCategoryArgs()
         initRecyclerView()
-        recipeAdapter.setData(dataManager.getAllKitchenRecipes() as ArrayList<Recipe>)
+        recipeAdapter.setData(
+            dataManager.getAllKitchenRecipes() as ArrayList<Recipe>) //TODO GET RECIPE BY CATEGORY
+
+    }
+
+    private fun getCategoryArgs() {
+        arguments?.let {
+            categoryName = it.getString(CATEGORY_NAME).toString()
+        }
     }
 
     private fun initRecyclerView() {
-        recipeAdapter = RecipesAdapter(requireContext(), this)
+        recipeAdapter = RecipesAdapter(this)
         binding.rvRecipe.adapter = recipeAdapter
+        binding.rvRecipe.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun onClickItem(recipe: Recipe) {
-        RecipeDetailsFragment.newInstance(recipe)
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe.id)
+        replaceFragment(recipeDetailsFragment)
+    }
+
+    companion object {
+        private const val CATEGORY_NAME = "categoryName"
+        fun newInstance(categoryName: String) =
+            CategoryDetailsFragment().apply {
+                arguments = Bundle().apply {
+                    putString(CATEGORY_NAME, categoryName)
+                }
+            }
     }
 
 }

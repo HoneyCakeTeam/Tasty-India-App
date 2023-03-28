@@ -56,7 +56,6 @@ class RecipeDetailsAdapter(private val items: List<RecipeDetailsItem>) :
         data class Header(val text: String) : RecipeDetailsItem(RecipeDetailsItemType.HEADER)
         data class Ingredients(val text: String) :
             RecipeDetailsItem(RecipeDetailsItemType.INGREDIENTS)
-
         data class Instructions(val text: String) :
             RecipeDetailsItem(RecipeDetailsItemType.INSTRUCTIONS)
     }

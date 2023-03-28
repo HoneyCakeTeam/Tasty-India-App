@@ -11,7 +11,7 @@ import com.example.tastyindia.databinding.ItemRecipeOfCategoryBinding
 /**
  * Created by Aziza Helmy on 3/24/2023.
  */
-class RecipesAdapter(private val context: Context, private val listener: RecipeInteractionListener) :
+class RecipesAdapter(private val listener: RecipeInteractionListener) :
     RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder>() {
 
     private var recipes = arrayListOf<Recipe>()
@@ -47,7 +47,7 @@ class RecipesAdapter(private val context: Context, private val listener: RecipeI
             binding.apply {
                 tvRecipeName.text = recipe.recipeName
                 tvKitchenName.text = recipe.cuisine
-                Glide.with(context).load(recipe.imageUrl).into(ivRecipe)
+                Glide.with(root).load(recipe.imageUrl).into(ivRecipe)
             }
         }
 

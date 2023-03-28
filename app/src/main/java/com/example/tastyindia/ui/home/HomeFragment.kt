@@ -11,6 +11,7 @@ import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentHomeBinding
 import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.categorydetails.CategoryDetailsFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import com.example.tastyindia.utils.CsvParser
@@ -65,7 +66,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
 
     private fun addCallbacks() {
     }
-
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
@@ -74,18 +74,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     }
 
     override fun onClickCategory(categoryName: String) {
-        //CategoryDetailsFragment.newInstance(categoryName)
-        replaceFragment(RecipeDetailsFragment())
+       val categoryDetailsFragment = CategoryDetailsFragment.newInstance(categoryName)
+        replaceFragment(categoryDetailsFragment)
     }
 
-    override fun onClickRecommendationRecipe(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+    override fun onClickRecommendationRecipe(id: Int) {
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(id)
         replaceFragment(recipeDetailsFragment)
+        Toast.makeText(requireContext(), "$id", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onClickRecipeOfWeek(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
+    override fun onClickRecipeOfWeek(id: Int) {
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(id)
         replaceFragment(recipeDetailsFragment)
+        Toast.makeText(requireContext(), "$id", Toast.LENGTH_SHORT).show()
     }
 
     override fun onClickHomeSeeAll(name: String) {

@@ -80,12 +80,14 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
 
     override fun getListOfHomeCategories(): List<HomeCategoriesModel> =
         listOf(
-         HomeCategoriesModel("Chicken", R.drawable.ic_chicken)
-        ,HomeCategoriesModel("Meat", R.drawable.ic_meal )
-        ,HomeCategoriesModel("Sea Food", R.drawable.ic_sea_food )
-        ,HomeCategoriesModel("Soup", R.drawable.ic_soup )
-        ,HomeCategoriesModel("Spicy", R.drawable.ic_spicy)
+            HomeCategoriesModel("Chicken", R.drawable.ic_chicken),
+            HomeCategoriesModel("Meat", R.drawable.ic_meal),
+            HomeCategoriesModel("Sea Food", R.drawable.ic_sea_food),
+            HomeCategoriesModel("Soup", R.drawable.ic_soup),
+            HomeCategoriesModel("Spicy", R.drawable.ic_spicy)
         )
+
+    override fun getRecipe(id: Int) = listOfRecipe[id]
 
     //region Category static data
     override fun getHealthyIngredients(): List<String> =

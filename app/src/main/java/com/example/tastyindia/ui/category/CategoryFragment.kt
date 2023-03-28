@@ -28,7 +28,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryIntera
         FragmentCategoryBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        setUpAppBar(true, "Categories")
+        setUpAppBar(true, getString(R.string.categories_page_title))
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
 
@@ -38,7 +38,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryIntera
         val listEasy = dataManager.getEasyRecipes()
         val randomImageUrl = dataManager.getRandomImageInCategory()
 
-        setUpAppBar(true, "Categories", false)
+        setUpAppBar(true, getString(R.string.categories_page_title), false)
 
         val itemList: MutableList<CategoryItem<Any>> = mutableListOf()
         itemList.add(CategoryItem(randomImageUrl, CategoryItemType.TYPE_POSTER_IMAGE))

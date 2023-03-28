@@ -84,20 +84,26 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
     }
 
     private fun createHeader(recipe: Recipe): RecipeDetailsAdapter.RecipeDetailsItem.Header {
-        return RecipeDetailsAdapter.RecipeDetailsItem.Header("Ingredients  -  ${recipe.ingredientsCount}")
+        return RecipeDetailsAdapter.RecipeDetailsItem.Header(
+            getString(R.string.ingredients_header)+" -  ${recipe.ingredientsCount}"
+        )
     }
 
     private fun createSecondHeader(): RecipeDetailsAdapter.RecipeDetailsItem.Header {
-        return RecipeDetailsAdapter.RecipeDetailsItem.Header("How to prepare")
+        return RecipeDetailsAdapter.RecipeDetailsItem.Header(
+            getString(R.string.how_to_prepare_title)
+        )
     }
 
-    private fun createIngredientsList(ingredientsList: List<String>): List<RecipeDetailsAdapter.RecipeDetailsItem.Ingredients> {
+    private fun createIngredientsList(ingredientsList: List<String>):
+        List<RecipeDetailsAdapter.RecipeDetailsItem.Ingredients> {
         return ingredientsList.map {
             RecipeDetailsAdapter.RecipeDetailsItem.Ingredients(it)
         }
     }
 
-    private fun createInstructionsList(instructionsList: List<String>): List<RecipeDetailsAdapter.RecipeDetailsItem.Instructions> {
+    private fun createInstructionsList(instructionsList: List<String>):
+        List<RecipeDetailsAdapter.RecipeDetailsItem.Instructions> {
         return instructionsList.map {
             RecipeDetailsAdapter.RecipeDetailsItem.Instructions(it)
         }

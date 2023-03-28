@@ -48,6 +48,9 @@
     <string name="details">Details</string>
     <string name="add_two_eggs_in_a_medium_bowl">add two eggs in a medium bowl</string>
     <string name="kitchenPageTitle">Kitchens</string>
+    <string name="categories_page_title">Categories</string>
+    <string name="how_to_prepare_title">How to prepare</string>
+    <string name="ingredients_header">Ingredients </string>
     <string name="advices">Advices</string>
 
 </resources>

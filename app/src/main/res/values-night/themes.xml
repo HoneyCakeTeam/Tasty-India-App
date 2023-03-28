@@ -1,15 +1,13 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar">
 
-        <!-- Make status bar transparent -->
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:fitsSystemWindows">true</item>
 
         <!-- Splash Screen-->
-        <item name="android:windowSplashScreenBackground">@color/primary_400</item>
-        <item name="android:windowSplashScreenAnimationDuration">1000</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_splash</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/primary_400</item>
+        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">1000</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@mipmap/ic_splash</item>
     </style>
 
     <style name="CategoriesCardImageStyle">
@@ -29,7 +27,7 @@
     </style>
 
     <style name="homeRecommendationCardImageStyle">
-        <item name="cornerSize" > 24dp </item>
+        <item name="cornerSize">24dp</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
 </resources>

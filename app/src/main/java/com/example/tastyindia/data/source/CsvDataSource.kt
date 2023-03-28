@@ -9,13 +9,14 @@ import java.io.InputStreamReader
 
 class CsvDataSource(private val context: Context, private val parser: CsvParser) :
     RecipeDataSource {
+    var id = 0
     override fun getAllRecipes(): List<Recipe> {
         val recipeList = mutableListOf<Recipe>()
         context.apply {
             val inputStream = assets.open(CSV_FILE_NAME)
             val buffer = BufferedReader(InputStreamReader(inputStream))
             buffer.forEachLine {
-                val currentRecipe = parser.parseLine(it)
+                val currentRecipe = parser.parseLine(it,id++)
                 recipeList.add(currentRecipe)
             }
         }

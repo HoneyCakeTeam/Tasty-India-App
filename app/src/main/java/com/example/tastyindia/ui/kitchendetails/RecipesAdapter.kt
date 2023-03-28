@@ -9,11 +9,11 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemRecipeSquaredBinding
 
-class RecipesAdapter(
+class RecipeAdapter(
     private val RecipeList: List<Recipe>,
     private val listener: RecipeInteractionListener
 ) :
-    RecyclerView.Adapter<RecipesAdapter.CategoryViewHolder>() {
+    RecyclerView.Adapter<RecipeAdapter.CategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val view =
@@ -31,7 +31,7 @@ class RecipesAdapter(
                 .load(currentRecipe.imageUrl)
                 .placeholder(R.drawable.ic_error)
                 .into(ivRecipeImage)
-            root.setOnClickListener { listener.onClickRecipe(currentRecipe) }
+            root.setOnClickListener { listener.onClickRecipe(currentRecipe.id) }
         }
     }
 
@@ -42,6 +42,7 @@ class RecipesAdapter(
     }
 
     interface RecipeInteractionListener {
-        fun onClickRecipe(recipe: Recipe)
+        fun onClickRecipe(recipeId: Int)
+
     }
 }

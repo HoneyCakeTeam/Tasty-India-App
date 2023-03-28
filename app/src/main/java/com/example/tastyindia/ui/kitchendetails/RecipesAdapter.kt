@@ -31,7 +31,7 @@ class RecipeAdapter(
                 .load(currentRecipe.imageUrl)
                 .placeholder(R.drawable.ic_error)
                 .into(ivRecipeImage)
-            root.setOnClickListener { listener.onClickRecipe(currentRecipe) }
+            root.setOnClickListener { listener.onClickRecipe(currentRecipe.id) }
         }
     }
 
@@ -42,9 +42,7 @@ class RecipeAdapter(
     }
 
     interface RecipeInteractionListener {
-        fun onClickRecipe(recipe: Recipe)
-        fun onClickBack()
-        fun onClickInfo()
+        fun onClickRecipe(recipeId: Int)
 
     }
 }

@@ -2,11 +2,10 @@ package com.example.tastyindia.ui.kitchendetails
 
 import android.os.Bundle
 import android.widget.ImageButton
-import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
-import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentKitchenDetailsBinding
 import com.example.tastyindia.ui.BaseFragment
@@ -38,9 +37,16 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
             kitchenName = it.getString(KITCHEN_NAME).toString()
             kitchenImageUrl = it.getString(KITCHEN_IMAGE_URL).toString()
         }
+
+        Glide
+            .with(binding.root)
+            .load(kitchenImageUrl)
+            .placeholder(R.drawable.ic_error)
+            .into(binding.imgCuisine)
+
         recipeAdapter = RecipeAdapter(dataManager.getRecipesByKitchen(kitchenName), this)
         binding.rvRecipe.adapter = recipeAdapter
-        setUpAppBar(true, kitchenName, true, true)
+        setUpAppBar(true, kitchenName, showBackButton = true, showInfoButton = true)
         onClickBack()
         onClickInfo()
     }
@@ -55,18 +61,19 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
             }
     }
 
-    override fun onClickBack() {
-        val btn_back = requireActivity().findViewById<ImageButton>(R.id.button_navDirection)
-        btn_back.setOnClickListener { replaceFragment(KitchenFragment()) }
+    private fun onClickBack() {
+        val backButton = requireActivity().findViewById<ImageButton>(R.id.button_navDirection)
+        backButton.setOnClickListener { replaceFragment(KitchenFragment()) }
     }
 
-    override fun onClickInfo() {
-        val btn_info = requireActivity().findViewById<ImageButton>(R.id.button_info)
-        btn_info.setOnClickListener { replaceFragment(KitchenInfoFragment()) }
+    private fun onClickInfo() {
+        val infoButton = requireActivity().findViewById<ImageButton>(R.id.button_info)
+        val kitchenInfoFragment = KitchenInfoFragment.newInstance(kitchenName, kitchenImageUrl)
+        infoButton.setOnClickListener { replaceFragment(kitchenInfoFragment) }
     }
 
-    override fun onClickRecipe(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(1)
+    override fun onClickRecipe(recipeId: Int) {
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipeId)
         replaceFragment(recipeDetailsFragment)
     }
 

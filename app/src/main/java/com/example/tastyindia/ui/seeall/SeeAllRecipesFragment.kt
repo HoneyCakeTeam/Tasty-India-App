@@ -7,21 +7,19 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.Recipe
-import com.example.tastyindia.data.domain.enums.CategoryItemType
+import com.example.tastyindia.data.domain.enums.SeeAllRecipesType
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentSeeAllRecipesBinding
 import com.example.tastyindia.ui.BaseFragment
-import com.example.tastyindia.ui.kitchendetails.KitchenDetailsFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.Constants.Key.RECIPE_LIST
 import com.example.tastyindia.utils.CsvParser
-import com.google.android.material.snackbar.Snackbar
 
 class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
     SeeAllRecipesAdapter.RecipeInteractionListener {
     private val dataSource by lazy { CsvDataSource(requireContext(), CsvParser()) }
     private val dataManager: DataManagerInterface by lazy { DataManager(dataSource) }
-    private lateinit var recipeType: CategoryItemType
+    private lateinit var recipeType: SeeAllRecipesType
     private lateinit var adapter: SeeAllRecipesAdapter
     override val TAG = this::class.simpleName.toString()
 
@@ -30,25 +28,30 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
 
     override fun setUp() {
         getRecipesList()
-        setUpAppBar(true,recipeType.name)
+        setUpAppBar(true, recipeType.name)
         adapter = SeeAllRecipesAdapter(getList(), this)
         binding.rvRecipes.adapter = adapter
     }
 
     private fun getList(): List<Recipe> {
         return when (recipeType) {
-            CategoryItemType.TYPE_EASY_CATEGORY -> dataManager.getEasyRecipes()
-            CategoryItemType.TYPE_POSTER_IMAGE -> TODO()
-            CategoryItemType.TYPE_HEALTHY_CATEGORY ->
+            SeeAllRecipesType.TYPE_EASY_CATEGORY -> dataManager.getEasyRecipes()
+            SeeAllRecipesType.TYPE_HEALTHY_CATEGORY ->
                 dataManager.getHealthyRecipes(dataManager.getHealthyIngredients())
-            CategoryItemType.TYPE_FAST_CATEGORY -> dataManager.getFastFoodRecipes()
+            SeeAllRecipesType.TYPE_FAST_CATEGORY -> dataManager.getFastFoodRecipes()
+            SeeAllRecipesType.TYPE_HOME_RECOMMENDATION -> dataManager.getListOfRecipeUsingRandomNumbers(
+                dataManager.getRandomNumbersInListOfRecipe()
+            )
+            SeeAllRecipesType.TYPE_RECIPES_OF_WEEK -> dataManager.getListOfRecipeUsingRandomNumbers(
+                dataManager.getRandomNumbersInListOfRecipe()
+            )
         }
     }
 
-    private fun getRecipesList(): CategoryItemType {
+    private fun getRecipesList(): SeeAllRecipesType {
         arguments?.let {
             recipeType = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                it.getParcelable(RECIPE_LIST, CategoryItemType::class.java)!!
+                it.getParcelable(RECIPE_LIST, SeeAllRecipesType::class.java)!!
             } else {
                 it.getParcelable(RECIPE_LIST)!!
             }
@@ -57,7 +60,7 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
     }
 
     companion object {
-        fun newInstance(type: CategoryItemType) =
+        fun newInstance(type: SeeAllRecipesType) =
             SeeAllRecipesFragment().apply {
                 arguments = Bundle().apply {
                     putParcelable(RECIPE_LIST, type)
@@ -65,8 +68,8 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
             }
     }
 
-    private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(1)
+    private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipeId: Int) {
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipeId)
         replaceFragment(recipeDetailsFragment)
     }
 
@@ -76,8 +79,8 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
         transaction.commit()
     }
 
-    override fun onClickRecipe(recipe: Recipe) {
-        navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipe)
+    override fun onClickRecipe(recipeId: Int) {
+        navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipeId)
     }
 
 }

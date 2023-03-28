@@ -9,6 +9,7 @@ import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.CategoryItem
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.domain.enums.CategoryItemType
+import com.example.tastyindia.data.domain.enums.SeeAllRecipesType
 import com.example.tastyindia.databinding.LayoutEasyCategoryBinding
 import com.example.tastyindia.databinding.LayoutFastFoodCategoryBinding
 import com.example.tastyindia.databinding.LayoutHealthCategoryBinding
@@ -66,7 +67,7 @@ class MainCategoryAdapter(
         )
         holder.binding.apply {
             rvHealthCategories.adapter = adapter
-            seeAllHealth.setOnClickListener { listener.onClickSeeAll(CategoryItemType.TYPE_HEALTHY_CATEGORY) }
+            seeAllHealth.setOnClickListener { listener.onClickSeeAll(SeeAllRecipesType.TYPE_HEALTHY_CATEGORY) }
         }
     }
 
@@ -78,7 +79,7 @@ class MainCategoryAdapter(
         )
         holder.binding.apply {
             rvFastFoodCategories.adapter = adapter
-            seeAllFastFood.setOnClickListener { listener.onClickSeeAll(CategoryItemType.TYPE_FAST_CATEGORY) }
+            seeAllFastFood.setOnClickListener { listener.onClickSeeAll(SeeAllRecipesType.TYPE_FAST_CATEGORY) }
         }
     }
 
@@ -90,7 +91,7 @@ class MainCategoryAdapter(
         )
         holder.binding.apply {
             rvEasyCategories.adapter = adapter
-            seeAllEasy.setOnClickListener { listener.onClickSeeAll(CategoryItemType.TYPE_EASY_CATEGORY) }
+            seeAllEasy.setOnClickListener { listener.onClickSeeAll(SeeAllRecipesType.TYPE_EASY_CATEGORY) }
         }
     }
 

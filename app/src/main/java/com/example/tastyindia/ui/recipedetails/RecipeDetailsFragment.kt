@@ -1,7 +1,6 @@
 package com.example.tastyindia.ui.recipedetails
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
@@ -26,7 +25,7 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
     override val TAG = "RecipeDetails"
-    private var id1: Int = 0
+    private var recipeId: Int = 0
     lateinit var recipe: Recipe
 
     override fun getViewBinding() = FragmentRecipeDetailsBinding.inflate(layoutInflater)
@@ -35,9 +34,9 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
         //hideBottomNavigation()
-         id1 = retrieveRecipeFromArguments()
-        recipe = dataManager.getRecipe(id1)
-       // val recipe = retrieveRecipeFromArguments()
+        recipeId = retrieveRecipeFromArguments()
+        recipe = dataManager.getRecipe(recipeId)
+        // val recipe = retrieveRecipeFromArguments()
         val recipeName = recipe.recipeName
 
         val ingredientsList = dataManager.getIngredients(recipe)
@@ -117,16 +116,9 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
                 ?.commit()
         }
     }
-    private fun retrieveRecipeFromArguments(): Int {
-        arguments?.let {
-            id1 = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                it.getInt(Constants.Key.RECIPE_ID.toString())
-            } else {
-                it.getInt(Constants.Key.RECIPE_ID.toString())
-            }
-        }
-        return id1
-    }
+
+    private fun retrieveRecipeFromArguments(): Int =
+        arguments?.getInt(Constants.Key.RECIPE_ID.toString())!!
 
     private fun calculateRecipeDifficultyLevel(numberOfMinutesToCook: Int) =
         when {

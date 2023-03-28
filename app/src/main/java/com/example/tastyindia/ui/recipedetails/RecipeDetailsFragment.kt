@@ -2,10 +2,12 @@ package com.example.tastyindia.ui.recipedetails
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
@@ -16,8 +18,10 @@ import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentRecipeDetailsBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.home.HomeFragment
+import com.example.tastyindia.ui.kitchen.KitchenInfoFragment
 import com.example.tastyindia.utils.Constants
 import com.example.tastyindia.utils.CsvParser
+import com.example.tastyindia.utils.replaceFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
@@ -63,6 +67,13 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         setTimeToCookRecipe(recipe.totalTimeInMinutes, binding.tvTimeToCookRecipe)
         setDifficultyLevel(recipe.totalTimeInMinutes, binding.tvDifficultyLevel)
         setRecipeImage(recipe.imageUrl, binding.ivRecipe)
+        onClickBack()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        setUpAppBar(false)
+
     }
 
     private fun setRecipeName(recipeName: String, textView: TextView) {
@@ -126,7 +137,12 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
             numberOfMinutesToCook <= 40 -> "Medium"
             else -> "Hard"
         }
-
+    private fun onClickBack() {
+        activity?.findViewById<ImageButton>(R.id.button_navDirection)?.let { navigateIcon ->
+            navigateIcon.setOnClickListener {
+        requireActivity().let {  it.onBackPressed()}
+            }
+        }}
     companion object {
         fun newInstance(id: Int) =
             RecipeDetailsFragment().apply {

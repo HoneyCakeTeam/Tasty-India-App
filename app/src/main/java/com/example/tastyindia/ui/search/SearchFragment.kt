@@ -73,7 +73,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
 
     private fun replaceFragment(fragment: Fragment) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainerView, fragment)
+        transaction.replace(R.id.fragmentContainerView, fragment).addToBackStack(null)
         transaction.commit()
     }
 

@@ -2,6 +2,7 @@ package com.example.tastyindia.ui.seeall
 
 import android.os.Build
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
@@ -31,8 +32,14 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
         setUpAppBar(true, recipeType.name)
         adapter = SeeAllRecipesAdapter(getList(), this)
         binding.rvRecipes.adapter = adapter
+        onClickBack()
     }
 
+    override fun onResume() {
+        super.onResume()
+        setUpAppBar(true, recipeType.name)
+
+    }
     private fun getList(): List<Recipe> {
         return when (recipeType) {
             SeeAllRecipesType.TYPE_EASY_CATEGORY -> dataManager.getEasyRecipes()
@@ -75,12 +82,18 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
 
     private fun replaceFragment(fragment: Fragment) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainerView, fragment)
+        transaction.add(R.id.fragmentContainerView, fragment).addToBackStack(null)
         transaction.commit()
     }
 
     override fun onClickRecipe(recipeId: Int) {
         navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipeId)
     }
+    private fun onClickBack() {
+        activity?.findViewById<ImageButton>(R.id.button_navDirection)?.let { navigateIcon ->
+            navigateIcon.setOnClickListener {
+                requireActivity().onBackPressed()
+            }
+        }}
 
 }

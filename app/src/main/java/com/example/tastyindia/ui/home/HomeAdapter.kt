@@ -7,13 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.HomeCategoriesModel
 import com.example.tastyindia.data.domain.HomeItem
-import com.example.tastyindia.data.domain.HomeItemType
+import com.example.tastyindia.data.domain.enums.HomeItemType
 import com.example.tastyindia.data.domain.Recipe
+import com.example.tastyindia.data.domain.enums.SeeAllRecipesType
 import com.example.tastyindia.databinding.ItemCategoriesRecyclerBinding
 import com.example.tastyindia.databinding.ItemHomeHeaderTextBinding
 import com.example.tastyindia.databinding.ItemRecommendationRecycleBinding
 import com.example.tastyindia.databinding.ItemWeekRecipesBinding
 
+@Suppress("UNCHECKED_CAST")
 class HomeAdapter(
     private val homeItem: List<HomeItem<Any>>,
     private val recommendationListener: HomeRecommendationAdapter.HomeRecommendationsListener,
@@ -59,7 +61,7 @@ class HomeAdapter(
             HomeItemType.TYPE_HOME_WELCOME_HEADER -> VIEW_TYPE_WELCOME
             HomeItemType.TYPE_HOME_CATEGORIES -> VIEW_TYPE_CATEGORIES
             HomeItemType.TYPE_HOME_RECOMMENDATION_RECYCLE -> VIEW_TYPE_HOME_RECOMMENDATION_RECYCLE
-            HomeItemType.TYPR_RECIPES_OF_WEEK_RECYCLE -> VIEW_TYPE_HOME_WEEK_RECYCLE
+            HomeItemType.TYPE_RECIPES_OF_WEEK_RECYCLE -> VIEW_TYPE_HOME_WEEK_RECYCLE
             else -> super.getItemViewType(position)
         }
     }
@@ -84,7 +86,7 @@ class HomeAdapter(
         val recipeList = homeItem[position].item as List<Recipe>
         val adapter = HomeRecommendationAdapter(recipeList, recommendationListener)
         holder.binding.tvHomeRecommendationSeeAll.setOnClickListener {
-            seeAllListener.onClickHomeSeeAll("Recommendation")
+            seeAllListener.onClickHomeSeeAll(SeeAllRecipesType.TYPE_HOME_RECOMMENDATION)
         }
         holder.binding.rvHomeRecommendations.adapter = adapter
     }
@@ -93,7 +95,7 @@ class HomeAdapter(
         val recipeList = homeItem[position].item as List<Recipe>
         val adapter = HomeRecipesOfTheWeekAdapter(recipeList, recipeOfWeekListener)
         holder.binding.tvHomeRSeeAll.setOnClickListener {
-            seeAllListener.onClickHomeSeeAll("RecipesOfWeek")
+            seeAllListener.onClickHomeSeeAll(SeeAllRecipesType.TYPE_RECIPES_OF_WEEK)
         }
         holder.binding.rvHomeWeekOfWeek.adapter = adapter
     }
@@ -125,7 +127,7 @@ class HomeAdapter(
 
 
     interface HomeSeeAllListener {
-        fun onClickHomeSeeAll(name: String)
+        fun onClickHomeSeeAll(name: SeeAllRecipesType)
     }
 
 }

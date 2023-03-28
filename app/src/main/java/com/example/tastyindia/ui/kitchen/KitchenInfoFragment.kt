@@ -2,9 +2,12 @@ package com.example.tastyindia.ui.kitchen
 
 import android.os.Bundle
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
+import com.example.tastyindia.data.domain.KitchenInfo
+import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentKitchenInfoBinding
 import com.example.tastyindia.ui.BaseFragment
@@ -19,6 +22,7 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
     override val TAG: String = this::class.simpleName!!
     private lateinit var kitchenName: String
     private lateinit var kitchenImageUrl: String
+    private lateinit var kitchen: KitchenInfo
 
     override fun getViewBinding(): FragmentKitchenInfoBinding =
         FragmentKitchenInfoBinding.inflate(layoutInflater)
@@ -32,16 +36,18 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
             kitchenName = it.getString(KITCHEN_NAME)!!
             kitchenImageUrl = it.getString(KITCHEN_IMAGE_URL)!!
         }
+        Glide
+            .with(binding.root)
+            .load(kitchenImageUrl)
+            .placeholder(R.drawable.ic_error)
+            .into(binding.ivCardImage)
 
-        val kitchen = dataManager.getKitchenInfoByName("European")
+        kitchen = dataManager.getKitchenInfoByName(kitchenName)
 
-        view?.findViewById<TextView>(R.id.tv_history_title)?.text = kitchen[0].kitchenName
-        view?.findViewById<TextView>(R.id.tv_history_description)?.text =
-            kitchen[0].historyDescription
-        view?.findViewById<TextView>(R.id.tv_region_description)?.text =
-            kitchen[0].RegionsDescription
-        view?.findViewById<TextView>(R.id.tv_dishes_description)?.text =
-            kitchen[0].dishesDescription
+        binding.tvHistoryTitle.text = "History Of $kitchenName Cuisine"
+        binding.tvHistoryDescription.text = kitchen.historyDescription
+        binding.tvRegionDescription.text = kitchen.RegionsDescription
+        binding.tvDishesDescription.text = kitchen.dishesDescription
     }
 
     companion object {

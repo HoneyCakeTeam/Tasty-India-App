@@ -1,7 +1,6 @@
 package com.example.tastyindia.ui.categorydetails
 
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.Recipe
@@ -29,9 +28,7 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
         dataManager = DataManager(dataSource)
         getCategoryArgs()
         initRecyclerView()
-        recipeAdapter.setData(
-            dataManager.getAllKitchenRecipes() as ArrayList<Recipe>) //TODO GET RECIPE BY CATEGORY
-
+        recipeAdapter.setData(dataManager.getRecipesByCategory(categoryName))
     }
 
     private fun getCategoryArgs() {
@@ -41,13 +38,12 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
     }
 
     private fun initRecyclerView() {
-        recipeAdapter = RecipesAdapter(this)
+        recipeAdapter = RecipesAdapter(dataManager.getRecipesByCategory(categoryName), this)
         binding.rvRecipe.adapter = recipeAdapter
-        binding.rvRecipe.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun onClickItem(recipe: Recipe) {
-        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe.id)
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(1)
         replaceFragment(recipeDetailsFragment)
     }
 

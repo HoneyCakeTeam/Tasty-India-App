@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,14 +12,14 @@
         android:id="@+id/img_cuisine"
         android:layout_width="0dp"
         android:layout_height="200dp"
-        android:layout_marginVertical="@dimen/margin_small"
         android:layout_marginHorizontal="@dimen/margin_medium"
-        app:shapeAppearance="@style/CategoriesCardImageStyle"
-        android:background="@drawable/image_more_recipes"
+        android:layout_marginVertical="@dimen/margin_small"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Orientation"/>
+        app:shapeAppearance="@style/CategoriesCardImageStyle"
+        tools:ignore="Orientation" />
 
     <TextView
         android:id="@+id/tv_popular_meals"
@@ -36,8 +35,8 @@
         android:id="@+id/rv_recipe"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginVertical="@dimen/margin_small"
         android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginVertical="@dimen/margin_small"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

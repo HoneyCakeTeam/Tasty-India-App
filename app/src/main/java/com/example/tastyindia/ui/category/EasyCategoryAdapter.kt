@@ -34,7 +34,7 @@ class EasyCategoryAdapter(private val easyList:List<Recipe >, private val listen
                 .into(easyImage)
 
             root.setOnClickListener {
-                listener.onClickRecipe(currentEasy)
+                listener.onClickRecipe(currentEasy.id)
             }
         }
 

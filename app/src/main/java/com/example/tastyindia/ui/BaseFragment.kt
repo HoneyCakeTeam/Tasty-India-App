@@ -50,7 +50,10 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         setUpAppBar()
         setUp()
     }
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        retainInstance = true
+    }
     abstract fun setUp()
 
     protected fun log(value: Any) {

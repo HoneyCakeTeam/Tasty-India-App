@@ -28,7 +28,7 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
         dataManager = DataManager(dataSource)
         getCategoryArgs()
         initRecyclerView()
-        recipeAdapter.setData(dataManager.getAllKitchenRecipes() as ArrayList<Recipe>)//TODO GET RECIPE BY CATEGORY
+        recipeAdapter.setData(dataManager.getRecipesByCategory(categoryName))
     }
 
     private fun getCategoryArgs() {
@@ -38,7 +38,7 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
     }
 
     private fun initRecyclerView() {
-        recipeAdapter = RecipesAdapter(this)
+        recipeAdapter = RecipesAdapter(dataManager.getRecipesByCategory(categoryName), this)
         binding.rvRecipe.adapter = recipeAdapter
     }
 

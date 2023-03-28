@@ -12,7 +12,6 @@ import com.example.tastyindia.databinding.FragmentSearchBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.CsvParser
-import com.google.android.material.snackbar.Snackbar
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     SearchAdapter.RecipeInteractionListener, SearchView.OnQueryTextListener {
@@ -71,15 +70,16 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
         query?.let { searchByQueryAndSetDataInAdapter(it) }
         return true
     }
+
     private fun replaceFragment(fragment: Fragment) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentContainerView, fragment)
         transaction.commit()
     }
 
-    override fun onClickRecipe(recipe: Recipe) {
-     //   val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipe)
-      //  replaceFragment(recipeDetailsFragment)
+    override fun onClickRecipe(recipeId: Int) {
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipeId)
+        replaceFragment(recipeDetailsFragment)
     }
 
 }

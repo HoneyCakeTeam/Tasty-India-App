@@ -36,7 +36,7 @@ class FastFoodCategoryAdapter(
                 .load(currentFastFood.imageUrl)
                 .into(fastFoodImage)
             root.setOnClickListener {
-                listener.onClickRecipe(currentFastFood)
+                listener.onClickRecipe(currentFastFood.id)
             }
         }
 

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="140dp"
     android:layout_height="180dp"
+    xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="@dimen/margin_small"
     android:layout_marginEnd="@dimen/margin_small">
 
@@ -49,26 +51,25 @@
         android:layout_marginTop="@dimen/margin_small"
         android:layout_marginEnd="@dimen/margin_small"
         android:background="@drawable/text_background"
-        android:padding="@dimen/padding_tiny"
+        android:paddingHorizontal="@dimen/padding_small"
+        android:paddingVertical="@dimen/margin_tiny"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/tv_time"
             style="@style/TextStyleNumberCategories"
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/food_time" />
+            android:layout_weight="1"
+            tools:text="@string/food_time" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ic_time"
-            android:layout_width="0dp"
-            android:layout_height="14dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:layout_marginEnd="@dimen/margin_tiny"
-            android:layout_marginBottom="@dimen/margin_tiny"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/ic_time" />
 

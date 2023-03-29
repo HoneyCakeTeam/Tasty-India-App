@@ -135,34 +135,38 @@
     <style name="TextStyleCategories">
         <item name="android:layout_marginStart">@dimen/margin_medium</item>
         <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:layout_marginBottom">@dimen/margin_small</item>
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
         <item name="android:textColor">@color/black_60</item>
         <item name="android:textSize">@dimen/text_medium</item>
     </style>
 
     <style name="TextStyleSeeAll">
-        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
+        <item name="android:layout_marginEnd">@dimen/margin_small</item>
         <item name="android:layout_marginTop">@dimen/margin_small</item>
         <item name="android:fontFamily">@font/ubuntu_regular</item>
-        <item name="android:textColor">@color/primary_500</item>
+        <item name="android:textColor">@color/black_60</item>
         <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:drawableTint">@color/black_60</item>
     </style>
 
     <style name="TextStyleNameCategories">
         <item name="android:layout_marginStart">@dimen/margin_tiny</item>
         <item name="android:layout_marginBottom">@dimen/margin_tiny</item>
-        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:textColor">@color/white_100</item>
-        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:textSize">@dimen/text_small</item>
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
     </style>
 
     <style name="TextStyleNumberCategories">
-        <item name="android:fontFamily">@font/ubuntu_medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:textColor">@color/white_100</item>
         <item name="android:textSize">@dimen/text_tiny</item>
-        <item name="android:layout_marginEnd">2dp</item>
+        <item name="android:layout_marginEnd">@dimen/margin_small</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_gravity">center_vertical</item>
     </style>
 
     <style name="AppTheme.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">

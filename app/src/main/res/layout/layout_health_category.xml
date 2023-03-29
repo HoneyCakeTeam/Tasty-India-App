@@ -25,6 +25,8 @@
             android:layout_height="wrap_content"
             style="@style/TextStyleSeeAll"
             android:text="@string/see_all"
+            app:drawableEndCompat="@drawable/ic_see_all"
+            android:gravity="center_vertical"
             />
 
     </LinearLayout>

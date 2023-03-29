@@ -2,6 +2,7 @@ package com.example.tastyindia.ui.seeall
 
 import android.os.Build
 import android.os.Bundle
+import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.Recipe
@@ -42,15 +43,15 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
         when (recipeType) {
             SeeAllRecipesType.TYPE_EASY_CATEGORY -> {
                 recipes = dataManager.getEasyRecipes()
-                title = "Easy Food"
+                title = getString(R.string.easy_food)
             }
             SeeAllRecipesType.TYPE_HEALTHY_CATEGORY -> {
                 recipes = dataManager.getHealthyRecipes(dataManager.getHealthyIngredients())
-                title = "Healthy Food"
+                title = getString(R.string.healthy_food)
             }
             SeeAllRecipesType.TYPE_FAST_CATEGORY -> {
                 recipes = dataManager.getFastFoodRecipes()
-                title = "Fast Food"
+                title = getString(R.string.fast_food)
             }
             SeeAllRecipesType.TYPE_HOME_RECOMMENDATION -> {
                 recipes = dataManager.getListOfRecipeUsingRandomNumbers(
@@ -58,7 +59,7 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
                         (requireActivity() as HomeActivity).recommendationFirstRecipeId
                     )
                 )
-                title = "Recommendations"
+                title = getString(R.string.recommendations)
             }
             SeeAllRecipesType.TYPE_RECIPES_OF_WEEK -> {
                 recipes = dataManager.getListOfRecipeUsingRandomNumbers(
@@ -66,7 +67,7 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
                         (requireActivity() as HomeActivity).recipesOfWeekFirstRecipeId
                     )
                 )
-                title = "Recipes Of Week"
+                title = getString(R.string.recipe_of_week)
             }
         }
     }
@@ -99,11 +100,6 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
     override fun onClickRecipe(recipeId: Int) {
         navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipeId)
     }
-    /*private fun onClickBack() {
-        activity?.findViewById<ImageButton>(R.id.button_navDirection)?.let { navigateIcon ->
-            navigateIcon.setOnClickListener {
-                requireActivity().onBackPressed()
-            }
-        }}*/
+
 
 }

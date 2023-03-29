@@ -42,16 +42,10 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setup()
         initSubView()
         addNavigationListener()
         statusBarMode(this)
     }
-
-    private fun setup() {
-
-    }
-
     private fun addNavigationListener() {
         binding.bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {

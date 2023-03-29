@@ -33,13 +33,17 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
         recipes = dataManager.getRecipesByCategory(categoryName)
         recipeAdapter.setData(recipes)
 
+        showCategoryImage()
+
+        addCallBacks()
+    }
+
+    private fun showCategoryImage() {
         Glide
             .with(binding.root)
             .load(recipes[0].imageUrl)
             .placeholder(R.drawable.ic_error)
             .into(binding.ivRecipe)
-
-        addCallBacks()
     }
 
     private fun addCallBacks() {

@@ -28,7 +28,6 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
-        // setUpAppBar(visibility = true, title = "Kitchen Info", showBackIcon = true)
 
         arguments?.let {
             kitchenName = it.getString(KITCHEN_NAME)!!

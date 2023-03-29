@@ -3,7 +3,7 @@ package com.example.tastyindia.ui.search
 import androidx.recyclerview.widget.DiffUtil
 import com.example.tastyindia.data.domain.Recipe
 
-class RecipeDiffUtil(val OldRecipesLis: List<Recipe>, val NewRecipesList: List<Recipe>) :
+class RecipeDiffUtil(private val OldRecipesLis: List<Recipe>, private val NewRecipesList: List<Recipe>) :
     DiffUtil.Callback() {
     override fun getOldListSize() = OldRecipesLis.size
 

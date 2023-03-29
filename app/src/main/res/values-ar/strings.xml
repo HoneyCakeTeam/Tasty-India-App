@@ -58,5 +58,9 @@
     <string name="recommendations">التوصيات</string>
     <string name="easy_food">طعام سهل</string>
     <string name="healthy_food">طعام صحي</string>
-
+    <string name="tasty_india">المذاق الهندي</string>
+    <string name="confirm">هل انت متأكد من القرار ده؟</string>
+    <string name="exit">ايوة</string>
+    <string name="stay">انتظر</string>
+    <string name="canceled">تم الالغاء</string>
 </resources>

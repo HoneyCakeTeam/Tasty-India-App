@@ -16,15 +16,13 @@ import com.example.tastyindia.utils.onClickBackFromNavigation
 class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     SearchAdapter.RecipeInteractionListener, SearchView.OnQueryTextListener {
 
-    private lateinit var dataSource: CsvDataSource
-    private lateinit var dataManager: DataManagerInterface
+    private val dataSource by lazy { CsvDataSource(requireContext(), CsvParser()) }
+    private val dataManager: DataManagerInterface by lazy { DataManager(dataSource) }
     private lateinit var adapter: SearchAdapter
     override val TAG: String = this::class.java.simpleName.toString()
     override fun getViewBinding() = FragmentSearchBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        dataSource = CsvDataSource(requireContext(), CsvParser())
-        dataManager = DataManager(dataSource)
         adapter = SearchAdapter(this)
         addCallbacks()
     }

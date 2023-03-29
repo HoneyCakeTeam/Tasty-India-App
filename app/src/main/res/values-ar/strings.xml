@@ -53,6 +53,10 @@
     <string name="how_to_prepare_title">طريقة التحضير</string>
     <string name="ingredients_header"> المكونات</string>
     <string name="advices">النصائح</string>
-
+    <string name="kitchenInfo">معلومات عن المطبخ</string>
+    <string name="recipe_of_week">وصفات الاسبوع</string>
+    <string name="recommendations">التوصيات</string>
+    <string name="easy_food">طعام سهل</string>
+    <string name="healthy_food">طعام صحي</string>
 
 </resources>

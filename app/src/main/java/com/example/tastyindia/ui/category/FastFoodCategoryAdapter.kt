@@ -1,53 +1,39 @@
 package com.example.tastyindia.ui.category
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemFastFoodCategoryBinding
+import com.example.tastyindia.ui.BaseAdapter
 
 class FastFoodCategoryAdapter(
-    private val fastList: List<Recipe>,
-    private val listener: CategoryInteractionListener
-) :
-    RecyclerView.Adapter<FastFoodCategoryAdapter.FastFoodViewHolder>() {
+    private val fastRecipes: List<Recipe>,
+    private val listener: MainCategoryAdapter.CategoryInteractionListener
+) : BaseAdapter<Recipe, ItemFastFoodCategoryBinding>(fastRecipes, listener) {
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> ItemFastFoodCategoryBinding
+        get() = ItemFastFoodCategoryBinding::inflate
 
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): FastFoodViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_fast_food_category, parent, false)
-        return FastFoodViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: FastFoodViewHolder, position: Int) {
-        val currentFastFood = fastList[position]
+    override fun onBindViewHolder(
+        holder: BaseViewHolder<ItemFastFoodCategoryBinding>,
+        position: Int,
+        currentItem: Recipe
+    ) {
         holder.binding.apply {
-            tvName.text = currentFastFood.recipeName
-            tvTime.text = currentFastFood.totalTimeInMinutes.toString()
+            tvName.text = currentItem.recipeName
+            tvTime.text = currentItem.totalTimeInMinutes.toString()
             Glide
                 .with(holder.binding.root)
-                .load(currentFastFood.imageUrl)
+                .load(currentItem.imageUrl)
                 .placeholder(R.drawable.ic_error)
                 .into(fastFoodImage)
             root.setOnClickListener {
-                listener.onClickRecipe(currentFastFood.id)
+                listener.onClickRecipe(currentItem.id)
             }
         }
-
     }
 
-    override fun getItemCount(): Int = fastList.size
-
-    class FastFoodViewHolder(viewItem: View) : ViewHolder(viewItem) {
-        val binding = ItemFastFoodCategoryBinding.bind(viewItem)
-    }
 }
 
 

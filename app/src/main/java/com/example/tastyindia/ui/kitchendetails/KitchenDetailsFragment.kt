@@ -4,16 +4,14 @@ import android.os.Bundle
 import android.widget.ImageButton
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
+import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentKitchenDetailsBinding
-import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.ui.kitchen.KitchenFragment
 import com.example.tastyindia.ui.kitchen.KitchenInfoFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
-import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
-import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
 import com.example.tastyindia.utils.CsvParser
 import com.example.tastyindia.utils.replaceFragment
 
@@ -51,6 +49,8 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
     }
 
     companion object {
+        const val KITCHEN_NAME = "kitchenName"
+        const val KITCHEN_IMAGE_URL = "kitchenImageUrl"
         fun newInstance(kitchenName: String, kitchenImageUrl: String) =
             KitchenDetailsFragment().apply {
                 arguments = Bundle().apply {

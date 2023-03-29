@@ -12,6 +12,7 @@ import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
 import com.example.tastyindia.utils.CsvParser
+import com.example.tastyindia.utils.onClickBack
 
 class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
 
@@ -28,7 +29,8 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
-        // setUpAppBar(visibility = true, title = "Kitchen Info", showBackIcon = true)
+        setUpAppBar(true, getString(R.string.kitchenInfo), showBackButton = true)
+        onClickBack()
 
         arguments?.let {
             kitchenName = it.getString(KITCHEN_NAME)!!

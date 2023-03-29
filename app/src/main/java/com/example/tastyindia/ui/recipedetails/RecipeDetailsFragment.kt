@@ -125,7 +125,7 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
     }
 
     private fun retrieveRecipeFromArguments(): Int =
-        arguments?.getInt(Constants.Key.RECIPE_ID.toString())!!
+        arguments?.getInt(RECIPE_ID.toString())!!
 
     private fun calculateRecipeDifficultyLevel(numberOfMinutesToCook: Int) =
         when {
@@ -135,10 +135,11 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         }
 
     companion object {
+        const val RECIPE_ID = 1
         fun newInstance(id: Int) =
             RecipeDetailsFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(Constants.Key.RECIPE_ID.toString(), id)
+                    putInt(RECIPE_ID.toString(), id)
                 }
             }
     }

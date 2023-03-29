@@ -12,7 +12,6 @@ import com.example.tastyindia.databinding.FragmentSeeAllRecipesBinding
 import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.ui.HomeActivity
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
-import com.example.tastyindia.utils.Constants.Key.RECIPE_LIST
 import com.example.tastyindia.utils.CsvParser
 import com.example.tastyindia.utils.onClickBack
 import com.example.tastyindia.utils.replaceFragment
@@ -83,15 +82,6 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
         return recipeType
     }
 
-    companion object {
-        fun newInstance(type: SeeAllRecipesType) =
-            SeeAllRecipesFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable(RECIPE_LIST, type)
-                }
-            }
-    }
-
     private fun navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipeId: Int) {
         val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipeId)
         replaceFragment(recipeDetailsFragment)
@@ -100,6 +90,14 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
     override fun onClickRecipe(recipeId: Int) {
         navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipeId)
     }
-
+    companion object {
+        const val RECIPE_LIST="RecipeList"
+        fun newInstance(type: SeeAllRecipesType) =
+            SeeAllRecipesFragment().apply {
+                arguments = Bundle().apply {
+                    putParcelable(RECIPE_LIST, type)
+                }
+            }
+    }
 
 }

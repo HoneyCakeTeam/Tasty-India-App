@@ -59,4 +59,9 @@
     <string name="recommendations">Recommendations</string>
     <string name="easy_food">Easy Food</string>
     <string name="healthy_food">Healthy Food</string>
+    <string name="tasty_india">Tasty India</string>
+    <string name="confirm">Confirm Exit Application ?</string>
+    <string name="exit">Exit</string>
+    <string name="stay">Stay</string>
+    <string name="canceled">Canceled</string>
 </resources>

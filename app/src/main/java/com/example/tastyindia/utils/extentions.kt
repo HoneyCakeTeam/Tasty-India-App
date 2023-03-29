@@ -36,19 +36,19 @@ fun Fragment.onClickBackFromNavigation() {
 }
 
 fun Fragment.showAlertDialog() {
-    MaterialAlertDialogBuilder(requireContext() , R.style.alertDialogCustomStyle)
-        .setTitle("Tasty India")
-        .setMessage("Confirm Exit Application ?")
+    MaterialAlertDialogBuilder(requireContext(), R.style.alertDialogCustomStyle)
+        .setTitle(getString(R.string.tasty_india))
+        .setMessage(getString(R.string.confirm))
         .setPositiveButton(
-            "Exit"
+            getString(R.string.exit)
         ) { _, _ ->
             activity?.moveTaskToBack(true)
             activity?.finish()
         }
         .setNegativeButton(
-            "Stay"
+            getString(R.string.stay)
         ) { _, _ ->
-            Snackbar.make(requireView(), "Canceled", Snackbar.LENGTH_SHORT)
+            Snackbar.make(requireView(), getString(R.string.canceled), Snackbar.LENGTH_SHORT)
                 .show()
         }.show()
 }

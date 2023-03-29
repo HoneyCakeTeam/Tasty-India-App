@@ -43,7 +43,7 @@ class MainCategoryAdapter(
             }
             VIEW_TYPE_CATEGORY_EASY -> {
                 val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.layout_easy_category, parent, false)
+                    .inflate(R.layout.item_easy_category, parent, false)
                 EasyCategoryViewHolder(view)
             }
             else -> {

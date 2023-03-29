@@ -189,7 +189,7 @@
     <style name="HomeCategoriesCardImageStyle">
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:layout_marginTop">@dimen/margin_small</item>
-        <item name="android:background">@mipmap/ic_soup</item>
+        <item name="android:background">@drawable/ic_soup</item>
         <item name="android:hardwareAccelerated">false</item>
     </style>
 

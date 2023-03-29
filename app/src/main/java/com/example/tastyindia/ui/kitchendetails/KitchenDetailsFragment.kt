@@ -18,12 +18,12 @@ import com.example.tastyindia.utils.CsvParser
 import com.example.tastyindia.utils.replaceFragment
 
 class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
-    RecipeAdapter.RecipeInteractionListener {
+    KitchenDetailsAdapter.RecipeInteractionListener {
 
-    override val TAG: String = "CUISINEDETAILS"
+    override val TAG: String = this::class.java.simpleName.toString()
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
-    private lateinit var recipeAdapter: RecipeAdapter
+    private lateinit var recipeAdapter: KitchenDetailsAdapter
     private lateinit var kitchenName: String
     private lateinit var kitchenImageUrl: String
 
@@ -44,7 +44,7 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
             .placeholder(R.drawable.ic_error)
             .into(binding.imageCuisine)
 
-        recipeAdapter = RecipeAdapter(dataManager.getRecipesByKitchen(kitchenName), this)
+        recipeAdapter = KitchenDetailsAdapter(dataManager.getRecipesByKitchen(kitchenName), this)
         binding.rvRecipe.adapter = recipeAdapter
         setUpAppBar(true, kitchenName, showBackButton = true, showInfoButton = true)
         addCallbacks()

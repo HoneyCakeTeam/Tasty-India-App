@@ -6,13 +6,13 @@ import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemRecipeSquaredBinding
-import com.example.tastyindia.ui.base.BaseAdapter
-import com.example.tastyindia.ui.base.BaseInteractionListener
+import com.example.tastyindia.base.BaseAdapter
+import com.example.tastyindia.base.BaseInteractionListener
 
 class SeeAllRecipesAdapter(
-    private val recipes: List<Recipe>,
+    recipes: List<Recipe>,
     private val listener: RecipeInteractionListener
-) : BaseAdapter<Recipe, ItemRecipeSquaredBinding>(recipes, listener) {
+) : BaseAdapter<Recipe, ItemRecipeSquaredBinding>(recipes) {
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> ItemRecipeSquaredBinding
         get() = ItemRecipeSquaredBinding::inflate

@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
+import com.example.tastyindia.base.BaseAdapter
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemFastFoodCategoryBinding
-import com.example.tastyindia.ui.base.BaseAdapter
 
 class FastFoodCategoryAdapter(
-    private val fastRecipes: List<Recipe>,
+    fastRecipes: List<Recipe>,
     private val listener: MainCategoryAdapter.CategoryInteractionListener
-) : BaseAdapter<Recipe, ItemFastFoodCategoryBinding>(fastRecipes, listener) {
+) : BaseAdapter<Recipe, ItemFastFoodCategoryBinding>(fastRecipes) {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> ItemFastFoodCategoryBinding
         get() = ItemFastFoodCategoryBinding::inflate
 

@@ -1,8 +1,8 @@
 package com.example.tastyindia.ui.category
 
 
-import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
+import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.CategoryItem
@@ -10,11 +10,11 @@ import com.example.tastyindia.data.domain.enums.CategoryItemType
 import com.example.tastyindia.data.domain.enums.SeeAllRecipesType
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentCategoryBinding
-import com.example.tastyindia.ui.base.BaseFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import com.example.tastyindia.utils.CsvParser
 import com.example.tastyindia.utils.onClickBackFromNavigation
+import com.example.tastyindia.utils.replaceFragment
 
 
 class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
@@ -30,7 +30,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
         FragmentCategoryBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        setUpAppBar(true, getString(R.string.categories_page_title))
+        setUpAppBar(true, getString(R.string.categories_page_title), false)
 
         val healthyIngredients = dataManager.getHealthyIngredients()
         val listHealthy = dataManager.getHealthyRecipes(healthyIngredients)
@@ -38,28 +38,25 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
         val listEasy = dataManager.getEasyRecipes()
         val randomImageUrl = dataManager.getRandomImageInCategory()
 
-        setUpAppBar(true, getString(R.string.categories_page_title), false)
 
         val itemList: MutableList<CategoryItem<Any>> = mutableListOf()
         itemList.add(CategoryItem(randomImageUrl, CategoryItemType.TYPE_POSTER_IMAGE))
         itemList.add(CategoryItem(listHealthy, CategoryItemType.TYPE_HEALTHY_CATEGORY))
         itemList.add(CategoryItem(listFast, CategoryItemType.TYPE_FAST_CATEGORY))
         itemList.add(CategoryItem(listEasy, CategoryItemType.TYPE_EASY_CATEGORY))
+
+        initRecyclerView(itemList)
+        onClickBackFromNavigation()
+    }
+
+    private fun initRecyclerView(itemList: MutableList<CategoryItem<Any>>) {
         allCategoriesAdapter = MainCategoryAdapter(itemList, this)
         binding.rvCategories.adapter = allCategoriesAdapter
-        onClickBackFromNavigation()
     }
 
     override fun onClickRecipe(recipeId: Int) {
         val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipeId)
         replaceFragment(recipeDetailsFragment)
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = requireActivity().supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainerView, fragment).addToBackStack(null)
-        fragmentTransaction.commit()
     }
 
     override fun onClickSeeAll(type: SeeAllRecipesType) {

@@ -13,7 +13,7 @@ import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentRecipeDetailsBinding
-import com.example.tastyindia.ui.base.BaseFragment
+import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.ui.home.HomeFragment
 import com.example.tastyindia.utils.Constants
 import com.example.tastyindia.utils.CsvParser

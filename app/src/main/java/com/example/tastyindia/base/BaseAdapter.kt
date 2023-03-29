@@ -1,4 +1,4 @@
-package com.example.tastyindia.ui.base
+package com.example.tastyindia.base
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,7 +10,6 @@ interface BaseInteractionListener
 
 abstract class BaseAdapter<T, VB : ViewBinding>(
     private var items: List<T>,
-    private val listener: BaseInteractionListener
 ) : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<VB>>() {
 
     abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VB

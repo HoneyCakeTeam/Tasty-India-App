@@ -8,7 +8,7 @@ import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.domain.enums.SeeAllRecipesType
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentSeeAllRecipesBinding
-import com.example.tastyindia.ui.base.BaseFragment
+import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.ui.HomeActivity
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.Constants.Key.RECIPE_LIST

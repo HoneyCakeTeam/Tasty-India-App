@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
+import com.example.tastyindia.base.BaseInteractionListener
 import com.example.tastyindia.data.domain.CategoryItem
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.domain.enums.CategoryItemType
@@ -14,7 +15,6 @@ import com.example.tastyindia.databinding.LayoutEasyCategoryBinding
 import com.example.tastyindia.databinding.LayoutFastFoodCategoryBinding
 import com.example.tastyindia.databinding.LayoutHealthCategoryBinding
 import com.example.tastyindia.databinding.LayoutImagePosterBinding
-import com.example.tastyindia.ui.base.BaseInteractionListener
 
 @Suppress("UNCHECKED_CAST")
 class MainCategoryAdapter(

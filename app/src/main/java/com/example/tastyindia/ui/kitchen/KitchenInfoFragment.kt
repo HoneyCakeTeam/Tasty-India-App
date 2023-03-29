@@ -8,7 +8,7 @@ import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.KitchenInfo
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentKitchenInfoBinding
-import com.example.tastyindia.ui.base.BaseFragment
+import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
 import com.example.tastyindia.utils.CsvParser
@@ -44,7 +44,7 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
 
         binding.tvHistoryTitle.text = "History Of $kitchenName Cuisine"
         binding.tvHistoryDescription.text = kitchen.historyDescription
-        binding.tvRegionDescription.text = kitchen.RegionsDescription
+        binding.tvRegionDescription.text = kitchen.regionsDescription
         binding.tvDishesDescription.text = kitchen.dishesDescription
     }
 

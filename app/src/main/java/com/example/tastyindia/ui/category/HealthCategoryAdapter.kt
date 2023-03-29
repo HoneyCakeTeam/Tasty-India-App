@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
+import com.example.tastyindia.base.BaseAdapter
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemHealthCategoryBinding
-import com.example.tastyindia.ui.base.BaseAdapter
 
 class HealthCategoryAdapter(
-    private val healthyRecipes: List<Recipe>,
+    healthyRecipes: List<Recipe>,
     private val listener: MainCategoryAdapter.CategoryInteractionListener
-) : BaseAdapter<Recipe, ItemHealthCategoryBinding>(healthyRecipes, listener) {
+) : BaseAdapter<Recipe, ItemHealthCategoryBinding>(healthyRecipes) {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> ItemHealthCategoryBinding
         get() = ItemHealthCategoryBinding::inflate
 

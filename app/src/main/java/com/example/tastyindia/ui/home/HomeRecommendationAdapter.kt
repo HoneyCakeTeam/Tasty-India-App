@@ -7,13 +7,13 @@ import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemHomeRecommendationsBinding
-import com.example.tastyindia.ui.base.BaseAdapter
-import com.example.tastyindia.ui.base.BaseInteractionListener
+import com.example.tastyindia.base.BaseAdapter
+import com.example.tastyindia.base.BaseInteractionListener
 
 class HomeRecommendationAdapter(
-    private val recommendedRecipes: List<Recipe>,
+    recommendedRecipes: List<Recipe>,
     private val listener: HomeRecommendationsListener
-) : BaseAdapter<Recipe, ItemHomeRecommendationsBinding>(recommendedRecipes, listener) {
+) : BaseAdapter<Recipe, ItemHomeRecommendationsBinding>(recommendedRecipes) {
 
     interface HomeRecommendationsListener : BaseInteractionListener {
         fun onClickRecommendationRecipe(id: Int)

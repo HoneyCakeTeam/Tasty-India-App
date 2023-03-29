@@ -1,4 +1,4 @@
-package com.example.tastyindia.ui.base
+package com.example.tastyindia.base
 
 import android.os.Bundle
 import android.util.Log

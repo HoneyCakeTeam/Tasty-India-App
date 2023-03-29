@@ -55,5 +55,8 @@
     <string name="back_button_description">back_button_description</string>
     <string name="details_description">Discover a variety of delicious and nutritious soups to support your health and taste preferences. From hearty stews to light broths.</string>
     <string name="kitchenInfo">Kitchen Info</string>
-
+    <string name="recipe_of_week">Recipes Of Week</string>
+    <string name="recommendations">Recommendations</string>
+    <string name="easy_food">Easy Food</string>
+    <string name="healthy_food">Healthy Food</string>
 </resources>

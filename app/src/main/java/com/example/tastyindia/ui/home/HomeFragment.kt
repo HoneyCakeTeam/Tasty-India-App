@@ -1,7 +1,7 @@
 package com.example.tastyindia.ui.home
 
 
-import androidx.fragment.app.Fragment
+import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.HomeItem
@@ -9,13 +9,13 @@ import com.example.tastyindia.data.domain.enums.HomeItemType
 import com.example.tastyindia.data.domain.enums.SeeAllRecipesType
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentHomeBinding
-import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.ui.HomeActivity
 import com.example.tastyindia.ui.categorydetails.CategoryDetailsFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import com.example.tastyindia.utils.CsvParser
 import com.example.tastyindia.utils.onClickBackFromNavigation
+import com.example.tastyindia.utils.replaceFragment
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     HomeRecommendationAdapter.HomeRecommendationsListener,
@@ -78,13 +78,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         onClickBackFromNavigation()
     }
 
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = requireActivity().supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(com.example.tastyindia.R.id.fragmentContainerView, fragment)
-            .addToBackStack(null)
-        fragmentTransaction.commit()
-    }
 
     override fun onClickCategory(categoryName: String) {
         val categoryDetailsFragment = CategoryDetailsFragment.newInstance(categoryName)

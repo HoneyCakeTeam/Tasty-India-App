@@ -47,10 +47,8 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         val instructions = createInstructionsList(instructionsList)
         items.addAll(instructions)
 
-        val adapter = RecipeDetailsAdapter(items)
+        initRecyclerView(items)
 
-        binding.rvIngredients.adapter = adapter
-        binding.rvIngredients.layoutManager = LinearLayoutManager(context)
         navigateToHomeFragment()
 
         setRecipeName(recipeName, binding.tvRecipeName)
@@ -59,6 +57,12 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         setRecipeImage(recipe.imageUrl, binding.ivRecipe)
 
         addCallBacks()
+    }
+
+    private fun initRecyclerView(items: MutableList<RecipeDetailsAdapter.RecipeDetailsItem>) {
+        val adapter = RecipeDetailsAdapter(items)
+        binding.rvIngredients.adapter = adapter
+        binding.rvIngredients.layoutManager = LinearLayoutManager(context)
     }
 
     private fun addCallBacks() {

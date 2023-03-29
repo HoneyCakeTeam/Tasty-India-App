@@ -133,7 +133,7 @@
         <item name="android:layout_marginStart">@dimen/margin_medium</item>
         <item name="android:layout_marginTop">@dimen/margin_small</item>
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
-        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textColor">@color/white_200</item>
         <item name="android:textSize">@dimen/text_medium</item>
     </style>
 
@@ -221,7 +221,7 @@
     </style>
 
     <style name="dividerRecipeDetails" parent="">
-        <item name="android:background">@color/white_100</item>
+        <item name="dividerColor">@color/primary_500</item>
     </style>
 
 </resources>

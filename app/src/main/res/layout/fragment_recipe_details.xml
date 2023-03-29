@@ -19,8 +19,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        style="@style/backgroundRecipeDetails"
         android:id="@+id/constraint_layout"
+        style="@style/backgroundRecipeDetails"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_negative"
@@ -45,13 +45,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            style="@style/textRecipeDetails"
             android:id="@+id/tv_time_to_cook_recipe"
+            style="@style/textRecipeDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_giant"
-            android:text="@string/time"
             android:fontFamily="@font/ubuntu_reguler"
+            android:text="@string/time"
             android:textSize="@dimen/text_small"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toStartOf="@+id/view"
@@ -59,21 +59,21 @@
             app:layout_constraintVertical_bias="0.458" />
 
         <TextView
-            style="@style/textRecipeDetails"
             android:id="@+id/tv_difficulty_level"
+            style="@style/textRecipeDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_giant"
-            android:text="@string/easy"
             android:fontFamily="@font/ubuntu_reguler"
+            android:text="@string/easy"
             android:textSize="@dimen/text_small"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintStart_toEndOf="@+id/view"
             app:layout_constraintTop_toTopOf="@+id/view" />
 
         <com.google.android.material.divider.MaterialDivider
-            style="@style/dividerRecipeDetails"
             android:id="@+id/view"
+            style="@style/dividerRecipeDetails"
             android:layout_width="2dp"
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/margin_medium"

@@ -19,7 +19,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
     private lateinit var adapter: SearchAdapter
-    override val TAG: String = "SearchFragment"
+    override val TAG: String = this::class.java.simpleName.toString()
     override fun getViewBinding() = FragmentSearchBinding.inflate(layoutInflater)
 
     override fun setUp() {

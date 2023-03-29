@@ -1,5 +1,5 @@
-<resources xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
         <!--Primary-->
         <item name="colorPrimary">@color/primary_500</item>
@@ -27,13 +27,18 @@
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorPrimaryInverse">@color/primary_100</item>
-
         <item name="android:fitsSystemWindows">true</item>
 
         <!-- Splash Screen-->
-        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/primary_400</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/primary_400
+        </item>
         <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">1000</item>
-        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@mipmap/ic_splash</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@mipmap/ic_splash
+        </item>
+    </style>
+
+    <style name="ColorFragmentBackground">
+        <item name="android:background">@color/white_100</item>
     </style>
 
     <style name="CategoriesCardImageStyle">

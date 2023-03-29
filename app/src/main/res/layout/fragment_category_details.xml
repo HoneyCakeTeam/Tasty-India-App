@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    style="@style/ColorFragmentBackground"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/fragment_category_details_scene"
     tools:context=".ui.categorydetails.CategoryDetailsFragment">

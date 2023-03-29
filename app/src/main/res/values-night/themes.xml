@@ -38,6 +38,10 @@
         </item>
     </style>
 
+    <style name="ColorFragmentBackground">
+        <item name="android:background">@color/md_theme_dark_background</item>
+    </style>
+
     <style name="CategoriesCardImageStyle">
         <item name="cornerSize">16dp</item>
         <item name="android:scaleType">centerCrop</item>

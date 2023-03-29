@@ -53,5 +53,6 @@
     <string name="ingredients_header">Ingredients </string>
     <string name="advices">Advices</string>
     <string name="back_button_description">back_button_description</string>
+    <string name="details_description">Discover a variety of delicious and nutritious soups to support your health and taste preferences. From hearty stews to light broths.</string>
 
 </resources>

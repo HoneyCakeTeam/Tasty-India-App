@@ -223,5 +223,8 @@
     <style name="dividerRecipeDetails" parent="">
         <item name="dividerColor">@color/primary_500</item>
     </style>
+    <style name="alertDialogCustomStyle">
+        <item name="android:background">@color/black_87</item>
+    </style>
 
 </resources>

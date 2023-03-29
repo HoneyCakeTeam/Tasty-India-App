@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/backgroundRecipeDetails"
         android:id="@+id/constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -43,14 +44,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            style="@style/textRecipeDetails"
             android:id="@+id/tv_kitchen_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="4"
             android:layout_marginHorizontal="@dimen/margin_giant"
             android:gravity="start"
-            android:text="Discover a variety of delicious and nutritious soups to support your health and taste preferences. From hearty stews to light broths."
+            app:layout_constraintBottom_toTopOf="@+id/tv_label_recipes"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_label_details"
-            app:layout_constraintTop_toBottomOf="@id/tv_label_details" />
+            app:layout_constraintTop_toBottomOf="@id/tv_label_details"
+            android:text="@string/details_description" />
 
         <TextView
             android:id="@+id/tv_label_recipes"

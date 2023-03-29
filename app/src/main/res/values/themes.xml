@@ -224,4 +224,8 @@
         <item name="dividerColor">@color/primary_500</item>
     </style>
 
+    <style name="alertDialogCustomStyle">
+        <item name="android:background">@color/white_100</item>
+    </style>
+
 </resources>

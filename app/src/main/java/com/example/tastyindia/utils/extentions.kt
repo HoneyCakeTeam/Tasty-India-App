@@ -36,7 +36,7 @@ fun Fragment.onClickBackFromNavigation() {
 }
 
 fun Fragment.showAlertDialog() {
-    MaterialAlertDialogBuilder(requireContext())
+    MaterialAlertDialogBuilder(requireContext() , R.style.alertDialogCustomStyle)
         .setTitle("Tasty India")
         .setMessage("Confirm Exit Application ?")
         .setPositiveButton(

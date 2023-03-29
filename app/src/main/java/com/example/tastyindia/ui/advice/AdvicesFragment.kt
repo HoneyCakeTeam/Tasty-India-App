@@ -5,7 +5,7 @@ import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentAdvicesBinding
-import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.base.BaseFragment
 import com.example.tastyindia.utils.CsvParser
 import com.example.tastyindia.utils.onClickBackFromNavigation
 

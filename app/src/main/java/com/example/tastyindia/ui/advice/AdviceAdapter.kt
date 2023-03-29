@@ -6,8 +6,8 @@ import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Advice
 import com.example.tastyindia.databinding.ItemAdvicesBinding
-import com.example.tastyindia.ui.BaseAdapter
-import com.example.tastyindia.ui.BaseInteractionListener
+import com.example.tastyindia.ui.base.BaseAdapter
+import com.example.tastyindia.ui.base.BaseInteractionListener
 
 class AdviceAdapter(
     private val advices: List<Advice>,

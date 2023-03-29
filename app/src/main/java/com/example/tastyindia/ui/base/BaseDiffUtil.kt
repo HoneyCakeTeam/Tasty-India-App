@@ -1,4 +1,4 @@
-package com.example.tastyindia.ui
+package com.example.tastyindia.ui.base
 
 import androidx.recyclerview.widget.DiffUtil
 

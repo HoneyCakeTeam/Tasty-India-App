@@ -14,7 +14,7 @@ import com.example.tastyindia.databinding.LayoutEasyCategoryBinding
 import com.example.tastyindia.databinding.LayoutFastFoodCategoryBinding
 import com.example.tastyindia.databinding.LayoutHealthCategoryBinding
 import com.example.tastyindia.databinding.LayoutImagePosterBinding
-import com.example.tastyindia.ui.BaseInteractionListener
+import com.example.tastyindia.ui.base.BaseInteractionListener
 
 @Suppress("UNCHECKED_CAST")
 class MainCategoryAdapter(

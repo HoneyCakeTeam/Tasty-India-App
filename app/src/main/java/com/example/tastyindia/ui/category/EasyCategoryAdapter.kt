@@ -6,7 +6,7 @@ import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemEasyCategoryBinding
-import com.example.tastyindia.ui.BaseAdapter
+import com.example.tastyindia.ui.base.BaseAdapter
 
 class EasyCategoryAdapter(
     private val easyRecipes: List<Recipe>,

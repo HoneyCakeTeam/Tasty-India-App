@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.tastyindia.data.domain.HomeCategoriesModel
 import com.example.tastyindia.databinding.ItemHomeCategoriesBinding
-import com.example.tastyindia.ui.BaseAdapter
-import com.example.tastyindia.ui.BaseInteractionListener
+import com.example.tastyindia.ui.base.BaseAdapter
+import com.example.tastyindia.ui.base.BaseInteractionListener
 
 class HomeCategoriesAdapter(
     private val categories: List<HomeCategoriesModel>,

@@ -1,49 +1,37 @@
 package com.example.tastyindia.ui.home
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.HomeCategoriesModel
-import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemHomeCategoriesBinding
-import com.example.tastyindia.databinding.ItemHomeRecommendationsBinding
+import com.example.tastyindia.ui.BaseAdapter
+import com.example.tastyindia.ui.BaseInteractionListener
 
 class HomeCategoriesAdapter(
-    private val list: List<HomeCategoriesModel>,
-    private val listener:HomeCategoriesInteractionListener
-)
-    : RecyclerView.Adapter<HomeCategoriesAdapter.HomeCategoriesViewHolder>(){
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCategoriesViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_home_categories,parent,false)
-        return HomeCategoriesViewHolder(view)
-    }
+    private val categories: List<HomeCategoriesModel>,
+    private val listener: HomeCategoriesInteractionListener
+) : BaseAdapter<HomeCategoriesModel, ItemHomeCategoriesBinding>(categories, listener) {
 
 
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> ItemHomeCategoriesBinding
+        get() = ItemHomeCategoriesBinding::inflate
 
-    override fun onBindViewHolder(holder: HomeCategoriesViewHolder, position: Int) {
-        val currentCategory = list[position]
+    override fun onBindViewHolder(
+        holder: BaseViewHolder<ItemHomeCategoriesBinding>,
+        position: Int,
+        currentItem: HomeCategoriesModel
+    ) {
         holder.binding.apply {
-            tvItemHomeCategory.text = currentCategory.categoryName
-            imgHomeCategory.setImageResource(currentCategory.categoryImage)
-            root.setOnClickListener{
-                listener.onClickCategory(currentCategory.categoryName)
+            tvItemHomeCategory.text = currentItem.categoryName
+            imgHomeCategory.setImageResource(currentItem.categoryImage)
+            root.setOnClickListener {
+                listener.onClickCategory(currentItem.categoryName)
             }
         }
     }
 
-    class HomeCategoriesViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        val binding = ItemHomeCategoriesBinding.bind(itemView)
-    }
-
-    override fun getItemCount() = list.size
-
-    interface HomeCategoriesInteractionListener{
-        fun onClickCategory(categoryName:String)
+    interface HomeCategoriesInteractionListener : BaseInteractionListener {
+        fun onClickCategory(categoryName: String)
     }
 
 }

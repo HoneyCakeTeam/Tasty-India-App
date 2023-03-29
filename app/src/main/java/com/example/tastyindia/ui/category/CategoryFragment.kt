@@ -17,7 +17,8 @@ import com.example.tastyindia.utils.CsvParser
 import com.example.tastyindia.utils.onClickBackFromNavigation
 
 
-class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryInteractionListener {
+class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
+    MainCategoryAdapter.CategoryInteractionListener {
 
     private val dataSource by lazy { CsvDataSource(requireContext(), CsvParser()) }
     private val dataManager: DataManagerInterface by lazy { DataManager(dataSource) }

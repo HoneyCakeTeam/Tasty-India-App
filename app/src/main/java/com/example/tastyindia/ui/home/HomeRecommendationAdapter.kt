@@ -2,44 +2,42 @@ package com.example.tastyindia.ui.home
 
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemHomeRecommendationsBinding
+import com.example.tastyindia.ui.BaseAdapter
+import com.example.tastyindia.ui.BaseInteractionListener
 
-class HomeRecommendationAdapter(val list: List<Recipe>, private val listener: HomeRecommendationsListener)
-    : RecyclerView.Adapter<HomeRecommendationAdapter.HomeRecommendationViewHolder>() {
+class HomeRecommendationAdapter(
+    private val recommendedRecipes: List<Recipe>,
+    private val listener: HomeRecommendationsListener
+) : BaseAdapter<Recipe, ItemHomeRecommendationsBinding>(recommendedRecipes, listener) {
 
-    class HomeRecommendationViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
-        val binding = ItemHomeRecommendationsBinding.bind(viewItem)
+    interface HomeRecommendationsListener : BaseInteractionListener {
+        fun onClickRecommendationRecipe(id: Int)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeRecommendationViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_recommendations, parent, false)
-        return HomeRecommendationViewHolder(view)
-    }
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> ItemHomeRecommendationsBinding
+        get() = ItemHomeRecommendationsBinding::inflate
 
-    override fun onBindViewHolder(holder: HomeRecommendationViewHolder, position: Int) {
-        val currentMeal = list[position]
+    override fun onBindViewHolder(
+        holder: BaseViewHolder<ItemHomeRecommendationsBinding>,
+        position: Int,
+        currentItem: Recipe
+    ) {
         holder.binding.apply {
-            tvHomeRecommendationRecipeName.text = currentMeal.recipeName
-            tvHomeRecommendationKitchenName.text = currentMeal.cuisine
-            Glide.with(root).load(currentMeal.imageUrl)
+            tvHomeRecommendationRecipeName.text = currentItem.recipeName
+            tvHomeRecommendationKitchenName.text = currentItem.cuisine
+            Glide.with(root).load(currentItem.imageUrl)
                 .error(R.drawable.ic_launcher_background)
                 .into(ivHomeRecommendationRecipeImage)
 
             root.setOnClickListener {
-                listener.onClickRecommendationRecipe(currentMeal.id)
+                listener.onClickRecommendationRecipe(currentItem.id)
             }
         }
-    }
-
-    override fun getItemCount() = list.size
-    interface HomeRecommendationsListener {
-        fun onClickRecommendationRecipe(id: Int)
     }
 
 }

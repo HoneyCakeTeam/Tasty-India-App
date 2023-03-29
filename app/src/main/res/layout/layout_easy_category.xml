@@ -25,6 +25,8 @@
             android:layout_height="wrap_content"
             style="@style/TextStyleSeeAll"
             android:text="@string/see_all"
+            android:gravity="center_vertical"
+            app:drawableEndCompat="@drawable/ic_see_all"
             />
 
     </LinearLayout>
@@ -37,7 +39,7 @@
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/padding_medium"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_fast_food_category" />
+        tools:listitem="@layout/item_easy_category" />
 
 
 

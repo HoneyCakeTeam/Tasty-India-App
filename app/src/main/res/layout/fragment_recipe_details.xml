@@ -20,6 +20,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_layout"
+        style="@style/backgroundRecipeDetails"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_negative"
@@ -45,12 +46,12 @@
 
         <TextView
             android:id="@+id/tv_time_to_cook_recipe"
+            style="@style/textRecipeDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_giant"
             android:text="@string/time"
             android:fontFamily="@font/ubuntu_regular"
-            android:textColor="@color/black_87"
             android:textSize="@dimen/text_small"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toStartOf="@+id/view"
@@ -64,7 +65,6 @@
             android:layout_marginStart="@dimen/margin_giant"
             android:text="@string/easy"
             android:fontFamily="@font/ubuntu_regular"
-            android:textColor="@color/black_87"
             android:textSize="@dimen/text_small"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintStart_toEndOf="@+id/view"
@@ -72,10 +72,10 @@
 
         <com.google.android.material.divider.MaterialDivider
             android:id="@+id/view"
+            style="@style/dividerRecipeDetails"
             android:layout_width="2dp"
             android:layout_height="40dp"
             android:layout_marginTop="@dimen/margin_medium"
-            android:background="@color/black_60"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_recipe_name" />
@@ -93,6 +93,7 @@
             app:layout_constraintTop_toBottomOf="@+id/view"
             tools:listitem="@layout/item_recipe_details" />
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
@@ -105,5 +106,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="@string/back_button_description" />
-    
+
 </androidx.constraintlayout.motion.widget.MotionLayout>

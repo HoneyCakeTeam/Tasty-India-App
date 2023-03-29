@@ -33,12 +33,13 @@
             android:background="@drawable/recipe_of_week_item_shadow"
             app:layout_constraintBottom_toBottomOf="parent" />
         <TextView
+            style="@style/headerStyle"
             android:id="@+id/tv_home_item_recipes_of_week"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_large"
+            android:textColor="@color/white_200"
             android:fontFamily="@font/poppins_semi_bold"
-            android:textColor="@color/white_100"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

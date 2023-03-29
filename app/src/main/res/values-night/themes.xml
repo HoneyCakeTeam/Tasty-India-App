@@ -1,33 +1,227 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <!--Primary-->
+        <item name="colorPrimary">@color/primary_200</item>
+        <item name="colorOnPrimary">@color/primary_500</item>
+        <item name="colorPrimaryContainer">@color/primary_300</item>
+        <item name="colorOnPrimaryContainer">@color/primary_200</item>
+        <!--Secondary-->
+        <item name="colorSecondary">@color/primary_200</item>
+        <item name="colorOnSecondary">@color/white_300</item>
+        <item name="colorSecondaryContainer">@color/white_100</item>
+        <item name="colorOnSecondaryContainer">@color/primary_100</item>
+        <!--Tertiary-->
+        <item name="colorTertiary">@color/primary_200</item>
+        <item name="colorOnTertiary">@color/primary_500</item>
+        <item name="colorTertiaryContainer">@color/primary_400</item>
+        <item name="colorOnTertiaryContainer">@color/primary_100</item>
+        <!--Surface & Background-->
+        <item name="colorOutline">@color/md_theme_dark_outline</item>
+        <item name="android:colorBackground">@color/md_theme_dark_background</item>
+        <item name="colorOnBackground">@color/md_theme_dark_onBackground</item>
+        <item name="colorSurface">@color/black_38</item>
+        <item name="colorOnSurface">@color/white_200</item>
+        <item name="colorSurfaceVariant">@color/white_300</item>
+        <item name="colorOnSurfaceVariant">@color/white_100</item>
+        <item name="colorSurfaceInverse">@color/white_200</item>
+        <item name="colorOnSurfaceInverse">@color/md_theme_dark_inverseOnSurface</item>
+        <item name="colorPrimaryInverse">@color/primary_300</item>
 
         <item name="android:fitsSystemWindows">true</item>
 
         <!-- Splash Screen-->
-        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/primary_400</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/primary_400
+        </item>
         <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">1000</item>
-        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@mipmap/ic_splash</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@mipmap/ic_splash
+        </item>
     </style>
 
     <style name="CategoriesCardImageStyle">
         <item name="cornerSize">16dp</item>
-        <item name="android:scaleType">fitXY</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="CircleImageStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 
     <style name="ThemeOverlay.search" parent="Widget.AppCompat.SearchView">
         <!-- Text color -->
         <item name="android:editTextColor">@color/black_60</item>
         <!-- Hint text color -->
-        <item name="android:textColorHint">@color/white_200</item>
+        <item name="android:textColorHint">@color/white_100</item>
         <item name="queryBackground">@android:color/transparent</item>
         <item name="submitBackground">@android:color/transparent</item>
-        <item name="searchHintIcon">@null</item>
-        <item name="searchIcon">@null</item>
+        <item name="android:searchHintIcon">@color/white_100</item>
+        <item name="android:searchIcon">@drawable/ic_search_dark</item>
     </style>
 
-    <style name="homeRecommendationCardImageStyle">
-        <item name="cornerSize">24dp</item>
-        <item name="android:scaleType">centerCrop</item>
+    <style name="titleTextInKitchenInfoStyle" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:layout_marginBottom">@dimen/margin_small</item>
+        <item name="android:textSize">@dimen/text_medium</item>
     </style>
+
+    <style name="bodyTextInKitchenInfoStyle" parent="titleTextInKitchenInfoStyle">
+        <item name="android:fontFamily">@font/poppins_reguler</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:layout_marginBottom">@dimen/zero_dimens</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <style name="linearLayoutStyle" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="recipeTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+    </style>
+
+    <style name="Ingredients" parent="recipeTextView">
+        <item name="android:layout_marginStart">@dimen/margin_small</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+    </style>
+
+    <style name="appBarTextStyle">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:layout_margin">@dimen/margin_small</item>
+        <item name="android:padding">@dimen/padding_tiny</item>
+        <item name="android:textColor">@color/white_100</item>
+
+    </style>
+
+    <style name="mealsTextStyle">
+
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:padding">@dimen/padding_tiny</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:layout_margin">@dimen/margin_medium</item>
+    </style>
+
+    <style name="home_recycle_header_text_style" parent="">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_medium</item>
+    </style>
+
+    <style name="home_see_all_text_style" parent="">
+        <item name="android:fontFamily">@font/ubuntu_reguler</item>
+        <item name="android:textColor">@color/primary_500</item>
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
+    </style>
+
+    <style name="ImageCornerCategories">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="TextStyleCategories">
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textColor">@color/white_200</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="TextStyleSeeAll">
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:fontFamily">@font/ubuntu_reguler</item>
+        <item name="android:textColor">@color/primary_500</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <style name="TextStyleNameCategories">
+        <item name="android:fontFamily">@font/poppins_reguler</item>
+        <item name="android:textColor">@color/white_300</item>
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="TextStyleNumberCategories">
+        <item name="android:fontFamily">@font/ubuntu_medium</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:layout_marginEnd">2dp</item>
+    </style>
+
+    <style name="HomeRecycleViewStyle">
+
+        <item name="android:clipToPadding">false</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="HomeCategoriesCardStyle">
+        <item name="android:layout_marginEnd">@dimen/margin_small</item>
+        <item name="android:layout_marginBottom">@dimen/margin_tiny</item>
+        <item name="android:backgroundTint">@color/white_300</item>
+    </style>
+
+    <style name="HomeCategoriesCardImageStyle">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:background">@mipmap/ic_soup</item>
+        <item name="android:hardwareAccelerated">false</item>
+    </style>
+
+    <style name="HomeCategoriesCardNameStyle">
+        <item name="android:layout_gravity">bottom|center_horizontal</item>
+        <item name="android:layout_marginBottom">@dimen/margin_small</item>
+        <item name="android:fontFamily">@font/ubuntu_reguler</item>
+        <item name="android:paddingBottom">@dimen/padding_tiny</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="ItemRecipeSquaredTextStyle">
+        <item name="android:fontFamily">@font/ubuntu_reguler</item>
+        <item name="android:layout_gravity">center_horizontal|bottom</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:layout_marginVertical">@dimen/margin_medium</item>
+        <item name="android:layout_marginHorizontal">@dimen/margin_small</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="headerStyle" parent="">
+        <item name="android:textColor">@color/white_100</item>
+    </style>
+
+    <style name="bottomNavigation" parent="">
+        <item name="backgroundTint">@color/black_8</item>
+    </style>
+
+    <style name="AppTheme.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/primary_500</item>
+    </style>
+
+    <style name="backgroundRecipeDetails" parent="">
+        <item name="android:backgroundTint">@color/md_theme_dark_background</item>
+    </style>
+
+    <style name="textRecipeDetails" parent="">
+        <item name="android:textColor">@color/white_100</item>
+    </style>
+
+    <style name="dividerRecipeDetails" parent="">
+        <item name="dividerColor">@color/primary_500</item>
+    </style>
+
 </resources>

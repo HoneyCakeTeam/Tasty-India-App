@@ -40,6 +40,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_home_recommendation"
         tools:listitem="@layout/item_home_recommendations"/>
-
-    add
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="?actionBarSize"
-    android:background="@color/white_200">
+    android:layout_height="?actionBarSize">
 
     <ImageButton
         android:id="@+id/button_navDirection"
@@ -17,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        style="@style/headerStyle"
         android:id="@+id/text_pageTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

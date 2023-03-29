@@ -1,52 +1,41 @@
 package com.example.tastyindia.ui.category
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemEasyCategoryBinding
+import com.example.tastyindia.ui.base.BaseAdapter
 
-class EasyCategoryAdapter(private val easyList:List<Recipe >, private val listener: CategoryInteractionListener) :
-    RecyclerView.Adapter<EasyCategoryAdapter.EasyViewHolder>() {
+class EasyCategoryAdapter(
+    private val easyRecipes: List<Recipe>,
+    private val listener: MainCategoryAdapter.CategoryInteractionListener
+) :
+    BaseAdapter<Recipe, ItemEasyCategoryBinding>(easyRecipes, listener) {
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> ItemEasyCategoryBinding
+        get() = ItemEasyCategoryBinding::inflate
 
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): EasyViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_easy_category, parent, false)
-        return EasyViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: EasyViewHolder, position: Int) {
-        val currentEasy = easyList[position]
+    override fun onBindViewHolder(
+        holder: BaseViewHolder<ItemEasyCategoryBinding>,
+        position: Int,
+        currentItem: Recipe
+    ) {
         holder.binding.apply {
-            tvName.text = currentEasy.recipeName
-            tvCount.text = currentEasy.ingredientsCount.toString()
+            tvName.text = currentItem.recipeName
+            tvCount.text = currentItem.ingredientsCount.toString()
             Glide
                 .with(holder.binding.root)
-                .load(currentEasy.imageUrl)
+                .load(currentItem.imageUrl)
                 .placeholder(R.drawable.ic_error)
                 .into(easyImage)
 
             root.setOnClickListener {
-                listener.onClickRecipe(currentEasy.id)
+                listener.onClickRecipe(currentItem.id)
             }
         }
-
-
     }
 
-    override fun getItemCount(): Int = easyList.size
-
-    class EasyViewHolder(viewItem: View) : ViewHolder(viewItem) {
-        val binding = ItemEasyCategoryBinding.bind(viewItem)
-    }
 }
 
 

@@ -14,6 +14,7 @@ import com.example.tastyindia.databinding.LayoutEasyCategoryBinding
 import com.example.tastyindia.databinding.LayoutFastFoodCategoryBinding
 import com.example.tastyindia.databinding.LayoutHealthCategoryBinding
 import com.example.tastyindia.databinding.LayoutImagePosterBinding
+import com.example.tastyindia.ui.base.BaseInteractionListener
 
 @Suppress("UNCHECKED_CAST")
 class MainCategoryAdapter(
@@ -141,6 +142,11 @@ class MainCategoryAdapter(
         private const val VIEW_TYPE_CATEGORY_HEALTHY = 2
         private const val VIEW_TYPE_CATEGORY_FAST = 3
         private const val VIEW_TYPE_CATEGORY_EASY = 4
+    }
+
+    interface CategoryInteractionListener : BaseInteractionListener {
+        fun onClickRecipe(recipeId: Int)
+        fun onClickSeeAll(type: SeeAllRecipesType)
     }
 }
 

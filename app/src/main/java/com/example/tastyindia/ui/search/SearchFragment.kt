@@ -8,7 +8,7 @@ import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentSearchBinding
-import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.base.BaseFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.CsvParser
 import com.example.tastyindia.utils.onClickBackFromNavigation
@@ -19,7 +19,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     private lateinit var dataSource: CsvDataSource
     private lateinit var dataManager: DataManagerInterface
     private lateinit var adapter: SearchAdapter
-    override val TAG: String = "SearchFragment"
+    override val TAG: String = this::class.java.simpleName.toString()
     override fun getViewBinding() = FragmentSearchBinding.inflate(layoutInflater)
 
     override fun setUp() {

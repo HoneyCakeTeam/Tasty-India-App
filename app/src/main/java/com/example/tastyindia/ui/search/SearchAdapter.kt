@@ -14,7 +14,7 @@ class SearchAdapter(
     private val listener: RecipeInteractionListener
 ) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
-    private  var RecipesList = arrayListOf<Recipe>()
+    private var recipes = arrayListOf<Recipe>()
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
@@ -25,14 +25,14 @@ class SearchAdapter(
     }
 
     fun setData(newRecipesList: List<Recipe>) {
-        val diffCallback = RecipeDiffUtil(RecipesList, newRecipesList)
+        val diffCallback = RecipeDiffUtil(recipes, newRecipesList)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
-        RecipesList = newRecipesList as ArrayList<Recipe>
+        recipes = newRecipesList as ArrayList<Recipe>
         diffResult.dispatchUpdatesTo(this)
     }
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
-        val currentRecipe = RecipesList[position]
+        val currentRecipe = recipes[position]
         holder.binding.apply {
             tvRecipeName.text = currentRecipe.recipeName
             tvRecipeCuisine.text = currentRecipe.cuisine
@@ -43,7 +43,7 @@ class SearchAdapter(
 
     }
 
-    override fun getItemCount() = RecipesList.size
+    override fun getItemCount() = recipes.size
 
     class SearchViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
         val binding = ItemSearchSquaredBinding.bind(itemView)

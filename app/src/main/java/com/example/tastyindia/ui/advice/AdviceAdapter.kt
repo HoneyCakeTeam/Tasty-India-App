@@ -1,38 +1,38 @@
 package com.example.tastyindia.ui.advice
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Advice
 import com.example.tastyindia.databinding.ItemAdvicesBinding
+import com.example.tastyindia.ui.base.BaseAdapter
+import com.example.tastyindia.ui.base.BaseInteractionListener
 
-class AdviceAdapter(val list: List<Advice>) :
-    RecyclerView.Adapter<AdviceAdapter.AdviceViewHolder>() {
+class AdviceAdapter(
+    private val advices: List<Advice>,
+    private val listener: AdvicesInteractionListener
+) :
+    BaseAdapter<Advice, ItemAdvicesBinding>(advices, listener) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdviceViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_advices, parent, false)
-        return AdviceViewHolder(view)
-    }
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> ItemAdvicesBinding
+        get() = ItemAdvicesBinding::inflate
 
-    override fun onBindViewHolder(holder: AdviceViewHolder, position: Int) {
-        val currentAdvice = list[position]
+    override fun onBindViewHolder(
+        holder: BaseViewHolder<ItemAdvicesBinding>,
+        position: Int,
+        currentItem: Advice
+    ) {
         holder.binding.apply {
-            adviceText.text = currentAdvice.text
+            adviceText.text = currentItem.text
             Glide
                 .with(holder.binding.root)
-                .load(currentAdvice.url)
+                .load(currentItem.url)
                 .placeholder(R.drawable.ic_error)
                 .into(imgVeg)
         }
     }
 
-    override fun getItemCount(): Int = list.size
+    interface AdvicesInteractionListener : BaseInteractionListener
 
-    inner class AdviceViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem) {
-        val binding = ItemAdvicesBinding.bind(viewItem)
-    }
 }

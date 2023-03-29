@@ -1,16 +1,14 @@
 package com.example.tastyindia.ui.kitchen
 
 import android.os.Bundle
-import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.KitchenInfo
-import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentKitchenInfoBinding
-import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.base.BaseFragment
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_IMAGE_URL
 import com.example.tastyindia.utils.Constants.Key.KITCHEN_NAME
 import com.example.tastyindia.utils.CsvParser

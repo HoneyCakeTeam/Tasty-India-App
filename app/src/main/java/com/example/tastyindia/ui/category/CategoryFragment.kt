@@ -10,14 +10,15 @@ import com.example.tastyindia.data.domain.enums.CategoryItemType
 import com.example.tastyindia.data.domain.enums.SeeAllRecipesType
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentCategoryBinding
-import com.example.tastyindia.ui.BaseFragment
+import com.example.tastyindia.ui.base.BaseFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import com.example.tastyindia.utils.CsvParser
 import com.example.tastyindia.utils.onClickBackFromNavigation
 
 
-class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryInteractionListener {
+class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
+    MainCategoryAdapter.CategoryInteractionListener {
 
     private val dataSource by lazy { CsvDataSource(requireContext(), CsvParser()) }
     private val dataManager: DataManagerInterface by lazy { DataManager(dataSource) }

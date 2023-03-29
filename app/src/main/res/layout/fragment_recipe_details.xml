@@ -93,7 +93,17 @@
             app:layout_constraintTop_toBottomOf="@+id/view"
             tools:listitem="@layout/item_recipe_details" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="@dimen/margin_medium"
+        android:src="@drawable/ic_arrow"
+        android:background="@drawable/circle_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/back_button_description" />
+    
 </androidx.constraintlayout.motion.widget.MotionLayout>

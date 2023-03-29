@@ -59,8 +59,6 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
 
         binding.rvIngredients.adapter = adapter
         binding.rvIngredients.layoutManager = LinearLayoutManager(context)
-
-        setUpAppBar(true, "", true)
         navigateToHomeFragment()
 
         setRecipeName(recipeName, binding.tvRecipeName)

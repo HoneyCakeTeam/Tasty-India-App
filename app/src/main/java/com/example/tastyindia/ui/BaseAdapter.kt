@@ -25,7 +25,7 @@ abstract class BaseAdapter<T, VB : ViewBinding>(
         onBindViewHolder(holder, position, currentItem)
     }
 
-    abstract fun onBindViewHolder(holder: BaseViewHolder<VB>, position: Int, item: T)
+    abstract fun onBindViewHolder(holder: BaseViewHolder<VB>, position: Int, currentItem: T)
     override fun getItemCount() = items.size
 
     class BaseViewHolder<VB : ViewBinding>(val binding: VB) : RecyclerView.ViewHolder(binding.root)

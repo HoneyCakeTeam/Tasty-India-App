@@ -13,13 +13,13 @@
         android:background="@drawable/cirecle_view" />
 
     <TextView
+        style="@style/textRecipeDetails"
         android:id="@+id/tv_recipe_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_small"
         android:fontFamily="@font/ubuntu_reguler"
         android:text="@string/_1_2_cup_all_purpose_flour"
-        android:textColor="@color/black_60"
         android:textSize="@dimen/text_small" />
 
 </LinearLayout>

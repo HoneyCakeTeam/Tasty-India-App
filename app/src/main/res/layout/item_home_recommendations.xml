@@ -23,10 +23,10 @@
                 android:id="@+id/iv_home_recommendation_recipe_image"
                 android:layout_width="150dp"
                 android:layout_height="165dp"
-                android:scaleType="centerCrop"
-                app:shapeAppearanceOverlay="@style/homeRecommendationCardImageStyle" />
+                android:scaleType="centerCrop" />
 
             <TextView
+                style="@style/headerStyle"
                 android:id="@+id/tv_home_recommendation_recipe_name"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
@@ -36,10 +36,10 @@
                 android:lines="1"
                 android:ellipsize="end"
                 android:text="Creamy Pasta"
-                android:textColor="@color/black_60"
                 android:textSize="@dimen/text_medium" />
 
             <TextView
+                style="@style/headerStyle"
                 android:id="@+id/tv_home_recommendation_kitchen_name"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
@@ -50,7 +50,6 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/ubuntu_reguler"
                 android:text="Indian Cusine"
-                android:textColor="@color/black_60"
                 android:textSize="@dimen/text_tiny" />
 
         </LinearLayout>

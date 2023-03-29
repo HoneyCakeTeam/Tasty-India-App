@@ -6,7 +6,6 @@
         android:id="@+id/item_home_categories"
         android:layout_width="@dimen/category_card_dimens"
         android:layout_height="@dimen/category_card_dimens"
-        android:backgroundTint="@color/white_300"
         app:cardCornerRadius="@dimen/radius_semi_medium"
         android:layout_marginEnd="@dimen/margin_small"
         android:layout_marginBottom="@dimen/margin_tiny"
@@ -29,11 +28,11 @@
             android:layout_marginTop="@dimen/margin_small"
         />
         <TextView
+            style="@style/headerStyle"
             android:id="@+id/tv_item_home_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_medium"
-            android:textColor="@color/black_38"
             android:fontFamily="@font/ubuntu_reguler"
             tool:text="Chicken"
             android:layout_gravity="center_horizontal"

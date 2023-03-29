@@ -1,4 +1,5 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
         <!--Primary-->
         <item name="colorPrimary">@color/primary_500</item>
@@ -19,7 +20,7 @@
         <item name="colorOutline">@color/md_theme_light_outline</item>
         <item name="android:colorBackground">@color/white_100</item>
         <item name="colorOnBackground">@color/black_60</item>
-        <item name="colorSurface">@color/white_200</item>
+        <item name="colorSurface">@color/white_300</item>
         <item name="colorOnSurface">@color/black_60</item>
         <item name="colorSurfaceVariant">@color/white_300</item>
         <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
@@ -79,7 +80,7 @@
     </style>
 
     <style name="recipeTextView" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/black_60</item>
+        <item name="android:textColor">@color/black_87</item>
         <item name="android:textSize">@dimen/text_medium</item>
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
     </style>
@@ -199,6 +200,26 @@
         <item name="android:layout_marginVertical">@dimen/margin_medium</item>
         <item name="android:layout_marginHorizontal">@dimen/margin_small</item>
         <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="bottomNavigation" parent="">
+        <item name="backgroundTint">@color/white_100</item>
+    </style>
+
+    <style name="headerStyle" parent="">
+        <item name="android:textColor">@color/black_87</item>
+    </style>
+
+    <style name="backgroundRecipeDetails" parent="">
+        <item name="android:backgroundTint">@color/white_100</item>
+    </style>
+
+    <style name="textRecipeDetails" parent="">
+        <item name="android:textColor">@color/black_60</item>
+    </style>
+
+    <style name="dividerRecipeDetails" parent="">
+        <item name="android:background">@color/black_60</item>
     </style>
 
 </resources>

@@ -7,20 +7,22 @@ import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentAdvicesBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.utils.CsvParser
+import com.example.tastyindia.utils.onClickBackFromNavigation
 
 class AdvicesFragment : BaseFragment<FragmentAdvicesBinding>() {
-    private lateinit var dataSource: CsvDataSource
-    private lateinit var dataManager: DataManagerInterface
+    private val dataSource by lazy { CsvDataSource(requireContext(), CsvParser()) }
+    private val dataManager: DataManagerInterface by lazy { DataManager(dataSource) }
     override val TAG: String = this::class.java.simpleName
     override fun getViewBinding(): FragmentAdvicesBinding =
         FragmentAdvicesBinding.inflate(layoutInflater)
 
     override fun setUp() {
         setUpAppBar(true, getString(R.string.advices))
-        dataSource = CsvDataSource(requireContext(), CsvParser())
-        dataManager = DataManager(dataSource)
+
         val adviceAdapter = AdviceAdapter(dataManager.getAdvicesList())
         binding.recyclerAdvices.adapter = adviceAdapter
+
+        onClickBackFromNavigation()
     }
 
 }

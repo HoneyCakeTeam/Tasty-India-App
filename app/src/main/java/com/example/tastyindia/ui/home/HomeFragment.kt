@@ -1,7 +1,6 @@
 package com.example.tastyindia.ui.home
 
 
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
@@ -16,6 +15,7 @@ import com.example.tastyindia.ui.categorydetails.CategoryDetailsFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import com.example.tastyindia.utils.CsvParser
+import com.example.tastyindia.utils.onClickBackFromNavigation
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     HomeRecommendationAdapter.HomeRecommendationsListener,
@@ -23,8 +23,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     HomeCategoriesAdapter.HomeCategoriesInteractionListener,
     HomeAdapter.HomeSeeAllListener {
 
-    private lateinit var dataSource: CsvDataSource
-    private lateinit var dataManager: DataManagerInterface
+    private val dataSource by lazy { CsvDataSource(requireContext(), CsvParser()) }
+    private val dataManager: DataManagerInterface by lazy { DataManager(dataSource) }
 
     override val TAG: String = "HomeFragment"
 
@@ -32,8 +32,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         FragmentHomeBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        dataSource = CsvDataSource(requireContext(), CsvParser())
-        dataManager = DataManager(dataSource)
         addCallbacks()
         setUpAppBar(false)
 
@@ -77,12 +75,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     }
 
     private fun addCallbacks() {
+        onClickBackFromNavigation()
     }
 
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = requireActivity().supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(com.example.tastyindia.R.id.fragmentContainerView, fragment).addToBackStack(null)
+        fragmentTransaction.replace(com.example.tastyindia.R.id.fragmentContainerView, fragment)
+            .addToBackStack(null)
         fragmentTransaction.commit()
     }
 
@@ -94,13 +94,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     override fun onClickRecommendationRecipe(id: Int) {
         val recipeDetailsFragment = RecipeDetailsFragment.newInstance(id)
         replaceFragment(recipeDetailsFragment)
-        Toast.makeText(requireContext(), "$id", Toast.LENGTH_SHORT).show()
     }
 
     override fun onClickRecipeOfWeek(id: Int) {
         val recipeDetailsFragment = RecipeDetailsFragment.newInstance(id)
         replaceFragment(recipeDetailsFragment)
-        Toast.makeText(requireContext(), "$id", Toast.LENGTH_SHORT).show()
     }
 
     override fun onClickHomeSeeAll(type: SeeAllRecipesType) {

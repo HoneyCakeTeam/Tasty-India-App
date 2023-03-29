@@ -24,6 +24,7 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
     override fun getRecommendationFirstRecipeId(): Int {
         return Random.nextInt(0, listOfRecipe.size - 31)
     }
+
     override fun getRecipesOfWeekFirstRecipeId(): Int {
         return Random.nextInt(0, listOfRecipe.size - 31)
     }
@@ -110,6 +111,7 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
             HomeCategoriesModel("Chicken", R.drawable.ic_chicken),
             HomeCategoriesModel("Meat", R.drawable.ic_meal),
             HomeCategoriesModel("Soup", R.drawable.ic_soup),
+            HomeCategoriesModel("Fish", R.drawable.ic_sea_food),
             HomeCategoriesModel("Spicy", R.drawable.ic_spicy)
         )
 
@@ -206,7 +208,7 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
     )
     //endregion
 
-    override fun getRandomImageInCategory(): String  = listOfRecipe.random().imageUrl
+    override fun getRandomImageInCategory(): String = listOfRecipe.random().imageUrl
 
 
 }

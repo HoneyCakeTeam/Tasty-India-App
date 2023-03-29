@@ -127,7 +127,7 @@ class HomeAdapter(
 
 
     interface HomeSeeAllListener {
-        fun onClickHomeSeeAll(name: SeeAllRecipesType)
+        fun onClickHomeSeeAll(type: SeeAllRecipesType)
     }
 
 }

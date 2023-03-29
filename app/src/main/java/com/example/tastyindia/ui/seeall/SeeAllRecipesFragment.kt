@@ -2,8 +2,6 @@ package com.example.tastyindia.ui.seeall
 
 import android.os.Build
 import android.os.Bundle
-import android.widget.ImageButton
-import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
@@ -16,6 +14,8 @@ import com.example.tastyindia.ui.HomeActivity
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.Constants.Key.RECIPE_LIST
 import com.example.tastyindia.utils.CsvParser
+import com.example.tastyindia.utils.onClickBack
+import com.example.tastyindia.utils.replaceFragment
 
 class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
     SeeAllRecipesAdapter.RecipeInteractionListener {
@@ -23,46 +23,56 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
     private val dataManager: DataManagerInterface by lazy { DataManager(dataSource) }
     private lateinit var recipeType: SeeAllRecipesType
     private lateinit var adapter: SeeAllRecipesAdapter
+    private lateinit var title: String
+    private lateinit var recipes: List<Recipe>
     override val TAG = this::class.simpleName.toString()
 
     override fun getViewBinding(): FragmentSeeAllRecipesBinding =
         FragmentSeeAllRecipesBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        getRecipesList()
-        setUpAppBar(true, recipeType.name)
-        adapter = SeeAllRecipesAdapter(getList(), this)
+        getRecipesType()
+        getList()
+        setUpAppBar(true, title, true)
+        adapter = SeeAllRecipesAdapter(recipes, this)
         binding.rvRecipes.adapter = adapter
         onClickBack()
     }
 
-    override fun onResume() {
-        super.onResume()
-        setUpAppBar(true, recipeType.name)
-
-    }
-    private fun getList(): List<Recipe> {
-        return when (recipeType) {
-            SeeAllRecipesType.TYPE_EASY_CATEGORY -> dataManager.getEasyRecipes()
-            SeeAllRecipesType.TYPE_HEALTHY_CATEGORY ->
-                dataManager.getHealthyRecipes(dataManager.getHealthyIngredients())
-            SeeAllRecipesType.TYPE_FAST_CATEGORY -> dataManager.getFastFoodRecipes()
-            SeeAllRecipesType.TYPE_HOME_RECOMMENDATION ->
-                dataManager.getListOfRecipeUsingRandomNumbers(
+    private fun getList() {
+        when (recipeType) {
+            SeeAllRecipesType.TYPE_EASY_CATEGORY -> {
+                recipes = dataManager.getEasyRecipes()
+                title = "Easy Food"
+            }
+            SeeAllRecipesType.TYPE_HEALTHY_CATEGORY -> {
+                recipes = dataManager.getHealthyRecipes(dataManager.getHealthyIngredients())
+                title = "Healthy Food"
+            }
+            SeeAllRecipesType.TYPE_FAST_CATEGORY -> {
+                recipes = dataManager.getFastFoodRecipes()
+                title = "Fast Food"
+            }
+            SeeAllRecipesType.TYPE_HOME_RECOMMENDATION -> {
+                recipes = dataManager.getListOfRecipeUsingRandomNumbers(
                     dataManager.getRandomNumbersInListOfRecipe(
                         (requireActivity() as HomeActivity).recommendationFirstRecipeId
                     )
                 )
-            SeeAllRecipesType.TYPE_RECIPES_OF_WEEK ->
-                dataManager.getListOfRecipeUsingRandomNumbers(
+                title = "Recommendations"
+            }
+            SeeAllRecipesType.TYPE_RECIPES_OF_WEEK -> {
+                recipes = dataManager.getListOfRecipeUsingRandomNumbers(
                     dataManager.getRandomNumbersInListOfRecipe(
                         (requireActivity() as HomeActivity).recipesOfWeekFirstRecipeId
                     )
                 )
+                title = "Recipes Of Week"
+            }
         }
     }
 
-    private fun getRecipesList(): SeeAllRecipesType {
+    private fun getRecipesType(): SeeAllRecipesType {
         arguments?.let {
             recipeType = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 it.getParcelable(RECIPE_LIST, SeeAllRecipesType::class.java)!!
@@ -87,20 +97,14 @@ class SeeAllRecipesFragment : BaseFragment<FragmentSeeAllRecipesBinding>(),
         replaceFragment(recipeDetailsFragment)
     }
 
-    private fun replaceFragment(fragment: Fragment) {
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.add(R.id.fragmentContainerView, fragment).addToBackStack(null)
-        transaction.commit()
-    }
-
     override fun onClickRecipe(recipeId: Int) {
         navigateToRecipeDetailsFragmentWithSelectedRecipeData(recipeId)
     }
-    private fun onClickBack() {
+    /*private fun onClickBack() {
         activity?.findViewById<ImageButton>(R.id.button_navDirection)?.let { navigateIcon ->
             navigateIcon.setOnClickListener {
                 requireActivity().onBackPressed()
             }
-        }}
+        }}*/
 
 }

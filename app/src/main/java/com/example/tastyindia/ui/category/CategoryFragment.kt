@@ -14,12 +14,13 @@ import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import com.example.tastyindia.utils.CsvParser
+import com.example.tastyindia.utils.onClickBackFromNavigation
 
 
 class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryInteractionListener {
 
-    private lateinit var dataSource: CsvDataSource
-    private lateinit var dataManager: DataManagerInterface
+    private val dataSource by lazy { CsvDataSource(requireContext(), CsvParser()) }
+    private val dataManager: DataManagerInterface by lazy { DataManager(dataSource) }
     private lateinit var allCategoriesAdapter: MainCategoryAdapter
 
     override val TAG: String = this::class.simpleName.toString()
@@ -29,8 +30,6 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryIntera
 
     override fun setUp() {
         setUpAppBar(true, getString(R.string.categories_page_title))
-        dataSource = CsvDataSource(requireContext(), CsvParser())
-        dataManager = DataManager(dataSource)
 
         val healthyIngredients = dataManager.getHealthyIngredients()
         val listHealthy = dataManager.getHealthyRecipes(healthyIngredients)
@@ -47,12 +46,12 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(), CategoryIntera
         itemList.add(CategoryItem(listEasy, CategoryItemType.TYPE_EASY_CATEGORY))
         allCategoriesAdapter = MainCategoryAdapter(itemList, this)
         binding.rvCategories.adapter = allCategoriesAdapter
-
+        onClickBackFromNavigation()
     }
 
     override fun onClickRecipe(recipeId: Int) {
-      val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipeId)
-      replaceFragment(recipeDetailsFragment)
+        val recipeDetailsFragment = RecipeDetailsFragment.newInstance(recipeId)
+        replaceFragment(recipeDetailsFragment)
     }
 
     private fun replaceFragment(fragment: Fragment) {

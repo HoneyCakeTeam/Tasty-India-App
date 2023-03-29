@@ -6,12 +6,12 @@ import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
-import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentSearchBinding
 import com.example.tastyindia.ui.BaseFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.CsvParser
+import com.example.tastyindia.utils.onClickBackFromNavigation
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     SearchAdapter.RecipeInteractionListener, SearchView.OnQueryTextListener {
@@ -31,6 +31,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
 
     private fun addCallbacks() {
         addSearchListener()
+        onClickBackFromNavigation()
     }
 
     private fun addSearchListener() {

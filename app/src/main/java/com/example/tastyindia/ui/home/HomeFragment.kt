@@ -70,7 +70,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
             this,
             this
         )
-        binding.recyclevHome.adapter = adapter
+        binding.rvHome.adapter = adapter
 
     }
 

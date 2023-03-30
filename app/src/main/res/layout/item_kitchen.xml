@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="190dp"
     android:layout_marginBottom="@dimen/margin_small"
     android:layout_marginHorizontal="@dimen/margin_tiny"
     app:cardCornerRadius="@dimen/radius_medium"
@@ -27,21 +27,21 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/cuisine_background_shape"
+            android:layout_height="match_parent"
+            android:background="@drawable/card_gradiant"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            />
 
         <TextView
             android:id="@+id/tv_kitchenName"
-            android:layout_width="120dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_medium"
             android:fontFamily="@font/poppins_medium"
             android:textColor="@color/white_100"
             android:textSize="@dimen/text_large"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

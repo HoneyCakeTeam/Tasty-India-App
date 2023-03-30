@@ -4,11 +4,11 @@ import android.view.View
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
+import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentSearchBinding
-import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.CsvParser
 import com.example.tastyindia.utils.onClickBackFromNavigation
@@ -16,15 +16,13 @@ import com.example.tastyindia.utils.onClickBackFromNavigation
 class SearchFragment : BaseFragment<FragmentSearchBinding>(),
     SearchAdapter.RecipeInteractionListener, SearchView.OnQueryTextListener {
 
-    private lateinit var dataSource: CsvDataSource
-    private lateinit var dataManager: DataManagerInterface
+    private val dataSource by lazy { CsvDataSource(requireContext(), CsvParser()) }
+    private val dataManager: DataManagerInterface by lazy { DataManager(dataSource) }
     private lateinit var adapter: SearchAdapter
     override val TAG: String = this::class.java.simpleName.toString()
     override fun getViewBinding() = FragmentSearchBinding.inflate(layoutInflater)
 
     override fun setUp() {
-        dataSource = CsvDataSource(requireContext(), CsvParser())
-        dataManager = DataManager(dataSource)
         adapter = SearchAdapter(this)
         addCallbacks()
     }
@@ -61,7 +59,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
             imgSearch.visibility = if (query.isNotEmpty()) View.GONE else View.VISIBLE
             rvSearchResult.visibility = if (query.isNotEmpty()) View.VISIBLE else View.GONE
             imgSearchNotFound.visibility = if (result.isEmpty()) View.VISIBLE else View.GONE
-
+            tvSearchDescription.text =if (result.isEmpty()) "No Recipes with this name!!" else ""
         }
     }
 

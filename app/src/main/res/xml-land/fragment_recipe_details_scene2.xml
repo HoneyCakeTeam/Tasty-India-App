@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<MotionScene 
+<MotionScene xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:motion="http://schemas.android.com/apk/res-auto">
+    xmlns:motion="http://schemas.android.com/apk/res-auto"
+    tools:ignore="MissingDefaultResource">
 
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
         motion:duration="1000">
-       <KeyFrameSet>
-           <KeyAttribute
-               motion:motionTarget="@+id/iv_recipe"
-               motion:framePosition="100"
-               android:alpha="1" />
-       </KeyFrameSet>
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:motionTarget="@+id/iv_recipe"
+                motion:framePosition="100"
+                android:alpha="1" />
+        </KeyFrameSet>
         <OnSwipe motion:touchAnchorId="@+id/constraint_layout" />
     </Transition>
 

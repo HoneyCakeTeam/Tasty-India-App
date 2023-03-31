@@ -51,14 +51,18 @@
             android:layout_height="0dp"
             android:text="@string/popular_meals"
             android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
             app:layout_constraintEnd_toEndOf="@+id/image_cuisine"
             app:layout_constraintStart_toStartOf="@+id/image_cuisine"
             app:layout_constraintBottom_toTopOf="parent"/>
 
         <Constraint
             android:id="@+id/rv_recipe"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

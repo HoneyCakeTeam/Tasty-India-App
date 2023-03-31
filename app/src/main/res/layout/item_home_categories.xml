@@ -21,7 +21,6 @@
             android:id="@+id/img_home_category"
             android:layout_width="@dimen/category_icon_dimens"
             android:layout_height="@dimen/category_icon_dimens"
-            tool:background="@mipmap/ic_chicken"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
             android:hardwareAccelerated="false"

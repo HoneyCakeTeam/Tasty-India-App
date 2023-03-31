@@ -18,39 +18,37 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_home_recommendation_recipe_image"
                 android:layout_width="150dp"
                 android:layout_height="165dp"
                 android:scaleType="centerCrop" />
 
+
             <TextView
                 style="@style/headerStyle"
                 android:id="@+id/tv_home_recommendation_recipe_name"
-                android:layout_width="130dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                android:layout_marginHorizontal="@dimen/margin_tiny"
-                android:fontFamily="@font/ubuntu_regular"
-                android:lines="1"
-                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/margin_small"
+                android:fontFamily="@font/poppins_medium"
+                android:maxLines="1"
                 android:ellipsize="end"
                 android:text="Creamy Pasta"
-                android:textSize="@dimen/text_medium" />
+                android:textSize="@dimen/text_small"/>
 
             <TextView
                 style="@style/headerStyle"
                 android:id="@+id/tv_home_recommendation_kitchen_name"
-                android:layout_width="130dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_tiny"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:layout_marginHorizontal="@dimen/margin_tiny"
-                android:lines="1"
-                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/margin_small"
+                android:maxLines="1"
                 android:ellipsize="end"
-                android:fontFamily="@font/ubuntu_regular"
+                android:fontFamily="@font/poppins_regular"
                 android:text="Indian Cusine"
                 android:textSize="@dimen/text_tiny" />
 

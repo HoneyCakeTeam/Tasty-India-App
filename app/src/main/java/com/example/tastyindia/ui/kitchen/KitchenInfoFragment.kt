@@ -27,7 +27,6 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
     override fun setUp() {
         dataSource = CsvDataSource(requireContext(), CsvParser())
         dataManager = DataManager(dataSource)
-        setUpAppBar(true, getString(R.string.kitchenInfo), showBackButton = true)
         onClickBack()
 
         arguments?.let {
@@ -46,6 +45,8 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
         binding.tvHistoryDescription.text = kitchen.historyDescription
         binding.tvRegionDescription.text = kitchen.regionsDescription
         binding.tvDishesDescription.text = kitchen.dishesDescription
+
+        setUpAppBar(true, kitchenName, showBackButton = true)
     }
 
     companion object {

@@ -26,15 +26,16 @@
 
     <ImageView
         android:id="@+id/img_search"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="250dp"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:layout_marginTop="56dp"
-        android:src="@drawable/ic_recipe_book"
+        android:src="@drawable/image_search"
         android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@id/search_bar"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_bar" />
 
     <TextView
         android:id="@+id/tv_search_description"
@@ -54,7 +55,7 @@
         android:layout_height="200dp"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:src="@drawable/img_no_data"
+        android:src="@drawable/search_notfound"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar"

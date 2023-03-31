@@ -3,6 +3,7 @@ package com.example.tastyindia.ui.home
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat.recreate
 import com.example.tastyindia.R
@@ -24,6 +25,7 @@ import com.example.tastyindia.utils.onClickBackFromNavigation
 import com.example.tastyindia.utils.replaceFragment
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.snackbar.Snackbar
+import java.time.LocalTime
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     HomeRecommendationAdapter.HomeRecommendationsListener,
@@ -133,10 +135,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         Snackbar.make(binding.root, "Night", Snackbar.LENGTH_SHORT).show()
         SharedPref.setNightModeState(true)
     }
+
     private fun applyLightMode() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         Snackbar.make(binding.root, "Light", Snackbar.LENGTH_SHORT).show()
         SharedPref.setNightModeState(false)
+    }
+
+    fun getGreeting(): String {
+        val currentTime = LocalTime.now()
+        return when {
+            currentTime.isBefore(LocalTime.NOON) -> getString(R.string.greeting_morning)
+            currentTime.isBefore(LocalTime.of(18, 0)) -> getString(R.string.greeting_afternoon)
+            else -> getString(R.string.greeting_evening)
+        }
     }
 
 }

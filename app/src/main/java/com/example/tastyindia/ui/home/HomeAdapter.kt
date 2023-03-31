@@ -82,6 +82,7 @@ class HomeAdapter(
 
     private fun onBindHomeGoodMorningViewHolder(holder: HomeGoodMorningViewHolder, position: Int) {
         holder.binding.apply {
+            tvHomeGoodMorning.text = HomeFragment().getGreeting()
             SharedPref.sharedPref(root.context)
             if (SharedPref.loadNightModeState() == true) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)

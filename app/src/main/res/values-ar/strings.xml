@@ -63,4 +63,7 @@
     <string name="exit">ايوة</string>
     <string name="stay">انتظر</string>
     <string name="canceled">تم الالغاء</string>
+    <string name="greeting_morning">عمت صباحاً يا هذا</string>
+    <string name="greeting_afternoon">مساء الخيرات</string>
+    <string name="greeting_evening">دا مش وقت اكل روح نام</string>
 </resources>

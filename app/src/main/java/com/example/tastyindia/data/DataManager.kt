@@ -69,6 +69,7 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
             }
         }
     }
+
     override fun getFastFoodRecipes(): List<Recipe> {
         return listOfRecipe.filter {
             it.totalTimeInMinutes > 0
@@ -78,9 +79,9 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
     }
 
     override fun getEasyRecipes(): List<Recipe> {
-        return listOfRecipe.sortedBy {
-            it.ingredientsCount
-        }
+        return listOfRecipe.filter {
+            it.totalTimeInMinutes < 20
+        }.sortedBy { it.ingredientsCount}
     }
 
     override fun getRecipesByCategory(categoryName: String): ArrayList<Recipe> {
@@ -113,7 +114,6 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
     //region kitchen details screen
     override fun getRecipesByKitchen(kitchenName: String): List<Recipe> =
         listOfRecipe.filter { it.cuisine == kitchenName }
-
 
 
     override fun getRecipe(id: Int) = listOfRecipe[id]
@@ -219,7 +219,6 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
         )
     )
     //endregion
-
 
 
 }

@@ -24,7 +24,7 @@ class FastFoodCategoryAdapter(
     ) {
         holder.binding.apply {
             tvName.text = currentItem.recipeName
-            tvTime.text = "${currentItem.totalTimeInMinutes} Min"
+            tvTime.text = "${currentItem.totalTimeInMinutes} ${root.context.getString(R.string.minuite)}"
             Glide
                 .with(holder.binding.root)
                 .load(currentItem.imageUrl)

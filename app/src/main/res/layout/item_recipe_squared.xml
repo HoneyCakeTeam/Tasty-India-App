@@ -31,5 +31,5 @@
         android:layout_gravity="center_horizontal|bottom"
         android:layout_width="145dp"
         android:layout_height="wrap_content"
-        tools:text="ewrwer ew rweq rwe rqwer " />
+        tools:text="Food is every where" />
 </com.google.android.material.card.MaterialCardView>

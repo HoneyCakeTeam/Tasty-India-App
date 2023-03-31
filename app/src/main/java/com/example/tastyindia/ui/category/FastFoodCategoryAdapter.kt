@@ -1,5 +1,6 @@
 package com.example.tastyindia.ui.category
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
@@ -15,6 +16,7 @@ class FastFoodCategoryAdapter(
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> ItemFastFoodCategoryBinding
         get() = ItemFastFoodCategoryBinding::inflate
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(
         holder: BaseViewHolder<ItemFastFoodCategoryBinding>,
         position: Int,
@@ -22,7 +24,7 @@ class FastFoodCategoryAdapter(
     ) {
         holder.binding.apply {
             tvName.text = currentItem.recipeName
-            tvTime.text = currentItem.totalTimeInMinutes.toString()
+            tvTime.text = "${currentItem.totalTimeInMinutes} Min"
             Glide
                 .with(holder.binding.root)
                 .load(currentItem.imageUrl)

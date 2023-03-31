@@ -212,6 +212,8 @@
 
     <style name="headerStyle" parent="">
         <item name="android:textColor">@color/white_100</item>
+        <item name="fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">@dimen/text_giant</item>
     </style>
 
     <style name="bottomNavigation" parent="">

@@ -85,7 +85,8 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
 
     override fun getRecipesByCategory(categoryName: String): ArrayList<Recipe> {
         return listOfRecipe.filter { recipe ->
-            recipe.ingredients.lowercase().contains(categoryName.lowercase())
+            recipe.ingredients.lowercase().contains(categoryName.lowercase()) ||
+            recipe.recipeName.lowercase().contains(categoryName.lowercase())
         } as ArrayList<Recipe>
     }
 

@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_small"
-    app:cardCornerRadius="@dimen/radius_semi_large"
+    app:cardCornerRadius="50dp"
     app:strokeWidth="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,6 +18,8 @@
             android:id="@+id/iv_recipe"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginVertical="@dimen/margin_small"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,13 +32,16 @@
             style="@style/recipeTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_large"
+            android:layout_marginHorizontal="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_tiny"
             android:ellipsize="end"
             android:maxLines="2"
             android:textAlignment="textStart"
+            app:layout_constraintTop_toTopOf="@id/iv_recipe"
+            app:layout_constraintBottom_toTopOf="@id/tv_kitchen_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_recipe"
-            app:layout_constraintTop_toTopOf="@id/iv_recipe"
+            app:layout_constraintVertical_chainStyle="packed"
             tools:text="Recipe Name" />
 
         <TextView
@@ -44,7 +49,7 @@
             style="@style/bodyTextInKitchenInfoStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_tiny"
+            app:layout_constraintBottom_toBottomOf="@id/iv_recipe"
             app:layout_constraintStart_toStartOf="@id/tv_recipe_name"
             app:layout_constraintTop_toBottomOf="@id/tv_recipe_name"
             tools:text="Kitchen Name" />

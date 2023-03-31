@@ -102,6 +102,7 @@
     android:layout_height="wrap_content"
     app:layout_constraintEnd_toEndOf="parent"
     android:padding="@dimen/padding_medium"
+    android:fontFamily="@font/poppins_semi_bold"
     android:background="@drawable/circle_button"
     android:textSize="@dimen/text_large"
     app:layout_constraintBottom_toBottomOf="@id/back_button"

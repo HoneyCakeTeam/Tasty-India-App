@@ -24,7 +24,11 @@
 
     <TextView
         android:id="@+id/tv_recipe_name"
-        style="@style/ItemRecipeSquaredTextStyle"
+        style="@style/TextStyleNameCategories"
+        android:maxLines="2"
+        android:gravity="center"
+        android:padding="@dimen/padding_small"
+        android:layout_gravity="center_horizontal|bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/masala_karela" />

@@ -32,7 +32,10 @@
         <TextView
             android:id="@+id/advice_text"
             android:layout_width="0dp"
+            android:padding="@dimen/padding_small"
             android:layout_height="wrap_content"
+            android:maxLines="5"
+            android:ellipsize="end"
             tool:text="Base your meals on higher fibre starchy carbohydrates"
             android:fontFamily="@font/poppins_regular"
             app:layout_constraintEnd_toEndOf="parent"

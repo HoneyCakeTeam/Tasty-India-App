@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_medium"
-        android:fontFamily="@font/ubuntu_regular"
-        android:text="@string/good_morning"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/welcome_honey"
         android:textSize="@dimen/text_medium" />
 
     <TextView

@@ -17,7 +17,10 @@
 
     <TextView
         android:id="@+id/tv_home_r_see_all"
-        style="@style/home_see_all_text_style"
+        style="@style/TextStyleSeeAll"
+        android:drawableEnd="@drawable/ic_see_all"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="@dimen/margin_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/see_all_tv"

@@ -3,9 +3,7 @@ package com.example.tastyindia.ui.home
 
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.app.ActivityCompat.recreate
 import com.example.tastyindia.R
 import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.data.DataManager
@@ -145,9 +143,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     fun getGreeting(): String {
         val currentTime = LocalTime.now()
         return when {
-            currentTime.isBefore(LocalTime.NOON) -> getString(R.string.greeting_morning)
-            currentTime.isBefore(LocalTime.of(18, 0)) -> getString(R.string.greeting_afternoon)
-            else -> getString(R.string.greeting_evening)
+            currentTime.isBefore(LocalTime.NOON) -> "Good Morning"
+            currentTime.isBefore(LocalTime.of(18, 0)) -> "Good Afternoon"
+            else -> "Good Evening"
         }
     }
 

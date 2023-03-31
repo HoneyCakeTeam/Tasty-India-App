@@ -49,26 +49,25 @@
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginEnd="@dimen/margin_small"
             android:background="@drawable/text_background"
-            android:padding="@dimen/padding_tiny"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingVertical="@dimen/margin_tiny"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/tv_count"
                 style="@style/TextStyleNumberCategories"
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/food_ingredient_count" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ic_time"
-                android:layout_width="0dp"
-                android:layout_height="14dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:layout_marginEnd="@dimen/margin_tiny"
-                android:layout_marginBottom="@dimen/margin_tiny"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/ic_dishes" />
 

@@ -23,7 +23,7 @@
         android:id="@+id/kitchen_info_body"
         android:layout_width="@dimen/zero_dimens"
         android:layout_height="@dimen/zero_dimens"
-        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_medium"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"

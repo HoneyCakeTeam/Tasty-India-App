@@ -70,7 +70,9 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
         }
     }
     override fun getFastFoodRecipes(): List<Recipe> {
-        return listOfRecipe.sortedBy {
+        return listOfRecipe.filter {
+            it.totalTimeInMinutes > 0
+        }.sortedBy {
             it.totalTimeInMinutes
         }
     }
@@ -121,6 +123,16 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
     //region Category static data
     override fun getHealthyIngredients(): List<String> =
         listOf(
+            "Salmon",
+            "Broccoli",
+            "Quinoa",
+            "Kale",
+            "Chickpeas",
+            "Blueberries",
+            "Almonds",
+            "Avocado",
+            "Greek Yogurt",
+            "Oats",
             "Chicken",
             "Fish",
             "Lentils",
@@ -130,10 +142,7 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
             "Ginger",
             "Turmeric",
             "Cinnamon",
-            "Sweet Potato",
-            "Spinach",
-            "Spinach",
-            "Fenugreek"
+            "Sweet Potato"
         )
 
     //endregion

@@ -35,5 +35,14 @@
             android:id="@+id/iv_card_image"
             android:layout_width="match_parent"
             android:layout_height="1dp" />
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="@id/guideline_end"
+            android:layout_width="@dimen/zero_dimens"
+            android:layout_height="@dimen/zero_dimens"
+            motion:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+            motion:layout_constraintTop_toBottomOf="@id/iv_card_image"
+            motion:layout_constraintStart_toStartOf="@id/guideline_start"
+            android:layout_marginTop="-16dp"
+            android:id="@+id/kitchen_info_body" />
     </ConstraintSet>
 </MotionScene>

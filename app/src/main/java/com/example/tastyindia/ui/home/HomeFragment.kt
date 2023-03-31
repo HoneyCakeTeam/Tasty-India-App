@@ -4,6 +4,7 @@ package com.example.tastyindia.ui.home
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.app.ActivityCompat.recreate
 import com.example.tastyindia.R
 import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.data.DataManager
@@ -116,27 +117,26 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     }
 
     override fun onClickSwitchTheme(view: View) {
-        isClicked = if (!isClicked) {
+        if (!isClicked) {
             applyDarkMode()
             (view as ShapeableImageView).setImageResource(R.drawable.ic_dark)
-            true
+            isClicked = true
         } else {
             applyLightMode()
             (view as ShapeableImageView).setImageResource(R.drawable.ic_light)
-            false
+            isClicked = false
         }
-    }
-
-    private fun applyLightMode() {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        Snackbar.make(binding.root, "Light", Snackbar.LENGTH_SHORT).show()
-        SharedPref.setNightModeState(false)
     }
 
     private fun applyDarkMode() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         Snackbar.make(binding.root, "Night", Snackbar.LENGTH_SHORT).show()
         SharedPref.setNightModeState(true)
+    }
+    private fun applyLightMode() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        Snackbar.make(binding.root, "Light", Snackbar.LENGTH_SHORT).show()
+        SharedPref.setNightModeState(false)
     }
 
 }

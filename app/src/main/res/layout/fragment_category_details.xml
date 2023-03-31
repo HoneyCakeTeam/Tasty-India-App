@@ -14,7 +14,7 @@
         android:layout_height="350dp"
         android:contentDescription="@string/recipeimage"
         android:scaleType="centerCrop"
-        android:src="@drawable/image_more_recipes"
+        android:src="@drawable/image_recipe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,7 +31,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_recipe"
-        app:layout_constraintVertical_bias="1.0">
+      >
 
         <TextView
             android:id="@+id/tv_label_details"
@@ -86,13 +86,22 @@
 
     <ImageButton
         android:id="@+id/back_button"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_margin="@dimen/margin_medium"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:src="@drawable/ic_arrow"
+        android:layout_margin="@dimen/margin_medium"
         android:background="@drawable/circle_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="@string/back_button_description" />
+<TextView
+    android:id="@+id/tv_title"
+    style="@style/headerStyle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="@id/back_button"
+    app:layout_constraintStart_toEndOf="@+id/back_button"
+    app:layout_constraintTop_toTopOf="@id/back_button"
+    tools:text="CategoryName" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

@@ -15,6 +15,7 @@
         android:layout_marginHorizontal="@dimen/margin_medium"
         android:layout_marginVertical="@dimen/margin_small"
         android:scaleType="centerCrop"
+        android:src="@drawable/image_recipe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -3,12 +3,12 @@ package com.example.tastyindia.ui.categorydetails
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
+import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentCategoryDetailsBinding
-import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.CsvParser
 import com.example.tastyindia.utils.replaceFragment
@@ -28,13 +28,13 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
 
     override fun setUp() {
 
+
         getCategoryArgs()
         initRecyclerView()
         recipes = dataManager.getRecipesByCategory(categoryName)
         recipeAdapter.setData(recipes)
-
         showCategoryImage()
-
+        binding.tvTitle.text = categoryName
         addCallBacks()
     }
 

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="@dimen/margin_tiny"
     android:backgroundTint="@color/white_300"
     app:cardCornerRadius="@dimen/radius_semi_large"
@@ -25,11 +26,10 @@
     <TextView
         android:id="@+id/tv_recipe_name"
         style="@style/TextStyleNameCategories"
-        android:maxLines="2"
         android:gravity="center"
-        android:padding="@dimen/padding_small"
+        android:maxLines="2"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_width="wrap_content"
+        android:layout_width="145dp"
         android:layout_height="wrap_content"
-        android:text="@string/masala_karela" />
+        tools:text="ewrwer ew rweq rwe rqwer " />
 </com.google.android.material.card.MaterialCardView>

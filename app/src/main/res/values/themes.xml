@@ -105,12 +105,10 @@
     </style>
 
     <style name="mealsTextStyle">
-
         <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:textSize">@dimen/text_large</item>
         <item name="android:padding">@dimen/padding_tiny</item>
         <item name="android:textColor">@color/black_60</item>
-        <item name="android:layout_margin">@dimen/margin_medium</item>
     </style>
 
     <style name="home_recycle_header_text_style" parent="">

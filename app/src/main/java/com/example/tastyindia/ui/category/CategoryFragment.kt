@@ -33,9 +33,9 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
         setUpAppBar(true, getString(R.string.categories_page_title), false)
 
         val healthyIngredients = dataManager.getHealthyIngredients()
-        val listHealthy = dataManager.getHealthyRecipes(healthyIngredients)
-        val listFast = dataManager.getFastFoodRecipes()
-        val listEasy = dataManager.getEasyRecipes()
+        val listHealthy = dataManager.getHealthyRecipes(healthyIngredients).take(10)
+        val listFast = dataManager.getFastFoodRecipes().take(10)
+        val listEasy = dataManager.getEasyRecipes().take(10)
         val randomImageUrl = dataManager.getRandomImageInCategory()
 
 

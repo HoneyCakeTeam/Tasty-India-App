@@ -219,7 +219,6 @@
 
     <style name="headerStyle" parent="">
         <item name="fontFamily">@font/poppins_semi_bold</item>
-        <item name="android:layout_marginStart">@dimen/margin_medium</item>
         <item name="android:textSize">@dimen/text_giant</item>
         <item name="android:textColor">@color/black_87</item>
     </style>

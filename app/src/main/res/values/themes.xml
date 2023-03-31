@@ -115,16 +115,9 @@
 
     <style name="home_recycle_header_text_style" parent="">
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
-        <item name="android:textColor">@color/black_60</item>
+        <item name="android:textColor">@color/black_87</item>
         <item name="android:textSize">@dimen/text_medium</item>
         <item name="android:layout_marginTop">@dimen/margin_medium</item>
-    </style>
-
-    <style name="home_see_all_text_style" parent="">
-        <item name="android:fontFamily">@font/ubuntu_regular</item>
-        <item name="android:textColor">@color/primary_500</item>
-        <item name="android:textSize">@dimen/text_tiny</item>
-        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
     </style>
 
     <style name="ImageCornerCategories">
@@ -174,8 +167,6 @@
     </style>
 
     <style name="HomeRecycleViewStyle">
-
-        <item name="android:clipToPadding">false</item>
         <item name="android:layout_marginTop">@dimen/margin_small</item>
         <item name="android:orientation">horizontal</item>
     </style>

@@ -3,11 +3,14 @@ package com.example.tastyindia.ui
 import android.app.Activity
 import android.content.res.Configuration
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
 import com.example.tastyindia.R
 import com.example.tastyindia.data.DataManager
@@ -20,6 +23,7 @@ import com.example.tastyindia.ui.home.HomeFragment
 import com.example.tastyindia.ui.kitchen.KitchenFragment
 import com.example.tastyindia.ui.search.SearchFragment
 import com.example.tastyindia.utils.CsvParser
+import com.google.android.material.imageview.ShapeableImageView
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding

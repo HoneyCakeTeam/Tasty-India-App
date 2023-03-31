@@ -1,6 +1,10 @@
 package com.example.tastyindia.ui.home
 
 
+import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
+import com.example.tastyindia.R
 import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
@@ -14,8 +18,11 @@ import com.example.tastyindia.ui.categorydetails.CategoryDetailsFragment
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.ui.seeall.SeeAllRecipesFragment
 import com.example.tastyindia.utils.CsvParser
+import com.example.tastyindia.utils.SharedPref
 import com.example.tastyindia.utils.onClickBackFromNavigation
 import com.example.tastyindia.utils.replaceFragment
+import com.google.android.material.imageview.ShapeableImageView
+import com.google.android.material.snackbar.Snackbar
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     HomeRecommendationAdapter.HomeRecommendationsListener,
@@ -25,15 +32,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
 
     private val dataSource by lazy { CsvDataSource(requireContext(), CsvParser()) }
     private val dataManager: DataManagerInterface by lazy { DataManager(dataSource) }
-
-    override val TAG: String = "HomeFragment"
+    override val TAG: String = this::class.java.simpleName.toString()
+    private var isClicked = false
 
     override fun getViewBinding(): FragmentHomeBinding =
         FragmentHomeBinding.inflate(layoutInflater)
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+//        SharedPref.sharedPref(requireContext())
+//        if (SharedPref.loadNightModeState() == true) {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//
+//        } else {
+//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//        }
+    }
+
     override fun setUp() {
         addCallbacks()
-        setUpAppBar(false)
 
         val randomNumbersForRecommendations =
             dataManager.getRandomNumbersInListOfRecipe(
@@ -78,7 +95,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
         onClickBackFromNavigation()
     }
 
-
     override fun onClickCategory(categoryName: String) {
         val categoryDetailsFragment = CategoryDetailsFragment.newInstance(categoryName)
         replaceFragment(categoryDetailsFragment)
@@ -97,6 +113,30 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(),
     override fun onClickHomeSeeAll(type: SeeAllRecipesType) {
         val seeAllRecipesFragment = SeeAllRecipesFragment.newInstance(type)
         replaceFragment(seeAllRecipesFragment)
+    }
+
+    override fun onClickSwitchTheme(view: View) {
+        isClicked = if (!isClicked) {
+            applyDarkMode()
+            (view as ShapeableImageView).setImageResource(R.drawable.ic_dark)
+            true
+        } else {
+            applyLightMode()
+            (view as ShapeableImageView).setImageResource(R.drawable.ic_light)
+            false
+        }
+    }
+
+    private fun applyLightMode() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        Snackbar.make(binding.root, "Light", Snackbar.LENGTH_SHORT).show()
+        SharedPref.setNightModeState(false)
+    }
+
+    private fun applyDarkMode() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        Snackbar.make(binding.root, "Night", Snackbar.LENGTH_SHORT).show()
+        SharedPref.setNightModeState(true)
     }
 
 }

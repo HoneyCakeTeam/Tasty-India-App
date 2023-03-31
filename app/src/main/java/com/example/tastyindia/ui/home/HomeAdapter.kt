@@ -3,17 +3,20 @@ package com.example.tastyindia.ui.home
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.HomeCategoriesModel
 import com.example.tastyindia.data.domain.HomeItem
-import com.example.tastyindia.data.domain.enums.HomeItemType
 import com.example.tastyindia.data.domain.Recipe
+import com.example.tastyindia.data.domain.enums.HomeItemType
 import com.example.tastyindia.data.domain.enums.SeeAllRecipesType
 import com.example.tastyindia.databinding.ItemCategoriesRecyclerBinding
 import com.example.tastyindia.databinding.ItemHomeHeaderTextBinding
 import com.example.tastyindia.databinding.ItemRecommendationRecycleBinding
 import com.example.tastyindia.databinding.ItemWeekRecipesBinding
+import com.example.tastyindia.utils.SharedPref
 
 @Suppress("UNCHECKED_CAST")
 class HomeAdapter(
@@ -49,7 +52,7 @@ class HomeAdapter(
                 HomeRecipesOfWeekViewHolder(view)
             }
 
-            else -> throw java.lang.Exception("Execption in home")
+            else -> throw java.lang.Exception("Exception in home")
         }
 
     }
@@ -62,27 +65,48 @@ class HomeAdapter(
             HomeItemType.TYPE_HOME_CATEGORIES -> VIEW_TYPE_CATEGORIES
             HomeItemType.TYPE_HOME_RECOMMENDATION_RECYCLE -> VIEW_TYPE_HOME_RECOMMENDATION_RECYCLE
             HomeItemType.TYPE_RECIPES_OF_WEEK_RECYCLE -> VIEW_TYPE_HOME_WEEK_RECYCLE
-            else -> super.getItemViewType(position)
         }
     }
 
 
     override fun onBindViewHolder(holder: HomeBaseViewHolder, position: Int) {
         when (holder) {
-            is HomeGoodMorningViewHolder -> {}
+            is HomeGoodMorningViewHolder -> {
+                onBindHomeGoodMorningViewHolder(holder, position)
+            }
             is HomeCategoriesViewHolder -> onBindCategoriesViewHolder(holder, position)
             is HomeRecommendationViewHolder -> onBindRecommendationViewHolder(holder, position)
             is HomeRecipesOfWeekViewHolder -> onBindRecipesOfWeekViewHolder(holder, position)
         }
     }
 
-    fun onBindCategoriesViewHolder(holder: HomeCategoriesViewHolder, position: Int) {
+    private fun onBindHomeGoodMorningViewHolder(holder: HomeGoodMorningViewHolder, position: Int) {
+        holder.binding.apply {
+            SharedPref.sharedPref(root.context)
+            if (SharedPref.loadNightModeState() == true) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                themeSwitch.setImageResource(R.drawable.ic_dark)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                themeSwitch.setImageResource(R.drawable.ic_light)
+            }
+            themeSwitch.setOnClickListener {
+                seeAllListener.onClickSwitchTheme(themeSwitch)
+            }
+
+        }
+    }
+
+    private fun onBindCategoriesViewHolder(holder: HomeCategoriesViewHolder, position: Int) {
         val categoriesList = homeItem[position].item as List<HomeCategoriesModel>
         val adapter = HomeCategoriesAdapter(categoriesList, categoriesListener)
         holder.binding.rvHomeCategories.adapter = adapter
     }
 
-    fun onBindRecommendationViewHolder(holder: HomeRecommendationViewHolder, position: Int) {
+    private fun onBindRecommendationViewHolder(
+        holder: HomeRecommendationViewHolder,
+        position: Int
+    ) {
         val recipeList = homeItem[position].item as List<Recipe>
         val adapter = HomeRecommendationAdapter(recipeList, recommendationListener)
         holder.binding.tvHomeRecommendationSeeAll.setOnClickListener {
@@ -91,7 +115,7 @@ class HomeAdapter(
         holder.binding.rvHomeRecommendations.adapter = adapter
     }
 
-    fun onBindRecipesOfWeekViewHolder(holder: HomeRecipesOfWeekViewHolder, position: Int) {
+    private fun onBindRecipesOfWeekViewHolder(holder: HomeRecipesOfWeekViewHolder, position: Int) {
         val recipeList = homeItem[position].item as List<Recipe>
         val adapter = HomeRecipesOfTheWeekAdapter(recipeList, recipeOfWeekListener)
         holder.binding.tvHomeRSeeAll.setOnClickListener {
@@ -128,6 +152,7 @@ class HomeAdapter(
 
     interface HomeSeeAllListener {
         fun onClickHomeSeeAll(type: SeeAllRecipesType)
+        fun onClickSwitchTheme(view:View)
     }
 
 }

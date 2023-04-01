@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -17,6 +18,8 @@
         android:textSize="@dimen/text_medium"
         app:drawableEndCompat="@drawable/ic_hand"
         android:drawablePadding="@dimen/padding_medium"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         />
 
     <TextView
@@ -28,7 +31,18 @@
         android:layout_marginTop="@dimen/margin_small"
         android:fontFamily="@font/poppins_semi_bold"
         android:text="@string/second_header_in_home_tv"
-        android:textSize="@dimen/text_giant" />
+        android:textSize="@dimen/text_giant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_home_good_morning"
+        />
 
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switch_theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/margin_medium"
+        />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

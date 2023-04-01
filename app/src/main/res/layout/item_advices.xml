@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="138dp"
+    android:layout_height="148dp"
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_marginHorizontal="@dimen/margin_medium"
     android:layout_marginVertical="@dimen/margin_tiny"
@@ -12,10 +12,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         >
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -40,13 +36,13 @@
         <TextView
             android:id="@+id/advice_text"
             style="@style/adviceTextStyle"
-            android:padding="@dimen/padding_medium"
-            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/margin_medium"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:maxLines="5"
             android:ellipsize="end"
             tool:text="Base your meals on higher fibre starchy carbohydrates"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             />

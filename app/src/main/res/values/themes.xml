@@ -226,4 +226,11 @@
         <item name="android:background">@color/white_100</item>
     </style>
 
+    <style name="adviceTextStyle">
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+
 </resources>

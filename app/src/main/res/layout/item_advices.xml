@@ -3,11 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="124dp"
+    android:layout_height="138dp"
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_marginHorizontal="@dimen/margin_medium"
-    android:layout_marginVertical="@dimen/margin_small"
-    app:cardElevation="@dimen/margin_small"
+    android:layout_marginVertical="@dimen/margin_tiny"
     app:cardCornerRadius="@dimen/elevation_semi_medium">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,28 +20,36 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgVeg"
-            android:layout_width="124dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tool:src="@drawable/image_recipe" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/advice_background_shape"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
         <TextView
             android:id="@+id/advice_text"
-            android:layout_width="0dp"
-            android:padding="@dimen/padding_small"
+            style="@style/adviceTextStyle"
+            android:padding="@dimen/padding_medium"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="5"
             android:ellipsize="end"
             tool:text="Base your meals on higher fibre starchy carbohydrates"
-            android:fontFamily="@font/poppins_regular"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imgVeg"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginHorizontal="@dimen/margin_small"
-            android:layout_marginVertical="@dimen/margin_tiny"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

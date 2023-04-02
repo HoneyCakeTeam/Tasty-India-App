@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/tv_kitchen_name"
-            style="@style/bodyTextInKitchenInfoStyle"
+            style="@style/categorySmallText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Kitchen Name"

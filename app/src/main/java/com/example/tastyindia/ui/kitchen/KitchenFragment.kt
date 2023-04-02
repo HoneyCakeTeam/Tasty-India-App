@@ -1,17 +1,16 @@
 package com.example.tastyindia.ui.kitchen
 
 import com.example.tastyindia.R
+import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.data.DataManager
 import com.example.tastyindia.data.DataManagerInterface
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.data.source.CsvDataSource
 import com.example.tastyindia.databinding.FragmentKitchenBinding
-import com.example.tastyindia.base.BaseFragment
 import com.example.tastyindia.ui.kitchendetails.KitchenDetailsFragment
 import com.example.tastyindia.utils.CsvParser
 import com.example.tastyindia.utils.onClickBackFromNavigation
 import com.example.tastyindia.utils.replaceFragment
-import com.google.android.material.snackbar.Snackbar
 
 class KitchenFragment : BaseFragment<FragmentKitchenBinding>(),
     KitchenAdapter.KitchenInteractionListener {
@@ -37,11 +36,6 @@ class KitchenFragment : BaseFragment<FragmentKitchenBinding>(),
         val kitchenImageUrl = recipe.imageUrl
         kitchenDetailsFragment = KitchenDetailsFragment.newInstance(kitchenName, kitchenImageUrl)
         replaceFragment(kitchenDetailsFragment)
-        Snackbar.make(
-            binding.root,
-            "${recipe.cuisine} ${getString(R.string.kitchenPageTitle)}",
-            Snackbar.LENGTH_LONG
-        ).show()
     }
 
     override fun onClickRecipe(recipe: Recipe) {

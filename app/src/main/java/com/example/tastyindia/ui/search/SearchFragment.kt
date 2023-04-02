@@ -55,11 +55,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
 
     private fun visibilityOfImageAndRecyclerInSearchFragment(query: String?) {
         val result = dataManager.searchByRecipeOrCuisine(query!!)
-        binding.apply {
-            imgSearch.visibility = if (query.isNotEmpty()) View.GONE else View.VISIBLE
+       with(binding) {
+            imgSearch.setImageResource(if (query.isNotEmpty()) R.drawable.search_notfound else R.drawable.ic_recipe_book)
             rvSearchResult.visibility = if (query.isNotEmpty()) View.VISIBLE else View.GONE
-            imgSearchNotFound.visibility = if (result.isEmpty()) View.VISIBLE else View.GONE
-            tvSearchDescription.text =if (result.isEmpty()) "No Recipes with this name!!" else ""
+            tvEmptySearch.text =if (result.isEmpty()) "No Recipes with this name!!" else ""
         }
     }
 

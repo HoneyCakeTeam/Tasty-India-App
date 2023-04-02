@@ -36,7 +36,8 @@
         <TextView
             android:id="@+id/advice_text"
             style="@style/adviceTextStyle"
-            android:layout_margin="@dimen/margin_medium"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginVertical="@dimen/margin_small"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:maxLines="5"

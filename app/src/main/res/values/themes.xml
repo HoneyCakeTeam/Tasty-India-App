@@ -229,7 +229,7 @@
     <style name="adviceTextStyle">
         <item name="android:textColor">@color/white_100</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
-        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textSize">@dimen/text_medium</item>
     </style>
 
 

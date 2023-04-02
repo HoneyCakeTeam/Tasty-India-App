@@ -28,18 +28,18 @@
         android:background="@drawable/background_constraint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_recipe"
       >
 
         <TextView
             android:id="@+id/tv_label_details"
-            style="@style/recipeTextView"
+            style="@style/recipeTextViewCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_giant"
             android:text="@string/details"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
             android:textSize="@dimen/text_giant"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -47,25 +47,25 @@
         <TextView
             style="@style/textRecipeDetails"
             android:id="@+id/tv_kitchen_details"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium"
             android:ellipsize="end"
             android:maxLines="4"
-            android:layout_marginHorizontal="@dimen/margin_giant"
             android:gravity="start"
             app:layout_constraintBottom_toTopOf="@+id/tv_label_recipes"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tv_label_details"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_label_details"
             android:text="@string/details_description" />
 
         <TextView
             android:id="@+id/tv_label_recipes"
-            style="@style/recipeTextView"
+            style="@style/recipeTextViewCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_giant"
-            android:layout_marginVertical="@dimen/margin_medium"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
             android:text="@string/recipes"
             android:textSize="@dimen/text_giant"
             app:layout_constraintStart_toStartOf="parent"
@@ -75,12 +75,10 @@
             android:id="@+id/rv_recipe"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="@dimen/margin_small"
             android:layout_marginTop="@dimen/margin_medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_label_recipes"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:itemCount="4"
             tools:listitem="@layout/item_recipe_of_category" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -94,20 +92,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="@string/back_button_description" />
-<TextView
-    android:id="@+id/tv_title"
-    style="@style/headerStyle"
-    android:textColor="@color/white_100"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintEnd_toEndOf="parent"
-    android:padding="@dimen/padding_medium"
-    android:fontFamily="@font/poppins_semi_bold"
-    android:background="@drawable/circle_button"
-    android:textSize="@dimen/text_large"
-    app:layout_constraintBottom_toBottomOf="@id/back_button"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="@id/back_button"
-    tools:text="CategoryName" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

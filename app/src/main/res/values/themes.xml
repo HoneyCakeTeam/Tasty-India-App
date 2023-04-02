@@ -73,8 +73,7 @@
 
     <style name="bodyTextInKitchenInfoStyle" parent="titleTextInKitchenInfoStyle">
         <item name="android:fontFamily">@font/poppins_regular</item>
-        <item name="android:textColor">@color/black_60</item>
-        <item name="android:layout_marginBottom">@dimen/zero_dimens</item>
+        <item name="android:textColor">@color/black_38</item>
         <item name="android:textSize">@dimen/text_small</item>
     </style>
 
@@ -85,7 +84,13 @@
     </style>
 
     <style name="recipeTextView" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/black_87</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+    </style>
+
+    <style name="recipeTextViewCategory" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/black_60</item>
         <item name="android:textSize">@dimen/text_medium</item>
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
     </style>
@@ -208,6 +213,7 @@
 
     <style name="headerStyle" parent="">
         <item name="android:textColor">@color/black_87</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
     </style>
 
     <style name="backgroundRecipeDetails" parent="">
@@ -216,6 +222,7 @@
 
     <style name="textRecipeDetails" parent="">
         <item name="android:textColor">@color/black_60</item>
+        <item name="fontFamily">@font/poppins_regular</item>
     </style>
 
     <style name="dividerRecipeDetails" parent="">

@@ -46,7 +46,7 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
         binding.tvRegionDescription.text = kitchen.regionsDescription
         binding.tvDishesDescription.text = kitchen.dishesDescription
 
-        setUpAppBar(true, kitchenName, showBackButton = true)
+        setUpAppBar(true, "$kitchenName History", showBackButton = true)
     }
 
     companion object {

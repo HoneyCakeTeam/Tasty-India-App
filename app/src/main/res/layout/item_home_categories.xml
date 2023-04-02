@@ -4,27 +4,26 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tool="http://schemas.android.com/tools"
         android:id="@+id/item_home_categories"
-        android:layout_width="@dimen/category_card_dimens"
-        android:layout_height="@dimen/category_card_dimens"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         app:cardCornerRadius="@dimen/radius_semi_medium"
         android:layout_marginEnd="@dimen/margin_small"
-        android:layout_marginBottom="@dimen/margin_tiny"
         app:strokeWidth="0dp"
         >
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             >
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/img_home_category"
-            android:layout_width="@dimen/category_icon_dimens"
-            android:layout_height="@dimen/category_icon_dimens"
-            android:layout_weight="1"
-            android:layout_gravity="center_horizontal"
-            android:hardwareAccelerated="false"
-            android:layout_marginTop="@dimen/margin_small"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:srcCompat="@drawable/ic_chicken"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_item_home_category"
         />
         <TextView
             style="@style/headerStyle"
@@ -32,11 +31,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_medium"
-            android:fontFamily="@font/ubuntu_regular"
             tool:text="Chicken"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/margin_small"
+            app:layout_constraintTop_toBottomOf="@+id/img_home_category"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
         />
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

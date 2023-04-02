@@ -81,13 +81,13 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
     override fun getEasyRecipes(): List<Recipe> {
         return listOfRecipe.filter {
             it.totalTimeInMinutes < 20
-        }.sortedBy { it.ingredientsCount}
+        }.sortedBy { it.ingredientsCount }
     }
 
     override fun getRecipesByCategory(categoryName: String): ArrayList<Recipe> {
         return listOfRecipe.filter { recipe ->
             recipe.ingredients.lowercase().contains(categoryName.lowercase()) ||
-            recipe.recipeName.lowercase().contains(categoryName.lowercase())
+                    recipe.recipeName.lowercase().contains(categoryName.lowercase())
         } as ArrayList<Recipe>
     }
 
@@ -183,6 +183,10 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
     //region Advices screen
     override fun getAdvicesList(): List<Advice> = listOf(
         Advice(
+            adviceImageUrl = "https://thumbs.dreamstime.com/b/water-splash-bottle-21576605.jpg",
+            adviceDescription = "Water is best to quench your thirst. Skip the sugary drinks, and go easy on the milk and juice."
+        ),
+        Advice(
             adviceImageUrl = "https://experiencelife.lifetime.life/wp-content/uploads/2003/11/good-carbs-bad-carbs-1144977994-1280x720.jpg",
             adviceDescription = "Choose good carbs, not no carbs. Whole grains are your best bet."
         ),
@@ -205,10 +209,6 @@ class DataManager(dataSource: CsvDataSource) : DataManagerInterface {
         Advice(
             adviceImageUrl = "https://m.economictimes.com/thumb/height-450,width-600,imgsize-354532,msid-64272575/not-just-for-bones-calcium-is-crucial-for-cardiac-functioning-too-heres-how-to-ensure-youre-never-deficient.jpg",
             adviceDescription = "Calcium is important. But milk isn’t the only, or even best, source."
-        ),
-        Advice(
-            adviceImageUrl = "https://thumbs.dreamstime.com/b/water-splash-bottle-21576605.jpg",
-            adviceDescription = "Water is best to quench your thirst. Skip the sugary drinks, and go easy on the milk and juice."
         ),
         Advice(
             adviceImageUrl = "https://c.ndtvimg.com/2020-01/rbm7eojo_salt-_625x300_11_January_20.jpg",

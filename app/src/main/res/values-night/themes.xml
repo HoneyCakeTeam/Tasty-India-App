@@ -47,6 +47,11 @@
         <item name="android:scaleType">centerCrop</item>
     </style>
 
+    <style name="homeRecommendationImageStyle">
+        <item name="cornerSize" > 16dp </item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
     <style name="CircleImageStyle">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
@@ -182,7 +187,6 @@
     </style>
 
     <style name="HomeRecycleViewStyle">
-
         <item name="android:clipToPadding">false</item>
         <item name="android:layout_marginTop">@dimen/margin_small</item>
         <item name="android:orientation">horizontal</item>
@@ -222,6 +226,16 @@
     </style>
 
     <style name="headerStyle" parent="">
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="homeCategoryNameStyle" parent="">
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="recommendationRecipeNameStyle" parent="">
         <item name="android:textColor">@color/white_100</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
     </style>

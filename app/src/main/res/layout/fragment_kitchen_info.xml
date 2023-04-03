@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     style="@style/ColorFragmentBackground"
     android:layout_height="match_parent"
+    android:clipToPadding="false"
     xmlns:tool="http://schemas.android.com/tools"
     app:layoutDescription="@xml/fragment_kitchen_info_scene">
 
@@ -25,7 +26,7 @@
         android:layout_height="@dimen/zero_dimens"
         android:layout_marginTop="@dimen/margin_medium"
         android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/iv_card_image">
@@ -38,7 +39,9 @@
 
                 <TextView
                     android:id="@+id/tv_history_title"
-                    style="@style/titleTextInKitchenInfoStyle"
+                    style="@style/recipeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"                    android:textSize="@dimen/text_large"
                     tool:text="History of Indian Cuisine" />
 
                 <TextView
@@ -54,7 +57,10 @@
 
                 <TextView
                     android:id="@+id/tv_region_title"
-                    style="@style/titleTextInKitchenInfoStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_large"
+                    style="@style/recipeTextView"
                     android:text="@string/regions" />
 
                 <TextView
@@ -70,8 +76,10 @@
 
                 <TextView
                     android:id="@+id/tv_dishes_title"
-                    style="@style/titleTextInKitchenInfoStyle"
-                    android:text="@string/dishes" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_large"
+                    style="@style/recipeTextView"                    android:text="@string/dishes" />
 
                 <TextView
                     android:id="@+id/tv_dishes_description"

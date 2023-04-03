@@ -78,7 +78,7 @@
 
     <style name="bodyTextInKitchenInfoStyle" parent="titleTextInKitchenInfoStyle">
         <item name="android:fontFamily">@font/poppins_regular</item>
-        <item name="android:textColor">@color/black_38</item>
+        <item name="android:textColor">@color/black_60</item>
         <item name="android:textSize">@dimen/text_small</item>
     </style>
 

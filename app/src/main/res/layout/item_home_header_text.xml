@@ -22,13 +22,13 @@
     <TextView
         style="@style/headerStyle"
         android:id="@+id/tv_home_welcome_header"
-        android:layout_width="195dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:maxLines="2"
         android:layout_marginStart="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_small"
         android:fontFamily="@font/poppins_semi_bold"
         android:text="@string/second_header_in_home_tv"
         android:textSize="@dimen/text_giant" />
-
 
 </LinearLayout>

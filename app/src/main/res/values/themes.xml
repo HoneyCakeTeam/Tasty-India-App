@@ -46,6 +46,11 @@
         <item name="android:scaleType">centerCrop</item>
     </style>
 
+    <style name="homeRecommendationImageStyle">
+        <item name="cornerSize" > 16dp </item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
     <style name="CircleImageStyle">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
@@ -217,6 +222,16 @@
     </style>
 
     <style name="headerStyle" parent="">
+        <item name="android:textColor">@color/black_87</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="homeCategoryNameStyle" parent="">
+        <item name="android:textColor">@color/black_38</item>
+        <item name="android:fontFamily">@font/ubuntu_regular</item>
+    </style>
+
+    <style name="recommendationRecipeNameStyle" parent="">
         <item name="android:textColor">@color/black_87</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
     </style>

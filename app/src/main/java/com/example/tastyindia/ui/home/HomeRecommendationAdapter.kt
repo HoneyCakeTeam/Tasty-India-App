@@ -31,7 +31,7 @@ class HomeRecommendationAdapter(
             tvHomeRecommendationRecipeName.text = currentItem.recipeName
             tvHomeRecommendationKitchenName.text = currentItem.cuisine
             Glide.with(root).load(currentItem.imageUrl)
-                .error(R.drawable.ic_error)
+                .placeholder(R.drawable.ic_loading)
                 .into(ivHomeRecommendationRecipeImage)
 
             root.setOnClickListener {

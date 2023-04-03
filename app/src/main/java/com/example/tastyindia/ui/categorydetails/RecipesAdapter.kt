@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.tastyindia.R
 import com.example.tastyindia.data.domain.Recipe
 import com.example.tastyindia.databinding.ItemRecipeOfCategoryBinding
 
@@ -46,7 +47,7 @@ class RecipesAdapter(private val listener: RecipeInteractionListener) :
             binding.apply {
                 tvRecipeName.text = recipe.recipeName
                 tvKitchenName.text = recipe.cuisine
-                Glide.with(root).load(recipe.imageUrl).into(ivRecipe)
+                Glide.with(root).load(recipe.imageUrl).placeholder(R.drawable.ic_loading).into(ivRecipe)
             }
         }
 

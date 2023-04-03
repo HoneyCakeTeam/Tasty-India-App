@@ -34,6 +34,7 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
         recipes = dataManager.getRecipesByCategory(categoryName)
         recipeAdapter.setData(recipes)
         showCategoryImage()
+        binding.tvTitle.text ="$categoryName"
         addCallBacks()
         binding.tvKitchenDetails.text =  getTheDetailsText()
     }

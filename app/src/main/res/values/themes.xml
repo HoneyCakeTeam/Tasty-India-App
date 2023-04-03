@@ -84,13 +84,7 @@
     </style>
 
     <style name="recipeTextView" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/white_100</item>
-        <item name="android:textSize">@dimen/text_medium</item>
-        <item name="android:fontFamily">@font/poppins_semi_bold</item>
-    </style>
-
-    <style name="recipeTextViewCategory" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/black_60</item>
+        <item name="android:textColor">@color/black_87</item>
         <item name="android:textSize">@dimen/text_medium</item>
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
     </style>

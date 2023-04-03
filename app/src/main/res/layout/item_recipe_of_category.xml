@@ -16,8 +16,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_recipe"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_marginStart="@dimen/margin_small"
             android:layout_marginVertical="@dimen/margin_small"
             android:scaleType="centerCrop"

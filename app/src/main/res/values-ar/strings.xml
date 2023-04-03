@@ -65,4 +65,8 @@
     <string name="canceled">تم الالغاء</string>
     <string name="welcome_honey">اهلاً ومرحباً بك</string>
     <string name="minuite">د</string>
+    <string name="no_recipes_with_this_name">لاتوجد وصفات بهذا الإسم!!</string>
+    <string name="please_enter_valid_name">من فضلك ادخل اسماء صحيحه</string>
+    <string name="dicover_recipes">اكتشف وصفات الاكل لتبدأ الطبخ ..</string>
+    <string name="click_to_start_search">اضغط علي علامه البحث لتبدأ</string>
 </resources>

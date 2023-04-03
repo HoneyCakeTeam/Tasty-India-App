@@ -1,6 +1,5 @@
 package com.example.tastyindia.ui.categorydetails
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.example.tastyindia.R
@@ -35,8 +34,8 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
         recipes = dataManager.getRecipesByCategory(categoryName)
         recipeAdapter.setData(recipes)
         showCategoryImage()
+        binding.tvTitle.text ="$categoryName"
         addCallBacks()
-        binding.tvLabelRecipes.text = "$categoryName Recipes"
         binding.tvKitchenDetails.text =  getTheDetailsText()
     }
 
@@ -44,7 +43,7 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
         Glide
             .with(binding.root)
             .load(recipes[0].imageUrl)
-            .placeholder(R.drawable.ic_error)
+            .placeholder(R.drawable.ic_loading)
             .into(binding.ivRecipe)
     }
 

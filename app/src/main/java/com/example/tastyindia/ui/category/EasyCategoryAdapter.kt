@@ -27,7 +27,7 @@ class EasyCategoryAdapter(
             Glide
                 .with(holder.binding.root)
                 .load(currentItem.imageUrl)
-                .placeholder(R.drawable.ic_error)
+                .placeholder(R.drawable.ic_loading)
                 .into(easyImage)
 
             root.setOnClickListener {

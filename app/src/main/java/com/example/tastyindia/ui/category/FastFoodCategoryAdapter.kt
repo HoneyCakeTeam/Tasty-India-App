@@ -28,7 +28,7 @@ class FastFoodCategoryAdapter(
             Glide
                 .with(holder.binding.root)
                 .load(currentItem.imageUrl)
-                .placeholder(R.drawable.ic_error)
+                .placeholder(R.drawable.ic_loading)
                 .into(fastFoodImage)
             root.setOnClickListener {
                 listener.onClickRecipe(currentItem.id)

@@ -17,19 +17,31 @@
         app:shapeAppearance="@style/CategoriesCardImageStyle"
         app:srcCompat="@drawable/image_recipe_chicken" />
 
+
     <View
-        android:id="@+id/view_gradiant"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/card_gradiant" />
+        android:scaleType="centerCrop"
+        android:background="@drawable/image_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/tv_recipe_name"
         style="@style/TextStyleNameCategories"
-        android:gravity="center"
-        android:maxLines="2"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_width="145dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="start|bottom"
+        android:gravity="start"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
         tools:text="Food is every where" />
+
+
 </com.google.android.material.card.MaterialCardView>

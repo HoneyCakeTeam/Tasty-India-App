@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginEnd="@dimen/margin_small"
-        app:strokeWidth="0dp">
+        app:strokeWidth="0dp"
+        app:cardCornerRadius="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,30 +21,30 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_home_recommendation_recipe_image"
-                android:layout_width="150dp"
+                android:layout_width="match_parent"
                 android:layout_height="165dp"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/homeRecommendationImageStyle" />
 
 
             <TextView
-                style="@style/headerStyle"
                 android:id="@+id/tv_home_recommendation_recipe_name"
+                style="@style/recommendationRecipeNameStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_small"
                 android:layout_marginHorizontal="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:ellipsize="end"
                 android:fontFamily="@font/poppins_medium"
                 android:maxLines="1"
-                android:ellipsize="end"
                 android:text="Creamy Pasta"
-                android:textSize="@dimen/text_small"/>
+                android:textSize="@dimen/text_small" />
 
             <TextView
-                style="@style/headerStyle"
+                style="@style/recommendationRecipeNameStyle"
                 android:id="@+id/tv_home_recommendation_kitchen_name"
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_tiny"
                 android:layout_marginBottom="@dimen/margin_small"
                 android:layout_marginHorizontal="@dimen/margin_small"
                 android:maxLines="1"

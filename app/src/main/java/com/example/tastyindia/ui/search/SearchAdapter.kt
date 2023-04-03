@@ -37,7 +37,7 @@ class SearchAdapter(
             tvRecipeName.text = currentRecipe.recipeName
             tvRecipeCuisine.text = currentRecipe.cuisine
             Glide.with(holder.binding.root).load(currentRecipe.imageUrl)
-                .placeholder(R.drawable.ic_error).into(ivRecipeImage)
+                .placeholder(R.drawable.ic_loading).into(ivRecipeImage)
             root.setOnClickListener { listener.onClickRecipe(currentRecipe.id) }
         }
 

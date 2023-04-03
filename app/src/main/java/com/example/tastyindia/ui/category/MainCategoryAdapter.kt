@@ -103,7 +103,7 @@ class MainCategoryAdapter(
             Glide
                 .with(root)
                 .load(imagePoster)
-                .placeholder(R.drawable.ic_error)
+                .placeholder(R.drawable.ic_loading)
                 .into(topImage)
         }
     }

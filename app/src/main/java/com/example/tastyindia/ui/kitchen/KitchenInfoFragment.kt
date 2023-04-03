@@ -36,7 +36,7 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
         Glide
             .with(binding.root)
             .load(kitchenImageUrl)
-            .placeholder(R.drawable.ic_error)
+            .placeholder(R.drawable.ic_loading)
             .into(binding.ivCardImage)
 
         kitchen = dataManager.getKitchenInfoByName(kitchenName)

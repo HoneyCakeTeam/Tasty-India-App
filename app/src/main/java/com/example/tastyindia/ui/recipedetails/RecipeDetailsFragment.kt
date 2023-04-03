@@ -39,7 +39,6 @@ class RecipeDetailsFragment : BaseFragment<FragmentRecipeDetailsBinding>() {
         val instructionsList = dataManager.getInstructions(recipe)
 
         val items = mutableListOf<RecipeDetailsAdapter.RecipeDetailsItem>()
-
         items.add(createHeader(recipe))
         val ingredients = createIngredientsList(ingredientsList)
         items.addAll(ingredients)

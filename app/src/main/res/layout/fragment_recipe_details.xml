@@ -1,107 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     style="@style/ColorFragmentBackground"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/fragment_recipe_details_scene"
     tools:context=".ui.recipedetails.RecipeDetailsFragment">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/iv_recipe"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:contentDescription="@string/recipeimage"
-        android:scaleType="centerCrop"
-        android:src="@drawable/image_recipe"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint_layout"
-        style="@style/backgroundRecipeDetails"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ingredients"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/margin_negative"
-        android:background="@drawable/background_constraint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_recipe">
-
-        <TextView
-            android:id="@+id/tv_recipe_name"
-            style="@style/recipeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_large"
-            android:maxWidth="250dp"
-            android:maxLines="3"
-            android:text="@string/recipe_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_time_to_cook_recipe"
-            style="@style/textRecipeDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_giant"
-            android:text="@string/time"
-            android:fontFamily="@font/ubuntu_regular"
-            android:textSize="@dimen/text_small"
-            app:layout_constraintBottom_toBottomOf="@+id/view"
-            app:layout_constraintEnd_toStartOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view"
-            app:layout_constraintVertical_bias="0.458" />
-
-        <TextView
-            android:id="@+id/tv_difficulty_level"
-            style="@style/textRecipeDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_giant"
-            android:text="@string/easy"
-            android:fontFamily="@font/ubuntu_regular"
-            android:textSize="@dimen/text_small"
-            app:layout_constraintBottom_toBottomOf="@+id/view"
-            app:layout_constraintStart_toEndOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view" />
-
-        <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/view"
-            style="@style/dividerRecipeDetails"
-            android:layout_width="2dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="@dimen/margin_medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_recipe_name" />
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_ingredients"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/margin_medium"
-            android:layout_marginEnd="@dimen/margin_large"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view"
-            tools:listitem="@layout/item_recipe_details" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_recipe_details" />
 
     <ImageButton
         android:id="@+id/back_button"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_margin="@dimen/margin_medium"
         android:src="@drawable/ic_arrow"
         android:background="@drawable/circle_button"
@@ -109,4 +28,4 @@
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="@string/back_button_description" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.widget.ConstraintLayout >

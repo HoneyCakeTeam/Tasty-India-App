@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/tv_home_categories"
         style="@style/home_recycle_header_text_style"
-        android:paddingStart="@dimen/padding_medium"
+        android:layout_marginStart="@dimen/margin_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_categories"

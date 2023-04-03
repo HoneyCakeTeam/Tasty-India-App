@@ -11,7 +11,7 @@
            <KeyAttribute
                motion:motionTarget="@+id/iv_recipe"
                motion:framePosition="100"
-               android:alpha="0.5" />
+                />
        </KeyFrameSet>
         <OnSwipe motion:touchAnchorId="@+id/constraint_layout" />
     </Transition>
@@ -24,7 +24,7 @@
             android:id="@+id/iv_recipe"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="120dp"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintStart_toStartOf="parent" />
     </ConstraintSet>

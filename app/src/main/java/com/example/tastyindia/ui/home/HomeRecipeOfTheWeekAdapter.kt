@@ -27,7 +27,7 @@ class HomeRecipesOfTheWeekAdapter(
             tvHomeItemRecipesOfWeek.text = currentItem.recipeName
 
             Glide.with(root).load(currentItem.imageUrl)
-                .error(R.drawable.ic_error)
+                .placeholder(R.drawable.ic_loading)
                 .into(imgRecipeOfWeek)
 
             root.setOnClickListener {

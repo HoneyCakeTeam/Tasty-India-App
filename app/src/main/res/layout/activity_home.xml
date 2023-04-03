@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:windowSoftInputMode="adjustPan"
     android:fitsSystemWindows="true"
+    android:windowSoftInputMode="adjustPan"
     tools:context=".ui.HomeActivity">
 
     <include
         android:id="@+id/app_toolbar"
         layout="@layout/app_toolbar"
         app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
@@ -25,9 +24,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_toolbar" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/shadow_bottom_navigation_bar"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        style="@style/bottomNavigation"
         android:id="@+id/bottom_nav"
+        style="@style/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:itemActiveIndicatorStyle="@style/AppTheme.ActiveIndicator"

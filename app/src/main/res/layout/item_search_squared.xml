@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_small"
+    android:layout_height="180dp"
     android:backgroundTint="@color/white_300"
-    app:cardCornerRadius="@dimen/radius_semi_large"
+    app:cardCornerRadius="@dimen/radius_medium"
+    android:layout_margin="@dimen/margin_tiny"
     app:strokeWidth="0dp">
+
+
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_recipe_image"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
         app:shapeAppearance="@style/CategoriesCardImageStyle"
         app:srcCompat="@drawable/image_recipe" />
@@ -19,31 +22,44 @@
     <View
         android:id="@+id/view_gradiant"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@drawable/card_gradiant" />
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="@drawable/image_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom">
 
     <TextView
         android:id="@+id/tv_recipe_name"
+        style="@style/TextStyleNameCategories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginHorizontal="@dimen/margin_medium"
-        android:lines="1"
-        android:ellipsize="end"
-        android:layout_marginVertical="@dimen/margin_large"
-        android:fontFamily="@font/ubuntu_medium"
-        android:text="@string/masala_karela"
-        android:textColor="@color/white_100"
-        android:textSize="@dimen/text_medium" />
+        android:layout_gravity="start|bottom"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_marginBottom="0dp"
+        android:text="@string/masala_karela" />
 
     <TextView
         android:id="@+id/tv_recipe_cuisine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginVertical="@dimen/margin_tiny"
-        android:fontFamily="@font/ubuntu_light"
+        android:layout_gravity="start|bottom"
+        android:layout_marginHorizontal="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:fontFamily="@font/poppins_medium"
         android:text="@string/indian"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:textColor="@color/white_100"
-        android:textSize="@dimen/text_small" />
+        android:textSize="@dimen/text_tiny" />
+
+    </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -34,7 +34,7 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
         recipes = dataManager.getRecipesByCategory(categoryName)
         recipeAdapter.setData(recipes)
         showCategoryImage()
-        binding.tvTitle.text = categoryName
+        binding.tvTitle.text ="$categoryName"
         addCallBacks()
         binding.tvKitchenDetails.text =  getTheDetailsText()
     }
@@ -43,7 +43,7 @@ class CategoryDetailsFragment : BaseFragment<FragmentCategoryDetailsBinding>(),
         Glide
             .with(binding.root)
             .load(recipes[0].imageUrl)
-            .placeholder(R.drawable.ic_error)
+            .placeholder(R.drawable.ic_loading)
             .into(binding.ivRecipe)
     }
 

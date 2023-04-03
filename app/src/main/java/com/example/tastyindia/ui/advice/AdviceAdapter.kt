@@ -26,7 +26,7 @@ class AdviceAdapter(
             Glide
                 .with(holder.binding.root)
                 .load(currentItem.adviceImageUrl)
-                .placeholder(R.drawable.ic_error)
+                .placeholder(R.drawable.ic_loading)
                 .into(imgVeg)
         }
     }

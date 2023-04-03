@@ -36,7 +36,7 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
         Glide
             .with(binding.root)
             .load(kitchenImageUrl)
-            .placeholder(R.drawable.ic_error)
+            .placeholder(R.drawable.ic_loading)
             .into(binding.ivCardImage)
 
         kitchen = dataManager.getKitchenInfoByName(kitchenName)
@@ -46,7 +46,7 @@ class KitchenInfoFragment : BaseFragment<FragmentKitchenInfoBinding>() {
         binding.tvRegionDescription.text = kitchen.regionsDescription
         binding.tvDishesDescription.text = kitchen.dishesDescription
 
-        setUpAppBar(true, kitchenName, showBackButton = true)
+        setUpAppBar(true, "$kitchenName History", showBackButton = true)
     }
 
     companion object {

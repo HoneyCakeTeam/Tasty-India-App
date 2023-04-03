@@ -38,7 +38,6 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(),
         val listEasy = dataManager.getEasyRecipes().take(10)
         val randomImageUrl = dataManager.getRandomImageInCategory()
 
-
         val itemList: MutableList<CategoryItem<Any>> = mutableListOf()
         itemList.add(CategoryItem(randomImageUrl, CategoryItemType.TYPE_POSTER_IMAGE))
         itemList.add(CategoryItem(listHealthy, CategoryItemType.TYPE_HEALTHY_CATEGORY))

@@ -39,7 +39,7 @@ class KitchenDetailsFragment : BaseFragment<FragmentKitchenDetailsBinding>(),
         Glide
             .with(binding.root)
             .load(kitchenImageUrl)
-            .placeholder(R.drawable.ic_error)
+            .placeholder(R.drawable.ic_loading)
             .into(binding.imageCuisine)
 
         recipeAdapter = KitchenDetailsAdapter(dataManager.getRecipesByKitchen(kitchenName), this)

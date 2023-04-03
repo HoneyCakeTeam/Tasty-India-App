@@ -47,6 +47,11 @@
         <item name="android:scaleType">centerCrop</item>
     </style>
 
+    <style name="homeRecommendationImageStyle">
+        <item name="cornerSize" > 16dp </item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
     <style name="CircleImageStyle">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
@@ -73,9 +78,8 @@
     </style>
 
     <style name="bodyTextInKitchenInfoStyle" parent="titleTextInKitchenInfoStyle">
-        <item name="android:fontFamily">@font/ubuntu_regular</item>
-        <item name="android:textColor">@color/white_100</item>
-        <item name="android:layout_marginBottom">@dimen/zero_dimens</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/md_theme_dark_onBackground</item>
         <item name="android:textSize">@dimen/text_small</item>
     </style>
 
@@ -87,6 +91,12 @@
 
     <style name="recipeTextView" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/white_100</item>
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+    </style>
+
+    <style name="recipeTextViewCategory" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white_200</item>
         <item name="android:textSize">@dimen/text_medium</item>
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
     </style>
@@ -171,7 +181,6 @@
     </style>
 
     <style name="HomeRecycleViewStyle">
-
         <item name="android:clipToPadding">false</item>
         <item name="android:layout_marginTop">@dimen/margin_small</item>
         <item name="android:orientation">horizontal</item>
@@ -212,6 +221,17 @@
 
     <style name="headerStyle" parent="">
         <item name="android:textColor">@color/white_100</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="homeCategoryNameStyle" parent="">
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="recommendationRecipeNameStyle" parent="">
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
     </style>
 
     <style name="bottomNavigation" parent="">
@@ -227,7 +247,8 @@
     </style>
 
     <style name="textRecipeDetails" parent="">
-        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textColor">@color/white_200</item>
+        <item name="fontFamily">@font/poppins_regular</item>
     </style>
 
     <style name="dividerRecipeDetails" parent="">
@@ -235,6 +256,12 @@
     </style>
     <style name="alertDialogCustomStyle">
         <item name="android:background">@color/black_87</item>
+    </style>
+
+    <style name="adviceTextStyle">
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">@dimen/text_medium</item>
     </style>
 
 </resources>

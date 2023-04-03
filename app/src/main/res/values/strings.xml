@@ -66,4 +66,8 @@
     <string name="canceled">Canceled</string>
     <string name="welcome_honey">Welcome Honey</string>
     <string name="minuite">Min</string>
+    <string name="no_recipes_with_this_name">No recipes matches your search !!</string>
+    <string name="please_enter_valid_name">Please enter valid search keywords</string>
+    <string name="dicover_recipes">Discover recipes to start cooking..</string>
+    <string name="click_to_start_search">Click on search icon to start searching</string>
 </resources>

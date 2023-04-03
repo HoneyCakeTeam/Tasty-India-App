@@ -63,12 +63,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
                 imgSearch.visibility = View.VISIBLE
                 tvDetails.visibility = View.VISIBLE
                 tvEmptySearch.text =
-                    "No recipes matches your search !!"
-                tvDetails.text = "Please enter valid search keywords"
+                    getString(R.string.no_recipes_with_this_name)
+                tvDetails.text = getString(R.string.please_enter_valid_name)
                 imgSearch.setImageResource(R.drawable.search_notfound)
             } else {
-                tvEmptySearch.text = "Discover recipes to start cooking.."
-                tvDetails.text = "Click on search icon to start searching"
+                tvEmptySearch.text = getString(R.string.dicover_recipes)
+                tvDetails.text = getString(R.string.click_to_start_search)
             }
         }
     }

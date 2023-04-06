@@ -1,4 +1,4 @@
-package com.example.tastyindia.ui.kitchen
+package com.example.tastyindia.ui.kitchen.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

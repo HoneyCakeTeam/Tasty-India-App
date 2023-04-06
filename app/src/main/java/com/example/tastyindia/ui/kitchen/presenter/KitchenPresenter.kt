@@ -8,11 +8,10 @@ class KitchenPresenter (val dataManager: DataManagerInterface, val kitchenViewIn
     override fun getAllKitchenRecipes() {
         val list = dataManager.getAllKitchenRecipes()
         kitchenViewInterface.getAllKitchenRecipes(list)
-
     }
 
     override fun putFavoriteRecipesById(id: Int) {
-        // send data to dataManager to insert data in local database or post data to remote source
+        //call function that insert data in local database or post data to remote source here and pass datat to it
         //dataManager.putFavoriteRecipesById(id)
     }
 

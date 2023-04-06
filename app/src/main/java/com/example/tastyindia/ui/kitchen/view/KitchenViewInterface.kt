@@ -5,6 +5,5 @@ import com.example.tastyindia.data.domain.Recipe
 interface KitchenViewInterface {
 
     fun getAllKitchenRecipes(list : List<Recipe>)
-
     fun putFavoriteRecipesById(id : Int)
 }

@@ -1,5 +1,6 @@
 package com.example.tastyindia.ui.search
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -12,13 +13,17 @@ import com.example.tastyindia.databinding.FragmentSearchBinding
 import com.example.tastyindia.ui.recipedetails.RecipeDetailsFragment
 import com.example.tastyindia.utils.CsvParser
 import com.example.tastyindia.utils.onClickBackFromNavigation
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import java.util.concurrent.TimeUnit
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(),
-    SearchAdapter.RecipeInteractionListener, SearchView.OnQueryTextListener {
+    SearchAdapter.RecipeInteractionListener {
 
     private val dataSource by lazy { CsvDataSource(requireContext(), CsvParser()) }
     private val dataManager: DataManagerInterface by lazy { DataManager(dataSource) }
     private lateinit var adapter: SearchAdapter
+    private lateinit var searchObservable: Observable<String>
     override val TAG: String = this::class.java.simpleName.toString()
     override fun getViewBinding() = FragmentSearchBinding.inflate(layoutInflater)
 
@@ -27,16 +32,34 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
         addCallbacks()
     }
 
+    @SuppressLint("CheckResult")
     private fun addCallbacks() {
         addSearchListener()
         onClickBackFromNavigation()
     }
-
+    @SuppressLint("CheckResult")
     private fun addSearchListener() {
-        binding.searchBar.setOnQueryTextListener(this)
+        searchObservable = Observable.create { emitter ->
+            binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return true
+                }
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    emitter.onNext(newText!!)
+                    return true
+                }
+            })
+        }
+        searchObservable
+            .debounce(300, TimeUnit.MILLISECONDS) // Add debounce to prevent rapid search requests
+            .distinctUntilChanged() // Add distinctUntilChanged to prevent duplicate search requests
+            .observeOn(AndroidSchedulers.mainThread()) // Perform search on main thread
+            .subscribe { query ->
+                searchByQueryAndSetDataInAdapter(query)
+            }
     }
 
-    private fun searchByQueryAndSetDataInAdapter(query: String?) {
+    private fun searchByQueryAndSetDataInAdapter(query: String) {
         query?.let {
             binding.apply {
                 visibilityOfImageAndRecyclerInSearchFragment(it)
@@ -84,16 +107,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(),
             tvEmptySearch.visibility = View.GONE
             tvDetails.visibility = View.GONE
         }
-    }
-
-    override fun onQueryTextChange(newText: String?): Boolean {
-        newText?.let { searchByQueryAndSetDataInAdapter(it) }
-        return true
-    }
-
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        query?.let { searchByQueryAndSetDataInAdapter(it) }
-        return true
     }
 
     private fun replaceFragment(fragment: Fragment) {
